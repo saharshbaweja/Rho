@@ -1,0 +1,3 @@
+'use client';
+import {motion} from 'framer-motion';
+export default function Orb(){return <div className="orb"><motion.div className="orbRing r1" animate={{rotate:360}} transition={{duration:18,repeat:Infinity,ease:'linear'}}/><motion.div className="orbRing r2" animate={{rotate:-360}} transition={{duration:24,repeat:Infinity,ease:'linear'}}/><motion.div className="orbRing r3" animate={{rotate:360}} transition={{duration:32,repeat:Infinity,ease:'linear'}}/><motion.span animate={{scale:[1,1.04,1],opacity:[.84,1,.84]}} transition={{duration:3,repeat:Infinity}}>ρ</motion.span>{[0,1,2,3,4,5].map(i=><motion.i key={i} style={{transform:`rotate(${i*60}deg) translateX(148px)`}} animate={{opacity:[.15,1,.15]}} transition={{duration:2.4,repeat:Infinity,delay:i*.25}}/> )}</div>}
