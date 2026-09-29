@@ -4,6 +4,7 @@ import {usePathname} from 'next/navigation';
 import {AnimatePresence,motion,useScroll,useSpring} from 'framer-motion';
 import {ArrowUpRight,Menu,X} from 'lucide-react';
 import {useEffect,useState} from 'react';
+import CursorField from './CursorField';
 
 const links=[['/product/','Rho Trials'],['/index/','Rho Index'],['/about/','Company']];
 export default function Shell({children}){
@@ -11,6 +12,7 @@ export default function Shell({children}){
  const {scrollYProgress}=useScroll(); const scaleX=useSpring(scrollYProgress,{stiffness:150,damping:28,mass:.2});
  useEffect(()=>{const t=setTimeout(()=>setLoaded(true),1100);return()=>clearTimeout(t)},[]);
  return <>
+ <CursorField/>
  <AnimatePresence>{!loaded&&<motion.div className="loader" exit={{opacity:0}} transition={{duration:.55}}><motion.div initial={{scale:.7,opacity:0}} animate={{scale:1,opacity:1}} className="loaderMark">ρ</motion.div><div className="loaderLine"><motion.i initial={{scaleX:0}} animate={{scaleX:1}} transition={{duration:.85,ease:[.76,0,.24,1]}}/></div><span>MEASURING THE DATA LAYER</span></motion.div>}</AnimatePresence>
  <motion.div className="scrollProgress" style={{scaleX}}/>
  <div className="announcement"><span>RHO / PRIVATE BETA</span><span>Measuring the marginal return of training data</span><Link href="/contact/">BECOME A DESIGN PARTNER ↗</Link></div>
