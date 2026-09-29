@@ -9,6 +9,7 @@ import Orb from '../components/Orb';
 import Ticker from '../components/Ticker';
 import MacProduct from '../components/MacProduct';
 import CliDemo from '../components/CliDemo';
+import MarketStory from '../components/MarketStory';
 
 const candidates=[
  {name:'Production traces',lift:'+4.2 pts',cost:'$97 / pt',overlap:'13%',score:88},
@@ -45,6 +46,8 @@ export default function Home(){
  <MacProduct/>
 
  <CliDemo/>
+
+ <MarketStory/>
 
  <section className="dark era"><div className="wrap"><Reveal><p className="eyebrow">Why now</p><h2 className="display light">Models became measurable.<br/>Compute became priced.<br/><span>Data is next.</span></h2></Reveal><div className="eraGrid"><Reveal><article><small>2018—2022</small><h3>Models</h3><div className="matrix">{Array.from({length:40}).map((_,i)=><i key={i}/>)}</div><p>Benchmarks made model performance comparable.</p></article></Reveal><Reveal delay={.08}><article><small>2022—2025</small><h3>Compute</h3><div className="ringsViz"><i/><i/><i/><b>GPU</b></div><p>Capacity became a measurable economic input.</p></article></Reveal><Reveal delay={.16}><article><small>2026 →</small><h3>Data</h3><div className="rhoDisc"><span>ρ</span></div><p>Rho measures the marginal value of the data layer.</p></article></Reveal></div></div></section>
 
