@@ -10,6 +10,7 @@ import Ticker from '../components/Ticker';
 import MacProduct from '../components/MacProduct';
 import CliDemo from '../components/CliDemo';
 import MarketStory from '../components/MarketStory';
+import ScrollStack from '../components/ScrollStack';
 
 const candidates=[
  {name:'Production traces',lift:'+4.2 pts',cost:'$97 / pt',overlap:'13%',score:88},
@@ -41,7 +42,7 @@ export default function Home(){
   </div>
  </section>
 
- <section className="section wrap"><Reveal><p className="eyebrow">What Rho is</p><h2 className="display">A decision layer between your <span>data and training runs.</span></h2></Reveal><div className="workflow"><Reveal><article><small>01</small><h3>Connect</h3><p>Your model, eval suite, existing corpus, and candidate datasets.</p><div className="flowIcon"><span>MODEL</span><i>+</i><span>EVAL</span><i>+</i><span>DATA</span></div></article></Reveal><Reveal delay={.07}><article><small>02</small><h3>Measure</h3><p>Rho runs controlled trials and records lift, cost, redundancy, and learning curves.</p><div className="microBars">{[82,61,29].map((v,i)=><i key={i} style={{'--w':`${v}%`}}/>)}</div></article></Reveal><Reveal delay={.14}><article><small>03</small><h3>Decide</h3><p>Choose the dataset that creates the most model performance for the next dollar.</p><div className="decisionChip"><b>BEST ROI</b><span>Production traces</span><em>+4.2 pts</em></div></article></Reveal></div></section>
+ <ScrollStack/>
 
  <MacProduct/>
 
