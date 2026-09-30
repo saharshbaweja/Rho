@@ -63,4 +63,5 @@ export default function Shell({children}){
    <div className="footerMarquee"><span>MEASURE · COMPARE · ALLOCATE · BENCHMARK ·</span><span>MEASURE · COMPARE · ALLOCATE · BENCHMARK ·</span></div>
    <div className="footerBottom"><span>© 2026 Rho Labs — prototype</span><span>Illustrative product and index data</span></div>
   </footer>
- </>
+ </>;
+}
