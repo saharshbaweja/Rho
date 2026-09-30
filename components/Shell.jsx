@@ -60,4 +60,5 @@ export default function Shell({children}){
   <div className="pxTicker"><span>MEASURE · COMPARE · ALLOCATE · BENCHMARK ·</span><span>MEASURE · COMPARE · ALLOCATE · BENCHMARK ·</span></div>
   <div className="pxFootBottom"><span>© 2026 Rho Labs — prototype</span><span>Illustrative product and index data</span></div>
  </footer>
- </>
+ </>;
+}
