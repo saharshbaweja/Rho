@@ -389,3 +389,25 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9998;o
 
 @media(max-width:1000px){.runtimeChapterGrid{grid-template-columns:1fr}}
 @media(max-width:640px){.runtimeJobs>div{grid-template-columns:1fr 1fr}.runtimeJobs>div>*:nth-child(3),.runtimeJobs>div>*:nth-child(5){display:none}.runtimeCanvas{height:280px}}
+
+
+/* Integrity + benchmark + changelog */
+.integrityChapter{padding:120px 0;border-bottom:1px solid var(--line)}
+.integrityGrid{display:grid;grid-template-columns:.82fr 1.18fr;gap:7vw;align-items:center}
+.integrityGrid h2{font-size:clamp(58px,6.4vw,104px);line-height:.9;letter-spacing:-.065em;margin:0;font-weight:800}
+.integrityGrid p{font-size:16px;line-height:1.65;color:#5f625c;max-width:620px}
+.integrityMini{display:grid;grid-template-columns:1fr 1fr;border-left:1px solid var(--ink);border-top:1px solid var(--ink);box-shadow:10px 10px 0 rgba(17,17,17,.08)}
+.integrityMini>div{min-height:170px;padding:20px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);background:rgba(255,255,255,.2);display:flex;flex-direction:column}
+.integrityMini span{font:8px var(--mono);color:#666963}.integrityMini b{font-size:42px;margin:auto 0 6px}.integrityMini em{font:7px var(--mono);font-style:normal;color:#686b65}
+.integrityHero{height:540px;border:1px solid var(--line);background:rgba(255,255,255,.2);box-shadow:12px 12px 0 rgba(17,17,17,.08);position:relative}
+.integrityCore{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:126px;height:126px;background:var(--dark);color:var(--lime);display:grid;place-items:center;font-size:58px;font-weight:800;box-shadow:12px 12px 0 rgba(17,17,17,.12)}
+.integrityHero>span{position:absolute;border:1px solid var(--ink);background:var(--paper);padding:10px 12px;font:8px var(--mono)}
+.integrityHero .ig0{left:8%;top:18%}.integrityHero .ig1{right:8%;top:18%}.integrityHero .ig2{left:9%;bottom:16%}.integrityHero .ig3{right:9%;bottom:16%}.integrityHero .ig4{left:42%;top:8%}.integrityHero .ig5{left:42%;bottom:8%}
+.integrityFindings{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.integrityFindings article{min-height:310px;padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column}
+.integrityFindings span{font:8px var(--mono);color:#6d7069}.integrityFindings h3{font-size:26px;margin:62px 0 12px}.integrityFindings p{font-size:13px;line-height:1.6;color:#5e615b}.integrityFindings b{font:9px var(--mono);margin-top:auto;color:#65751f}
+.benchmarkRows{border-top:1px solid var(--line)}.benchmarkRows article{display:grid;grid-template-columns:50px 1fr auto;gap:24px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}.benchmarkRows>article>span{font:8px var(--mono);color:#72756f}.benchmarkRows h3{font-size:22px;margin:0 0 6px}.benchmarkRows p{font-size:12px;line-height:1.5;color:#5e615b;margin:0}.benchmarkRows b{font:8px var(--mono);font-weight:500}
+.changelogList{padding:90px 0 120px}.changelogList article{display:grid;grid-template-columns:120px 120px 1fr;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}.changelogList>article>span{font:8px var(--mono);color:#6e716b}.changePixel{width:90px;height:70px;position:relative}.changePixel i{position:absolute;width:42px;height:42px;border:1px solid var(--ink);background:var(--lav);box-shadow:5px 5px 0 rgba(17,17,17,.07)}.changePixel i:nth-child(1){left:0;bottom:0}.changePixel i:nth-child(2){left:24px;top:0;background:var(--lime)}.changePixel i:nth-child(3){right:0;bottom:8px;background:var(--blue)}.changelogList h2{font-size:30px;margin:0 0 8px}.changelogList p{font-size:13px;line-height:1.6;color:#5d605a;margin:0}
+
+@media(max-width:1000px){.integrityGrid{grid-template-columns:1fr}.integrityFindings{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.integrityFindings{grid-template-columns:1fr}.integrityMini{grid-template-columns:1fr}.benchmarkRows article{grid-template-columns:36px 1fr}.benchmarkRows b{grid-column:2}.changelogList article{grid-template-columns:70px 1fr}.changePixel{display:none}}
