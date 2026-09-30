@@ -48,7 +48,7 @@ export default function Home(){return <>
     <div className="layerSide right"><span>TRAINING JOBS <Boxes size={15}/></span><span>EVAL SUITES <Network size={15}/></span><span>PROCUREMENT <Database size={15}/></span></div>
   </div>
   <div className="plugGrid">
-   <article><span>01</span><TerminalSquare size={20}/><h3>CLI + SDK</h3><p>Run dataset comparisons from the workflow your ML engineers already use.</p></article>
+   <article><span>01</span><SquareTerminal size={20}/><h3>CLI + SDK</h3><p>Run dataset comparisons from the workflow your ML engineers already use.</p></article>
    <article><span>02</span><Database size={20}/><h3>Experiment history</h3><p>Keep a decision record linking data, model, eval, recipe, cost, and outcome.</p></article>
    <article><span>03</span><Network size={20}/><h3>Training integrations</h3><p>Connect to your existing model, experiment, and evaluation infrastructure.</p></article>
    <article><span>04</span><ShieldCheck size={20}/><h3>Private deployment</h3><p>Run near proprietary models and data in customer-controlled environments.</p></article>
