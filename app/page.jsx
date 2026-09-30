@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import {ArrowUpRight,Check,Database,TerminalSquare,ShieldCheck,Boxes,Network} from 'lucide-react';
+import {ArrowUpRight,Check,Database,SquareTerminal,ShieldCheck,Boxes,Network} from 'lucide-react';
 import Reveal from '../components/Reveal';
 import RhoGraph3D from '../components/RhoGraph3D';
 import HowRhoWorks from '../components/HowRhoWorks';
