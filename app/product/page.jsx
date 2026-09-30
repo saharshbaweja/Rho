@@ -1,26 +1,53 @@
 import Link from 'next/link';
-import Reveal from '../../components/Reveal';
-import MarketChart from '../../components/MarketChart';
-import MacProduct from '../../components/MacProduct';
-import CliDemo from '../../components/CliDemo';
+import {ArrowUpRight} from 'lucide-react';
+import VoxelScene from '../../components/VoxelScene';
+import TrialFlow from '../../components/TrialFlow';
+import FeatureAnatomy from '../../components/FeatureAnatomy';
 
 export default function Product(){return <>
-<section className="pageHero wrap"><Reveal><p className="eyebrow">Product</p><h1>Measure the data.<br/><em>Before you buy the run.</em></h1><p>Rho is the evaluation and economic layer between candidate data and expensive model training. It helps teams decide which dataset deserves the next full run — and records why.</p></Reveal></section>
+<section className="featureHero pastelMint">
+ <div className="pxWrap featureHeroGrid">
+  <div><div className="pxKicker">[ RHO TRIALS ]</div><h1>The data evaluator<br/>that catches bad bets.</h1><p>Rho is purpose-built to surface the datasets that actually move your model—and expose the ones that only look useful on paper.</p><div className="heroActions"><Link className="pxButton" href="/contact/">Start a trial <ArrowUpRight size={12}/></Link><Link className="pxOutline" href="/methodology/">Methodology</Link></div><div className="heroMeta"><span>CONTROLLED RUNS</span><i/><span>MARGINAL VALUE</span><i/><span>DECISION RECORD</span></div></div>
+  <VoxelScene/>
+ </div>
+</section>
 
-<section className="featureBand"><div className="featureCopy"><Reveal><p className="eyebrow">Rho Trials</p><h2>Compare candidate datasets on the only thing that matters: downstream lift.</h2><p>Connect a model, eval suite, current corpus, and candidate datasets. Rho runs controlled small-scale trials, measures redundancy, estimates learning curves, and turns the result into a comparable ROI signal.</p><Link className="ghost" href="/contact/">Join private beta ↗</Link></Reveal></div><div className="featureVisual"><div className="trialPanel"><div className="trialTop"><span>TRIAL / 0184</span><b>RUNNING</b></div><div className="trialRows"><div><strong>Expert traces</strong><span>+4.2 pts</span><i>13% overlap</i></div><div><strong>Customer bugs</strong><span>+3.1 pts</span><i>19% overlap</i></div><div><strong>Synthetic</strong><span>+0.9 pts</span><i>68% overlap</i></div></div><div className="trialFoot">BEST MARGINAL RETURN → EXPERT TRACES</div></div></div></section>
+<section className="pxChapter darkChapter"><div className="pxWrap">
+ <div className="chapterHead"><div><div className="pxTag">[ HOW IT WORKS ]</div><h2>One decision.<br/>Three measured steps.</h2></div><p>Rho keeps the experiment controlled so the only thing changing is the candidate data.</p></div>
+ <TrialFlow/>
+</div></section>
 
-<section className="section wrap"><Reveal><p className="eyebrow">Workflow</p><h2 className="display">One decision.<br/><span>Four measured inputs.</span></h2></Reveal><div className="steps"><Reveal><div><span>01</span><h3>Connect</h3><p>Bring the base model, evaluation target, current corpus, and candidate datasets.</p></div></Reveal><Reveal delay={.06}><div><span>02</span><h3>Trial</h3><p>Run standardized small-scale training runs across multiple sample sizes.</p></div></Reveal><Reveal delay={.12}><div><span>03</span><h3>Measure</h3><p>Quantify lift, cost, overlap, saturation, and uncertainty.</p></div></Reveal><Reveal delay={.18}><div><span>04</span><h3>Allocate</h3><p>Choose the dataset with the best marginal return for the objective.</p></div></Reveal></div></section>
+<section className="pxChapter pastelBlue"><div className="pxWrap">
+ <div className="chapterHead"><div><div className="pxTag">[ ANATOMY OF A TRIAL ]</div><h2>Everything you need<br/>to make the call.</h2></div><p>Each Rho trial creates a structured record linking the data to what happened downstream.</p></div>
+ <FeatureAnatomy/>
+</div></section>
 
-<MacProduct/>
-<CliDemo/>
+<section className="pxChapter pastelLav"><div className="pxWrap">
+ <div className="chapterHead"><div><div className="pxTag">[ YOUR HOUSE, YOUR RULES ]</div><h2>Measure against<br/>your actual objective.</h2></div><p>Rho is configurable around the evals, recipes, budgets, and guardrails your team already uses.</p></div>
+ <div className="rulesGrid">
+  <article><div className="ruleVoxel mint"><i/><i/><i/></div><span>01</span><h3>Custom eval weighting</h3><p>Set the exact evaluation mix that defines success for the product.</p></article>
+  <article><div className="ruleVoxel blue"><i/><i/><i/></div><span>02</span><h3>Training recipe lock</h3><p>Hold optimizer, schedule, sample size, and checkpoint constant across candidates.</p></article>
+  <article><div className="ruleVoxel peach"><i/><i/><i/></div><span>03</span><h3>Budget constraints</h3><p>Rank the best dataset under compute, generation, or procurement limits.</p></article>
+ </div>
+</div></section>
 
-<section className="dark section"><div className="wrap productDeep"><Reveal><div><p className="eyebrow">Under the hood</p><h2 className="display light">A system of record for data economics.</h2><p className="lede lightLede">Every trial creates a structured link between dataset, model, task, compute cost, and measured outcome. That history is the foundation for prediction and benchmarking later.</p></div></Reveal><Reveal><div className="flow"><span>DATASET</span><i>→</i><span>TRIAL</span><i>→</i><span>MODEL</span><i>→</i><span>EVAL</span><i>→</i><span>ECONOMIC VALUE</span></div></Reveal></div></section>
+<section className="pxChapter stackChapter"><div className="pxWrap">
+ <div className="chapterHead"><div><div className="pxTag">[ CUSTOMIZABLE ]</div><h2>Control exactly what<br/>a Rho Trial optimizes.</h2></div><Link href="/methodology/" className="pxInline">See methodology ↗</Link></div>
+ <div className="settingsGrid">
+  <div><span>01</span><h3>Confidence threshold</h3><p>Require stronger evidence before Rho recommends a full-scale run.</p></div>
+  <div><span>02</span><h3>Cost model</h3><p>Include labeling, generation, licensing, storage, and compute assumptions.</p></div>
+  <div><span>03</span><h3>Sample schedule</h3><p>Choose trial sizes and stopping rules for learning-curve estimation.</p></div>
+ </div>
+</div></section>
 
-<section className="section wrap"><Reveal><p className="eyebrow">Technical architecture</p><h2 className="display">Fits into the stack.<br/><span>Doesn’t replace it.</span></h2></Reveal><div className="archGrid"><Reveal><article><small>INPUTS</small><h3>Your environment</h3><p>Model checkpoint, private eval suite, current corpus, candidate datasets, training recipe.</p><div className="archTags"><span>Hugging Face</span><span>PyTorch</span><span>LoRA / PEFT</span></div></article></Reveal><Reveal delay={.06}><article><small>RHO</small><h3>Experiment layer</h3><p>Sampling, controlled trial orchestration, overlap analysis, learning curves, uncertainty, ROI normalization.</p><div className="archTags"><span>SDK</span><span>CLI</span><span>API</span></div></article></Reveal><Reveal delay={.12}><article><small>OUTPUTS</small><h3>Decision record</h3><p>Ranked candidates, expected lift, cost-per-point, redundancy, confidence, and historical trial lineage.</p><div className="archTags"><span>Dashboard</span><span>Export</span><span>Audit trail</span></div></article></Reveal></div></section>
+<section className="moreFeatures pastelPeach"><div className="pxWrap">
+ <div className="chapterHead"><div><div className="pxTag">[ MORE RHO ]</div><h2>Explore the rest<br/>of the system.</h2></div></div>
+ <div className="moreGrid">
+  <Link href="/context/"><span>RHO CONTEXT</span><h3>Experiment memory that compounds over time.</h3><b>Learn more ↗</b></Link>
+  <Link href="/integrations/"><span>RHO STACK</span><h3>A model-agnostic decision layer for your training workflow.</h3><b>Learn more ↗</b></Link>
+  <Link href="/index/"><span>RHO INDEX</span><h3>The long-term reference layer for AI data value.</h3><b>Learn more ↗</b></Link>
+ </div>
+</div></section>
 
-<section className="privacyBand"><div className="wrap privacyGrid"><Reveal><div><p className="eyebrow">Private by design</p><h2 className="display">Your data stays<br/><span>where it belongs.</span></h2></div></Reveal><Reveal delay={.08}><div className="privacyCopy"><p>Rho’s intended deployment model is designed around customer-controlled environments. Teams should be able to run trials close to their models and proprietary data, while sharing only the minimum metadata needed for benchmarking when they explicitly choose to.</p><div className="privacyRows"><span>Customer VPC / private cloud</span><span>Dataset-level access controls</span><span>Experiment metadata separated from raw data</span><span>Opt-in benchmark contribution</span></div></div></Reveal></div></section>
-
-<section className="section wrap"><Reveal><p className="eyebrow">Who it is for</p><h2 className="display">Teams already spending real money<br/><span>on post-training data.</span></h2></Reveal><div className="useGrid"><article><small>AI PRODUCT TEAMS</small><h3>Which dataset should we generate next?</h3><p>Compare multiple data-generation strategies before scaling the expensive one.</p></article><article><small>MODEL TEAMS</small><h3>Did this new corpus actually help?</h3><p>Separate real marginal lift from redundancy and benchmark noise.</p></article><article><small>DATA BUYERS</small><h3>Is this licensed dataset worth the price?</h3><p>Test value against your model and task before committing to procurement.</p></article></div></section>
-
-<section className="section wrap"><Reveal><p className="eyebrow">Where it goes</p><h2 className="display">Trials today.<br/><span>Market intelligence tomorrow.</span></h2></Reveal><div className="indexFeature"><Reveal><p className="lede">As Rho observes more trials, it can estimate useful data before full runs, compare categories, benchmark procurement, and eventually create a neutral reference layer for AI data.</p></Reveal><Reveal><MarketChart compact/></Reveal></div></section>
+<section className="featureClose darkChapter"><div className="pxWrap"><div className="pxTag">[ RHO TRIALS ]</div><h2>Catch bad data bets<br/>before the full run.</h2><div className="heroActions"><Link href="/contact/" className="pxButton light">Request access <ArrowUpRight size={12}/></Link><Link href="/pricing/" className="pxOutline darkOutline">View pricing</Link></div></div></section>
 </>}
