@@ -2,68 +2,62 @@
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {AnimatePresence,motion,useScroll,useSpring} from 'framer-motion';
-import {ArrowUpRight,ChevronDown,Menu,X} from 'lucide-react';
+import {ChevronDown,Menu,X,ArrowUpRight} from 'lucide-react';
 import {useEffect,useState} from 'react';
 
-const featureLinks=[
- ['/product/','Rho Trials','Compare candidate datasets before the full run'],
- ['/index/','Rho Index','Benchmark the economic value of AI data'],
- ['/enterprise/','Enterprise','Private deployment and controls'],
- ['/methodology/','Methodology','How Rho measures marginal data value']
+const product=[
+ ['/product/','Rho Trials','The training-data decision engine'],
+ ['/cli/','Rho CLI','Run trials from the terminal'],
+ ['/context/','Rho Context','Learning + experiment memory'],
+ ['/integrations/','Rho Stack','Model-agnostic integration layer'],
+ ['/index/','Rho Index','Reference benchmarks for data value']
 ];
-const resourceLinks=[
- ['/examples/','Examples','See Rho-style decisions in practice'],
- ['/about/','About','Why the data layer needs market infrastructure'],
- ['/pricing/','Pricing','Usage-based pricing for teams'],
- ['/contact/','Contact','Become a design partner']
+const company=[
+ ['/examples/','Examples','Illustrative Rho trial records'],
+ ['/methodology/','Methodology','How Rho measures marginal value'],
+ ['/enterprise/','Enterprise','Private deployment + controls'],
+ ['/pricing/','Pricing','Private beta commercial model'],
+ ['/about/','About','Why the data layer needs infrastructure']
 ];
 
 export default function Shell({children}){
- const path=usePathname();
- const [open,setOpen]=useState(false);
- const [menu,setMenu]=useState(null);
- const [loaded,setLoaded]=useState(false);
- const {scrollYProgress}=useScroll();
- const scaleX=useSpring(scrollYProgress,{stiffness:140,damping:30,mass:.22});
- useEffect(()=>{const t=setTimeout(()=>setLoaded(true),850);return()=>clearTimeout(t)},[]);
+ const path=usePathname(); const [open,setOpen]=useState(false); const [menu,setMenu]=useState(null); const [loaded,setLoaded]=useState(false);
+ const {scrollYProgress}=useScroll(); const scaleX=useSpring(scrollYProgress,{stiffness:150,damping:30});
+ useEffect(()=>{const t=setTimeout(()=>setLoaded(true),700);return()=>clearTimeout(t)},[]);
  return <>
-  <AnimatePresence>{!loaded&&<motion.div className="loader" exit={{opacity:0}} transition={{duration:.45}}><motion.div initial={{scale:.75,opacity:0}} animate={{scale:1,opacity:1}} className="loaderMark">ρ</motion.div><div className="loaderLine"><motion.i initial={{scaleX:0}} animate={{scaleX:1}} transition={{duration:.7,ease:[.76,0,.24,1]}}/></div><span>INITIALIZING DATA INTELLIGENCE</span></motion.div>}</AnimatePresence>
-  <motion.div className="scrollProgress" style={{scaleX}}/>
-  <div className="announcement"><span>RHO / PRIVATE BETA</span><span>Measure the marginal return of training data before the full run.</span><Link href="/contact/">JOIN DESIGN PARTNERS ↗</Link></div>
-  <header className="nav">
-   <Link href="/" className="brand"><b>ρ</b><span>RHO</span></Link>
-   <nav className="desktopNav">
-    <div className="navDrop" onMouseEnter={()=>setMenu('features')} onMouseLeave={()=>setMenu(null)}>
-      <button>Product <ChevronDown size={12}/></button>
-      <AnimatePresence>{menu==='features'&&<motion.div className="megaMenu" initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} exit={{opacity:0,y:8}} transition={{duration:.18}}>
-        <small>PRODUCT</small>{featureLinks.map(([href,title,copy])=><Link href={href} key={href}><b>{title}</b><span>{copy}</span></Link>)}
+ <AnimatePresence>{!loaded&&<motion.div className="pxLoader" exit={{opacity:0}}><div className="pxLogo"><i/><i/><i/><i/><b>ρ</b></div><span>INDEXING THE DATA LAYER</span></motion.div>}</AnimatePresence>
+ <motion.div className="pxProgress" style={{scaleX}}/>
+ <div className="pxAnnouncement"><span>RHO / PRIVATE BETA</span><span>Measure training data before the expensive run.</span><Link href="/contact/">REQUEST ACCESS ↗</Link></div>
+ <header className="pxNav">
+   <Link href="/" className="pxBrand"><div><i/><i/><i/><i/></div><b>ρ</b><span>RHO</span></Link>
+   <nav className="pxDesktop">
+    <div className="pxDrop" onMouseEnter={()=>setMenu('product')} onMouseLeave={()=>setMenu(null)}><button>Product <ChevronDown size={12}/></button>
+      <AnimatePresence>{menu==='product'&&<motion.div className="pxMega" initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} exit={{opacity:0,y:8}}>
+        <small>PRODUCT</small>{product.map(([h,t,d],i)=><Link href={h} key={h}><span>{String(i+1).padStart(2,'0')}</span><div><b>{t}</b><p>{d}</p></div></Link>)}
       </motion.div>}</AnimatePresence>
     </div>
-    <Link href="/examples/" className={path==='/examples/'?'active':''}>Examples</Link>
-    <Link href="/index/" className={path==='/index/'?'active':''}>Index</Link>
-    <div className="navDrop" onMouseEnter={()=>setMenu('resources')} onMouseLeave={()=>setMenu(null)}>
-      <button>Company <ChevronDown size={12}/></button>
-      <AnimatePresence>{menu==='resources'&&<motion.div className="megaMenu rightMenu" initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} exit={{opacity:0,y:8}} transition={{duration:.18}}>
-        <small>RHO</small>{resourceLinks.map(([href,title,copy])=><Link href={href} key={href}><b>{title}</b><span>{copy}</span></Link>)}
+    <Link href="/examples/">Examples</Link>
+    <Link href="/pricing/">Pricing</Link>
+    <div className="pxDrop" onMouseEnter={()=>setMenu('company')} onMouseLeave={()=>setMenu(null)}><button>Resources <ChevronDown size={12}/></button>
+      <AnimatePresence>{menu==='company'&&<motion.div className="pxMega right" initial={{opacity:0,y:8}} animate={{opacity:1,y:0}} exit={{opacity:0,y:8}}>
+        <small>RHO</small>{company.map(([h,t,d],i)=><Link href={h} key={h}><span>{String(i+1).padStart(2,'0')}</span><div><b>{t}</b><p>{d}</p></div></Link>)}
       </motion.div>}</AnimatePresence>
     </div>
    </nav>
-   <div className="navActions"><Link className="textCta" href="/contact/">Contact</Link><Link className="navCta" href="/contact/">Start a trial <ArrowUpRight size={13}/></Link></div>
-   <button className="menu" onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button>
-  </header>
-  <AnimatePresence>{open&&<motion.div className="mobileNav" initial={{opacity:0,y:-10}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-10}}>
-    {[...featureLinks,...resourceLinks].map(([h,l])=><Link onClick={()=>setOpen(false)} href={h} key={h}>{l}</Link>)}
-  </motion.div>}</AnimatePresence>
-  <AnimatePresence mode="wait"><motion.main key={path} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.25}}>{children}</motion.main></AnimatePresence>
-  <footer className="megaFooter">
-   <div className="footerTop">
-    <div><Link href="/" className="brand footerBrand"><b>ρ</b><span>RHO</span></Link><h2>The economic layer<br/>for AI training data.</h2><p>Measure what data adds. Learn what it is worth. Build the market around it.</p></div>
-    <div><b>PRODUCT</b><Link href="/product/">Rho Trials</Link><Link href="/index/">Rho Index</Link><Link href="/methodology/">Methodology</Link><Link href="/enterprise/">Enterprise</Link><Link href="/pricing/">Pricing</Link></div>
-    <div><b>COMPANY</b><Link href="/about/">About</Link><Link href="/examples/">Examples</Link><Link href="/contact/">Contact</Link></div>
-    <div><b>BUILDING TOWARD</b><span>Measure</span><span>Predict</span><span>Allocate</span><span>Benchmark</span><span>Transact</span></div>
-   </div>
-   <div className="footerMarquee"><span>MEASURE · COMPARE · ALLOCATE · BENCHMARK ·</span><span>MEASURE · COMPARE · ALLOCATE · BENCHMARK ·</span></div>
-   <div className="footerBottom"><span>© 2026 Rho Labs — prototype</span><span>Illustrative product and index data</span></div>
-  </footer>
- </>;
-}
+   <div className="pxNavCtas"><Link href="/contact/" className="pxTextLink">Contact</Link><Link href="/contact/" className="pxButton">Start a trial <ArrowUpRight size={12}/></Link></div>
+   <button className="pxMenu" onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button>
+ </header>
+ <AnimatePresence>{open&&<motion.div className="pxMobile" initial={{opacity:0,y:-10}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-10}}>{[...product,...company].map(([h,t])=><Link onClick={()=>setOpen(false)} href={h} key={h}>{t}</Link>)}</motion.div>}</AnimatePresence>
+ <AnimatePresence mode="wait"><motion.main key={path} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.22}}>{children}</motion.main></AnimatePresence>
+ <footer className="pxFooter">
+  <div className="pxFooterCta"><div className="pxFootMark">ρ</div><h2>Measure the data.<br/>Then build the market.</h2><Link href="/contact/" className="pxButton light">Request access ↗</Link></div>
+  <div className="pxFooterGrid">
+   <div><Link href="/" className="pxBrand footer"><div><i/><i/><i/><i/></div><b>ρ</b><span>RHO</span></Link><p>The training-data intelligence layer.</p></div>
+   <div><b>PRODUCT</b>{product.map(([h,t])=><Link href={h} key={h}>{t}</Link>)}</div>
+   <div><b>COMPANY</b>{company.map(([h,t])=><Link href={h} key={h}>{t}</Link>)}</div>
+   <div><b>BUILDING TOWARD</b><span>Measure</span><span>Predict</span><span>Allocate</span><span>Benchmark</span><span>Transact</span></div>
+  </div>
+  <div className="pxTicker"><span>MEASURE · COMPARE · ALLOCATE · BENCHMARK ·</span><span>MEASURE · COMPARE · ALLOCATE · BENCHMARK ·</span></div>
+  <div className="pxFootBottom"><span>© 2026 Rho Labs — prototype</span><span>Illustrative product and index data</span></div>
+ </footer>
+ </>
