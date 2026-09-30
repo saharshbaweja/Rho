@@ -1,15 +1,29 @@
 import Link from 'next/link';
-import Reveal from '../../components/Reveal';
-import {ShieldCheck,LockKeyhole,Network,Database} from 'lucide-react';
 
 export default function Enterprise(){return <>
-<section className="pageHero wrap"><Reveal><p className="eyebrow">ENTERPRISE</p><h1>Measure proprietary data.<br/><em>Without giving it away.</em></h1><p>Rho is designed toward customer-controlled deployment for teams whose models, evaluations, and training corpora cannot leave their environment.</p><div className="actions"><Link className="btn" href="/contact/">Talk to Rho <span>↗</span></Link></div></Reveal></section>
-<section className="enterpriseGrid wrap">
-<Reveal><article><ShieldCheck/><span>01</span><h2>Private deployment</h2><p>Run the measurement plane close to your models and data in a customer-controlled cloud or VPC architecture.</p></article></Reveal>
-<Reveal delay={.05}><article><LockKeyhole/><span>02</span><h2>Raw data stays private</h2><p>Rho’s benchmark thesis does not require centralizing raw proprietary datasets. Shared intelligence can be built from carefully scoped metadata.</p></article></Reveal>
-<Reveal delay={.1}><article><Network/><span>03</span><h2>Opt-in network effects</h2><p>Organizations decide which experiment metadata contributes to reference benchmarks and which stays entirely isolated.</p></article></Reveal>
-<Reveal delay={.15}><article><Database/><span>04</span><h2>Decision audit trail</h2><p>Keep a structured lineage from dataset selection to training recipe, evaluation result, cost, and final allocation decision.</p></article></Reveal>
-</section>
-<section className="dark section"><div className="wrap enterpriseDark"><Reveal><div><p className="eyebrow">Architecture</p><h2 className="display light">Your environment.<br/>Rho’s measurement layer.</h2></div></Reveal><Reveal><div className="enterpriseFlow"><span>PRIVATE DATA</span><i>→</i><span>RHO TRIALS</span><i>→</i><span>LOCAL RESULTS</span><i>→</i><span>OPTIONAL BENCHMARK METADATA</span></div></Reveal></div></section>
-<section className="section wrap"><Reveal><p className="eyebrow">Who this is for</p><h2 className="display">Teams where a wrong data decision<br/><span>costs more than the measurement.</span></h2></Reveal><div className="enterpriseUse"><div><b>MODEL LABS</b><p>Recurring post-training programs with expensive compute and proprietary evals.</p></div><div><b>ENTERPRISE AI</b><p>Sensitive internal datasets that cannot be uploaded into a generic SaaS workflow.</p></div><div><b>DATA PROCUREMENT</b><p>Teams evaluating whether licensed or generated corpora justify their price.</p></div></div></section>
+<section className="featureHero pastelPeach"><div className="pxWrap featureHeroGrid">
+ <div><div className="pxKicker">[ ENTERPRISE ]</div><h1>Measure proprietary data.<br/>Keep it proprietary.</h1><p>Rho is designed toward customer-controlled deployment for teams whose models, evals, and training corpora cannot leave their environment.</p><div className="heroActions"><Link href="/contact/" className="pxButton">Contact Rho ↗</Link><Link href="/product/" className="pxOutline">Explore Trials</Link></div></div>
+ <div className="enterpriseHeroViz"><div className="vault"><div className="vaultFace">ρ</div><span>PRIVATE VPC</span></div>{['MODEL','EVAL','CORPUS','RESULTS'].map((x,i)=><span className={'vaultNode v'+i} key={x}>{x}</span>)}</div>
+</div></section>
+
+<section className="pxChapter pastelSand"><div className="pxWrap">
+ <div className="chapterHead"><div><div className="pxTag">[ SECURITY-FIRST ]</div><h2>Your environment.<br/>Rho’s measurement layer.</h2></div></div>
+ <div className="securityCards">
+  <article><span>01</span><div className="securityVoxel mint"><i/><i/></div><h3>Customer-controlled deployment</h3><p>Run the measurement plane close to sensitive models and datasets.</p></article>
+  <article><span>02</span><div className="securityVoxel lav"><i/><i/></div><h3>Raw data stays private</h3><p>Shared benchmarks should use scoped metadata rather than centralized raw corpora.</p></article>
+  <article><span>03</span><div className="securityVoxel blue"><i/><i/></div><h3>Audit-ready lineage</h3><p>Link each recommendation to dataset, recipe, eval, compute, and measured outcome.</p></article>
+ </div>
+</div></section>
+
+<section className="pxChapter darkChapter"><div className="pxWrap">
+ <div className="chapterHead"><div><div className="pxTag">[ DEPLOYMENT ]</div><h2>Private by default.<br/>Networked by choice.</h2></div><p>Organizations should control what remains local and what can contribute to a shared benchmark layer.</p></div>
+ <div className="deploymentFlow"><span>PRIVATE DATA</span><i>→</i><span>RHO TRIALS</span><i>→</i><span>LOCAL RESULT</span><i>→</i><span>OPTIONAL METADATA</span></div>
+</div></section>
+
+<section className="pxChapter pastelBlue"><div className="pxWrap">
+ <div className="chapterHead"><div><div className="pxTag">[ BUILT FOR ]</div><h2>Teams where a wrong data bet<br/>costs more than the measurement.</h2></div></div>
+ <div className="waysGrid"><article><span>01</span><h3>Model labs</h3><p>Recurring post-training programs with expensive compute and proprietary evals.</p></article><article><span>02</span><h3>Enterprise AI</h3><p>Sensitive internal data that cannot be uploaded to a generic SaaS workflow.</p></article><article><span>03</span><h3>Data procurement</h3><p>Teams evaluating whether licensed or generated corpora justify their price.</p></article></div>
+</div></section>
+
+<section className="featureClose pastelMint"><div className="pxWrap"><div className="pxTag">[ ENTERPRISE ]</div><h2>Measure sensitive data<br/>without centralizing it.</h2><div className="heroActions"><Link href="/contact/" className="pxButton">Talk to Rho ↗</Link><Link href="/pricing/" className="pxOutline">Pricing</Link></div></div></section>
 </>}
