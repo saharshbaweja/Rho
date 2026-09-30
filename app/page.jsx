@@ -1,64 +1,85 @@
 'use client';
 import Link from 'next/link';
-import {ArrowUpRight, Check, Play} from 'lucide-react';
-import {motion,useScroll,useTransform,AnimatePresence} from 'framer-motion';
-import {useState} from 'react';
+import {ArrowUpRight,Check,Database,TerminalSquare,ShieldCheck,Boxes,Network} from 'lucide-react';
 import Reveal from '../components/Reveal';
-import MarketChart from '../components/MarketChart';
-import Orb from '../components/Orb';
-import Ticker from '../components/Ticker';
+import RhoGraph3D from '../components/RhoGraph3D';
+import HowRhoWorks from '../components/HowRhoWorks';
+import ExampleFeed from '../components/ExampleFeed';
+import RhoContext from '../components/RhoContext';
 import MacProduct from '../components/MacProduct';
-import SafeScrollStory from '../components/SafeScrollStory';
 import CliDemo from '../components/CliDemo';
-import MarketStory from '../components/MarketStory';
+import MarketChart from '../components/MarketChart';
+import RhoFAQ from '../components/RhoFAQ';
 
-const candidates=[
- {name:'Production traces',lift:'+4.2 pts',cost:'$97 / pt',overlap:'13%',score:88},
- {name:'Customer bugs',lift:'+3.1 pts',cost:'$71 / pt',overlap:'19%',score:68},
- {name:'Synthetic traces',lift:'+0.9 pts',cost:'$211 / pt',overlap:'68%',score:26},
-];
-
-export default function Home(){
- const {scrollYProgress}=useScroll(); const y=useTransform(scrollYProgress,[0,.28],[0,-72]);
- const [step,setStep]=useState(0); const [playing,setPlaying]=useState(false);
- function runDemo(){setPlaying(true);setStep(0);[1,2,3].forEach((s,i)=>setTimeout(()=>setStep(s),(i+1)*650));setTimeout(()=>setPlaying(false),2900)}
- return <>
- <Ticker/>
- <section className="hero wrap">
-   <Reveal className="heroCopy"><p className="eyebrow">Training data intelligence</p><h1>Know which data<br/>is worth <em>training on.</em></h1><p className="lede">Rho compares candidate datasets against your model and evals, then measures the lift, cost, overlap, and saturation before you commit to a full training run.</p><div className="actions"><Link href="/product/" className="btn">See how Rho works <ArrowUpRight size={14}/></Link><Link href="/contact/" className="ghost">Join private beta ↗</Link></div><div className="heroProof"><span><b>01</b> CONNECT</span><i/><span><b>02</b> RUN TRIALS</span><i/><span><b>03</b> CHOOSE DATA</span></div></Reveal>
-   <motion.div style={{y}} className="heroVisual"><Orb/></motion.div>
- </section>
-
- <section className="demoBand">
-  <div className="wrap demoGrid">
-   <Reveal className="demoCopy"><p className="eyebrow">Rho Trials</p><h2 className="display">One decision.<br/><span>Which dataset next?</span></h2><p>Instead of training every candidate at full scale, Rho runs controlled small-scale trials and compares the marginal return of each dataset.</p><button onClick={runDemo} className="playBtn"><Play size={14} fill="currentColor"/>{playing?'Running trial…':'Run demo trial'}</button></Reveal>
-   <Reveal delay={.08} className="trialDemo">
-     <div className="trialDemoTop"><span>TRIAL / CODING-AGENT-014</span><b><i/> {playing?'RUNNING':'READY'}</b></div>
-     <div className="trialInputs"><div><small>MODEL</small><strong>Qwen 3B</strong></div><div><small>EVAL</small><strong>Internal debugging</strong></div><div><small>SAMPLE</small><strong>25k / candidate</strong></div></div>
-     <div className="trialProgress"><span style={{width:`${playing?Math.min(100,(step+1)*25):100}%`}}/></div>
-     <div className="trialTable"><div className="trialHeader"><span>DATASET</span><span>LIFT</span><span>$/PT</span><span>OVERLAP</span></div>{candidates.map((c,i)=><motion.div key={c.name} className={`trialLine ${i===0&&step>=3?'winner':''}`} animate={{opacity: playing && step < i + 1 ? .35 : 1}}><strong>{c.name}</strong><span>{step>=i+1||!playing?c.lift:'—'}</span><span>{step>=i+1||!playing?c.cost:'—'}</span><span>{step>=i+1||!playing?c.overlap:'—'}</span></motion.div>)}</div>
-     <AnimatePresence>{(!playing||step>=3)&&<motion.div className="decision" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}}><div><small>RECOMMENDED</small><strong>Production traces</strong></div><p>Highest absolute lift with low overlap. Estimated <b>71% less exploratory compute</b> than full-run comparison.</p><Check size={20}/></motion.div>}</AnimatePresence>
+export default function Home(){return <>
+ <section className="gHero">
+  <div className="wrap gHeroGrid">
+   <Reveal className="gHeroCopy">
+    <p className="eyebrow">THE TRAINING DATA INTELLIGENCE LAYER</p>
+    <h1>Know which data<br/><em>moves the model.</em></h1>
+    <p className="heroLead">Rho runs controlled trials on candidate datasets and measures their marginal return before you commit to expensive full-scale training.</p>
+    <div className="actions"><Link href="/contact/" className="btn">Start a trial <ArrowUpRight size={14}/></Link><Link href="/product/" className="ghost">See the product</Link></div>
+    <div className="heroChecks"><span><Check size={12}/> Compare datasets</span><span><Check size={12}/> Measure lift + overlap</span><span><Check size={12}/> Allocate training spend</span></div>
    </Reveal>
+   <Reveal delay={.08} className="gHeroVisual"><RhoGraph3D/></Reveal>
   </div>
  </section>
 
- <section className="section wrap"><Reveal><p className="eyebrow">What Rho is</p><h2 className="display">A decision layer between your <span>data and training runs.</span></h2></Reveal><div className="workflow"><Reveal><article><small>01</small><h3>Connect</h3><p>Your model, eval suite, existing corpus, and candidate datasets.</p><div className="flowIcon"><span>MODEL</span><i>+</i><span>EVAL</span><i>+</i><span>DATA</span></div></article></Reveal><Reveal delay={.07}><article><small>02</small><h3>Measure</h3><p>Rho runs controlled trials and records lift, cost, redundancy, and learning curves.</p><div className="microBars">{[82,61,29].map((v,i)=><i key={i} style={{'--w':`${v}%`}}/>)}</div></article></Reveal><Reveal delay={.14}><article><small>03</small><h3>Decide</h3><p>Choose the dataset that creates the most model performance for the next dollar.</p><div className="decisionChip"><b>BEST ROI</b><span>Production traces</span><em>+4.2 pts</em></div></article></Reveal></div></section>
+ <section className="proofStrip"><div className="wrap">
+  <span>BUILT FOR TEAMS MAKING REAL POST-TRAINING DECISIONS</span>
+  <div><b>MODEL LABS</b><b>AI PRODUCT TEAMS</b><b>DATA BUYERS</b><b>FINE-TUNING PLATFORMS</b><b>ENTERPRISE ML</b></div>
+ </div></section>
 
- <SafeScrollStory/>
+ <section className="quoteBand"><div className="wrap">
+  <Reveal><p>“What should we train on next?” is still answered with intuition far too often.</p><span>RHO / THE PROBLEM WE ARE BUILDING AROUND</span></Reveal>
+ </div></section>
+
+ <HowRhoWorks/>
+
+ <ExampleFeed/>
+
+ <RhoContext/>
+
+ <section className="layerSection"><div className="wrap">
+  <Reveal><p className="eyebrow">Your stack</p><h2 className="sectionTitle">The central decision layer<br/>for training data.</h2><p className="sectionLead">Rho does not replace your model stack. It sits between your data sources, training infrastructure, and evaluation layer so every dataset decision is measured the same way.</p></Reveal>
+  <div className="layerGraphic">
+    <div className="layerSide left"><span><Database size={15}/> DATA VENDORS</span><span><Boxes size={15}/> INTERNAL CORPUS</span><span><Network size={15}/> SYNTHETIC PIPELINES</span></div>
+    <div className="layerCore"><b>ρ</b><strong>RHO</strong><small>MEASURE · COMPARE · ALLOCATE</small></div>
+    <div className="layerSide right"><span>TRAINING JOBS <Boxes size={15}/></span><span>EVAL SUITES <Network size={15}/></span><span>PROCUREMENT <Database size={15}/></span></div>
+  </div>
+  <div className="plugGrid">
+   <article><span>01</span><TerminalSquare size={20}/><h3>CLI + SDK</h3><p>Run dataset comparisons from the workflow your ML engineers already use.</p></article>
+   <article><span>02</span><Database size={20}/><h3>Experiment history</h3><p>Keep a decision record linking data, model, eval, recipe, cost, and outcome.</p></article>
+   <article><span>03</span><Network size={20}/><h3>Training integrations</h3><p>Connect to your existing model, experiment, and evaluation infrastructure.</p></article>
+   <article><span>04</span><ShieldCheck size={20}/><h3>Private deployment</h3><p>Run near proprietary models and data in customer-controlled environments.</p></article>
+  </div>
+ </div></section>
 
  <MacProduct/>
 
  <CliDemo/>
 
- <MarketStory/>
+ <section className="indexLaunch"><div className="wrap indexLaunchGrid">
+  <Reveal><div><p className="eyebrow">Rho Index</p><h2 className="sectionTitle">From private trials to<br/>a shared reference point.</h2><p className="sectionLead">The long-term product is not just experiment tracking. Enough measured outcomes can become neutral benchmarks for the economic value of data categories across models and tasks.</p><Link href="/index/" className="ghost">Explore Rho Index ↗</Link></div></Reveal>
+  <Reveal delay={.08}><MarketChart compact/></Reveal>
+ </div></section>
 
- <section className="dark era"><div className="wrap"><Reveal><p className="eyebrow">Why now</p><h2 className="display light">Models became measurable.<br/>Compute became priced.<br/><span>Data is next.</span></h2></Reveal><div className="eraGrid"><Reveal><article><small>2018—2022</small><h3>Models</h3><div className="matrix">{Array.from({length:40}).map((_,i)=><i key={i}/>)}</div><p>Benchmarks made model performance comparable.</p></article></Reveal><Reveal delay={.08}><article><small>2022—2025</small><h3>Compute</h3><div className="ringsViz"><i/><i/><i/><b>GPU</b></div><p>Capacity became a measurable economic input.</p></article></Reveal><Reveal delay={.16}><article><small>2026 →</small><h3>Data</h3><div className="rhoDisc"><span>ρ</span></div><p>Rho measures the marginal value of the data layer.</p></article></Reveal></div></div></section>
+ <section className="securitySection"><div className="wrap">
+  <Reveal><p className="eyebrow">Security-first architecture</p><h2 className="sectionTitle">Built for the data<br/>you cannot leak.</h2></Reveal>
+  <div className="securityGrid">
+   <article><span>01</span><h3>Customer-controlled deployment</h3><p>The intended enterprise architecture keeps sensitive models and datasets close to the customer environment.</p></article>
+   <article><span>02</span><h3>Raw data stays private</h3><p>Benchmark intelligence should rely on minimal experiment metadata, not centralized copies of proprietary corpora.</p></article>
+   <article><span>03</span><h3>Opt-in network effects</h3><p>Teams control what contributes to shared benchmarks and what remains entirely private.</p></article>
+  </div>
+ </div></section>
 
- <section className="section wrap"><Reveal><p className="eyebrow">Product</p><h2 className="display">Start with Trials.<br/><span>Earn the right to build the market.</span></h2></Reveal><div className="productGrid"><Reveal><Link href="/product/" className="productCard"><small>01 / RHO TRIALS</small><h3>Measure what moves the model.</h3><p>Compare candidate datasets against your exact model and evals before a full training run.</p><div className="bars"><i style={{'--w':'88%'}}/><i style={{'--w':'61%'}}/><i style={{'--w':'24%'}}/></div><b>Explore Trials ↗</b></Link></Reveal><Reveal delay={.08}><Link href="/index/" className="productCard darkCard"><small>02 / RHO INDEX</small><h3>A reference point for data value.</h3><p>Turn measured outcomes into benchmarks across data categories, tasks, and model families.</p><div className="miniIndex"><span>RDI-CODE</span><strong>51.80</strong><em>+4.6%</em></div><b>Explore the Index ↗</b></Link></Reveal></div></section>
+ <section className="visionSection"><div className="wrap">
+  <Reveal><p className="eyebrow">Where Rho goes</p><h2>Measure → Predict → Allocate → Benchmark → Transact</h2><p>Start with a useful decision tool. Earn a system of record. Build the benchmark layer. Only then build market infrastructure.</p><Link href="/about/">Read the thesis ↗</Link></Reveal>
+ </div></section>
 
- <section className="section wrap indexFeature"><Reveal className="stickyCopy"><p className="eyebrow">Long-term market layer</p><h2 className="display">From private trials to a <span>shared reference price.</span></h2><p className="lede">As Rho observes more experiments and transactions, it can turn isolated data decisions into market-wide intelligence no single buyer can reproduce alone.</p><Link href="/index/" className="ghost">See Rho Index ↗</Link></Reveal><Reveal><MarketChart/></Reveal></section>
+ <RhoFAQ/>
 
- <section className="dark trust"><div className="wrap"><Reveal><h2 className="display light">Simple to understand.<br/>Hard to reproduce.<br/>Built to compound.</h2></Reveal><div className="trustGrid"><Reveal><article><span>01</span><h3>Transparent</h3><p>Every recommendation is grounded in actual controlled experiments, not a black-box score.</p></article></Reveal><Reveal delay={.07}><article><span>02</span><h3>Embedded</h3><p>Rho fits into the training workflow through cloud, SDK, and API surfaces.</p></article></Reveal><Reveal delay={.14}><article><span>03</span><h3>Networked</h3><p>Each observed trial improves the benchmark layer that an individual company cannot build alone.</p></article></Reveal></div></div></section>
-
- <section className="cta"><div className="wrap"><Reveal><p className="eyebrow">Private beta</p><h2>Know what your data<br/>is actually worth.</h2><Link href="/contact/" className="btn">Become a design partner <ArrowUpRight size={14}/></Link></Reveal></div></section>
+ <section className="finalCta"><div className="wrap">
+   <Reveal><p className="eyebrow">PRIVATE BETA</p><h2>Stop guessing what<br/>your training data is worth.</h2><div className="actions"><Link href="/contact/" className="btn">Become a design partner <ArrowUpRight size={14}/></Link><Link href="/examples/" className="ghost">See examples</Link></div></Reveal>
+ </div></section>
  </>}
