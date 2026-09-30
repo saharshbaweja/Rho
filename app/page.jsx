@@ -6,6 +6,7 @@ import TrialFlow from '../components/TrialFlow';
 import PixelTerminal from '../components/PixelTerminal';
 import FeatureAnatomy from '../components/FeatureAnatomy';
 import PixelFAQ from '../components/PixelFAQ';
+import RuntimeScene from '../components/RuntimeScene';
 
 export default function Home(){return <>
 <section className="pxHero pastelSand">
@@ -87,6 +88,13 @@ export default function Home(){return <>
  <div className="pxWrap terminalGrid">
   <div><div className="pxTag">[ RHO CLI ]</div><h2>Run a data decision<br/>from the terminal.</h2><p>Configure a comparison, launch controlled trials, and get the recommendation back without leaving the workflow.</p><Link href="/cli/" className="pxInline lightLink">Explore the CLI ↗</Link></div>
   <PixelTerminal/>
+ </div>
+</section>
+
+<section className="runtimeChapter pastelPeach">
+ <div className="pxWrap runtimeChapterGrid">
+  <div><div className="pxTag">[ INTRODUCING RHO MONITOR ]</div><h2>Every training run<br/>becomes evidence.</h2><p>Trials answer the next decision. Monitor keeps the memory: dataset, model, recipe, eval, cost, and outcome connected across the entire post-training program.</p><Link href="/monitor/" className="pxInline">Explore Rho Monitor ↗</Link></div>
+  <RuntimeScene/>
  </div>
 </section>
 
