@@ -7,6 +7,7 @@ import {useEffect,useState} from 'react';
 
 const product=[
  ['/product/','Rho Trials','The training-data decision engine'],
+ ['/monitor/','Rho Monitor','System of record for data economics'],
  ['/cli/','Rho CLI','Run trials from the terminal'],
  ['/context/','Rho Context','Learning + experiment memory'],
  ['/integrations/','Rho Stack','Model-agnostic integration layer'],
