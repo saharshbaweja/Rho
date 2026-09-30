@@ -8,11 +8,13 @@ import {useEffect,useState} from 'react';
 const featureLinks=[
  ['/product/','Rho Trials','Compare candidate datasets before the full run'],
  ['/index/','Rho Index','Benchmark the economic value of AI data'],
- ['/enterprise/','Enterprise','Private deployment and controls']
+ ['/enterprise/','Enterprise','Private deployment and controls'],
+ ['/methodology/','Methodology','How Rho measures marginal data value']
 ];
 const resourceLinks=[
  ['/examples/','Examples','See Rho-style decisions in practice'],
  ['/about/','About','Why the data layer needs market infrastructure'],
+ ['/pricing/','Pricing','Usage-based pricing for teams'],
  ['/contact/','Contact','Become a design partner']
 ];
 
@@ -56,7 +58,7 @@ export default function Shell({children}){
   <footer className="megaFooter">
    <div className="footerTop">
     <div><Link href="/" className="brand footerBrand"><b>ρ</b><span>RHO</span></Link><h2>The economic layer<br/>for AI training data.</h2><p>Measure what data adds. Learn what it is worth. Build the market around it.</p></div>
-    <div><b>PRODUCT</b><Link href="/product/">Rho Trials</Link><Link href="/index/">Rho Index</Link><Link href="/enterprise/">Enterprise</Link></div>
+    <div><b>PRODUCT</b><Link href="/product/">Rho Trials</Link><Link href="/index/">Rho Index</Link><Link href="/methodology/">Methodology</Link><Link href="/enterprise/">Enterprise</Link><Link href="/pricing/">Pricing</Link></div>
     <div><b>COMPANY</b><Link href="/about/">About</Link><Link href="/examples/">Examples</Link><Link href="/contact/">Contact</Link></div>
     <div><b>BUILDING TOWARD</b><span>Measure</span><span>Predict</span><span>Allocate</span><span>Benchmark</span><span>Transact</span></div>
    </div>
