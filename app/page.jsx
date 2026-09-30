@@ -111,6 +111,18 @@ export default function Home(){return <>
  </div>
 </section>
 
+<section className="integrityChapter pastelPink">
+ <div className="pxWrap integrityGrid">
+  <div><div className="pxTag">[ RHO INTEGRITY ]</div><h2>Good lift is useless<br/>if the data is bad.</h2><p>Check contamination, duplication, risky metadata, and provenance before a candidate becomes part of an expensive training decision.</p><Link href="/integrity/" className="pxInline">Explore Rho Integrity ↗</Link></div>
+  <div className="integrityMini">
+   <div><span>CONTAMINATION</span><b>11.8%</b><em>FLAGGED</em></div>
+   <div><span>DUPLICATION</span><b>27%</b><em>REDUNDANT</em></div>
+   <div><span>PII</span><b>342</b><em>ROWS</em></div>
+   <div><span>PROVENANCE</span><b>3</b><em>UNRESOLVED</em></div>
+  </div>
+ </div>
+</section>
+
 <section className="securityChapter">
  <div className="pxWrap">
   <div className="chapterHead"><div><div className="pxTag">[ SECURITY-FIRST ]</div><h2>Built for the data<br/>you cannot leak.</h2></div><Link href="/enterprise/" className="pxInline">Enterprise ↗</Link></div>
