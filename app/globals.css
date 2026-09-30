@@ -372,3 +372,111 @@ body:after{display:none!important}
 .aboutThesis{display:grid;grid-template-columns:1fr 1fr;gap:8vw;padding:120px 0}.aboutThesis span{font:8px var(--mono);color:#777970}.aboutThesis h2{font-size:54px;line-height:.98;letter-spacing:-.05em;font-weight:520;margin:22px 0}.aboutThesis p{font-size:17px;line-height:1.7;color:#5d5f59;margin:0 0 24px}.aboutPath{display:grid;grid-template-columns:repeat(5,1fr);border-left:1px solid #2d302b;border-top:1px solid #2d302b;margin-top:70px}.aboutPath>div{min-height:260px;padding:22px;border-right:1px solid #2d302b;border-bottom:1px solid #2d302b}.aboutPath span{font:7px var(--mono);color:#70756d}.aboutPath b{display:block;font-size:20px;margin:70px 0 12px}.aboutPath p{font-size:11px;line-height:1.5;color:#868b82}.beliefGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:60px 0}.beliefGrid article{border:1px solid var(--line);padding:24px;min-height:220px}.beliefGrid b{font-size:24px;font-weight:520}.beliefGrid p{font-size:13px;line-height:1.65;color:#62645e;margin-top:70px}
 .contactHero{padding:105px 0 90px;border-bottom:1px solid var(--line)}.contactHero h1{font-size:clamp(72px,8vw,130px);line-height:.84;letter-spacing:-.075em;font-weight:520;margin:0}.contactHero h1 em{font:italic 400 1em Georgia,serif;color:#74766f}.contactHero>div>p:last-child{font-size:18px;line-height:1.65;color:#545650;max-width:720px;margin-top:32px}.contactSplit{display:grid;grid-template-columns:1fr 1fr}.contactChecklist{padding:80px max(36px,calc((100vw - 1480px)/2));padding-right:7vw}.contactChecklist>div:first-child>span{font:8px var(--mono);color:#777970}.contactChecklist h2{font-size:42px;letter-spacing:-.045em;font-weight:520}.contactChecklist ul{list-style:none;padding:0;margin:28px 0 60px;border-top:1px solid var(--line)}.contactChecklist li{padding:14px 0;border-bottom:1px solid var(--line);font-size:13px}.contactChecklist li:before{content:"→";margin-right:10px;color:#6b7b22}.contactTrial{border:1px solid var(--line);padding:22px}.contactTrial small{font:7px var(--mono);color:#777970}.contactTrial b{display:block;font-size:25px;margin:18px 0 10px}.contactTrial p{font-size:12px;line-height:1.6;color:#62645e}.gContactForm,.contactSplit .success{background:#0b0c0b;color:var(--cream);padding:80px 8vw;display:flex;flex-direction:column;justify-content:center;min-height:650px}.gContactForm label{display:grid;gap:8px;font:8px var(--mono);color:#858981;margin-bottom:22px}.gContactForm input,.gContactForm textarea{background:transparent;border:0;border-bottom:1px solid #343732;color:var(--cream);padding:12px 0;outline:none}.gContactForm input:focus,.gContactForm textarea:focus{border-color:var(--lime)}.gContactForm button{background:var(--lime);border:0;padding:15px;cursor:pointer;font:9px var(--mono);font-weight:700}.gContactForm>small{font:7px var(--mono);color:#70746d;margin-top:12px}
 @media(max-width:1000px){.aboutThesis,.contactSplit{grid-template-columns:1fr}.aboutPath{grid-template-columns:1fr}.beliefGrid{grid-template-columns:1fr}.contactChecklist{padding:70px 26px}}
+
+
+/* ===== RHO PASTEL EDITORIAL SYSTEM ===== */
+:root{
+  --pastel-lav:#ddd9ee;
+  --pastel-blue:#d9e7ee;
+  --pastel-mint:#dce9dd;
+  --pastel-peach:#eaded4;
+  --pastel-yellow:#ece8c9;
+}
+
+/* Pastel chapter rhythm: large fields, not rainbow decoration */
+.gHero{background:linear-gradient(180deg,#ece8de 0%,#e8e4db 100%)}
+.quoteBand{background:var(--pastel-lav)}
+.examplesSection{background:var(--pastel-blue)}
+.contextSection{background:var(--pastel-mint)!important}
+.layerSection{background:#ece8de}
+.securitySection{background:var(--pastel-peach)}
+.faqSection{background:#e9e5dc}
+.finalCta{background:var(--pastel-yellow)}
+.proofStrip{background:#e6e1d7}
+
+/* Preserve technical contrast inside pastel chapters */
+.examplePanel,.contextCards article,.caseRow,.enterpriseGrid article,.beliefGrid article{box-shadow:none}
+.examplePanel{background:rgba(255,255,255,.22)}
+.contextCards article{background:rgba(255,255,255,.26)}
+.securityGrid article{background:rgba(255,255,255,.18)}
+.finalCta .btn{background:#0b0c0b;color:var(--cream);border-color:#0b0c0b}
+.finalCta .btn:hover{background:var(--lime);color:#0b0c0b;border-color:var(--lime)}
+
+/* 3D / voxel-like product objects */
+.graphNode{box-shadow:8px 8px 0 rgba(11,12,11,.055)}
+.coreCube:after{content:"";position:absolute;inset:16px;border:1px solid rgba(216,255,69,.28);transform:translateZ(66px);pointer-events:none}
+.layerCore{box-shadow:16px 16px 0 rgba(11,12,11,.07)}
+.plugGrid article,.securityGrid article,.enterpriseGrid article,.beliefGrid article{transition:transform .28s var(--ease),background .28s var(--ease)}
+.plugGrid article:hover,.securityGrid article:hover,.enterpriseGrid article:hover,.beliefGrid article:hover{transform:translateY(-4px);background:rgba(255,255,255,.28)}
+
+/* Pastel hero variants for deep pages */
+.pastelHero{padding-top:105px;padding-bottom:100px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.pastelHero:after{content:"";position:absolute;right:-90px;bottom:-130px;width:360px;height:360px;border:1px solid rgba(11,12,11,.12);transform:rotate(45deg)}
+.pastelHero.lavender{background:var(--pastel-lav)}
+.pastelHero.peach{background:var(--pastel-peach)}
+
+/* Methodology */
+.methodGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.methodGrid article{min-height:350px;border:1px solid var(--line);padding:26px;background:rgba(255,255,255,.14)}
+.methodGrid article>span{font:8px var(--mono);color:#777970}
+.methodGrid h2{font-size:38px;line-height:1;letter-spacing:-.045em;font-weight:520;margin:80px 0 18px}
+.methodGrid p{font-size:14px;line-height:1.68;color:#5f615b;max-width:520px}
+.methodFormula{padding:110px 0}
+.methodFormula.mintPanel{background:var(--pastel-mint)}
+.methodFormula h2{font-size:clamp(52px,6vw,96px);line-height:.9;letter-spacing:-.06em;font-weight:520;margin:0 0 34px}
+.formula{border-top:1px solid #9da79e;border-bottom:1px solid #9da79e;padding:28px 0;font:clamp(16px,2.4vw,36px) var(--mono);letter-spacing:-.03em}
+.methodFormula p{font-size:14px;line-height:1.65;color:#5a5d56;max-width:780px;margin-top:26px}
+.curveDemo{height:430px;border:1px solid var(--line);margin:60px 0 30px;position:relative;background:rgba(255,255,255,.12);overflow:hidden}
+.curveAxis{position:absolute;left:22px;top:22px;bottom:62px;width:1px;background:#9e9a90}.curveAxis span{position:absolute;left:-3px;top:0;transform:rotate(-90deg) translateX(-100%);transform-origin:left top;font:7px var(--mono);color:#777970}.curveAxis i{position:absolute;left:0;right:auto;bottom:0;width:calc(100vw);height:1px;background:#9e9a90}
+.curveLines{position:absolute;left:58px;right:38px;top:56px;bottom:64px}.curveLines b{position:absolute;left:0;bottom:0;width:100%;height:100%;border-top:3px solid transparent;border-radius:70% 25% 0 0;transform-origin:left bottom}
+.curveA{border-color:#0b0c0b!important;transform:scaleY(.78) rotate(-8deg)}
+.curveB{border-color:#7d8078!important;transform:scaleY(.54) rotate(-4deg)}
+.curveC{border-color:var(--lime)!important;transform:scaleY(.32) rotate(-1deg)}
+.curveLabels{position:absolute;left:58px;right:38px;bottom:20px;display:flex;justify-content:space-between;font:7px var(--mono);color:#6d7069}
+
+/* Pricing */
+.pricingGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-top:90px;padding-bottom:120px}
+.pricingGrid article{min-height:560px;border:1px solid var(--line);padding:26px;display:flex;flex-direction:column;background:#ece8de}
+.pricingGrid article:nth-child(1){background:var(--pastel-blue)}
+.pricingGrid article:nth-child(2){background:var(--pastel-mint)}
+.pricingGrid article:nth-child(3){background:var(--pastel-lav)}
+.pricingGrid article.featured{box-shadow:0 0 0 3px var(--lime)}
+.pricingGrid article>span{font:8px var(--mono);color:#73756f}
+.pricingGrid h2{font-size:34px;font-weight:520;letter-spacing:-.04em;margin:56px 0 8px}
+.pricingGrid strong{font-size:48px;letter-spacing:-.05em;font-weight:520}
+.pricingGrid strong small{font-size:12px;letter-spacing:0;font-weight:500;color:#686a64}
+.pricingGrid p{font-size:13px;line-height:1.62;color:#5f615b}
+.pricingGrid ul{list-style:none;padding:0;margin:28px 0 auto;border-top:1px solid rgba(11,12,11,.18)}
+.pricingGrid li{padding:13px 0;border-bottom:1px solid rgba(11,12,11,.14);font-size:12px}
+.pricingGrid li:before{content:"✓";margin-right:9px;color:#63751e}
+.pricingGrid a{margin-top:28px;font:9px var(--mono);border-bottom:1px solid #0b0c0b;width:max-content;padding-bottom:3px}
+.pricingNote{padding:110px 0}
+.pricingNote.bluePanel{background:var(--pastel-blue)}
+.pricingNote h2{font-size:clamp(50px,6vw,94px);line-height:.92;letter-spacing:-.06em;font-weight:520;max-width:1100px;margin:0}
+.pricingNote p{font-size:15px;line-height:1.65;max-width:760px;color:#555850;margin-top:28px}
+
+/* Give each deep page its own pastel field without changing the product chrome */
+.caseIndex{background:linear-gradient(180deg,var(--pastel-blue),#ece8de 38%)}
+.enterpriseGrid{background:linear-gradient(180deg,var(--pastel-peach),transparent 58%)}
+
+/* Better motion without destabilizing layout */
+.graphNode,.contextCards article,.examplePanel,.pricingGrid article,.methodGrid article{transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+.graphNode:hover{transform:translate(-50%,-54%)!important;box-shadow:10px 12px 0 rgba(11,12,11,.07)}
+.contextCards article:hover,.pricingGrid article:hover,.methodGrid article:hover{transform:translateY(-4px)}
+
+/* Reduced-motion safety */
+@media (prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+  .graphNode,.contextCards article,.pricingGrid article,.methodGrid article{transition:none!important}
+}
+
+@media(max-width:1000px){
+ .methodGrid,.pricingGrid{grid-template-columns:1fr}
+ .pricingGrid article{min-height:480px}
+}
+@media(max-width:640px){
+ .pastelHero{padding-top:70px;padding-bottom:70px}
+ .methodGrid article{min-height:300px}
+ .curveDemo{height:320px}
+ .curveLabels{display:none}
+}
