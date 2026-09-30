@@ -11,14 +11,17 @@ const product=[
  ['/cli/','Rho CLI','Run trials from the terminal'],
  ['/context/','Rho Context','Learning + experiment memory'],
  ['/integrations/','Rho Stack','Model-agnostic integration layer'],
- ['/index/','Rho Index','Reference benchmarks for data value']
+ ['/index/','Rho Index','Reference benchmarks for data value'],
+ ['/integrity/','Rho Integrity','Data quality, leakage, and contamination checks']
 ];
 const company=[
  ['/examples/','Examples','Illustrative Rho trial records'],
  ['/methodology/','Methodology','How Rho measures marginal value'],
  ['/enterprise/','Enterprise','Private deployment + controls'],
  ['/pricing/','Pricing','Private beta commercial model'],
- ['/about/','About','Why the data layer needs infrastructure']
+ ['/about/','About','Why the data layer needs infrastructure'],
+ ['/benchmarks/','Benchmarks','Measured Rho evaluation methodology'],
+ ['/changelog/','Changelog','Product updates and releases']
 ];
 
 export default function Shell({children}){
