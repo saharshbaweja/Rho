@@ -262,7 +262,7 @@ export default function Home(){
       <div className="a-kicker">[ DESIGN PARTNERS ]</div>
       <h2>Give Aeros one messy operation.<br/>Let it start running the day.</h2>
       <p>We are starting with flight schools and operators that already feel the pain of manual schedule recovery and fragmented daily operations.</p>
-      <div><a className="btn-outline-light" href="mailto:hello@aeros.ai">Contact us</a><a className="btn-green" href="mailto:hello@aeros.ai">Become a design partner</a></div>
+      <div><a className="btn-outline-light" href="#contact">Contact us</a><a className="btn-green" href="#contact">Become a design partner</a></div>
     </div>
     <div className="orbit">
       <div className="orbit-ring ring-a"/><div className="orbit-ring ring-b"/>
