@@ -1,30 +1,21 @@
 'use client';
 import Link from 'next/link';
-import {ChevronDown} from 'lucide-react';
+import {Plane,ArrowUpRight} from 'lucide-react';
 
 export default function Shell({children}){
   return <>
-    <div className="a-announcement">
-      <span>BUILDING WITH DESIGN PARTNERS</span>
-      <b>Aeros is the AI-native operating system for general aviation.</b>
-      <a href="#contact">JOIN THE PILOT ↗</a>
-    </div>
-    <header className="a-nav">
-      <Link href="/" className="a-brand" aria-label="Aeros home">
-        <span className="a-mark"><i/><i/><b>A</b></span>
-        <strong>AEROS</strong>
+    <header className="nav-shell">
+      <Link href="/" className="brand">
+        <span className="brand-icon"><Plane size={15}/></span>
+        <span className="brand-name">AEROS</span>
       </Link>
-      <nav className="a-links">
-        <a href="#product">PRODUCT</a>
-        <a href="#operations">OPERATIONS</a>
-        <a href="#network">NETWORK</a>
-        <a href="#roadmap">ROADMAP</a>
-        <button>RESOURCES <ChevronDown size={10}/></button>
+      <nav className="nav-links">
+        <a href="#platform">Platform</a>
+        <a href="#recovery">Recovery</a>
+        <a href="#network">Network</a>
+        <a href="#vision">Vision</a>
       </nav>
-      <div className="a-actions">
-        <a className="a-contact" href="#contact">Contact</a>
-        <a className="a-cta" href="#contact">Become a design partner</a>
-      </div>
+      <a className="nav-cta" href="#contact">Design partner <ArrowUpRight size={13}/></a>
     </header>
     <main>{children}</main>
   </>;
