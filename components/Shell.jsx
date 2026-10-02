@@ -4,20 +4,26 @@ import {ChevronDown} from 'lucide-react';
 
 export default function Shell({children}){
   return <>
-    <div className="g-announcement">Introducing Plus and Apex, for more powerful reviews. <span>Learn more ↗</span></div>
-    <header className="g-nav">
-      <Link href="/" className="g-mark" aria-label="Greptile home"><span className="g-diamond">◆</span></Link>
-      <nav className="g-links">
-        <Link href="#examples">EXAMPLES</Link>
-        <Link href="#pricing">PRICING</Link>
-        <button>FEATURES <ChevronDown size={10}/></button>
-        <Link href="#enterprise">ENTERPRISE</Link>
-        <Link href="#blog">BLOG</Link>
+    <div className="a-announcement">
+      <span>BUILDING WITH DESIGN PARTNERS</span>
+      <b>Aeros is the AI-native operating system for general aviation.</b>
+      <a href="#contact">JOIN THE PILOT ↗</a>
+    </div>
+    <header className="a-nav">
+      <Link href="/" className="a-brand" aria-label="Aeros home">
+        <span className="a-mark"><i/><i/><b>A</b></span>
+        <strong>AEROS</strong>
+      </Link>
+      <nav className="a-links">
+        <a href="#product">PRODUCT</a>
+        <a href="#operations">OPERATIONS</a>
+        <a href="#network">NETWORK</a>
+        <a href="#roadmap">ROADMAP</a>
         <button>RESOURCES <ChevronDown size={10}/></button>
       </nav>
-      <div className="g-actions">
-        <a className="g-contact" href="#contact">Contact sales</a>
-        <a className="g-sign" href="#start">Sign up</a>
+      <div className="a-actions">
+        <a className="a-contact" href="#contact">Contact</a>
+        <a className="a-cta" href="#contact">Become a design partner</a>
       </div>
     </header>
     <main>{children}</main>
