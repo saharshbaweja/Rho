@@ -2,8 +2,8 @@ import './globals.css';
 import Shell from '../components/Shell';
 
 export const metadata={
-  title:'Greptile — AI Code Review',
-  description:'Greptile homepage baseline recreation.'
+  title:'Aeros — The operating system for general aviation',
+  description:'Aeros continuously coordinates aircraft, crew, training, maintenance, weather, and ground operations.'
 };
 
 export default function RootLayout({children}){
