@@ -123,6 +123,28 @@ export default function Home(){
     </div>
   </section>
 
+  <section className="g-autotest">
+    <div className="auto-copy">
+      <div className="eyebrow">[ TESTING ]</div>
+      <h2>Autonomously Test Every PR</h2>
+      <p>TURN YOUR APP INTO TEST CASES &amp; EXECUTE THEM WITH A BROWSER AGENT</p>
+      <a href="#learn">Learn more</a>
+    </div>
+    <div className="terrain" aria-hidden="true">
+      <div className="terrain-lines">
+        <i className="ridge r0"/><i className="ridge r1"/><i className="ridge r2"/><i className="ridge r3"/><i className="ridge r4"/><i className="ridge r5"/><i className="ridge r6"/><i className="ridge r7"/><i className="ridge r8"/><i className="ridge r9"/><i className="ridge r10"/><i className="ridge r11"/><i className="ridge r12"/><i className="ridge r13"/>
+      </div>
+      <div className="test-node n1"><span>01</span><b>PR</b></div>
+      <div className="test-node n2"><span>02</span><b>PLAN</b></div>
+      <div className="test-node n3"><span>03</span><b>RUN</b></div>
+      <div className="test-node n4"><span>04</span><b>PASS</b></div>
+      <div className="terrain-signal s1"/>
+      <div className="terrain-signal s2"/>
+      <div className="terrain-signal s3"/>
+      <div className="terrain-signal s4"/>
+    </div>
+  </section>
+
   <section className="g-security" id="enterprise">
     <div className="security-head"><div><h2>Security-First Design</h2><p>Built for enterprises across defense, healthcare, and financial services.</p></div><a href="#learn">Learn more</a></div>
     <div className="security-grid">
@@ -159,8 +181,12 @@ export default function Home(){
       <div><a className="btn-outline-light" href="#pricing">View Pricing</a><a className="btn-green" href="#start">Start now</a></div>
     </div>
     <div className="orbit">
-      <div className="orbit-core">▰</div>
-      <span className="orb o1"/><span className="orb o2"/><span className="orb o3"/><span className="orb o4"/>
+      <div className="orbit-ring ring-a"/>
+      <div className="orbit-ring ring-b"/>
+      <div className="orbit-core">
+        <div className="mini-review"><span>Review complete</span><b>2 issues found</b><i/><i/><i/></div>
+      </div>
+      <span className="orb o1"><b/></span><span className="orb o2"><b/></span><span className="orb o3"><b/></span><span className="orb o4"><b/></span>
     </div>
   </section>
 
