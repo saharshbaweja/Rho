@@ -1,10 +1,11 @@
 import './globals.css';
 import './hex-aeros.css';
+import './aeros-product.css';
 import Shell from '../components/Shell';
 
 export const metadata={
-  title:'Aeros — AI operations platform for general aviation',
-  description:'Aeros gives flight schools and operators one intelligent workspace to schedule, recover, dispatch, maintain, and understand the operation.'
+  title:'Aeros — AI operations software for aviation',
+  description:'Aeros helps aviation teams schedule flights, manage aircraft and crew, track maintenance, recover disruptions, and run the operation from one intelligent workspace.'
 };
 
 export default function RootLayout({children}){
