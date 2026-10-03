@@ -10,6 +10,10 @@ const features={
  network:{label:'AEROS NETWORK',title:'Connect the services around every flight.',desc:'Long term, Aeros can use operational demand to coordinate FBOs, fuel, maintenance, hangars, ground services, payments, and procurement.',icon:MapPin,points:['Service demand visibility','Capacity matching','Provider performance','Procurement workflows','Payments + market intelligence'],next:'schedule'}
 };
 
+export function generateStaticParams(){
+ return Object.keys(features).map(slug=>({slug}));
+}
+
 export default async function FeaturePage({params}){const {slug}=await params;const f=features[slug];if(!f)notFound();const Icon=f.icon;return <>
 <section className="page-hero"><div className="eyebrow">{f.label}</div><h1>{f.title}</h1><p>{f.desc}</p><div className="hero-ctas"><Link href="/contact/" className="primary-cta">Request a demo <ArrowUpRight size={12}/></Link><Link href="/product/" className="ghost-cta">All platform capabilities</Link></div></section>
 <section className="page-section"><div className="page-head"><div className="eyebrow">WHAT IT DOES</div><h2>Built for the real operating workflow.</h2></div><div className="feature-grid">{f.points.map((x,i)=><article key={x}><CheckCircle2 size={21}/><h3>{x}</h3><p>{i===0?'Aeros keeps this capability connected to the rest of the operation instead of treating it as an isolated record.':'Changes flow through the same live operational context, so downstream conflicts are visible before they become problems.'}</p></article>)}</div></section>
