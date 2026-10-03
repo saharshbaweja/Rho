@@ -6,16 +6,21 @@ const products=[['/product/schedule','Scheduling'],['/product/dispatch','Dispatc
 
 export default function Shell({children}){
   return <>
-    <header className="site-nav">
-      <Link href="/" className="site-brand"><span><Plane size={15}/></span><b>AEROS</b></Link>
-      <nav className="site-links">
+    <header className="site-nav hex-nav">
+      <nav className="hex-nav-left">
         <div className="nav-menu"><Link href="/product/">Platform <ChevronDown size={11}/></Link><div className="nav-popover">{products.map(([h,t])=><Link href={h} key={h}>{t}<span>↗</span></Link>)}</div></div>
         <Link href="/solutions/">Solutions</Link>
         <Link href="/enterprise/">Enterprise</Link>
-        <Link href="/pricing/">Pricing</Link>
-        <Link href="/about/">Company</Link>
       </nav>
-      <div className="site-actions"><Link href="/contact/" className="text-link">Sign in</Link><Link href="/contact/" className="nav-primary">Request a demo <ArrowUpRight size={12}/></Link></div>
+
+      <Link href="/" className="site-brand hex-center-brand"><span><Plane size={14}/></span><b>AEROS</b></Link>
+
+      <div className="hex-nav-right">
+        <Link href="/about/">Resources</Link>
+        <Link href="/pricing/">Pricing</Link>
+        <Link href="/contact/" className="text-link">Sign in</Link>
+        <Link href="/contact/" className="nav-primary">Get started <ArrowUpRight size={11}/></Link>
+      </div>
     </header>
     <main>{children}</main>
     <footer className="site-footer">
