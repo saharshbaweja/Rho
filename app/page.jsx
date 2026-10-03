@@ -93,4 +93,5 @@ export default function Home(){return <div className="hexish-site">
   </section>
 
   <section className="final-cta section-pad"><div><div className="eyebrow">DESIGN PARTNERS</div><h2>Run one real workflow through Aeros.</h2><p>We’re working with operators that are tired of rebuilding the day across legacy software, calls, texts, and spreadsheets.</p></div><Link href="/contact/" className="primary-cta">Talk to Aeros <ArrowUpRight size={13}/></Link></section>
- </div>
+ </div>;
+}
