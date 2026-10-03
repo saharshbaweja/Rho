@@ -10,4 +10,4 @@ export default function Solutions(){return <>
 <article><MapPinned size={24}/><h3>FBOs and service providers</h3><p>Longer term, Aeros connects operator demand with ground services, fuel, hangar, maintenance, and capacity.</p><Link href="/product/network" className="inline-link">See network vision →</Link></article>
 </div></section>
 <section className="page-section alt"><div className="page-head"><div className="eyebrow">ROLE-BASED WORKFLOWS</div><h2>Same operation. Different decisions.</h2><p>Schedulers care about conflicts. Maintenance cares about availability. Instructors care about progression. Owners care about throughput. Aeros lets every role work from the same live state.</p></div></section>
-</>
+</>}
