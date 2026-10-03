@@ -2,8 +2,8 @@ import './globals.css';
 import Shell from '../components/Shell';
 
 export const metadata={
-  title:'Aeros — Operating system for general aviation',
-  description:'Aeros continuously coordinates aircraft, crew, maintenance, weather, training, and daily operations.'
+  title:'Aeros — AI operations platform for general aviation',
+  description:'Aeros gives flight schools and operators one intelligent workspace to schedule, recover, dispatch, maintain, and understand the operation.'
 };
 
 export default function RootLayout({children}){
