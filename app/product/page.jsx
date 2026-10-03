@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {ArrowUpRight,Route,Plane,Wrench,Users,MapPin,BarChart3,CheckCircle2} from 'lucide-react';
 
+// Rebuild marker: syntax verified for Vercel production deploy.
 export default function Product(){return <>
 <section className="page-hero"><div className="eyebrow">AEROS PLATFORM</div><h1>One workspace for the entire operation.</h1><p>Aeros connects the schedule, fleet, crew, maintenance, training, and live disruptions so every decision starts from the same operational context.</p><div className="hero-ctas"><Link href="/contact/" className="primary-cta">Request a demo <ArrowUpRight size={12}/></Link><Link href="/solutions/" className="ghost-cta">Explore solutions</Link></div></section>
 <section className="page-section"><div className="page-head"><div className="eyebrow">THE CORE LOOP</div><h2>Understand. Decide. Act.</h2><p>Instead of storing isolated records, Aeros models how the pieces of the operation affect one another.</p></div><div className="feature-grid"><article><Route size={22}/><h3>Understand the operation</h3><p>Bring aircraft, people, lessons, maintenance windows, weather, availability, and business rules into one live state.</p></article><article><BarChart3 size={22}/><h3>Decide with context</h3><p>Evaluate conflicts, utilization, deadlines, training progression, and downstream impact before changing the plan.</p></article><article><CheckCircle2 size={22}/><h3>Act with control</h3><p>Generate a new plan, explain why it works, and let the operator review or apply the changes.</p></article></div></section>
