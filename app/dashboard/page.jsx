@@ -1,131 +1,72 @@
 'use client';
 import {useMemo,useState} from 'react';
-import {Plane,CalendarDays,Wrench,Users,BarChart3,Fuel,GraduationCap,Command,Search,CloudSun,Bell,ChevronRight,CheckCircle2,AlertTriangle,Map,Settings,MessageSquare,Building2,Radio} from 'lucide-react';
+import {Plane,CalendarDays,Wrench,Users,BarChart3,Fuel,GraduationCap,Command,Search,CloudSun,Bell,ChevronRight,CheckCircle2,AlertTriangle,Map,Settings,MessageSquare,Building2,Radio,Clock3,ShieldCheck,MapPin,Activity,SlidersHorizontal,Plus,ArrowUpRight} from 'lucide-react';
 
-const baseFlights=[
- {time:'07:30',id:'AER101',route:'KAVL → KCLT',aircraft:'N905CR',crew:'Smith / Lopez',status:'Departed'},
- {time:'09:15',id:'FS0202',route:'KAVL → KJFK',aircraft:'N712AS',crew:'Chen / Davis',status:'Boarding'},
- {time:'10:30',id:'TNG301',route:'KAVL → KGSP',aircraft:'N172GT',crew:'Wilson / Patel',status:'In progress'},
- {time:'12:00',id:'CHAR77',route:'KCLT → KPBI',aircraft:'N905CR',crew:'Miller / Lopez',status:'Scheduled'},
- {time:'14:20',id:'TNG304',route:'KAVL → KCHA',aircraft:'N287MA',crew:'Brown / Kim',status:'Scheduled'},
- {time:'16:00',id:'AER108',route:'KCHA → KAVL',aircraft:'N712AS',crew:'Smith / Garcia',status:'Scheduled'},
- {time:'17:45',id:'CHAR82',route:'KAVL → KTEB',aircraft:'N560KT',crew:'Davis / Nguyen',status:'Scheduled'}
+const flights=[
+ {time:'07:30',id:'AER101',route:'KAVL → KCLT',aircraft:'N905CR',crew:'Smith / Lopez',status:'Departed',type:'Charter'},
+ {time:'09:15',id:'FS0202',route:'KAVL → KJFK',aircraft:'N712AS',crew:'Chen / Davis',status:'Boarding',type:'Charter'},
+ {time:'10:30',id:'TNG301',route:'KAVL → KGSP',aircraft:'N172GT',crew:'Wilson / Patel',status:'In progress',type:'Training'},
+ {time:'12:00',id:'CHAR77',route:'KCLT → KPBI',aircraft:'N905CR',crew:'Miller / Lopez',status:'Scheduled',type:'Charter'},
+ {time:'14:20',id:'TNG304',route:'KAVL → KCHA',aircraft:'N287MA',crew:'Brown / Kim',status:'Scheduled',type:'Training'},
+ {time:'16:00',id:'AER108',route:'KCHA → KAVL',aircraft:'N712AS',crew:'Smith / Garcia',status:'Scheduled',type:'Charter'},
+ {time:'17:45',id:'CHAR82',route:'KAVL → KTEB',aircraft:'N560KT',crew:'Davis / Nguyen',status:'Scheduled',type:'Charter'}
 ];
 
-const scenarios={
- normal:{label:'Normal operation',title:'Operation running normally'},
- aircraft:{label:'Aircraft grounded',title:'N172GT grounded · oil pressure squawk'},
- weather:{label:'Weather deterioration',title:'VFR window closes at 14:20'}
-};
+const fleet=[
+ {tail:'N905CR',type:'Citation CJ3',status:'Available',util:'78%',hours:'142.6',maint:'Annual in 24d'},
+ {tail:'N712AS',type:'Cirrus SR22',status:'In flight',util:'62%',hours:'98.4',maint:'ELT battery overdue'},
+ {tail:'N456CD',type:'Cessna 172S',status:'Available',util:'71%',hours:'86.1',maint:'100-hr in 8d'},
+ {tail:'N287MA',type:'Piper Archer',status:'Available',util:'54%',hours:'112.8',maint:'Transponder in 12d'},
+ {tail:'N172GT',type:'Cessna 172S',status:'Grounded',util:'66%',hours:'103.7',maint:'Oil pressure squawk'},
+ {tail:'N441CF',type:'Cessna 172S',status:'Available',util:'69%',hours:'77.2',maint:'Annual in 31d'}
+];
 
-function statusClass(status){
- const s=status.toLowerCase();
- if(s.includes('ground')||s.includes('critical')) return 'ground';
- if(s.includes('risk')||s.includes('delay')) return 'risk';
- if(s.includes('plan')||s.includes('suggest')) return 'plan';
- if(s.includes('progress')||s.includes('boarding')) return 'progress';
- return 'ready';
-}
+const crew=[
+ {name:'Alex Wilson',role:'CFI / MEI',duty:'6h 20m',status:'Available',qual:'C172 · PA28 · SR22'},
+ {name:'Maya Patel',role:'CFII',duty:'4h 10m',status:'In flight',qual:'C172 · SR22'},
+ {name:'Sarah Kim',role:'CFI',duty:'5h 40m',status:'Available',qual:'C172 · PA28'},
+ {name:'Chris Brown',role:'ATP / Charter',duty:'3h 15m',status:'Rest',qual:'CJ3 · SR22'}
+];
+
+const students=[
+ {name:'Emma Wilson',program:'Private Pilot',progress:78,next:'Checkride prep',status:'Ready'},
+ {name:'Liam Chen',program:'Instrument',progress:61,next:'Stage 3',status:'In progress'},
+ {name:'Sophia Martinez',program:'Commercial',progress:44,next:'XC requirement',status:'Scheduled'},
+ {name:'Noah Davis',program:'Private Pilot',progress:32,next:'Solo XC',status:'Blocked'}
+];
+
+function statusTone(s){const v=s.toLowerCase();if(v.includes('ground')||v.includes('overdue')||v.includes('blocked'))return'bad';if(v.includes('risk')||v.includes('due')||v.includes('rest'))return'warn';if(v.includes('progress')||v.includes('boarding')||v.includes('flight'))return'info';return'good'}
+
+function OpsTable({rows,selected,setSelected}){return <div className="pro-table-wrap"><div className="pro-table-head"><span>Time</span><span>Flight</span><span>Route</span><span>Aircraft</span><span>Crew</span><span>Status</span></div>{rows.map((f,i)=><button key={f.id} onClick={()=>setSelected(i)} className={'pro-table-row '+(selected===i?'selected':'')}><span>{f.time}</span><b>{f.id}</b><span>{f.route}</span><span>{f.aircraft}</span><span>{f.crew}</span><em className={statusTone(f.status)}>{f.status}</em></button>)}</div>}
+
+function CommandCenter({scenario,setScenario,selected,setSelected,aiOpen,setAiOpen}){
+ const activeFlights=useMemo(()=>scenario==='aircraft'?flights.map((f,i)=>i===2?{...f,status:'Grounded'}:i===3?{...f,status:'At risk'}:f):scenario==='weather'?flights.map((f,i)=>i>=4?{...f,status:i===4?'At risk':'Weather risk'}:f):flights,[scenario]);
+ const flight=activeFlights[selected]||activeFlights[0];
+ return <>
+  <div className="pro-heading-row"><div><small>MONDAY · OCTOBER 5</small><h1>Command Center</h1><p>One live operating picture across flights, aircraft, people, maintenance, and disruptions.</p></div><div className="pro-heading-actions"><button onClick={()=>setAiOpen(true)} className="pro-btn">Ask Aeros</button><button className="pro-btn primary"><Plus size={14}/> New flight</button></div></div>
+  <div className="pro-scenario-bar"><span>SIMULATE</span><button className={scenario==='normal'?'active':''} onClick={()=>setScenario('normal')}>Normal day</button><button className={scenario==='aircraft'?'active':''} onClick={()=>{setScenario('aircraft');setSelected(2);setAiOpen(true)}}><AlertTriangle size={12}/> Ground N172GT</button><button className={scenario==='weather'?'active':''} onClick={()=>{setScenario('weather');setSelected(4);setAiOpen(true)}}><CloudSun size={12}/> Weather deterioration</button></div>
+  <div className="pro-kpis"><div><small>On-time performance</small><b>{scenario==='normal'?'94%':'87%'}</b><span>+3.1% vs last week</span></div><div><small>Flights today</small><b>12</b><span>2 active · 5 upcoming</span></div><div><small>Fleet ready</small><b>{scenario==='aircraft'?'7 / 10':'8 / 10'}</b><span>{scenario==='aircraft'?'1 aircraft grounded':'1 due soon'}</span></div><div><small>Aeros recoveries</small><b>6</b><span>this week</span></div><div><small>Utilization</small><b>{scenario==='normal'?'81%':'74%'}</b><span>recoverable capacity visible</span></div></div>
+  <div className="pro-grid-main"><section className="pro-panel pro-flight-panel"><div className="pro-panel-title"><div><b>Today’s operation</b><span>Live schedule</span></div><div className="pro-filter-row"><button className="active">All</button><button>Training</button><button>Charter</button></div></div><OpsTable rows={activeFlights} selected={selected} setSelected={setSelected}/></section><aside className="pro-side-stack"><section className="pro-panel pro-flight-detail"><div className="detail-label">SELECTED FLIGHT</div><div className="detail-flight-head"><div><h3>{flight.id}</h3><span className={statusTone(flight.status)}>{flight.status}</span></div><div className="plane-badge"><Plane size={28}/></div></div><div className="route-line-premium"><strong>{flight.route.split(' → ')[0]}</strong><i/><Plane size={15}/><i/><strong>{flight.route.split(' → ')[1]}</strong></div><div className="detail-spec-grid"><div><small>Aircraft</small><b>{flight.aircraft}</b></div><div><small>Crew</small><b>{flight.crew}</b></div><div><small>Departure</small><b>{flight.time}</b></div><div><small>Mission</small><b>{flight.type}</b></div></div><button className="pro-link-btn">Open flight <ArrowUpRight size={12}/></button></section><section className="pro-panel route-map-panel"><div className="pro-panel-title"><div><b>Weather & route</b><span>3 NOTAMs active</span></div></div><div className="premium-map"><span className="map-airport ma1">{flight.route.split(' → ')[0]}</span><span className="map-airport ma2">{flight.route.split(' → ')[1]}</span><span className="map-airport ma3">KATL</span><div className="map-route-line"/><Plane size={20} className="map-flight-icon"/><div className="weather-blob"/></div></section></aside></div>
+  <div className="pro-bottom-grid"><section className="pro-panel compact-panel"><div className="pro-panel-title"><div><b>Aircraft readiness</b><span>6 aircraft</span></div></div>{fleet.slice(0,3).map(a=><div className="compact-row" key={a.tail}><div><b>{a.tail}</b><span>{a.type}</span></div><em className={statusTone(a.status)}>{a.status}</em></div>)}</section><section className="pro-panel compact-panel"><div className="pro-panel-title"><div><b>Maintenance control</b><span>5 open items</span></div></div>{fleet.slice(1,4).map(a=><div className="compact-row" key={a.tail}><div><b>{a.tail}</b><span>{a.maint}</span></div><ChevronRight size={13}/></div>)}</section><section className="pro-panel compact-panel"><div className="pro-panel-title"><div><b>Operations feed</b><span>Live</span></div></div><div className="feed-row"><i className="good"/><div><b>N905CR departed KAVL</b><span>10:32</span></div></div><div className="feed-row"><i className="info"/><div><b>Aeros checked 6 downstream conflicts</b><span>10:29</span></div></div><div className="feed-row"><i className="warn"/><div><b>Weather window updated</b><span>10:18</span></div></div></section></div>
+ </>}
+
+function ScheduleView(){const days=['07','08','09','10','11','12','13','14','15','16'];return <><div className="pro-heading-row"><div><small>SCHEDULING</small><h1>Live Schedule</h1><p>Every aircraft, instructor, student, service, and maintenance constraint in one planning surface.</p></div><div className="pro-heading-actions"><button className="pro-btn"><SlidersHorizontal size={13}/> Filters</button><button className="pro-btn primary">Optimize day</button></div></div><div className="schedule-shell"><div className="schedule-toolbar"><div><button className="active">Day</button><button>Week</button><button>Resource</button></div><span>Monday, Oct 5</span></div><div className="timeline-head"><span>Resource</span>{days.map(d=><b key={d}>{d}:00</b>)}</div>{fleet.slice(0,5).map((a,i)=><div className="timeline-resource" key={a.tail}><div><b>{a.tail}</b><span>{a.type}</span></div><div className="timeline-track">{[0,1,2].map((_,j)=><button key={j} className={'booking b'+((i+j)%4)} style={{left:(5+j*28+i*3)+'%',width:(18+(j%2)*8)+'%'}}><b>{j===0?'TNG'+(300+i):j===1?'AER'+(110+i):'BLOCK'}</b><span>{j===2?'Maintenance':'Assigned'}</span></button>)}</div></div>)}</div></>}
+
+function FleetView({selected,setSelected}){const item=fleet[selected]||fleet[0];return <><div className="pro-heading-row"><div><small>AIRCRAFT</small><h1>Fleet Control</h1><p>Readiness, utilization, maintenance exposure, documents, and current assignment.</p></div><div className="pro-heading-actions"><button className="pro-btn">Import aircraft</button><button className="pro-btn primary"><Plus size={14}/> Add aircraft</button></div></div><div className="fleet-layout"><div className="fleet-grid">{fleet.map((a,i)=><button key={a.tail} onClick={()=>setSelected(i)} className={'aircraft-card '+(selected===i?'selected':'')}><div className="aircraft-card-top"><div className="aircraft-illustration"><Plane size={34}/></div><em className={statusTone(a.status)}>{a.status}</em></div><h3>{a.tail}</h3><span>{a.type}</span><div className="aircraft-card-metrics"><div><small>Utilization</small><b>{a.util}</b></div><div><small>Hobbs</small><b>{a.hours}</b></div></div><div className="aircraft-maint"><Wrench size={12}/>{a.maint}</div></button>)}</div><aside className="pro-panel aircraft-inspector"><div className="detail-label">AIRCRAFT PROFILE</div><div className="aircraft-profile-hero"><Plane size={52}/><div><h2>{item.tail}</h2><span>{item.type}</span></div></div><div className="detail-spec-grid"><div><small>Status</small><b>{item.status}</b></div><div><small>Utilization</small><b>{item.util}</b></div><div><small>Hobbs</small><b>{item.hours}</b></div><div><small>Next maintenance</small><b>{item.maint}</b></div></div><button className="pro-link-btn">Open aircraft record <ArrowUpRight size={12}/></button></aside></div></>}
+
+function MaintenanceView(){return <><div className="pro-heading-row"><div><small>MAINTENANCE</small><h1>Maintenance Control</h1><p>Turn inspections, squawks, downtime, and maintenance capacity into operational decisions.</p></div><button className="pro-btn primary"><Plus size={14}/> New work item</button></div><div className="maintenance-grid"><section className="pro-panel maintenance-queue"><div className="pro-panel-title"><div><b>Open work</b><span>7 items · 2 critical</span></div><button className="pro-btn small">Filter</button></div>{fleet.map((a,i)=><button className="maintenance-row" key={a.tail}><div className={'maint-priority '+(i===4?'critical':i<2?'soon':'normal')}/><div><b>{a.tail}</b><span>{a.type}</span></div><div><small>Work item</small><b>{a.maint}</b></div><div><small>Impact</small><b>{i===4?'3 flights':i<2?'1 flight':'None'}</b></div><em className={statusTone(i===4?'Grounded':i<2?'Due soon':'Ready')}>{i===4?'Critical':i<2?'Due soon':'Planned'}</em><ChevronRight size={13}/></button>)}</section><aside className="pro-panel maintenance-calendar"><div className="pro-panel-title"><div><b>Capacity</b><span>This week</span></div></div><div className="capacity-chart">{[58,74,42,86,68,32,18].map((h,i)=><div key={i}><i style={{height:h+'%'}}/><span>{['M','T','W','T','F','S','S'][i]}</span></div>)}</div><div className="capacity-summary"><b>Thursday has the most open capacity.</b><p>Aeros recommends pulling N456CD’s 100-hour inspection forward by one day.</p><button className="pro-link-btn">Review recommendation</button></div></aside></div></>}
+
+function PeopleView({type}){const data=type==='Crew'?crew:students;return <><div className="pro-heading-row"><div><small>{type.toUpperCase()}</small><h1>{type==='Crew'?'Crew & Qualifications':'Training Progress'}</h1><p>{type==='Crew'?'Availability, qualifications, duty exposure, and assignment readiness.':'Student progress, prerequisites, stage checks, checkrides, and blockers.'}</p></div><button className="pro-btn primary"><Plus size={14}/> Add {type==='Crew'?'crew member':'student'}</button></div><div className="people-grid">{data.map((p,i)=><article className="person-card" key={p.name}><div className="person-avatar">{p.name.split(' ').map(x=>x[0]).join('')}</div><div className="person-main"><div><h3>{p.name}</h3><em className={statusTone(p.status)}>{p.status}</em></div><span>{type==='Crew'?p.role:p.program}</span>{type==='Crew'?<><div className="person-meta"><span>Duty today</span><b>{p.duty}</b></div><div className="qual-tags">{p.qual.split(' · ').map(q=><i key={q}>{q}</i>)}</div></>:<><div className="progress-line"><i style={{width:p.progress+'%'}}/></div><div className="person-meta"><span>Progress</span><b>{p.progress}%</b></div><div className="person-meta"><span>Next</span><b>{p.next}</b></div></>}</div></article>)}</div></>}
+
+function AnalyticsView(){return <><div className="pro-heading-row"><div><small>ANALYTICS</small><h1>Operating Performance</h1><p>Understand utilization, throughput, recovery, cancellations, and where capacity is being lost.</p></div><div className="pro-heading-actions"><button className="pro-btn">Last 30 days</button><button className="pro-btn primary">Export report</button></div></div><div className="analytics-grid"><section className="pro-panel analytics-hero"><div className="pro-panel-title"><div><b>Flight volume & utilization</b><span>30-day view</span></div></div><div className="combo-chart">{[38,52,44,70,61,73,81,76,85,67,90,88].map((h,i)=><div key={i}><i style={{height:h+'%'}}/><span/></div>)}<svg viewBox="0 0 600 180" preserveAspectRatio="none"><polyline points="0,145 55,120 110,128 165,92 220,105 275,82 330,70 385,78 440,58 495,74 550,42 600,48" fill="none" stroke="currentColor" strokeWidth="3"/></svg></div></section><section className="pro-panel analytics-summary"><div className="analytics-big"><small>Recovered capacity</small><b>41.2 hrs</b><span>+18% vs prior period</span></div><div className="analytics-big"><small>Cancellations avoided</small><b>17</b><span>illustrative</span></div><div className="analytics-big"><small>Fleet utilization</small><b>81%</b><span>+7 pts</span></div></section></div></>}
+
+function AIView(){const [q,setQ]=useState('Which flights are most at risk this afternoon?');return <><div className="pro-heading-row"><div><small>AEROS AI</small><h1>Operations Agent</h1><p>Ask questions, investigate exceptions, and prepare actions against the live operating state.</p></div></div><div className="ai-workspace"><aside className="ai-context-panel"><span>LIVE CONTEXT</span>{['12 flights today','8 aircraft ready','4 crews on duty','3 active NOTAMs','2 maintenance items due','1 weather window at risk'].map(x=><div key={x}><CheckCircle2 size={13}/>{x}</div>)}</aside><section className="ai-chat-workspace"><div className="ai-thread"><div className="user-bubble">{q}</div><div className="agent-bubble"><div className="agent-title"><span>A</span><b>Aeros analyzed schedule, aircraft, crew, maintenance, and weather.</b></div><p>Three flights carry elevated risk after 14:00. TNG304 is most exposed because its current aircraft reaches a maintenance threshold within the same operating window.</p><div className="ai-evidence"><span>Schedule</span><span>Aircraft</span><span>Maintenance</span><span>Weather</span></div><div className="ai-action-card"><div><small>RECOMMENDED ACTION</small><b>Move TNG304 to 13:05 and swap to N441CF.</b></div><button>Review plan</button></div></div></div><div className="ai-prompt-box"><input value={q} onChange={e=>setQ(e.target.value)}/><button><ArrowUpRight size={15}/></button></div></section></div></>}
 
 export default function Dashboard(){
- const [nav,setNav]=useState('Operations');
+ const [nav,setNav]=useState('Command Center');
  const [selected,setSelected]=useState(2);
  const [scenario,setScenario]=useState('normal');
  const [aiOpen,setAiOpen]=useState(false);
- const [applied,setApplied]=useState(false);
- const [toast,setToast]=useState('');
-
- const flights=useMemo(()=>{
-   if(scenario==='aircraft'&&!applied){
-     return baseFlights.map((f,i)=>i===2?{...f,status:'Grounded'}:i===3?{...f,status:'At risk'}:f);
-   }
-   if(scenario==='weather'&&!applied){
-     return baseFlights.map((f,i)=>i>=4?{...f,status:i===4?'At risk':'Weather risk'}:f);
-   }
-   if(applied&&scenario==='aircraft'){
-     return baseFlights.map((f,i)=>i===2?{...f,aircraft:'N441CF',time:'11:10',status:'Replanned'}:i===3?{...f,time:'12:20',status:'Recovered'}:f);
-   }
-   if(applied&&scenario==='weather'){
-     return baseFlights.map((f,i)=>i===4?{...f,time:'13:05',status:'Recovered'}:i===5?{...f,time:'14:05',status:'Recovered'}:f);
-   }
-   return baseFlights;
- },[scenario,applied]);
-
- const flight=flights[selected]||flights[0];
- const metrics=scenario==='normal'||applied
- ?[['On time','94%','+3.1% vs last week','good'],['Flights today','12','2 active · 5 upcoming',''],['Fleet ready','8 / 10','1 due soon',''],['Recovered','6','by Aeros this week','good'],['Utilization','81%','+7% vs baseline','good']]
- :scenario==='aircraft'
- ?[['On time','87%','3 flights impacted','warn'],['Flights at risk','3','requires recovery','warn'],['Fleet ready','7 / 10','N172GT grounded','warn'],['Aeros options','2','ranked plans ready','good'],['Utilization','74%','recoverable capacity','warn']]
- :[['On time','89%','4 flights weather-exposed','warn'],['Flights at risk','4','afternoon bank','warn'],['Fleet ready','8 / 10','aircraft unchanged',''],['Aeros options','3','weather-safe plans','good'],['Utilization','76%','weather constrained','warn']];
-
- function trigger(next){setScenario(next);setApplied(false);setSelected(next==='aircraft'?2:next==='weather'?4:2);setAiOpen(next!=='normal');setToast(next==='normal'?'Operation reset':'Aeros detected a new operational event');setTimeout(()=>setToast(''),1800)}
- function applyPlan(){setApplied(true);setAiOpen(false);setToast('Recovery plan applied to the live operation');setTimeout(()=>setToast(''),2200)}
-
- return <div className="ops-app">
-   <aside className="ops-sidebar">
-     <div className="ops-logo"><span className="ops-logo-mark"><Plane size={15}/></span><b>AEROS</b></div>
-     <div className="ops-org"><small>ORGANIZATION</small><b>Prestige Aviation</b></div>
-     <nav className="ops-nav">
-       <div className="ops-nav-group"><span>OPERATIONS</span>{[[Command,'Operations'],[CalendarDays,'Schedule'],[Plane,'Flights'],[Map,'Fleet']].map(([I,t])=><button key={t} className={nav===t?'active':''} onClick={()=>setNav(t)}><I size={15}/><span>{t}</span></button>)}</div>
-       <div className="ops-nav-group"><span>RESOURCES</span>{[[Wrench,'Maintenance'],[Users,'Crew'],[GraduationCap,'Training'],[Fuel,'Services']].map(([I,t])=><button key={t} className={nav===t?'active':''} onClick={()=>setNav(t)}><I size={15}/><span>{t}</span></button>)}</div>
-       <div className="ops-nav-group"><span>INSIGHTS</span>{[[BarChart3,'Analytics'],[MessageSquare,'Aeros AI'],[Settings,'Settings']].map(([I,t])=><button key={t} className={nav===t?'active':''} onClick={()=>setNav(t)}><I size={15}/><span>{t}</span></button>)}</div>
-     </nav>
-     <div className="ops-sidebar-foot">Illustrative prototype environment</div>
-   </aside>
-
-   <main className="ops-main">
-     <header className="ops-topbar">
-       <div className="ops-breadcrumb"><Building2 size={14}/><span>Prestige Aviation</span><ChevronRight size={12}/><b>{nav}</b></div>
-       <div className="ops-search"><Search size={14}/>&nbsp;&nbsp;Search flights, tail numbers, crew, students...</div>
-       <div className="ops-top-actions"><span className="ops-live">● Live</span><span className="ops-weather"><CloudSun size={12}/> KAVL · 72°F · VFR</span><Bell size={16}/><span className="ops-avatar">JD</span></div>
-     </header>
-
-     <div className="ops-content">
-       <div className="ops-heading"><div><small>MONDAY · OCT 5</small><h1>Good morning, Jordan.</h1></div><div className="ops-heading-actions"><button className="ops-btn" onClick={()=>setAiOpen(true)}>Ask Aeros</button><button className="ops-btn primary">+ New flight</button></div></div>
-
-       <div className="scenario-strip"><button className={scenario==='normal'?'active':''} onClick={()=>trigger('normal')}>Normal day</button><button className={scenario==='aircraft'?'active':''} onClick={()=>trigger('aircraft')}><AlertTriangle size={11}/> Ground N172GT</button><button className={scenario==='weather'?'active':''} onClick={()=>trigger('weather')}><CloudSun size={11}/> Weather deteriorates</button></div>
-
-       <section className="ops-overview">{metrics.map(([l,n,s,t])=><div className={'metric-card '+t} key={l}><small>{l}</small><b>{n}</b><span>{s}</span></div>)}</section>
-
-       <div className="ops-workspace">
-         <section className="ops-panel">
-           <div className="ops-panel-head"><b>Today’s operation</b><span>{scenario==='normal'||applied?'Live schedule':'Impact detected · '+scenarios[scenario].label}</span></div>
-           <div className="flight-toolbar"><button className="active">All flights</button><button>Departures</button><button>Arrivals</button><button>Training</button><button>Charter</button></div>
-           <div className="flight-head"><span>Time</span><span>Flight</span><span>Route</span><span>Aircraft</span><span>Crew</span><span>Status</span><span/></div>
-           {flights.map((r,i)=><button className={'flight-row '+(selected===i?'selected':'')} onClick={()=>setSelected(i)} key={r.id}><span>{r.time}</span><b>{r.id}</b><span className="route">{r.route}</span><span>{r.aircraft}</span><span>{r.crew}</span><span className={'status '+statusClass(r.status)}>{r.status}</span><ChevronRight size={12}/></button>)}
-         </section>
-
-         <div className="side-stack">
-           <section className="ops-panel detail-card">
-             <div className="flight-detail-top"><div><small>SELECTED FLIGHT</small><h3>{flight.id}</h3><span>{flight.status}</span></div><div className="tail-thumb"><Plane size={30}/></div></div>
-             <div className="detail-route"><strong>{flight.route.split(' → ')[0]}</strong><i/><Plane size={15}/><i/><strong>{flight.route.split(' → ')[1]}</strong></div>
-             <div className="detail-grid"><div><small>Aircraft</small><b>{flight.aircraft}</b></div><div><small>Crew</small><b>{flight.crew}</b></div><div><small>Departure</small><b>{flight.time}</b></div><div><small>Readiness</small><b>{statusClass(flight.status)==='ground'?'Blocked':'Operational'}</b></div></div>
-           </section>
-
-           <section className="ops-panel"><div className="ops-panel-head"><b>Weather & route</b><span>3 NOTAMs</span></div><div className="weather-map"><div className="weather-route"/><Plane className="wx-plane" size={21}/><span className="wx-airport wx-a">{flight.route.split(' → ')[0]}</span><span className="wx-airport wx-b">{flight.route.split(' → ')[1]}</span></div></section>
-         </div>
-       </div>
-
-       <div className="ops-lower">
-         <section className="ops-panel mini-table"><div className="ops-panel-head"><b>Aircraft readiness</b><span>View fleet</span></div><div className="item"><b>N905CR · Citation CJ3</b><span className="success">Available</span></div><div className="item"><b>N712AS · Cirrus SR22</b><span>In flight</span></div><div className="item"><b>N172GT · Cessna 172S</b><span className={scenario==='aircraft'&&!applied?'danger':''}>{scenario==='aircraft'&&!applied?'Grounded':'Available'}</span></div></section>
-         <section className="ops-panel mini-table"><div className="ops-panel-head"><b>Maintenance control</b><span>5 open</span></div><div className="item"><b>N456CD</b><span>100-hr · 8 days</span></div><div className="item"><b>N905CR</b><span>Annual · 24 days</span></div><div className="item"><b>N712AS</b><span className="danger">ELT battery overdue</span></div></section>
-         <section className="ops-panel mini-table"><div className="ops-panel-head"><b>Operations feed</b><span>Live</span></div><div className="item"><b>N905CR departed KAVL</b><span>10:32</span></div><div className="item"><b>Aeros checked 6 downstream conflicts</b><span>10:29</span></div><div className="item"><b>Weather window updated</b><span>10:18</span></div></section>
-       </div>
-       <div className="prototype-note"><CheckCircle2 size={12}/> Illustrative prototype data — interactions demonstrate the intended Aeros product workflow.</div>
-     </div>
-
-     {aiOpen&&<div className="ai-drawer">
-       <div className="ai-drawer-head"><div><span className="ai-orb">A</span><div><small>AEROS AI · OPERATIONS AGENT</small><b>{scenario==='normal'?'What would you like to evaluate?':scenarios[scenario].title}</b></div></div><button className="ops-btn" onClick={()=>setAiOpen(false)}>Close</button></div>
-       <div className="ai-body">
-         {scenario==='normal'?<div className="ai-event-box"><small>SUGGESTED PROMPT</small><b>Try grounding N172GT or deteriorating weather above to see Aeros build a recovery plan.</b></div>:<>
-           <div className="ai-event-box"><small>DETECTED EVENT</small><b>{scenarios[scenario].title}</b></div>
-           <div className="ai-impact"><div><small>Flights impacted</small><b>{scenario==='aircraft'?'3':'4'}</b></div><div><small>Downstream conflicts</small><b>{scenario==='aircraft'?'6':'9'}</b></div><div><small>Plan confidence</small><b>{scenario==='aircraft'?'94%':'91%'}</b></div></div>
-           <div className="ai-plan"><h4>Recommended recovery plan</h4>{scenario==='aircraft'?<><div className="ai-change"><b>TNG301</b><em>N172GT → N441CF</em><span>11:10</span></div><div className="ai-change"><b>CHAR77</b><em>Shift +20 min</em><span>12:20</span></div><div className="ai-change"><b>Training</b><em>Preserve Stage 2 prerequisite</em><span>OK</span></div></>:<><div className="ai-change"><b>TNG304</b><em>Move before weather window</em><span>13:05</span></div><div className="ai-change"><b>AER108</b><em>Move earlier</em><span>14:05</span></div><div className="ai-change"><b>CHAR82</b><em>Hold current slot</em><span>Safe</span></div></>}</div>
-           <div className="ai-footer"><button onClick={()=>setAiOpen(false)}>Keep current plan</button><button className="primary" onClick={applyPlan}>Apply recovery plan</button></div>
-         </>}
-       </div>
-     </div>}
-     {toast&&<div className="toast">{toast}</div>}
-   </main>
- </div>
+ const navItems=[[Command,'Command Center'],[CalendarDays,'Schedule'],[Plane,'Aircraft'],[Wrench,'Maintenance'],[Users,'Crew'],[GraduationCap,'Training'],[BarChart3,'Analytics'],[MessageSquare,'Aeros AI']];
+ return <div className="pro-app"><aside className="pro-sidebar"><div className="pro-logo"><span><Plane size={16}/></span><b>AEROS</b></div><button className="org-switcher"><div><small>ORGANIZATION</small><b>Prestige Aviation</b></div><ChevronRight size={13}/></button><nav>{navItems.map(([I,t])=><button key={t} onClick={()=>setNav(t)} className={nav===t?'active':''}><I size={16}/><span>{t}</span>{t==='Maintenance'&&<em>2</em>}</button>)}</nav><div className="pro-sidebar-footer"><button><Settings size={15}/> Settings</button><div className="pro-user"><span>JD</span><div><b>Jordan Davis</b><small>Ops Manager</small></div></div></div></aside><main className="pro-main"><header className="pro-topbar"><div className="pro-breadcrumb"><Building2 size={14}/><span>Prestige Aviation</span><ChevronRight size={12}/><b>{nav}</b></div><div className="pro-search"><Search size={14}/><span>Search flights, aircraft, crew, students, actions...</span><kbd>⌘ K</kbd></div><div className="pro-top-actions"><span className="live-dot-label">● LIVE</span><span><CloudSun size={13}/> KAVL · 72°F · VFR</span><Bell size={16}/></div></header><div className="pro-content">{nav==='Command Center'&&<CommandCenter scenario={scenario} setScenario={setScenario} selected={selected} setSelected={setSelected} aiOpen={aiOpen} setAiOpen={setAiOpen}/>} {nav==='Schedule'&&<ScheduleView/>}{nav==='Aircraft'&&<FleetView selected={selected%fleet.length} setSelected={setSelected}/>} {nav==='Maintenance'&&<MaintenanceView/>}{nav==='Crew'&&<PeopleView type="Crew"/>}{nav==='Training'&&<PeopleView type="Training"/>}{nav==='Analytics'&&<AnalyticsView/>}{nav==='Aeros AI'&&<AIView/>}</div>{aiOpen&&<div className="pro-ai-drawer"><div className="drawer-head"><div><span>A</span><div><small>AEROS AI · OPERATIONS AGENT</small><b>{scenario==='aircraft'?'N172GT grounded':'Operational recovery'}</b></div></div><button onClick={()=>setAiOpen(false)}>Close</button></div><div className="drawer-body"><div className="drawer-event"><small>DETECTED EVENT</small><b>{scenario==='aircraft'?'N172GT oil pressure squawk before 10:30 departure':'Weather exposure across afternoon bank'}</b></div><div className="drawer-metrics"><div><small>Flights impacted</small><b>{scenario==='aircraft'?'3':'4'}</b></div><div><small>Conflicts checked</small><b>{scenario==='aircraft'?'6':'9'}</b></div><div><small>Confidence</small><b>{scenario==='aircraft'?'94%':'91%'}</b></div></div><div className="drawer-plan"><h4>Recommended recovery</h4><div><b>TNG301</b><span>N172GT → N441CF</span><em>11:10</em></div><div><b>CHAR77</b><span>Shift +20 minutes</span><em>12:20</em></div><div><b>Training</b><span>Preserve prerequisites</span><em>OK</em></div></div><div className="drawer-actions"><button onClick={()=>setAiOpen(false)}>Keep current plan</button><button className="primary" onClick={()=>{setScenario('normal');setAiOpen(false)}}>Apply recovery plan</button></div></div></div>}</main></div>
 }
