@@ -7,11 +7,12 @@ import './demo-tour.css';
 import './clean-aeros.css';
 import './premium-dashboard.css';
 import './harvey-flow.css';
+import './platform-expansion.css';
 import Shell from '../components/Shell';
 
 export const metadata={
   title:'Aeros — AI operations software for aviation',
-  description:'Aeros helps aviation teams schedule flights, manage aircraft and crew, track maintenance, recover disruptions, and run the operation from one intelligent workspace.'
+  description:'Aeros connects scheduling, dispatch, aircraft, maintenance, training, billing, reporting, compliance, and AI recovery in one operating system for aviation teams.'
 };
 
 export default function RootLayout({children}){
