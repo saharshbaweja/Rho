@@ -1,113 +1,83 @@
 'use client';
-import {useState} from 'react';
+import {useMemo,useState} from 'react';
 import Link from 'next/link';
-import {ArrowUpRight,Plane,CloudRain,Wrench,Users,Route,BarChart3,CheckCircle2,MapPin,ShieldCheck,ChevronRight,CalendarDays,Radio,Command,Clock3,Fuel,GraduationCap,Building2} from 'lucide-react';
+import {ArrowUpRight,Plane,CloudRain,Wrench,Users,CalendarDays,Radio,BarChart3,ShieldCheck,MapPin,GraduationCap,Building2,Command,CheckCircle2,ChevronRight,Fuel,Clock3,Route} from 'lucide-react';
 
-const demoViews={
-  operations:{label:'Operations',title:'Today',metrics:[['Flights','12'],['Aircraft in service','8 / 10'],['Live service','6'],['On time','94%']],rows:[['07:30','AER101','KAVL → KCLT','N905CR','Departed'],['09:15','FS0202','KAVL → KJFK','N712AS','Boarding'],['10:30','TNG301','KAVL → KGSP','N458CD','In progress'],['12:00','CHAR77','KCLT → KPBI','N905CR','Scheduled'],['14:20','TNG304','KAVL → KCHA','N287MA','Scheduled']]},
-  schedule:{label:'Schedule',title:'Schedule recovery',metrics:[['Conflicts','6'],['Recovered','5'],['At risk','1'],['Utilization','81%']],rows:[['10:30','TNG301','Aircraft issue','N172GT','Replan'],['11:10','TNG301','Swap aircraft','N441CF','Suggested'],['12:00','FS0202','Crew conflict','Maya / Chris','Resolved'],['13:20','TNG304','Weather window','Move earlier','Suggested'],['15:10','CHAR77','Maintenance','Preserve','Ready']]},
-  fleet:{label:'Aircraft',title:'Fleet status',metrics:[['Available','8'],['In flight','2'],['Due soon','2'],['Grounded','1']],rows:[['N905CR','Citation CJ3','78% utilization','142.6 hrs','Available'],['N712AS','Cirrus SR22','62% utilization','98.4 hrs','In flight'],['N456CD','Cessna 172S','71% utilization','86.1 hrs','Available'],['N287MA','Piper Archer','54% utilization','112.8 hrs','Due soon'],['N172GT','Cessna 172S','Oil pressure squawk','—','Grounded']]},
-  maintenance:{label:'Maintenance',title:'Maintenance control',metrics:[['Open squawks','5'],['Due soon','2'],['Overdue','1'],['Avg downtime','1.8d']],rows:[['N456CD','100-hr inspection','Due in 8 days','Jul 31','Due soon'],['N905CR','Annual inspection','Due in 24 days','Aug 16','Ready'],['N712AS','ELT battery','Overdue by 3 days','Jul 21','Overdue'],['N287MA','Transponder check','Due in 12 days','Aug 4','Ready'],['N172GT','Oil pressure squawk','Grounded','Now','Critical']]}
+const scenarios={
+  normal:{title:'Today’s operation',tag:'LIVE',note:'12 flights · 8 aircraft · 94% on time',rows:[['07:30','AER101','KAVL → KCLT','N905CR','Departed'],['09:15','FS0202','KAVL → KJFK','N712AS','Boarding'],['10:30','TNG301','KAVL → KGSP','N458CD','In progress'],['12:00','CHAR77','KCLT → KPBI','N905CR','Scheduled'],['14:20','TNG304','KAVL → KCHA','N287MA','Scheduled']]},
+  aircraft:{title:'Aircraft disruption',tag:'AI RECOVERY',note:'N172GT grounded · 3 flights impacted',rows:[['10:30','TNG301','Aircraft unavailable','N172GT','At risk'],['11:10','TNG301','Swap aircraft','N441CF','Suggested'],['12:00','FS0202','Preserve crew','Maya / Chris','Ready'],['13:20','TNG304','Shift 40 minutes','N882SP','Suggested'],['15:10','CHAR77','No impact','N905CR','Ready']]},
+  weather:{title:'Weather recovery',tag:'AI RECOVERY',note:'VFR window closes 14:20 · 8 flights checked',rows:[['09:15','FS0202','Move earlier','N712AS','Suggested'],['10:30','TNG301','Keep slot','N458CD','Ready'],['12:00','CHAR77','IFR capable','N905CR','Ready'],['13:20','TNG304','Move earlier','N287MA','Suggested'],['15:10','FS0220','Hold until VFR','N441CF','At risk']]}
 };
 
-function DashboardDemo(){
- const [view,setView]=useState('operations');
- const [selected,setSelected]=useState(2);
- const [aiOpen,setAiOpen]=useState(true);
- const v=demoViews[view];
- return <div className="mac-stage">
-   <div className="float-card fc-status"><span>●</span><div><small>AIRCRAFT STATUS</small><b>8 / 10 ready</b></div></div>
-   <div className="float-card fc-maint"><Wrench size={14}/><div><small>MAINTENANCE ALERT</small><b>N172GT · inspection due</b></div></div>
-   <div className="float-card fc-crew"><Users size={14}/><div><small>CREW READY</small><b>2 qualified for KAVL → KTEB</b></div></div>
-   <div className="macbook">
-    <div className="mac-screen">
-      <div className="dash-top"><div className="dash-brand"><Plane size={14}/><b>AEROS</b></div><div className="dash-search">Search flights, tail numbers, people...</div><div className="dash-weather">☀ KAVL · 72°F · VFR</div><div className="dash-avatar">JD</div></div>
-      <div className="dash-layout">
-        <aside className="dash-sidebar">
-          {[["operations",Command,'Operations'],['schedule',CalendarDays,'Schedule'],['fleet',Plane,'Aircraft'],['maintenance',Wrench,'Maintenance']].map(([k,I,t])=><button key={k} onClick={()=>setView(k)} className={view===k?'active':''}><I size={14}/>{t}</button>)}
-          <button><Users size={14}/>Crew</button><button><GraduationCap size={14}/>Students</button><button><Fuel size={14}/>Billing</button><button><BarChart3 size={14}/>Reports</button>
-        </aside>
-        <section className="dash-main">
-          <div className="dash-title"><div><small>{v.label.toUpperCase()}</small><h3>{v.title}</h3></div><button className="new-flight">+ New flight</button></div>
-          <div className="dash-metrics">{v.metrics.map(([l,n])=><div key={l}><small>{l}</small><b>{n}</b></div>)}</div>
-          <div className="dash-grid-main">
-            <div className="flight-table">
-              <div className="table-head"><b>{view==='operations'?'Today’s flights':v.title}</b><span>Live</span></div>
-              {v.rows.map((r,i)=><button key={i} onClick={()=>setSelected(i)} className={selected===i?'selected':''}><span>{r[0]}</span><b>{r[1]}</b><span>{r[2]}</span><span>{r[3]}</span><i>{r[4]}</i></button>)}
+function MacCommandCenter(){
+  const [mode,setMode]=useState('normal');
+  const [selected,setSelected]=useState(2);
+  const s=scenarios[mode];
+  const metrics=useMemo(()=>mode==='normal'?[['Flights','12'],['Aircraft ready','8 / 10'],['On time','94%'],['Utilization','81%']]:mode==='aircraft'?[['Impacted','3'],['Recovered','3'],['Aircraft swap','1'],['Conflicts checked','6']]:[['Impacted','8'],['Moved earlier','3'],['IFR preserved','2'],['At risk','1']],[mode]);
+  return <div className="hv-mac-stage">
+    <div className="hv-float hv-float-a"><span>AI</span><div><small>AEROS ACTION</small><b>{mode==='normal'?'Operation healthy':mode==='aircraft'?'Recovery plan ready':'Weather plan ready'}</b></div></div>
+    <div className="hv-float hv-float-b"><Wrench size={14}/><div><small>MAINTENANCE</small><b>N172GT · grounded</b></div></div>
+    <div className="hv-float hv-float-c"><CloudRain size={14}/><div><small>WEATHER</small><b>KAVL · VFR until 14:20</b></div></div>
+    <div className="hv-macbook">
+      <div className="hv-screen">
+        <div className="hv-topbar"><div className="hv-appbrand"><Plane size={14}/><b>AEROS</b></div><div className="hv-search">Search flights, aircraft, people, actions...</div><div className="hv-weather">☀ KAVL · 72°F · VFR</div><div className="hv-avatar">SB</div></div>
+        <div className="hv-app">
+          <aside className="hv-sidebar"><button className="active"><Command size={14}/>Command Center</button><button><CalendarDays size={14}/>Schedule</button><button><Plane size={14}/>Aircraft</button><button><Users size={14}/>Crew</button><button><Wrench size={14}/>Maintenance</button><button><GraduationCap size={14}/>Training</button><button><Fuel size={14}/>Services</button><button><BarChart3 size={14}/>Analytics</button></aside>
+          <section className="hv-main">
+            <div className="hv-title-row"><div><small>OPERATIONS</small><h3>{s.title}</h3><span>{s.note}</span></div><button>+ New flight</button></div>
+            <div className="hv-mode-row">{[['normal','Live operation'],['aircraft','Aircraft down'],['weather','Weather event']].map(([k,t])=><button key={k} className={mode===k?'active':''} onClick={()=>setMode(k)}>{t}</button>)}</div>
+            <div className="hv-metrics">{metrics.map(([l,v])=><div key={l}><small>{l}</small><b>{v}</b></div>)}</div>
+            <div className="hv-workgrid">
+              <div className="hv-table"><div className="hv-table-head"><b>{s.title}</b><span>{s.tag}</span></div>{s.rows.map((r,i)=><button key={i} onClick={()=>setSelected(i)} className={selected===i?'selected':''}><span>{r[0]}</span><b>{r[1]}</b><span>{r[2]}</span><span>{r[3]}</span><i>{r[4]}</i></button>)}</div>
+              <div className="hv-map"><div className="hv-map-head"><b>Weather & NOTAMs</b><span>3 active</span></div><div className="hv-map-body"><span className="hv-airport a1">KAVL</span><span className="hv-airport a2">KCLT</span><span className="hv-airport a3">KGSP</span><span className="hv-airport a4">KATL</span><Plane size={20} className="hv-map-plane"/><i className="hv-route r1"/><i className="hv-route r2"/></div></div>
             </div>
-            <div className="weather-card"><div className="weather-head"><b>Weather & NOTAMs</b><span>3 active</span></div><div className="map-surface"><div className="route-path"/><span className="airport ap1">KAVL</span><span className="airport ap2">KCLT</span><span className="airport ap3">KGSP</span><Plane className="map-plane" size={20}/></div></div>
-          </div>
-          <div className="mini-panels"><div><b>Aircraft</b><span>N905CR · Available</span><span>N712AS · In flight</span></div><div><b>Maintenance</b><span>N456CD · 100-hr inspection</span><span>N172GT · Grounded</span></div><div><b>Students</b><span>Emma Wilson · Ready</span><span>Liam Chen · Checkride</span></div></div>
-          {aiOpen&&<div className="ai-recommend"><span className="ai-mark">A</span><div><small>AEROS ACTION</small><b>Recover 3 flights affected by N172GT.</b><p>Move two lessons to N441CF and shift one lesson 40 minutes while preserving prerequisites.</p></div><button onClick={()=>setAiOpen(false)}>Apply plan</button></div>}
-        </section>
+            <div className="hv-lower"><div><b>Aircraft</b><span>N905CR · Available</span><span>N712AS · In flight</span></div><div><b>Maintenance</b><span>N456CD · 100-hr due</span><span>N172GT · Grounded</span></div><div><b>Training</b><span>Emma Wilson · Ready</span><span>Liam Chen · Checkride</span></div></div>
+            {mode!=='normal'&&<div className="hv-ai-plan"><span>A</span><div><small>AEROS RECOMMENDATION</small><b>{mode==='aircraft'?'Recover all 3 impacted flights with one aircraft swap.':'Move three VFR flights earlier and preserve two IFR-capable missions.'}</b></div><button>Review plan <ChevronRight size={12}/></button></div>}
+          </section>
+        </div>
       </div>
+      <div className="hv-mac-base"/>
     </div>
-    <div className="mac-base"/>
-   </div>
-  </div>
+  </div>;
 }
 
-function FeatureDemo(){
- const [step,setStep]=useState(0);
- const steps=[
-  ['Plan & schedule',CalendarDays,'Assign aircraft, instructors, students, and constraints in one live schedule.'],
-  ['Operate',Radio,'See flights, weather, NOTAMs, crew readiness, and live service status.'],
-  ['Maintain',Wrench,'Track inspections, squawks, downtime, and aircraft availability in the operating plan.'],
-  ['Analyze & grow',BarChart3,'Measure utilization, throughput, cancellations, and operational performance.']
- ];
- const [t,I,d]=steps[step];
- return <div className="flow-demo"><div className="flow-tabs">{steps.map((s,i)=><button key={s[0]} className={step===i?'active':''} onClick={()=>setStep(i)}><span>{i+1}</span>{s[0]}</button>)}</div><div className="flow-stage"><div className="flow-copy"><I size={24}/><h3>{t}</h3><p>{d}</p></div><div className={'flow-visual f'+step}><span className="fv-plane"><Plane size={24}/></span><span className="fv-card one">Aircraft N905CR</span><span className="fv-card two">Crew qualified</span><span className="fv-card three">Weather VFR</span><span className="fv-card four">Aeros ready</span></div></div></div>
+function AgentDemo(){
+  const [active,setActive]=useState(0);
+  const prompts=[
+    ['Recover the day','N172GT is grounded before the 10:30 block.','Aeros found 3 affected flights, 1 qualified substitute aircraft, and a plan that preserves every training prerequisite.'],
+    ['Crew coverage','Sarah is unavailable this afternoon.','Aeros found two qualified instructors with matching availability and no downstream duty conflicts.'],
+    ['Maintenance risk','Which aircraft is closest to inspection?','N456CD reaches its 100-hour inspection first. Aeros can reduce disruption by shifting two training flights to N882SP.']
+  ];
+  const p=prompts[active];
+  return <div className="hv-agent-demo"><div className="hv-agent-side">{prompts.map((x,i)=><button onClick={()=>setActive(i)} className={active===i?'active':''} key={x[0]}><span>0{i+1}</span><b>{x[0]}</b></button>)}</div><div className="hv-agent-main"><div className="hv-agent-head"><span>A</span><div><b>Aeros Ops AI</b><small>Grounded in your live operation</small></div></div><div className="hv-user-msg">{p[1]}</div><div className="hv-ai-msg"><p>{p[2]}</p><div className="hv-checks"><span><CheckCircle2 size={13}/> Aircraft</span><span><CheckCircle2 size={13}/> Crew</span><span><CheckCircle2 size={13}/> Maintenance</span><span><CheckCircle2 size={13}/> Training</span></div><button>Open recovery plan <ArrowUpRight size={12}/></button></div></div></div>;
 }
 
-export default function Home(){return <div className="hexish-site aeros-v2">
-  <section className="home-hero product-first-hero">
-    <div className="hero-glow glow-one"/><div className="hero-glow glow-two"/>
-    <div className="home-hero-inner hero-two-col">
-      <div className="hero-copy-block">
-        <div className="eyebrow">OPERATIONS · SAFETY · PEOPLE · PROFITABILITY</div>
-        <h1>Run aviation<br/><em>operations</em><br/>in one system.</h1>
-        <p>Aeros is the AI operations platform for flight schools, charter operators, FBOs, and aviation teams. Schedule flights, manage aircraft, coordinate crew, track maintenance, and let AI help recover the day when reality changes.</p>
-        <div className="hero-ctas"><Link href="/signup/" className="primary-cta dark-cta">Get started for free <ArrowUpRight size={13}/></Link><Link href="/contact/" className="ghost-box">Request a demo</Link></div>
-        <div className="hero-audiences"><span><MapPin size={13}/> FBOs & airports</span><span><GraduationCap size={13}/> Flight schools</span><span><Plane size={13}/> Charter operators</span><span><Building2 size={13}/> Corporate flight departments</span></div>
-      </div>
-      <DashboardDemo/>
-    </div>
+export default function Home(){return <div className="harvey-aeros">
+  <section className="hv-hero">
+    <div className="hv-hero-copy"><div className="hv-kicker">AI OPERATIONS SOFTWARE FOR AVIATION</div><h1>Build a frontier<br/>flight operation.</h1><p>Aeros gives aviation teams one intelligent operating layer for scheduling, aircraft, crew, maintenance, training, services, and day-of-operation recovery.</p><div className="hv-actions"><Link href="/signup/" className="hv-primary">Get started <ArrowUpRight size={13}/></Link><Link href="/contact/" className="hv-secondary">Request a demo</Link></div><div className="hv-proofline">Built for flight schools, charter operators, FBOs, and corporate flight departments.</div></div>
+    <MacCommandCenter/>
   </section>
 
-  <section className="industry-section section-pad">
-    <div className="section-head-inline"><div><div className="eyebrow">BUILT FOR EVERY AVIATION OPERATION</div><h2>Powering a more connected aviation industry.</h2></div><p>From day-to-day operations to long-term growth, Aeros helps aviation teams work smarter, safer, and more profitably.</p></div>
-    <div className="industry-grid">{[
-      [MapPin,'FBOs & Airports','Manage line service, fuel, hangar, customer billing, and ramp operations.'],
-      [GraduationCap,'Flight Schools','Schedule aircraft and instructors, track training progress, and simplify student management.'],
-      [Plane,'Charter Operators','Coordinate fleets, crew, passenger services, and real-time operational visibility.'],
-      [Building2,'Corporate Flight Departments','Streamline scheduling, compliance, maintenance, and trip coordination.']
-    ].map(([I,t,d],i)=><Link href="/solutions/" className={'industry-card ic'+i} key={t}><div className="industry-art"><I size={34}/><span/><span/></div><div className="industry-title"><I size={15}/><h3>{t}</h3></div><p>{d}</p><b>Learn more →</b></Link>)}</div>
-  </section>
+  <section className="hv-trust-strip"><span>ONE PLATFORM FOR THE ENTIRE OPERATION</span><div>{['SCHEDULE','DISPATCH','AIRCRAFT','CREW','MAINTENANCE','TRAINING','SERVICES','ANALYTICS'].map(x=><b key={x}>{x}</b>)}</div></section>
 
-  <section className="how-section section-pad">
-    <div className="how-copy"><div className="eyebrow">HOW IT WORKS</div><h2>From plan to wheels up,<br/>Aeros keeps you ahead.</h2><p>A unified workflow for your people, aircraft, customers, and daily operation.</p><Link href="/dashboard/" className="primary-cta dark-cta">See the product in action <ArrowUpRight size={13}/></Link></div>
-    <FeatureDemo/>
-  </section>
+  <section className="hv-intro hv-section"><div className="hv-section-label">ONE PLATFORM FOR AVIATION WORK</div><div className="hv-intro-grid"><h2>Run every operational decision from the same context.</h2><p>Most aviation software records pieces of the operation in separate places. Aeros connects the resources and constraints behind each flight so teams can see what is happening, what is at risk, and what should happen next.</p></div><div className="hv-solution-cards"><Link href="/solutions/"><span>FOR FLIGHT SCHOOLS</span><h3>Coordinate students, instructors, aircraft, maintenance, and weather in one system.</h3><b>Explore flight schools →</b></Link><Link href="/solutions/"><span>FOR OPERATORS</span><h3>Run aircraft, crew, trips, readiness, and live disruptions from one shared operating picture.</h3><b>Explore operators →</b></Link></div></section>
 
-  <section className="platform-list section-pad">
-    <div className="platform-intro"><div className="eyebrow">ALL-IN-ONE PLATFORM</div><h2>Everything your aviation operation needs.</h2><p>Purpose-built for aviation. Flexible for how you operate.</p><Link href="/product/" className="primary-cta dark-cta">Explore all features <ArrowUpRight size={13}/></Link></div>
-    <div className="platform-links">{[
-      [CalendarDays,'Flight Operations','Scheduling, dispatch, flight following'],[Plane,'Aircraft Management','Availability, utilization, documents'],[Wrench,'Maintenance','Tracking, inspections, compliance'],[Users,'Crew Management','Currency, qualifications, scheduling'],[GraduationCap,'Training & Checkrides','Student progress, instructor tools'],[Fuel,'Line Service & Fuel','Tasks, inventory, billing'],[CloudRain,'Weather & NOTAMs','Real-time conditions and alerts'],[BarChart3,'Reporting & Analytics','Operations, revenue, utilization'],[Command,'Customer Management','Pilots, clients, billing, communications']
-    ].map(([I,t,d])=><Link href="/product/" key={t}><I size={18}/><div><b>{t}</b><span>{d}</span></div><ChevronRight size={14}/></Link>)}</div>
-  </section>
+  <section className="hv-release hv-section"><div className="hv-release-copy"><div className="hv-section-label">AEROS INTELLIGENCE</div><h2>The operating system that can reason about the day.</h2><p>Purpose-built AI watches the live operation, understands constraints, and prepares actions when aircraft, crew, weather, maintenance, or training requirements change.</p><Link href="/dashboard/" className="hv-primary">See Aeros in action <ArrowUpRight size={13}/></Link></div><AgentDemo/></section>
 
-  <section className="ai-ops-section section-pad">
-    <div className="ai-ops-copy"><div className="eyebrow">AEROS AI</div><h2>Software that doesn’t just record the operation. It helps run it.</h2><p>Aeros watches the live operating context across schedule, aircraft, crew, weather, training, and maintenance. When something changes, it can surface impact, generate options, and prepare the next plan for human approval.</p><div className="ai-bullets"><span><CheckCircle2 size={15}/> Detect operational conflicts early</span><span><CheckCircle2 size={15}/> Explain downstream impact</span><span><CheckCircle2 size={15}/> Generate recovery options</span><span><CheckCircle2 size={15}/> Keep humans in control</span></div></div>
-    <div className="ai-sequence"><div className="ai-event"><b>EVENT</b><span>N172GT grounded</span></div><div className="ai-arrow">→</div><div className="ai-event"><b>IMPACT</b><span>3 lessons affected</span></div><div className="ai-arrow">→</div><div className="ai-event active"><b>AEROS</b><span>Recovery plan ready</span></div><div className="ai-arrow">→</div><div className="ai-event"><b>APPROVE</b><span>Operator reviews changes</span></div></div>
-  </section>
+  <section className="hv-products hv-section"><div className="hv-products-head"><div className="hv-section-label">PRODUCT INNOVATION FOR AVIATION TEAMS</div><h2>Every workflow gets stronger when it shares the same operating context.</h2></div><div className="hv-product-grid">{[
+    [CalendarDays,'Schedule','Build and continuously repair the schedule across aircraft, instructors, students, maintenance, and weather.','/product/schedule'],
+    [Plane,'Dispatch','Know what can fly, what is ready, and what needs attention before wheels up.','/product/dispatch'],
+    [Wrench,'Maintenance','Connect squawks, inspections, downtime, and utilization directly to the operating plan.','/product/maintenance'],
+    [GraduationCap,'Training','Keep progression, lesson prerequisites, stage checks, and qualifications attached to every scheduling decision.','/product/training'],
+    [Command,'Command Center','See the entire operation, surface exceptions, and coordinate actions across teams.','/dashboard/'],
+    [MapPin,'Network','Connect external services around every flight: FBOs, fuel, maintenance, hangars, and eventually payments.','/product/network']
+  ].map(([I,t,d,h],i)=><Link href={h} className={'hv-product-card pc'+i} key={t}><div className="hv-product-art"><I size={31}/><span/><span/></div><div className="hv-product-copy"><h3>{t}</h3><p>{d}</p><b>Learn more →</b></div></Link>)}</div></section>
 
-  <section className="enterprise-showcase section-pad">
-    <div><div className="eyebrow">ENTERPRISE</div><h2>Built for complex operations.</h2><p>Multi-base operations, custom workflows, SSO, role-based controls, audit history, dedicated implementation, and the flexibility to scale across teams.</p><div className="enterprise-points"><span><ShieldCheck size={15}/> Multi-location support</span><span><ShieldCheck size={15}/> Custom integrations</span><span><ShieldCheck size={15}/> Dedicated success team</span></div><Link href="/enterprise/" className="primary-cta dark-cta">Talk to our enterprise team <ArrowUpRight size={13}/></Link></div>
-    <div className="enterprise-visual"><div className="ev-map"><span className="hub h1">ATL</span><span className="hub h2">AVL</span><span className="hub h3">CLT</span><span className="hub h4">TEB</span><i/><i/><i/></div></div>
-  </section>
+  <section className="hv-impact hv-section"><div className="hv-impact-head"><div className="hv-section-label">HELPING TEAMS STAY FOCUSED</div><h2>Measure the operation in outcomes, not clicks.</h2></div><div className="hv-impact-grid"><div><span>Flights coordinated</span><strong>1,000+</strong><small>North-star product goal</small></div><div><span>Recovery workflow</span><strong>Seconds</strong><small>Solver-generated plan for review</small></div><div><span>Operating picture</span><strong>1</strong><small>Shared state across teams</small></div><div><span>AI actions</span><strong>Human</strong><small>Approval remains in control</small></div></div></section>
 
-  <section className="pricing-preview section-pad"><div><div className="eyebrow">PRICING</div><h2>Simple plans that grow with your operation.</h2><p>Start small, prove the workflow, and expand as Aeros becomes part of the operation.</p></div><div className="price-cards"><article><small>STARTER</small><h3>Pilot</h3><p>For small teams evaluating Aeros.</p><Link href="/signup/">Get started →</Link></article><article className="featured"><small>PROFESSIONAL</small><h3>Custom</h3><p>For growing flight operations.</p><Link href="/contact/">Talk to us →</Link></article><article><small>ENTERPRISE</small><h3>Custom</h3><p>For complex multi-team operations.</p><Link href="/enterprise/">Contact sales →</Link></article></div></section>
+  <section className="hv-enterprise hv-section"><div className="hv-enterprise-copy"><div className="hv-section-label">ENTERPRISE-GRADE CONTROL</div><h2>Operational software has to earn the right to act.</h2><p>Aeros is designed around clear permissions, approval boundaries, durable operating history, and integrations with the systems your organization already depends on.</p><Link href="/enterprise/" className="hv-primary">Explore enterprise <ArrowUpRight size={13}/></Link></div><div className="hv-control-grid">{[[ShieldCheck,'Approval boundaries','Choose what Aeros may suggest, prepare, or eventually apply.'],[Users,'Role-based access','Give schedulers, instructors, maintenance teams, and leaders the right controls.'],[Route,'Decision history','Keep a durable record of what changed, why, and who approved it.'],[BarChart3,'Operational analytics','Understand utilization, throughput, cancellations, and where capacity is being lost.']].map(([I,t,d])=><article key={t}><I size={20}/><h3>{t}</h3><p>{d}</p></article>)}</div></section>
 
-  <section className="final-cta runway-cta section-pad"><div><div className="eyebrow">READY FOR TAKEOFF?</div><h2>Get started with Aeros today.</h2><p>Join aviation teams building a more intelligent operating layer.</p></div><div className="cta-pair"><Link href="/signup/" className="primary-cta dark-cta">Create your account <ArrowUpRight size={13}/></Link><Link href="/contact/" className="ghost-box">Request a demo</Link></div></section>
- </div>;
-}
+  <section className="hv-pricing hv-section"><div><div className="hv-section-label">PLANS THAT SCALE WITH THE OPERATION</div><h2>Start with one workflow. Expand from proof.</h2></div><div className="hv-price-grid"><article><span>DESIGN PARTNER</span><h3>Pilot</h3><p>For teams proving scheduling, recovery, or another high-friction workflow.</p><Link href="/signup/">Get started →</Link></article><article className="featured"><span>OPERATIONS</span><h3>Custom</h3><p>For teams ready to run recurring daily operations through Aeros.</p><Link href="/contact/">Talk to us →</Link></article><article><span>ENTERPRISE</span><h3>Custom</h3><p>For complex organizations with advanced controls, rollout, and integration needs.</p><Link href="/enterprise/">Contact sales →</Link></article></div></section>
+
+  <section className="hv-final hv-section"><div><div className="hv-section-label">PROFESSIONAL-CLASS AI FOR AVIATION OPERATIONS</div><h2>Give your team more time to operate.</h2></div><div className="hv-actions"><Link href="/signup/" className="hv-primary">Create your account <ArrowUpRight size={13}/></Link><Link href="/contact/" className="hv-secondary">Request a demo</Link></div></section>
+ </div>;}
