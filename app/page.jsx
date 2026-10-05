@@ -1,38 +1,48 @@
 'use client';
 import {useMemo,useState} from 'react';
 import Link from 'next/link';
-import {ArrowUpRight,Plane,CloudRain,Wrench,Users,CalendarDays,Radio,BarChart3,ShieldCheck,MapPin,GraduationCap,Building2,Command,CheckCircle2,ChevronRight,Fuel,Clock3,Route} from 'lucide-react';
+import {ArrowUpRight,Plane,CloudRain,Wrench,Users,CalendarDays,BarChart3,ShieldCheck,MapPin,GraduationCap,Command,CheckCircle2,ChevronRight,Fuel,Route,AlertTriangle} from 'lucide-react';
 
 const scenarios={
-  normal:{title:'Today’s operation',tag:'LIVE',note:'12 flights · 8 aircraft · 94% on time',rows:[['07:30','AER101','KAVL → KCLT','N905CR','Departed'],['09:15','FS0202','KAVL → KJFK','N712AS','Boarding'],['10:30','TNG301','KAVL → KGSP','N458CD','In progress'],['12:00','CHAR77','KCLT → KPBI','N905CR','Scheduled'],['14:20','TNG304','KAVL → KCHA','N287MA','Scheduled']]},
-  aircraft:{title:'Aircraft disruption',tag:'AI RECOVERY',note:'N172GT grounded · 3 flights impacted',rows:[['10:30','TNG301','Aircraft unavailable','N172GT','At risk'],['11:10','TNG301','Swap aircraft','N441CF','Suggested'],['12:00','FS0202','Preserve crew','Maya / Chris','Ready'],['13:20','TNG304','Shift 40 minutes','N882SP','Suggested'],['15:10','CHAR77','No impact','N905CR','Ready']]},
-  weather:{title:'Weather recovery',tag:'AI RECOVERY',note:'VFR window closes 14:20 · 8 flights checked',rows:[['09:15','FS0202','Move earlier','N712AS','Suggested'],['10:30','TNG301','Keep slot','N458CD','Ready'],['12:00','CHAR77','IFR capable','N905CR','Ready'],['13:20','TNG304','Move earlier','N287MA','Suggested'],['15:10','FS0220','Hold until VFR','N441CF','At risk']]}
+ normal:{title:'Today’s operation',tag:'LIVE',note:'12 flights · 8 aircraft · 94% on time',rows:[['07:30','AER101','KAVL → KCLT','N905CR','Departed'],['09:15','FS0202','KAVL → KJFK','N712AS','Boarding'],['10:30','TNG301','KAVL → KGSP','N458CD','In progress'],['12:00','CHAR77','KCLT → KPBI','N905CR','Scheduled'],['14:20','TNG304','KAVL → KCHA','N287MA','Scheduled']]},
+ aircraft:{title:'Aircraft disruption',tag:'AI RECOVERY',note:'N172GT grounded · 3 flights impacted',rows:[['10:30','TNG301','Aircraft unavailable','N172GT','At risk'],['11:10','TNG301','Swap aircraft','N441CF','Suggested'],['12:00','FS0202','Preserve crew','Maya / Chris','Ready'],['13:20','TNG304','Shift 40 minutes','N882SP','Suggested'],['15:10','CHAR77','No impact','N905CR','Ready']]},
+ weather:{title:'Weather recovery',tag:'AI RECOVERY',note:'VFR window closes 14:20 · 8 flights checked',rows:[['09:15','FS0202','Move earlier','N712AS','Suggested'],['10:30','TNG301','Keep slot','N458CD','Ready'],['12:00','CHAR77','IFR capable','N905CR','Ready'],['13:20','TNG304','Move earlier','N287MA','Suggested'],['15:10','FS0220','Hold until VFR','N441CF','At risk']]}
 };
 
 function MacCommandCenter(){
   const [mode,setMode]=useState('normal');
   const [selected,setSelected]=useState(2);
+  const [applied,setApplied]=useState(false);
+  const [panel,setPanel]=useState('schedule');
   const s=scenarios[mode];
-  const metrics=useMemo(()=>mode==='normal'?[['Flights','12'],['Aircraft ready','8 / 10'],['On time','94%'],['Utilization','81%']]:mode==='aircraft'?[['Impacted','3'],['Recovered','3'],['Aircraft swap','1'],['Conflicts checked','6']]:[['Impacted','8'],['Moved earlier','3'],['IFR preserved','2'],['At risk','1']],[mode]);
+  const metrics=useMemo(()=>mode==='normal'||applied?[['Flights','12'],['Aircraft ready','8 / 10'],['On time','94%'],['Utilization','81%']]:mode==='aircraft'?[['Impacted','3'],['Recovered','0'],['Aircraft swap','1'],['Conflicts checked','6']]:[['Impacted','8'],['Moved earlier','0'],['IFR preserved','2'],['At risk','4']],[mode,applied]);
+  const rows=useMemo(()=>{
+    if(applied&&mode==='aircraft') return [['07:30','AER101','KAVL → KCLT','N905CR','Departed'],['09:15','FS0202','KAVL → KJFK','N712AS','Boarding'],['11:10','TNG301','KAVL → KGSP','N441CF','Recovered'],['12:20','CHAR77','KCLT → KPBI','N905CR','Recovered'],['14:20','TNG304','KAVL → KCHA','N287MA','Scheduled']];
+    if(applied&&mode==='weather') return [['09:00','FS0202','KAVL → KJFK','N712AS','Recovered'],['10:30','TNG301','KAVL → KGSP','N458CD','Ready'],['12:00','CHAR77','KCLT → KPBI','N905CR','Ready'],['13:05','TNG304','KAVL → KCHA','N287MA','Recovered'],['14:05','FS0220','KAVL → KCLT','N441CF','Recovered']];
+    return s.rows;
+  },[applied,mode,s]);
+  const selectedRow=rows[selected]||rows[0];
+  function choose(next){setMode(next);setApplied(false);setSelected(next==='normal'?2:0)}
   return <div className="hv-mac-stage">
-    <div className="hv-float hv-float-a"><span>AI</span><div><small>AEROS ACTION</small><b>{mode==='normal'?'Operation healthy':mode==='aircraft'?'Recovery plan ready':'Weather plan ready'}</b></div></div>
-    <div className="hv-float hv-float-b"><Wrench size={14}/><div><small>MAINTENANCE</small><b>N172GT · grounded</b></div></div>
-    <div className="hv-float hv-float-c"><CloudRain size={14}/><div><small>WEATHER</small><b>KAVL · VFR until 14:20</b></div></div>
+    <div className="hv-float hv-float-a"><span>AI</span><div><small>AEROS ACTION</small><b>{mode==='normal'?'Operation healthy':applied?'Plan applied':'Recovery plan ready'}</b></div></div>
+    <div className="hv-float hv-float-b"><Wrench size={14}/><div><small>MAINTENANCE</small><b>{mode==='aircraft'&&!applied?'N172GT · grounded':'N456CD · 100-hr due'}</b></div></div>
+    <div className="hv-float hv-float-c"><CloudRain size={14}/><div><small>WEATHER</small><b>{mode==='weather'&&!applied?'Ceiling falling · 14:20':'KAVL · VFR'}</b></div></div>
     <div className="hv-macbook">
       <div className="hv-screen">
         <div className="hv-topbar"><div className="hv-appbrand"><Plane size={14}/><b>AEROS</b></div><div className="hv-search">Search flights, aircraft, people, actions...</div><div className="hv-weather">☀ KAVL · 72°F · VFR</div><div className="hv-avatar">SB</div></div>
         <div className="hv-app">
-          <aside className="hv-sidebar"><button className="active"><Command size={14}/>Command Center</button><button><CalendarDays size={14}/>Schedule</button><button><Plane size={14}/>Aircraft</button><button><Users size={14}/>Crew</button><button><Wrench size={14}/>Maintenance</button><button><GraduationCap size={14}/>Training</button><button><Fuel size={14}/>Services</button><button><BarChart3 size={14}/>Analytics</button></aside>
+          <aside className="hv-sidebar">{[['schedule',Command,'Command Center'],['flights',CalendarDays,'Schedule'],['fleet',Plane,'Aircraft'],['crew',Users,'Crew'],['maintenance',Wrench,'Maintenance'],['training',GraduationCap,'Training'],['analytics',BarChart3,'Analytics']].map(([k,I,t])=><button key={k} className={panel===k?'active':''} onClick={()=>setPanel(k)}><I size={14}/>{t}</button>)}</aside>
           <section className="hv-main">
-            <div className="hv-title-row"><div><small>OPERATIONS</small><h3>{s.title}</h3><span>{s.note}</span></div><button>+ New flight</button></div>
-            <div className="hv-mode-row">{[['normal','Live operation'],['aircraft','Aircraft down'],['weather','Weather event']].map(([k,t])=><button key={k} className={mode===k?'active':''} onClick={()=>setMode(k)}>{t}</button>)}</div>
+            <div className="hv-title-row"><div><small>OPERATIONS</small><h3>{panel==='schedule'?s.title:panel[0].toUpperCase()+panel.slice(1)}</h3><span>{panel==='schedule'?s.note:'Connected to the same live operating state'}</span></div><Link href="/dashboard/">Open full dashboard</Link></div>
+            <div className="hv-mode-row">{[['normal','Live operation'],['aircraft','Ground aircraft'],['weather','Weather event']].map(([k,t])=><button key={k} className={mode===k?'active':''} onClick={()=>choose(k)}>{k!=='normal'&&<AlertTriangle size={10}/>} {t}</button>)}</div>
             <div className="hv-metrics">{metrics.map(([l,v])=><div key={l}><small>{l}</small><b>{v}</b></div>)}</div>
             <div className="hv-workgrid">
-              <div className="hv-table"><div className="hv-table-head"><b>{s.title}</b><span>{s.tag}</span></div>{s.rows.map((r,i)=><button key={i} onClick={()=>setSelected(i)} className={selected===i?'selected':''}><span>{r[0]}</span><b>{r[1]}</b><span>{r[2]}</span><span>{r[3]}</span><i>{r[4]}</i></button>)}</div>
-              <div className="hv-map"><div className="hv-map-head"><b>Weather & NOTAMs</b><span>3 active</span></div><div className="hv-map-body"><span className="hv-airport a1">KAVL</span><span className="hv-airport a2">KCLT</span><span className="hv-airport a3">KGSP</span><span className="hv-airport a4">KATL</span><Plane size={20} className="hv-map-plane"/><i className="hv-route r1"/><i className="hv-route r2"/></div></div>
+              <div className="hv-table"><div className="hv-table-head"><b>{panel==='schedule'?s.title:'Live '+panel}</b><span>{s.tag}</span></div>{rows.map((r,i)=><button key={i} onClick={()=>setSelected(i)} className={selected===i?'selected':''}><span>{r[0]}</span><b>{r[1]}</b><span>{r[2]}</span><span>{r[3]}</span><i>{r[4]}</i></button>)}</div>
+              <div className="hv-map"><div className="hv-map-head"><b>{selectedRow[1]}</b><span>{selectedRow[4]}</span></div><div className="hv-map-body"><span className="hv-airport a1">{selectedRow[2].includes('→')?selectedRow[2].split(' → ')[0]:'KAVL'}</span><span className="hv-airport a2">{selectedRow[2].includes('→')?selectedRow[2].split(' → ')[1]:'KCLT'}</span><span className="hv-airport a3">KGSP</span><span className="hv-airport a4">KATL</span><Plane size={20} className="hv-map-plane"/><i className="hv-route r1"/><i className="hv-route r2"/></div></div>
             </div>
-            <div className="hv-lower"><div><b>Aircraft</b><span>N905CR · Available</span><span>N712AS · In flight</span></div><div><b>Maintenance</b><span>N456CD · 100-hr due</span><span>N172GT · Grounded</span></div><div><b>Training</b><span>Emma Wilson · Ready</span><span>Liam Chen · Checkride</span></div></div>
-            {mode!=='normal'&&<div className="hv-ai-plan"><span>A</span><div><small>AEROS RECOMMENDATION</small><b>{mode==='aircraft'?'Recover all 3 impacted flights with one aircraft swap.':'Move three VFR flights earlier and preserve two IFR-capable missions.'}</b></div><button>Review plan <ChevronRight size={12}/></button></div>}
+            <div className="hv-lower"><div><b>Aircraft</b><span>N905CR · Available</span><span>{mode==='aircraft'&&!applied?'N172GT · Grounded':'N712AS · In flight'}</span></div><div><b>Maintenance</b><span>N456CD · 100-hr due</span><span>N172GT · {mode==='aircraft'&&!applied?'Grounded':'Available'}</span></div><div><b>Training</b><span>Emma Wilson · Ready</span><span>Liam Chen · Checkride</span></div></div>
+            {mode!=='normal'&&!applied&&<div className="hv-ai-plan"><span>A</span><div><small>AEROS RECOMMENDATION</small><b>{mode==='aircraft'?'Recover all 3 impacted flights with one aircraft swap.':'Move three VFR flights earlier and preserve two IFR-capable missions.'}</b></div><button onClick={()=>setApplied(true)}>Apply plan <ChevronRight size={12}/></button></div>}
+            {applied&&<div className="hv-ai-plan"><span>✓</span><div><small>PLAN APPLIED</small><b>The live schedule has been updated and downstream conflicts rechecked.</b></div><button onClick={()=>choose('normal')}>Reset demo</button></div>}
           </section>
         </div>
       </div>
@@ -49,12 +59,12 @@ function AgentDemo(){
     ['Maintenance risk','Which aircraft is closest to inspection?','N456CD reaches its 100-hour inspection first. Aeros can reduce disruption by shifting two training flights to N882SP.']
   ];
   const p=prompts[active];
-  return <div className="hv-agent-demo"><div className="hv-agent-side">{prompts.map((x,i)=><button onClick={()=>setActive(i)} className={active===i?'active':''} key={x[0]}><span>0{i+1}</span><b>{x[0]}</b></button>)}</div><div className="hv-agent-main"><div className="hv-agent-head"><span>A</span><div><b>Aeros Ops AI</b><small>Grounded in your live operation</small></div></div><div className="hv-user-msg">{p[1]}</div><div className="hv-ai-msg"><p>{p[2]}</p><div className="hv-checks"><span><CheckCircle2 size={13}/> Aircraft</span><span><CheckCircle2 size={13}/> Crew</span><span><CheckCircle2 size={13}/> Maintenance</span><span><CheckCircle2 size={13}/> Training</span></div><button>Open recovery plan <ArrowUpRight size={12}/></button></div></div></div>;
+  return <div className="hv-agent-demo"><div className="hv-agent-side">{prompts.map((x,i)=><button onClick={()=>setActive(i)} className={active===i?'active':''} key={x[0]}><span>0{i+1}</span><b>{x[0]}</b></button>)}</div><div className="hv-agent-main"><div className="hv-agent-head"><span>A</span><div><b>Aeros Ops AI</b><small>Grounded in your live operation</small></div></div><div className="hv-user-msg">{p[1]}</div><div className="hv-ai-msg"><p>{p[2]}</p><div className="hv-checks"><span><CheckCircle2 size={13}/> Aircraft</span><span><CheckCircle2 size={13}/> Crew</span><span><CheckCircle2 size={13}/> Maintenance</span><span><CheckCircle2 size={13}/> Training</span></div><Link href="/dashboard/">Open recovery plan <ArrowUpRight size={12}/></Link></div></div></div>;
 }
 
 export default function Home(){return <div className="harvey-aeros">
   <section className="hv-hero">
-    <div className="hv-hero-copy"><div className="hv-kicker">AI OPERATIONS SOFTWARE FOR AVIATION</div><h1>Build a frontier<br/>flight operation.</h1><p>Aeros gives aviation teams one intelligent operating layer for scheduling, aircraft, crew, maintenance, training, services, and day-of-operation recovery.</p><div className="hv-actions"><Link href="/signup/" className="hv-primary">Get started <ArrowUpRight size={13}/></Link><Link href="/contact/" className="hv-secondary">Request a demo</Link></div><div className="hv-proofline">Built for flight schools, charter operators, FBOs, and corporate flight departments.</div></div>
+    <div className="hv-hero-copy"><div className="hv-kicker">AI OPERATIONS SOFTWARE FOR AVIATION</div><h1>Build a frontier<br/>flight operation.</h1><p>Aeros gives aviation teams one intelligent operating layer for scheduling, aircraft, crew, maintenance, training, services, and day-of-operation recovery.</p><div className="hv-actions"><Link href="/signup/" className="hv-primary">Get started <ArrowUpRight size={13}/></Link><Link href="/dashboard/" className="hv-secondary">Try the live demo</Link></div><div className="hv-proofline">Built for flight schools, charter operators, FBOs, and corporate flight departments.</div></div>
     <MacCommandCenter/>
   </section>
 
