@@ -1,10 +1,15 @@
 'use client';
 import Link from 'next/link';
+import {usePathname} from 'next/navigation';
 import {ChevronDown,Plane,ArrowUpRight} from 'lucide-react';
 
 const products=[['/product/','Platform overview'],['/dashboard/','Command Center'],['/product/schedule','Schedule'],['/product/dispatch','Dispatch'],['/product/maintenance','Maintenance'],['/product/training','Training'],['/product/network','Network']];
 
 export default function Shell({children}){
+  const pathname=usePathname();
+  const productOnly=pathname?.startsWith('/dashboard');
+  if(productOnly) return <main className="product-only-shell">{children}</main>;
+
   return <>
     <div className="hv-announcement">Aeros is building the AI operating layer for modern aviation teams. <Link href="/contact/">Become a design partner →</Link></div>
     <header className="site-nav hex-nav hv-nav">
