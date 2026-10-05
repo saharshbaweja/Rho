@@ -4,6 +4,7 @@ import './aeros-product.css';
 import './harvey-aeros.css';
 import './dashboard-v2.css';
 import './demo-tour.css';
+import './clean-aeros.css';
 import Shell from '../components/Shell';
 
 export const metadata={
