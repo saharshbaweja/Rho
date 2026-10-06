@@ -9,12 +9,13 @@ import './premium-dashboard.css';
 import './harvey-flow.css';
 import './mission-site.css';
 import './visual-overhaul.css';
-import './studio-home.css';
+import './haptic-polish.css';
+import './aeros-studio.css';
 import Shell from '../components/Shell';
 
 export const metadata={
-  title:'Aeros — Mission intelligence for Part 135 operators',
-  description:'Aeros turns OpSpecs, manuals, aircraft and crew state, weather, NOTAMs, airport data and charts into one continuously updated, cited mission brief.'
+  title:'Aeros — Operational intelligence for flight operations',
+  description:'Aeros connects operator rules, live aviation data, crew and aircraft state to produce source-backed mission decisions and continuous operational monitoring.'
 };
 
 export default function RootLayout({children}){
