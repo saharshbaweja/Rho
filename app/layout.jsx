@@ -8,6 +8,7 @@ import './clean-aeros.css';
 import './premium-dashboard.css';
 import './harvey-flow.css';
 import './mission-site.css';
+import './visual-overhaul.css';
 import Shell from '../components/Shell';
 
 export const metadata={
