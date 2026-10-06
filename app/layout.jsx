@@ -7,11 +7,12 @@ import './demo-tour.css';
 import './clean-aeros.css';
 import './premium-dashboard.css';
 import './harvey-flow.css';
+import './mission-site.css';
 import Shell from '../components/Shell';
 
 export const metadata={
-  title:'Aeros — AI mission intelligence for Part 135 operators',
-  description:'Aeros connects OpSpecs, company manuals, MEL/CDL, crew and aircraft status with live weather, NOTAMs, airport data and charts to produce a cited, continuously updated mission brief for every flight.'
+  title:'Aeros — Mission intelligence for Part 135 operators',
+  description:'Aeros turns OpSpecs, manuals, aircraft and crew state, weather, NOTAMs, airport data and charts into one continuously updated, cited mission brief.'
 };
 
 export default function RootLayout({children}){
