@@ -8,8 +8,6 @@ import './clean-aeros.css';
 import './premium-dashboard.css';
 import './harvey-flow.css';
 import './mission-site.css';
-import './visual-overhaul.css';
-import './haptic-polish.css';
 import './aeros-studio.css';
 import Shell from '../components/Shell';
 
