@@ -1,6 +1,6 @@
 'use client';
 import {useState} from 'react';
-import {AlertTriangle,BookOpen,Check,CloudSun,FileText,MapPin,Plane,RadioTower,ShieldCheck,UsersRound,Wrench} from 'lucide-react';
+import {AlertTriangle,BookOpen,Check,CloudSun,FileText,MapPin,Plane,RadioTower,ShieldCheck,UsersRound,Wrench,ChevronRight} from 'lucide-react';
 
 const rows=[
  {label:'Runway availability',input:'RWY 27R construction',rule:'Airport / NOTAM',result:'REVIEW',tone:'warn'},
@@ -8,6 +8,12 @@ const rows=[
  {label:'Crew legality',input:'8h 12m duty',rule:'Operator duty window',result:'PASS',tone:'good'},
  {label:'Aircraft eligibility',input:'MEL 32-01 open',rule:'No route restriction',result:'PASS',tone:'good'},
  {label:'Destination minima',input:'Ceiling trending lower',rule:'Company minima §7.3',result:'REVIEW',tone:'warn'},
+];
+
+const options=[
+ {name:'Add alternate',detail:'Add KDEN and revise release',delay:'0m',fuel:'+420 lb',risk:'Low',actions:'2',recommended:true},
+ {name:'Delay departure',detail:'Hold 55m for forecast improvement',delay:'+55m',fuel:'—',risk:'Low',actions:'1'},
+ {name:'Use KEGE',detail:'Change destination + ground transfer',delay:'0m',fuel:'+180 lb',risk:'Medium',actions:'3'}
 ];
 
 const layers={
@@ -21,6 +27,7 @@ export default function MissionDecisionDemo({compact=false}){
  const [layer,setLayer]=useState('Route');
  const [selected,setSelected]=useState(0);
  const [ack,setAck]=useState(false);
+ const [mode,setMode]=useState('Impact');
  return <div className={'studio-demo '+(compact?'compact':'')}>
   <div className="studio-demo-top">
    <div className="studio-demo-brand"><span>A</span><b>Aeros Ops</b></div>
@@ -50,9 +57,12 @@ export default function MissionDecisionDemo({compact=false}){
     <div className="studio-decision-head"><div><small>MISSION DECISION</small><h3>2 items need review</h3></div><span className="review-dot">● Live</span></div>
     <div className="studio-status-row">{[[CloudSun,'Weather','REVIEW'],[RadioTower,'NOTAMs','ACTION'],[BookOpen,'Rules','CLEAR'],[UsersRound,'Crew','CLEAR'],[Plane,'Aircraft','CLEAR']].map(([I,t,s])=><div key={t}><I size={12}/><span>{t}</span><b className={s==='CLEAR'?'good':'warn'}>{s}</b></div>)}</div>
     <div className="studio-action-card"><div><AlertTriangle size={13}/><span><small>ACTION REQUIRED</small><b>Arrival runway availability needs review</b></span></div><p>Construction and the latest arrival estimate overlap the reviewed operating window.</p><div className="studio-sources"><span>NOTAM EGLL A1234/24</span><span>Company Minima §7.3</span></div></div>
-    <div className="studio-impact-head"><span>IMPACT ANALYSIS</span><b>DECISION TRACE</b></div>
-    <div className="studio-impact-list">{rows.map((r,i)=><button className={selected===i?'active':''} onClick={()=>setSelected(i)} key={r.label}><span className={'result-icon '+r.tone}>{r.tone==='good'?<Check size={11}/>:<AlertTriangle size={11}/>}</span><span><b>{r.label}</b><small>{r.input}</small></span><span className="rule-col">{r.rule}</span><em className={r.tone}>{r.result}</em></button>)}</div>
-    <div className="studio-verdict"><small>VERDICT</small><h4>Mission may proceed after 2 review items are resolved.</h4><p>{rows[selected].label}: {rows[selected].input} · {rows[selected].rule}.</p><div><button className="secondary" onClick={()=>setAck(!ack)}>{ack?'Acknowledged':'Acknowledge'}</button><button className="primary">Open review</button></div></div>
+    <div className="studio-mode-tabs"><button className={mode==='Impact'?'active':''} onClick={()=>setMode('Impact')}>Impact analysis</button><button className={mode==='Options'?'active':''} onClick={()=>setMode('Options')}>Operational options <span>3</span></button></div>
+    {mode==='Impact'?<>
+      <div className="studio-impact-head"><span>CONSTRAINT</span><b>DECISION TRACE</b></div>
+      <div className="studio-impact-list">{rows.map((r,i)=><button className={selected===i?'active':''} onClick={()=>setSelected(i)} key={r.label}><span className={'result-icon '+r.tone}>{r.tone==='good'?<Check size={11}/>:<AlertTriangle size={11}/>}</span><span><b>{r.label}</b><small>{r.input}</small></span><span className="rule-col">{r.rule}</span><em className={r.tone}>{r.result}</em></button>)}</div>
+    </>:<div className="studio-options-list">{options.map((o,i)=><button className={i===0?'selected':''} key={o.name}><span className="option-rank">0{i+1}</span><span className="option-copy"><b>{o.name}{o.recommended&&<em>Recommended</em>}</b><small>{o.detail}</small></span><span><small>Delay</small><b>{o.delay}</b></span><span><small>Fuel</small><b>{o.fuel}</b></span><span><small>Risk</small><b>{o.risk}</b></span><ChevronRight size={11}/></button>)}</div>}
+    <div className="studio-verdict"><small>VERDICT</small><h4>Mission may proceed after 2 review items are resolved.</h4><p>{mode==='Impact'?`${rows[selected].label}: ${rows[selected].input} · ${rows[selected].rule}.`:'Aeros found 3 viable paths. Option 01 preserves departure time with the lowest modeled operational impact.'}</p><div><button className="secondary" onClick={()=>setAck(!ack)}>{ack?'Acknowledged':'Acknowledge'}</button><button className="primary">{mode==='Impact'?'Open review':'Compare options'}</button></div></div>
    </section>
   </div>
  </div>
