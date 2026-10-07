@@ -1,20 +1,20 @@
 'use client';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
-import {ArrowUpRight,BookOpen,BriefcaseBusiness,ChevronDown,CloudSun,FileCheck2,Gauge,GitBranch,MessagesSquare,Plane,RadioTower,SearchCheck,ShieldCheck,UsersRound} from 'lucide-react';
+import {ArrowUpRight,BookOpen,BriefcaseBusiness,ChevronDown,CloudSun,FileCheck2,Gauge,GitBranch,MessagesSquare,Plane,RadioTower,SearchCheck,ShieldCheck,Sparkles,UsersRound} from 'lucide-react';
 
 const platformGroups=[
- {label:'MISSION DECISION LAYER',items:[
-  ['/product/mission-intelligence','Mission Intelligence','Turn each flight into a continuously evaluated operational state.',SearchCheck],
-  ['/dashboard/','Mission Workspace','See conditions, constraints, impact and decision on one surface.',Gauge],
-  ['/product/briefing','Mission Briefs','Generate role-specific briefs from the same evidence.',FileCheck2],
-  ['/product/alerts','Change Monitoring','Re-evaluate the mission as weather, NOTAMs and state change.',RadioTower]
+ {label:'INTELLIGENCE + DECISION',items:[
+  ['/product/mission-intelligence','Mission Intelligence','Turn every flight into a continuously evaluated operational state.',SearchCheck],
+  ['/dashboard/','Operational Options','Compare viable paths forward when conditions change.',Sparkles],
+  ['/product/briefing','Mission Briefs','Generate dispatcher and pilot briefs from the same reviewed evidence.',FileCheck2],
+  ['/product/alerts','Change Monitoring','Re-evaluate only the conclusions affected by new conditions.',RadioTower]
  ]},
  {label:'OPERATING CONTEXT',items:[
   ['/product/operator-rules','OpSpecs & Manuals','Structure authorizations, procedures, MEL/CDL and company minima.',BookOpen],
   ['/product/live-data','Live Operational Data','Weather, NOTAMs, airports, charts and flight data in context.',CloudSun],
   ['/product/crew-aircraft','Crew & Aircraft','Qualifications, duty, currency, maintenance and aircraft limits.',UsersRound],
-  ['/product/integrations','Integrations & API','Connect OCC, scheduling, maintenance, crew and flight systems.',GitBranch]
+  ['/product/integrations','Integrations & API','Connect scheduling, OCC, maintenance, crew and flight systems.',GitBranch]
  ]}
 ];
 const solutionGroups=[
@@ -33,8 +33,8 @@ const solutionGroups=[
 const resourceGroups=[
  {label:'LEARN',items:[
   ['/resources','Resource Center','Understand the product, architecture and operating model.',BookOpen],
-  ['/product/','Platform Overview','See the complete mission decision and monitoring stack.',Gauge],
-  ['/dashboard/','Interactive Product','Open the mission workspace and inspect the decision trace.',Plane]
+  ['/product/','Platform Overview','See the complete intelligence, decision and monitoring stack.',Gauge],
+  ['/dashboard/','Interactive Product','Open the live workspace and inspect the decision trace.',Plane]
  ]},
  {label:'DEPLOY',items:[
   ['/enterprise/','Trust & Control','Human approval, provenance, permissions and durable review state.',ShieldCheck],
@@ -48,26 +48,26 @@ export default function Shell({children}){
  const pathname=usePathname();
  if(pathname?.startsWith('/dashboard')) return <main className="product-only-shell">{children}</main>;
  return <>
-  <div className="hv-announcement">Aeros is building the mission decision layer for modern flight operations.<Link href="/dashboard/">See the live product →</Link></div>
+  <div className="hv-announcement">Aeros is building the AI intelligence + operations layer for flight operations.<Link href="/dashboard/">See the live product →</Link></div>
   <header className="site-nav hv-nav">
    <Link href="/" className="hv-brand"><span><Plane size={14}/></span><b>AEROS</b></Link>
    <nav className="hv-nav-center">
-    <div className="nav-menu"><Link href="/product/">Platform <ChevronDown size={11}/></Link><MegaMenu groups={platformGroups} feature={{eyebrow:'PRODUCT',title:'Conditions in. Operational decision out.',body:'See how Aeros turns operator rules and live flight context into a reviewable decision trace.',href:'/dashboard/',cta:'Open Mission Workspace'}}/></div>
-    <div className="nav-menu"><Link href="/solutions/">Solutions <ChevronDown size={11}/></Link><MegaMenu groups={solutionGroups} feature={{eyebrow:'START PART 135',title:'Deploy on real missions. Expand toward OCC automation.',body:'Begin with mission acceptance and review, then extend the same operating context into planning, monitoring and recovery.',href:'/solutions/part-135',cta:'Explore Part 135'}}/></div>
-    <div className="nav-menu"><Link href="/resources/">Resources <ChevronDown size={11}/></Link><MegaMenu groups={resourceGroups} feature={{eyebrow:'IMPLEMENTATION',title:'Integrate before you replace.',body:'Run Aeros beside the current stack, validate the decision layer, and expand only where it earns trust.',href:'/implementation',cta:'See implementation'}}/></div>
+    <div className="nav-menu"><Link href="/product/">Platform <ChevronDown size={11}/></Link><MegaMenu groups={platformGroups} feature={{eyebrow:'LIVE PRODUCT',title:'Conditions change. Aeros shows what remains possible.',body:'Open a mission to see operator rules, live conditions, impact analysis and ranked operational options on one surface.',href:'/dashboard/',cta:'Open Mission Workspace'}}/></div>
+    <div className="nav-menu"><Link href="/solutions/">Solutions <ChevronDown size={11}/></Link><MegaMenu groups={solutionGroups} feature={{eyebrow:'START PART 135',title:'Deploy on real missions. Expand toward OCC automation.',body:'Begin with mission acceptance and review, then extend the same intelligence layer into planning, monitoring and recovery.',href:'/solutions/part-135',cta:'Explore Part 135'}}/></div>
+    <div className="nav-menu"><Link href="/resources/">Resources <ChevronDown size={11}/></Link><MegaMenu groups={resourceGroups} feature={{eyebrow:'IMPLEMENTATION',title:'Integrate before you replace.',body:'Run Aeros beside the current stack, validate the operational reasoning layer, and expand only where it earns trust.',href:'/implementation',cta:'See implementation'}}/></div>
     <Link href="/enterprise/">Trust & Control</Link><Link href="/pricing/">Design Partners</Link>
    </nav>
    <div className="hv-nav-actions"><Link href="/login/" className="hv-login">Log in</Link><Link href="/contact/" className="hv-demo">Request a demo</Link></div>
   </header>
   <main>{children}</main>
   <footer className="hv-footer">
-   <div className="footer-top"><div><Link href="/" className="hv-brand footer-brand"><span><Plane size={15}/></span><b>AEROS</b></Link><h2>The operational intelligence layer for flight operations.</h2></div><Link href="/contact/" className="hv-demo">Request a demo <ArrowUpRight size={12}/></Link></div>
+   <div className="footer-top"><div><Link href="/" className="hv-brand footer-brand"><span><Plane size={15}/></span><b>AEROS</b></Link><h2>The AI intelligence + operations layer for flight operations.</h2></div><Link href="/contact/" className="hv-demo">Request a demo <ArrowUpRight size={12}/></Link></div>
    <div className="footer-grid">
-    <div><b>MISSION</b><Link href="/dashboard/">Mission Workspace</Link><Link href="/product/mission-intelligence">Mission Intelligence</Link><Link href="/product/briefing">Mission Briefs</Link><Link href="/product/alerts">Change Monitoring</Link></div>
-    <div><b>CONTEXT</b><Link href="/product/operator-rules">OpSpecs & Manuals</Link><Link href="/product/live-data">Weather, NOTAMs & Charts</Link><Link href="/product/crew-aircraft">Crew & Aircraft</Link><Link href="/product/integrations">Integrations & API</Link></div>
+    <div><b>DECISION</b><Link href="/dashboard/">Mission Workspace</Link><Link href="/product/mission-intelligence">Mission Intelligence</Link><Link href="/dashboard/">Operational Options</Link><Link href="/product/briefing">Mission Briefs</Link></div>
+    <div><b>CONTEXT</b><Link href="/product/operator-rules">OpSpecs & Manuals</Link><Link href="/product/live-data">Weather, NOTAMs & Charts</Link><Link href="/product/crew-aircraft">Crew & Aircraft</Link><Link href="/product/alerts">Change Monitoring</Link></div>
     <div><b>SOLUTIONS</b><Link href="/solutions/part-135">Part 135 Charter</Link><Link href="/solutions/air-ambulance">Air Ambulance</Link><Link href="/solutions/corporate">Corporate Flight</Link><Link href="/solutions/dispatchers">Dispatch & OCC</Link></div>
-    <div><b>RESOURCES</b><Link href="/resources/">Resource Center</Link><Link href="/implementation">Implementation</Link><Link href="/enterprise/">Trust & Control</Link><Link href="/pricing/">Design Partners</Link></div>
-    <div><b>COMPANY</b><Link href="/about/">About</Link><Link href="/contact/">Contact</Link><Link href="/login/">Log in</Link><Link href="/dashboard/">Product Demo</Link></div>
+    <div><b>PLATFORM</b><Link href="/product/integrations">Integrations & API</Link><Link href="/implementation">Implementation</Link><Link href="/enterprise/">Trust & Control</Link><Link href="/pricing/">Design Partners</Link></div>
+    <div><b>COMPANY</b><Link href="/about/">About</Link><Link href="/resources/">Resources</Link><Link href="/contact/">Contact</Link><Link href="/dashboard/">Product Demo</Link></div>
    </div>
    <div className="footer-bottom"><span>© 2026 Aeros</span><span>Decision-support prototype. Operational authority remains with authorized personnel.</span></div>
   </footer>
