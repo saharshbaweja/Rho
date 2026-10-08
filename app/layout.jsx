@@ -10,6 +10,7 @@ import './harvey-flow.css';
 import './mission-site.css';
 import './aeros-studio.css';
 import './final-home.css';
+import './final-polish.css';
 import Shell from '../components/Shell';
 
 export const metadata={
