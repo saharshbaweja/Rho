@@ -48,16 +48,23 @@ function MegaMenu({groups,feature}){return <div className="mega-menu glass-mega"
 export default function Shell({children}){
  const pathname=usePathname();
  const [scrolled,setScrolled]=useState(false);
- const [hidden,setHidden]=useState(false);
- const last=useRef(0);
+ const [scrolling,setScrolling]=useState(false);
+ const settleTimer=useRef(null);
  useEffect(()=>{
-  const onScroll=()=>{const y=window.scrollY;setScrolled(y>24);if(y>160&&y>last.current+8)setHidden(true);else if(y<last.current-6)setHidden(false);if(y<80)setHidden(false);last.current=y};
-  onScroll();window.addEventListener('scroll',onScroll,{passive:true});return()=>window.removeEventListener('scroll',onScroll);
+  const onScroll=()=>{
+   setScrolled(window.scrollY>24);
+   setScrolling(true);
+   if(settleTimer.current) clearTimeout(settleTimer.current);
+   settleTimer.current=setTimeout(()=>setScrolling(false),190);
+  };
+  onScroll();
+  window.addEventListener('scroll',onScroll,{passive:true});
+  return()=>{window.removeEventListener('scroll',onScroll);if(settleTimer.current)clearTimeout(settleTimer.current)};
  },[]);
  if(pathname?.startsWith('/dashboard')) return <main className="product-only-shell">{children}</main>;
  return <>
   <div className={`hv-announcement ${scrolled?'announcement-scrolled':''}`}>Aeros is building the AI intelligence + operations layer for flight operations.<Link href="/dashboard/">See the live product →</Link></div>
-  <div className={`hv-nav-shell ${scrolled?'is-scrolled':''} ${hidden?'is-hidden':''}`}>
+  <div className={`hv-nav-shell ${scrolled?'is-scrolled':''} ${scrolling?'is-scrolling':'is-resting'}`}>
    <header className="site-nav hv-nav glass-nav">
     <Link href="/" className="hv-brand"><span><Plane size={14}/></span><b>AEROS</b></Link>
     <nav className="hv-nav-center">
