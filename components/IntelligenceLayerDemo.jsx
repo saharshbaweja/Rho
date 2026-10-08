@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import {useState} from 'react';
 import {BookOpen,Check,ChevronRight,CloudSun,FileText,Plane,Sparkles,UsersRound} from 'lucide-react';
 
@@ -25,7 +26,7 @@ export default function IntelligenceLayerDemo(){
     <div className="ai-intel-product">
       {tab==='Knowledge'&&<div className="knowledge-surface">
         <div className="knowledge-top"><div><small>OPERATOR KNOWLEDGE</small><b>Prestige Aviation · Part 135</b></div><span><i/> 4 sources synced</span></div>
-        <div className="knowledge-grid"><aside>{[['OpSpecs','Rev 24'],['General Operations Manual','Rev 18'],['CJ3 MEL','Rev 11'],['Crew Training Manual','Rev 7']].map(([a,b],i)=><button className={selected===i?'active':''} onClick={()=>setSelected(i)} key={a}><FileText size={13}/><span><b>{a}</b><small>{b}</small></span><ChevronRight size={11}/></button>)}</aside><section><small>EXTRACTED + VALIDATED RULES</small>{rules.map(([src,title,state])=><div className="rule-line" key={src}><span><BookOpen size={13}/></span><div><b>{title}</b><small>{src}</small></div><em>{state}</em></div>)}<button className="knowledge-action"><Sparkles size={12}/> Review 6 new candidate rules</button></section></div>
+        <div className="knowledge-grid"><aside>{[['OpSpecs','Rev 24'],['General Operations Manual','Rev 18'],['CJ3 MEL','Rev 11'],['Crew Training Manual','Rev 7']].map(([a,b],i)=><button className={selected===i?'active':''} onClick={()=>setSelected(i)} key={a}><FileText size={13}/><span><b>{a}</b><small>{b}</small></span><ChevronRight size={11}/></button>)}</aside><section><small>EXTRACTED + VALIDATED RULES</small>{rules.map(([src,title,state])=><div className="rule-line" key={src}><span><BookOpen size={13}/></span><div><b>{title}</b><small>{src}</small></div><em>{state}</em></div>)}<Link className="knowledge-action" href="/dashboard/knowledge/"><Sparkles size={12}/> Open the knowledge workspace</Link></section></div>
       </div>}
       {tab==='Reasoning'&&<div className="reasoning-surface">
         <div className="reasoning-flow"><div><BookOpen size={15}/><b>Operator rules</b><small>GOM · OpSpecs · MEL</small></div><span>+</span><div><CloudSun size={15}/><b>Live state</b><small>Weather · NOTAM · airport</small></div><span>+</span><div><UsersRound size={15}/><b>Mission state</b><small>Crew · aircraft · timing</small></div><span>→</span><div className="reasoning-core"><Sparkles size={16}/><b>Aeros engine</b><small>evaluate dependencies</small></div></div>
