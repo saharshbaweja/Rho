@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {Activity,ArrowUpRight,BookOpen,CloudSun,FileCheck2,Sparkles,UsersRound} from 'lucide-react';
 import MissionDecisionDemo from '../components/MissionDecisionDemo';
-import InteractiveProductTour from '../components/InteractiveProductTour';
+import SplitProductStories from '../components/SplitProductStories';
 import IntelligenceLayerDemo from '../components/IntelligenceLayerDemo';
 
 const scope=[
@@ -33,7 +33,7 @@ export default function Home(){return <div className="aeros-site final-home">
  <section className="as-section story-intro premium-intro"><div className="as-section-head"><div><div className="as-eyebrow">THE INTELLIGENCE LAYER</div><h2>The information already exists. The hard part is understanding the consequence.</h2></div><p>Pilots and dispatchers already have weather, NOTAMs, charts, manuals and flight data. Aeros is the layer that keeps those sources connected to the operator's own rules and continuously answers: what changed, what does it affect, and what can we do now?</p></div><div className="story-principle-grid premium-principles"><article><span>01</span><h3>Understand the mission</h3><p>Build one structured operating state from trip, crew, aircraft, company knowledge and live data.</p></article><article><span>02</span><h3>Evaluate the impact</h3><p>Run deterministic checks against the rules that actually apply to this operator and flight.</p></article><article><span>03</span><h3>Generate the next move</h3><p>Use AI to explain the trace, compare viable options and communicate the reviewed decision.</p></article></div></section>
 
  <IntelligenceLayerDemo/>
- <InteractiveProductTour/>
+ <SplitProductStories/>
 
  <section className="as-section alt platform-scope"><div className="as-inner"><div className="as-section-head"><div><div className="as-eyebrow">ONE OPERATING CONTEXT</div><h2>Every source stays attached to the mission—and to the reason it matters.</h2></div><p>Aeros sits above the systems an operator already trusts. It can add operational intelligence before it replaces a scheduler, maintenance platform, crew system or flight-planning engine.</p></div><div className="as-grid-3">{scope.map(([I,t,d])=><article className="as-card scope-card premium-scope-card" key={t}><span className="as-icon"><I size={17}/></span><h3>{t}</h3><p>{d}</p><Link href="/product/">See the workflow <ArrowUpRight size={11}/></Link></article>)}</div></div></section>
 
