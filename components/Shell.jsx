@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import {useEffect,useRef,useState} from 'react';
 import {usePathname} from 'next/navigation';
 import {ArrowUpRight,BookOpen,BriefcaseBusiness,ChevronDown,CloudSun,FileCheck2,Gauge,GitBranch,MessagesSquare,Plane,RadioTower,SearchCheck,ShieldCheck,Sparkles,UsersRound} from 'lucide-react';
 
@@ -11,7 +12,7 @@ const platformGroups=[
   ['/product/alerts','Change Monitoring','Re-evaluate only the conclusions affected by new conditions.',RadioTower]
  ]},
  {label:'OPERATING CONTEXT',items:[
-  ['/product/operator-rules','OpSpecs & Manuals','Structure authorizations, procedures, MEL/CDL and company minima.',BookOpen],
+  ['/product/operator-rules','Operator Knowledge','Structure OpSpecs, procedures, MEL/CDL and company minima.',BookOpen],
   ['/product/live-data','Live Operational Data','Weather, NOTAMs, airports, charts and flight data in context.',CloudSun],
   ['/product/crew-aircraft','Crew & Aircraft','Qualifications, duty, currency, maintenance and aircraft limits.',UsersRound],
   ['/product/integrations','Integrations & API','Connect scheduling, OCC, maintenance, crew and flight systems.',GitBranch]
@@ -42,29 +43,38 @@ const resourceGroups=[
   ['/pricing/','Design Partner Program','Run real missions side-by-side before expanding scope.',MessagesSquare]
  ]}
 ];
-function MegaMenu({groups,feature}){return <div className="mega-menu">{groups.map(group=><div className="mega-col" key={group.label}><div className="mega-label">{group.label}</div>{group.items.map(([href,title,desc,Icon])=><Link href={href} className="mega-item" key={href}><span className="mega-icon"><Icon size={14}/></span><span><b>{title}</b><span>{desc}</span></span></Link>)}</div>)}<div className="mega-feature"><div><small>{feature.eyebrow}</small><h3>{feature.title}</h3><p>{feature.body}</p></div><Link href={feature.href}>{feature.cta} <ArrowUpRight size={11}/></Link></div></div>}
+function MegaMenu({groups,feature}){return <div className="mega-menu glass-mega">{groups.map(group=><div className="mega-col" key={group.label}><div className="mega-label">{group.label}</div>{group.items.map(([href,title,desc,Icon])=><Link href={href} className="mega-item" key={href}><span className="mega-icon"><Icon size={14}/></span><span><b>{title}</b><span>{desc}</span></span></Link>)}</div>)}<div className="mega-feature"><div><small>{feature.eyebrow}</small><h3>{feature.title}</h3><p>{feature.body}</p></div><Link href={feature.href}>{feature.cta} <ArrowUpRight size={11}/></Link></div></div>}
 
 export default function Shell({children}){
  const pathname=usePathname();
+ const [scrolled,setScrolled]=useState(false);
+ const [hidden,setHidden]=useState(false);
+ const last=useRef(0);
+ useEffect(()=>{
+  const onScroll=()=>{const y=window.scrollY;setScrolled(y>24);if(y>160&&y>last.current+8)setHidden(true);else if(y<last.current-6)setHidden(false);if(y<80)setHidden(false);last.current=y};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});return()=>window.removeEventListener('scroll',onScroll);
+ },[]);
  if(pathname?.startsWith('/dashboard')) return <main className="product-only-shell">{children}</main>;
  return <>
-  <div className="hv-announcement">Aeros is building the AI intelligence + operations layer for flight operations.<Link href="/dashboard/">See the live product →</Link></div>
-  <header className="site-nav hv-nav">
-   <Link href="/" className="hv-brand"><span><Plane size={14}/></span><b>AEROS</b></Link>
-   <nav className="hv-nav-center">
-    <div className="nav-menu"><Link href="/product/">Platform <ChevronDown size={11}/></Link><MegaMenu groups={platformGroups} feature={{eyebrow:'LIVE PRODUCT',title:'Conditions change. Aeros shows what remains possible.',body:'Open a mission to see operator rules, live conditions, impact analysis and ranked operational options on one surface.',href:'/dashboard/',cta:'Open Mission Workspace'}}/></div>
-    <div className="nav-menu"><Link href="/solutions/">Solutions <ChevronDown size={11}/></Link><MegaMenu groups={solutionGroups} feature={{eyebrow:'START PART 135',title:'Deploy on real missions. Expand toward OCC automation.',body:'Begin with mission acceptance and review, then extend the same intelligence layer into planning, monitoring and recovery.',href:'/solutions/part-135',cta:'Explore Part 135'}}/></div>
-    <div className="nav-menu"><Link href="/resources/">Resources <ChevronDown size={11}/></Link><MegaMenu groups={resourceGroups} feature={{eyebrow:'IMPLEMENTATION',title:'Integrate before you replace.',body:'Run Aeros beside the current stack, validate the operational reasoning layer, and expand only where it earns trust.',href:'/implementation',cta:'See implementation'}}/></div>
-    <Link href="/enterprise/">Trust & Control</Link><Link href="/pricing/">Design Partners</Link>
-   </nav>
-   <div className="hv-nav-actions"><Link href="/login/" className="hv-login">Log in</Link><Link href="/contact/" className="hv-demo">Request a demo</Link></div>
-  </header>
+  <div className={`hv-announcement ${scrolled?'announcement-scrolled':''}`}>Aeros is building the AI intelligence + operations layer for flight operations.<Link href="/dashboard/">See the live product →</Link></div>
+  <div className={`hv-nav-shell ${scrolled?'is-scrolled':''} ${hidden?'is-hidden':''}`}>
+   <header className="site-nav hv-nav glass-nav">
+    <Link href="/" className="hv-brand"><span><Plane size={14}/></span><b>AEROS</b></Link>
+    <nav className="hv-nav-center">
+     <div className="nav-menu"><Link href="/product/">Platform <ChevronDown size={11}/></Link><MegaMenu groups={platformGroups} feature={{eyebrow:'LIVE PRODUCT',title:'Conditions change. Aeros shows what remains possible.',body:'Open a mission to see operator rules, live conditions, impact analysis and ranked operational options on one surface.',href:'/dashboard/',cta:'Open Mission Workspace'}}/></div>
+     <div className="nav-menu"><Link href="/solutions/">Solutions <ChevronDown size={11}/></Link><MegaMenu groups={solutionGroups} feature={{eyebrow:'START PART 135',title:'Deploy on real missions. Expand toward OCC automation.',body:'Begin with mission acceptance and review, then extend the same intelligence layer into planning, monitoring and recovery.',href:'/solutions/part-135',cta:'Explore Part 135'}}/></div>
+     <div className="nav-menu"><Link href="/resources/">Resources <ChevronDown size={11}/></Link><MegaMenu groups={resourceGroups} feature={{eyebrow:'IMPLEMENTATION',title:'Integrate before you replace.',body:'Run Aeros beside the current stack, validate the operational reasoning layer, and expand only where it earns trust.',href:'/implementation',cta:'See implementation'}}/></div>
+     <Link href="/enterprise/">Trust</Link><Link href="/pricing/">Design Partners</Link>
+    </nav>
+    <div className="hv-nav-actions"><Link href="/login/" className="hv-login">Log in</Link><Link href="/contact/" className="hv-demo">Request a demo</Link></div>
+   </header>
+  </div>
   <main>{children}</main>
   <footer className="hv-footer">
    <div className="footer-top"><div><Link href="/" className="hv-brand footer-brand"><span><Plane size={15}/></span><b>AEROS</b></Link><h2>The AI intelligence + operations layer for flight operations.</h2></div><Link href="/contact/" className="hv-demo">Request a demo <ArrowUpRight size={12}/></Link></div>
    <div className="footer-grid">
     <div><b>DECISION</b><Link href="/dashboard/">Mission Workspace</Link><Link href="/product/mission-intelligence">Mission Intelligence</Link><Link href="/dashboard/">Operational Options</Link><Link href="/product/briefing">Mission Briefs</Link></div>
-    <div><b>CONTEXT</b><Link href="/product/operator-rules">OpSpecs & Manuals</Link><Link href="/product/live-data">Weather, NOTAMs & Charts</Link><Link href="/product/crew-aircraft">Crew & Aircraft</Link><Link href="/product/alerts">Change Monitoring</Link></div>
+    <div><b>CONTEXT</b><Link href="/product/operator-rules">Operator Knowledge</Link><Link href="/product/live-data">Weather, NOTAMs & Charts</Link><Link href="/product/crew-aircraft">Crew & Aircraft</Link><Link href="/product/alerts">Change Monitoring</Link></div>
     <div><b>SOLUTIONS</b><Link href="/solutions/part-135">Part 135 Charter</Link><Link href="/solutions/air-ambulance">Air Ambulance</Link><Link href="/solutions/corporate">Corporate Flight</Link><Link href="/solutions/dispatchers">Dispatch & OCC</Link></div>
     <div><b>PLATFORM</b><Link href="/product/integrations">Integrations & API</Link><Link href="/implementation">Implementation</Link><Link href="/enterprise/">Trust & Control</Link><Link href="/pricing/">Design Partners</Link></div>
     <div><b>COMPANY</b><Link href="/about/">About</Link><Link href="/resources/">Resources</Link><Link href="/contact/">Contact</Link><Link href="/dashboard/">Product Demo</Link></div>
