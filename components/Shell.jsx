@@ -9,6 +9,7 @@ const menus=[
  {label:'Solutions',items:[['Part 135 charter','/solutions/part-135'],['Air ambulance','/solutions/air-ambulance'],['Corporate flight','/solutions/corporate'],['Dispatch & OCC','/solutions/dispatchers'],['Directors of Operations','/solutions/directors-of-operations'],['Chief pilots','/solutions/chief-pilots'],['Pilots','/solutions/pilots']]},
  {label:'Resources',items:[['Resource center','/resources/'],['Implementation','/implementation'],['Trust & control','/enterprise/'],['Design partners','/pricing/']]}
 ];
+const appPrefixes=['/dashboard','/engine','/billing','/settings'];
 
 export default function Shell({children}){
  const pathname=usePathname();
@@ -16,7 +17,7 @@ export default function Shell({children}){
  const [mobile,setMobile]=useState(false);
  useEffect(()=>{const f=()=>setScrolled(window.scrollY>8);f();window.addEventListener('scroll',f,{passive:true});return()=>window.removeEventListener('scroll',f)},[]);
  useEffect(()=>setMobile(false),[pathname]);
- if(pathname?.startsWith('/dashboard')) return <main className="product-only-shell">{children}</main>;
+ if(appPrefixes.some(prefix=>pathname?.startsWith(prefix))) return <main className="product-only-shell">{children}</main>;
  return <div className="dm-shell">
   <header className={`dm-public-nav ${scrolled?'scrolled':''}`}>
    <div className="dm-nav-inner">
