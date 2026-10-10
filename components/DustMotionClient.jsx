@@ -14,6 +14,13 @@ const REVEAL_CSS=`
 @media(prefers-reduced-motion:reduce){.home-reveal,.home-reveal-up,.home-reveal-right,.home-reveal-photo,.home-reveal-running{opacity:1;transform:none;letter-spacing:normal;transition:none}}
 `;
 
+const FEATURE_VIDEOS=[
+ 'https://raw.githubusercontent.com/dust-tt/dust/main/marketing/public/static/landing/home/features/knows-your-company.mp4',
+ 'https://raw.githubusercontent.com/dust-tt/dust/main/marketing/public/static/landing/home/features/team-sport.mp4',
+ 'https://raw.githubusercontent.com/dust-tt/dust/main/marketing/public/static/landing/home/features/best-model.mp4',
+ 'https://raw.githubusercontent.com/dust-tt/dust/main/marketing/public/static/landing/home/features/compounds.mp4'
+];
+
 export function HomeReveal({children,delay=0,className='',as='div',variant='up',threshold=.15}){
  const ref=useRef(null);const[visible,setVisible]=useState(false);
  useEffect(()=>{const el=ref.current;if(!el)return;
@@ -48,27 +55,20 @@ export function MissionCanvas(){
  </div>
 }
 
-function FeatureHoverVisual({index}){
- if(index===0)return <div className="dm-hover-scene scene-context"><div className="hv-aeros">A</div><div className="hv-source s1">WX</div><div className="hv-source s2">NOTAM</div><div className="hv-source s3">RULES</div><div className="hv-source s4">CREW</div><span className="hv-line l1"/><span className="hv-line l2"/><span className="hv-line l3"/><span className="hv-line l4"/></div>;
- if(index===1)return <div className="dm-hover-scene scene-change"><div className="hv-mini-title">Mission AO-2418</div><div className="hv-change-row"><span>14:04</span><b>TAF amended</b><em>MATERIAL</em></div><div className="hv-change-row"><span>14:05</span><b>Runway NOTAM</b><em>REVIEW</em></div><div className="hv-change-row mute"><span>14:07</span><b>Ramp note</b><em>IGNORE</em></div><div className="hv-pulse"/></div>;
- if(index===2)return <div className="dm-hover-scene scene-evidence"><div className="hv-evidence-card"><small>CONDITION</small><b>KASE ceiling ↓</b></div><div className="hv-evidence-arrow">↓</div><div className="hv-evidence-card"><small>OPERATOR RULE</small><b>GOM §4.12</b></div><div className="hv-evidence-arrow">↓</div><div className="hv-evidence-card dark"><small>RESULT</small><b>Alternate review</b></div></div>;
- return <div className="dm-hover-scene scene-options"><div className="hv-option active"><span>01</span><div><b>Add KDEN alternate</b><small>0 min · +420 lb fuel</small></div><strong>92</strong></div><div className="hv-option"><span>02</span><div><b>Delay 45 min</b><small>+45 min · no fuel change</small></div><strong>84</strong></div><div className="hv-option"><span>03</span><div><b>KEGE recovery</b><small>+180 lb fuel</small></div><strong>71</strong></div></div>;
-}
-
 export function InteractiveFeatureCard({index,title,desc,accent='blue',icon}){
- const wrapperRef=useRef(null),trackerRef=useRef(null),rafRef=useRef(null),pendingRef=useRef(null);
+ const wrapperRef=useRef(null),trackerRef=useRef(null),videoRef=useRef(null),rafRef=useRef(null),pendingRef=useRef(null);
  const[active,setActive]=useState(false);const reduced=useReducedMotionPref();
  const write=()=>{rafRef.current=null;const t=trackerRef.current,n=pendingRef.current;if(t&&n)t.style.transform=`translate3d(${n.x}px,${n.y}px,0)`};
  const move=(x,y)=>{pendingRef.current={x,y};if(rafRef.current===null)rafRef.current=requestAnimationFrame(write)};
  useEffect(()=>()=>{if(rafRef.current!==null)cancelAnimationFrame(rafRef.current)},[]);
- const enter=e=>{const w=wrapperRef.current,t=trackerRef.current;if(!w||!t)return;const r=w.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;t.style.transform=`translate3d(${x}px,${y}px,0)`;pendingRef.current={x,y};setActive(true)};
- const leave=()=>setActive(false);
+ const enter=e=>{const w=wrapperRef.current,t=trackerRef.current;if(!w||!t)return;const r=w.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;t.style.transform=`translate3d(${x}px,${y}px,0)`;pendingRef.current={x,y};setActive(true);const v=videoRef.current;if(v){v.currentTime=0;v.play().catch(()=>{})}};
+ const leave=()=>{setActive(false);videoRef.current?.pause()};
  const mouse=e=>{const w=wrapperRef.current;if(!w)return;const r=w.getBoundingClientRect();move(e.clientX-r.left,e.clientY-r.top)};
  return <div ref={wrapperRef} className="dm-feature-wrap" onMouseEnter={enter} onMouseLeave={leave} onMouseMove={mouse}>
   <HomeReveal as="article" delay={index*80} className={`dm-feature accent-${accent}`}>
    <div className="dm-feature-number"><span>0{index+1}</span><i/></div>
    <div className="dm-feature-icon">{icon}</div><h3>{title}</h3><p>{desc}</p>
   </HomeReveal>
-  {!reduced&&<div ref={trackerRef} aria-hidden="true" className="dm-feature-tracker"><div className={`dm-feature-float ${active?'active':''}`}><FeatureHoverVisual index={index}/></div></div>}
+  {!reduced&&<div ref={trackerRef} aria-hidden="true" className="dm-feature-tracker"><div className={`dm-feature-float ${active?'active':''}`}><video ref={videoRef} src={FEATURE_VIDEOS[index%FEATURE_VIDEOS.length]} muted loop playsInline preload="metadata" className="dm-feature-video"/></div></div>}
  </div>
 }
