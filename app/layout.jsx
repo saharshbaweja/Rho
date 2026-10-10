@@ -1,17 +1,12 @@
 import './globals.css';
-import './hex-aeros.css';
 import './aeros-product.css';
-import './harvey-aeros.css';
 import './dashboard-v2.css';
 import './demo-tour.css';
-import './clean-aeros.css';
 import './premium-dashboard.css';
 import './harvey-flow.css';
 import './mission-site.css';
 import './aeros-studio.css';
-import './final-home.css';
-import './final-polish.css';
-import './final-iteration.css';
+import './dust-site.css';
 import Shell from '../components/Shell';
 
 export const metadata={
