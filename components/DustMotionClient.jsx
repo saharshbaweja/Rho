@@ -55,7 +55,7 @@ export function MissionCanvas(){
  </div>
 }
 
-export function InteractiveFeatureCard({index,title,desc,accent='blue',icon}){
+export function InteractiveFeatureCard({index,title,desc,accent='blue'}){
  const wrapperRef=useRef(null),trackerRef=useRef(null),videoRef=useRef(null),rafRef=useRef(null),pendingRef=useRef(null);
  const[active,setActive]=useState(false);const reduced=useReducedMotionPref();
  const write=()=>{rafRef.current=null;const t=trackerRef.current,n=pendingRef.current;if(t&&n)t.style.transform=`translate3d(${n.x}px,${n.y}px,0)`};
@@ -67,7 +67,7 @@ export function InteractiveFeatureCard({index,title,desc,accent='blue',icon}){
  return <div ref={wrapperRef} className="dm-feature-wrap" onMouseEnter={enter} onMouseLeave={leave} onMouseMove={mouse}>
   <HomeReveal as="article" delay={index*80} className={`dm-feature accent-${accent}`}>
    <div className="dm-feature-number"><span>0{index+1}</span><i/></div>
-   <div className="dm-feature-icon">{icon}</div><h3>{title}</h3><p>{desc}</p>
+   <div className="dm-feature-copy"><h3>{title}</h3><p>{desc}</p></div>
   </HomeReveal>
   {!reduced&&<div ref={trackerRef} aria-hidden="true" className="dm-feature-tracker"><div className={`dm-feature-float ${active?'active':''}`}><video ref={videoRef} src={FEATURE_VIDEOS[index%FEATURE_VIDEOS.length]} muted loop playsInline preload="metadata" className="dm-feature-video"/></div></div>}
  </div>
