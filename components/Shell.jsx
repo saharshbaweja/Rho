@@ -1,92 +1,89 @@
 'use client';
 import Link from 'next/link';
-import {useEffect,useRef,useState} from 'react';
+import {useEffect,useState} from 'react';
 import {usePathname} from 'next/navigation';
-import {ArrowUpRight,BookOpen,BriefcaseBusiness,ChevronDown,CloudSun,FileCheck2,Gauge,GitBranch,MessagesSquare,Plane,RadioTower,SearchCheck,ShieldCheck,Sparkles,UsersRound} from 'lucide-react';
+import {ArrowUpRight,Menu,Plane,X} from 'lucide-react';
 
-const platformGroups=[
- {label:'INTELLIGENCE + DECISION',items:[
-  ['/product/mission-intelligence','Mission Intelligence','Turn every flight into a continuously evaluated operational state.',SearchCheck],
-  ['/dashboard/','Operational Options','Compare viable paths forward when conditions change.',Sparkles],
-  ['/product/briefing','Mission Briefs','Generate dispatcher and pilot briefs from the same reviewed evidence.',FileCheck2],
-  ['/product/alerts','Change Monitoring','Re-evaluate only the conclusions affected by new conditions.',RadioTower]
- ]},
- {label:'OPERATING CONTEXT',items:[
-  ['/product/operator-rules','Operator Knowledge','Structure OpSpecs, procedures, MEL/CDL and company minima.',BookOpen],
-  ['/product/live-data','Live Operational Data','Weather, NOTAMs, airports, charts and flight data in context.',CloudSun],
-  ['/product/crew-aircraft','Crew & Aircraft','Qualifications, duty, currency, maintenance and aircraft limits.',UsersRound],
-  ['/product/integrations','Integrations & API','Connect scheduling, OCC, maintenance, crew and flight systems.',GitBranch]
- ]}
+const links=[
+  ['/product/','Product'],
+  ['/solutions/part-135','Part 135'],
+  ['/enterprise/','Trust'],
+  ['/resources/','Resources']
 ];
-const solutionGroups=[
- {label:'BY OPERATOR',items:[
-  ['/solutions/part-135','Part 135 Charter','Mission acceptance and review for lean commercial operators.',Plane],
-  ['/solutions/air-ambulance','Air Ambulance','Compress time-critical review without losing operational control.',BriefcaseBusiness],
-  ['/solutions/corporate','Corporate Flight','Unify company policy, aircraft, crew and live trip context.',Gauge]
- ]},
- {label:'BY ROLE',items:[
-  ['/solutions/dispatchers','Dispatch & OCC','Manage by exception instead of repeatedly assembling flight context.',SearchCheck],
-  ['/solutions/directors-of-operations','Directors of Operations','Turn approved policy into a controlled operating layer.',BookOpen],
-  ['/solutions/chief-pilots','Chief Pilots','Keep crew eligibility and company requirements in mission context.',UsersRound],
-  ['/solutions/pilots','Pilots','Receive concise, current, source-backed operational briefs.',Plane]
- ]}
-];
-const resourceGroups=[
- {label:'LEARN',items:[
-  ['/resources','Resource Center','Understand the product, architecture and operating model.',BookOpen],
-  ['/product/','Platform Overview','See the complete intelligence, decision and monitoring stack.',Gauge],
-  ['/dashboard/','Interactive Product','Open the live workspace and inspect the decision trace.',Plane]
- ]},
- {label:'DEPLOY',items:[
-  ['/enterprise/','Trust & Control','Human approval, provenance, permissions and durable review state.',ShieldCheck],
-  ['/implementation','Implementation','Start beside current systems and validate one real workflow.',GitBranch],
-  ['/pricing/','Design Partner Program','Run real missions side-by-side before expanding scope.',MessagesSquare]
- ]}
-];
-function MegaMenu({groups,feature}){return <div className="mega-menu glass-mega">{groups.map(group=><div className="mega-col" key={group.label}><div className="mega-label">{group.label}</div>{group.items.map(([href,title,desc,Icon])=><Link href={href} className="mega-item" key={href}><span className="mega-icon"><Icon size={14}/></span><span><b>{title}</b><span>{desc}</span></span></Link>)}</div>)}<div className="mega-feature"><div><small>{feature.eyebrow}</small><h3>{feature.title}</h3><p>{feature.body}</p></div><Link href={feature.href}>{feature.cta} <ArrowUpRight size={11}/></Link></div></div>}
 
 export default function Shell({children}){
- const pathname=usePathname();
- const [scrolled,setScrolled]=useState(false);
- const [scrolling,setScrolling]=useState(false);
- const settleTimer=useRef(null);
- useEffect(()=>{
-  const onScroll=()=>{
-   setScrolled(window.scrollY>24);
-   setScrolling(true);
-   if(settleTimer.current) clearTimeout(settleTimer.current);
-   settleTimer.current=setTimeout(()=>setScrolling(false),190);
-  };
-  onScroll();
-  window.addEventListener('scroll',onScroll,{passive:true});
-  return()=>{window.removeEventListener('scroll',onScroll);if(settleTimer.current)clearTimeout(settleTimer.current)};
- },[]);
- if(pathname?.startsWith('/dashboard')) return <main className="product-only-shell">{children}</main>;
- return <>
-  <div className={`hv-announcement ${scrolled?'announcement-scrolled':''}`}>Aeros is building the AI intelligence + operations layer for flight operations.<Link href="/dashboard/">See the live product →</Link></div>
-  <div className={`hv-nav-shell ${scrolled?'is-scrolled':''} ${scrolling?'is-scrolling':'is-resting'}`}>
-   <header className="site-nav hv-nav glass-nav">
-    <Link href="/" className="hv-brand"><span><Plane size={14}/></span><b>AEROS</b></Link>
-    <nav className="hv-nav-center">
-     <div className="nav-menu"><Link href="/product/">Platform <ChevronDown size={11}/></Link><MegaMenu groups={platformGroups} feature={{eyebrow:'LIVE PRODUCT',title:'Conditions change. Aeros shows what remains possible.',body:'Open a mission to see operator rules, live conditions, impact analysis and ranked operational options on one surface.',href:'/dashboard/',cta:'Open Mission Workspace'}}/></div>
-     <div className="nav-menu"><Link href="/solutions/">Solutions <ChevronDown size={11}/></Link><MegaMenu groups={solutionGroups} feature={{eyebrow:'START PART 135',title:'Deploy on real missions. Expand toward OCC automation.',body:'Begin with mission acceptance and review, then extend the same intelligence layer into planning, monitoring and recovery.',href:'/solutions/part-135',cta:'Explore Part 135'}}/></div>
-     <div className="nav-menu"><Link href="/resources/">Resources <ChevronDown size={11}/></Link><MegaMenu groups={resourceGroups} feature={{eyebrow:'IMPLEMENTATION',title:'Integrate before you replace.',body:'Run Aeros beside the current stack, validate the operational reasoning layer, and expand only where it earns trust.',href:'/implementation',cta:'See implementation'}}/></div>
-     <Link href="/enterprise/">Trust</Link><Link href="/pricing/">Design Partners</Link>
-    </nav>
-    <div className="hv-nav-actions"><Link href="/login/" className="hv-login">Log in</Link><Link href="/contact/" className="hv-demo">Request a demo</Link></div>
-   </header>
-  </div>
-  <main>{children}</main>
-  <footer className="hv-footer">
-   <div className="footer-top"><div><Link href="/" className="hv-brand footer-brand"><span><Plane size={15}/></span><b>AEROS</b></Link><h2>The AI intelligence + operations layer for flight operations.</h2></div><Link href="/contact/" className="hv-demo">Request a demo <ArrowUpRight size={12}/></Link></div>
-   <div className="footer-grid">
-    <div><b>DECISION</b><Link href="/dashboard/">Mission Workspace</Link><Link href="/product/mission-intelligence">Mission Intelligence</Link><Link href="/dashboard/">Operational Options</Link><Link href="/product/briefing">Mission Briefs</Link></div>
-    <div><b>CONTEXT</b><Link href="/product/operator-rules">Operator Knowledge</Link><Link href="/product/live-data">Weather, NOTAMs & Charts</Link><Link href="/product/crew-aircraft">Crew & Aircraft</Link><Link href="/product/alerts">Change Monitoring</Link></div>
-    <div><b>SOLUTIONS</b><Link href="/solutions/part-135">Part 135 Charter</Link><Link href="/solutions/air-ambulance">Air Ambulance</Link><Link href="/solutions/corporate">Corporate Flight</Link><Link href="/solutions/dispatchers">Dispatch & OCC</Link></div>
-    <div><b>PLATFORM</b><Link href="/product/integrations">Integrations & API</Link><Link href="/implementation">Implementation</Link><Link href="/enterprise/">Trust & Control</Link><Link href="/pricing/">Design Partners</Link></div>
-    <div><b>COMPANY</b><Link href="/about/">About</Link><Link href="/resources/">Resources</Link><Link href="/contact/">Contact</Link><Link href="/dashboard/">Product Demo</Link></div>
-   </div>
-   <div className="footer-bottom"><span>© 2026 Aeros</span><span>Decision-support prototype. Operational authority remains with authorized personnel.</span></div>
-  </footer>
- </>;
+  const pathname=usePathname();
+  const [scrolled,setScrolled]=useState(false);
+  const [mobileOpen,setMobileOpen]=useState(false);
+
+  useEffect(()=>{
+    const onScroll=()=>setScrolled(window.scrollY>12);
+    onScroll();
+    window.addEventListener('scroll',onScroll,{passive:true});
+    return()=>window.removeEventListener('scroll',onScroll);
+  },[]);
+
+  useEffect(()=>setMobileOpen(false),[pathname]);
+
+  if(pathname?.startsWith('/dashboard')){
+    return <main className="product-only-shell">{children}</main>;
+  }
+
+  return <>
+    <header className={`aeros-public-nav ${scrolled?'is-scrolled':''}`}>
+      <div className="apn-inner">
+        <Link href="/" className="apn-brand" aria-label="Aeros home">
+          <span><Plane size={14}/></span><b>Aeros</b>
+        </Link>
+
+        <nav className="apn-links" aria-label="Primary navigation">
+          {links.map(([href,label])=><Link href={href} key={href}>{label}</Link>)}
+        </nav>
+
+        <div className="apn-actions">
+          <Link href="/login/" className="apn-login">Sign in</Link>
+          <Link href="/contact/" className="apn-outline">Request a demo</Link>
+          <Link href="/dashboard/" className="apn-solid">Open Aeros</Link>
+        </div>
+
+        <button className="apn-menu" onClick={()=>setMobileOpen(v=>!v)} aria-label="Toggle navigation" aria-expanded={mobileOpen}>
+          {mobileOpen?<X size={19}/>:<Menu size={19}/>} 
+        </button>
+      </div>
+
+      {mobileOpen&&<div className="apn-mobile">
+        {links.map(([href,label])=><Link href={href} key={href}>{label}</Link>)}
+        <div className="apn-mobile-actions">
+          <Link href="/login/">Sign in</Link>
+          <Link href="/contact/">Request a demo</Link>
+          <Link href="/dashboard/">Open Aeros</Link>
+        </div>
+      </div>}
+    </header>
+
+    <main>{children}</main>
+
+    <footer className="aeros-public-footer">
+      <div className="apf-lead">
+        <div>
+          <Link href="/" className="apn-brand apf-brand"><span><Plane size={14}/></span><b>Aeros</b></Link>
+          <h2>Operational intelligence for every flight.</h2>
+          <p>One continuously reviewed operating context across rules, live conditions, aircraft and crew.</p>
+        </div>
+        <Link href="/contact/" className="apf-cta">Request a demo <ArrowUpRight size={13}/></Link>
+      </div>
+
+      <div className="apf-grid">
+        <div><b>Product</b><Link href="/dashboard/">Mission workspace</Link><Link href="/product/mission-intelligence">Mission intelligence</Link><Link href="/product/briefing">Briefing</Link><Link href="/product/alerts">Change monitoring</Link></div>
+        <div><b>Operations</b><Link href="/solutions/part-135">Part 135</Link><Link href="/solutions/dispatchers">Dispatch & OCC</Link><Link href="/solutions/chief-pilots">Chief pilots</Link><Link href="/product/crew-aircraft">Crew & aircraft</Link></div>
+        <div><b>Platform</b><Link href="/product/operator-rules">Operator knowledge</Link><Link href="/product/live-data">Live data</Link><Link href="/product/integrations">Integrations</Link><Link href="/enterprise/">Trust & control</Link></div>
+        <div><b>Company</b><Link href="/about/">About</Link><Link href="/resources/">Resources</Link><Link href="/contact/">Contact</Link><Link href="/pricing/">Design partners</Link></div>
+      </div>
+
+      <div className="apf-bottom">
+        <span>© 2026 Aeros</span>
+        <span>Decision support only. Operational authority remains with authorized personnel.</span>
+      </div>
+    </footer>
+  </>;
 }
