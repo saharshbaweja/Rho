@@ -54,3 +54,5 @@
 @keyframes dmOrbitSpinReverse{to{transform:translate(-50%,-50%) rotate(-360deg)}}
 @media(max-width:767px){.dm-feature-tracker{display:none}.dm-feature-grid{overflow:hidden!important}}
 @media(prefers-reduced-motion:reduce){.dm-hover-scene *,.dm-quote-orbit,.dm-quote-node{animation:none!important}.dm-mission-canvas .dm-person,.dm-mission-canvas .dm-floating-card,.dm-mission-canvas .dm-decision-card{translate:0 0!important}}
+
+.dm-feature-video{display:block;width:260px;height:260px;border-radius:18px;object-fit:cover;box-shadow:0 20px 55px rgba(35,54,72,.18);outline:1px solid rgba(0,0,0,.05)}
