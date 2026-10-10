@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import {ArrowUpRight,BookOpen,CloudSun,FileCheck2,ShieldCheck} from 'lucide-react';
+import {Activity,ArrowUpRight,BookOpen,CloudSun,FileCheck2,Plane,RadioTower,ShieldCheck,UsersRound,Wrench} from 'lucide-react';
 import MissionDecisionDemo from '../components/MissionDecisionDemo';
 
 const operatingContext=[
@@ -23,18 +23,49 @@ const principles=[
   [FileCheck2,'One reviewed state becomes the brief','The same evidence used for the decision becomes the dispatcher and crew briefing.']
 ];
 
+const roles=[
+  [RadioTower,'Dispatch & OCC','See the missions that actually need attention, understand why, and compare the feasible paths forward.'],
+  [BookOpen,'Directors of Operations','Turn approved procedures and company policy into visible, reviewable mission constraints.'],
+  [UsersRound,'Chief pilots','Keep crew qualification, currency, special-airport requirements and operational exposure attached to the flight.'],
+  [Plane,'Pilots','Receive a concise brief built from the same reviewed evidence the operations team used to make the decision.']
+];
+
+function HeroOperationsScene(){
+  return <div className="dh-hero-scene" aria-label="Illustration of Aeros evaluating a live mission">
+    <div className="dh-scene-top"><div><span className="dh-live-dot"/>LIVE OPERATIONS</div><span>14:18 UTC</span></div>
+    <div className="dh-scene-body">
+      <div className="dh-scene-queue">
+        <small>MISSION QUEUE</small>
+        <div><span>AO-2418</span><b>KPDK → KASE</b><em className="review">Review</em></div>
+        <div><span>AO-2421</span><b>KTEB → KPBI</b><em>Clear</em></div>
+        <div><span>AO-2424</span><b>KDAL → KAPA</b><em>Clear</em></div>
+      </div>
+      <div className="dh-scene-focus">
+        <div className="dh-scene-flight"><span>AO-2418 · CITATION CJ3+</span><h3>KPDK <i>→</i> KASE</h3><p>N905CR · Smith / Lopez · 14:30Z</p></div>
+        <div className="dh-scene-change">
+          <Activity size={14}/><div><small>MATERIAL CHANGE · 12M AGO</small><b>KASE forecast amended</b><p>Arrival ceiling trend now affects alternate planning and destination review.</p></div>
+        </div>
+        <div className="dh-scene-trace"><span>Condition</span><i>→</i><span>Operator rule</span><i>→</i><b>Review required</b></div>
+        <div className="dh-scene-option"><div><small>RECOMMENDED PATH</small><b>Add KDEN alternate</b><p>Preserve departure · +420 lb fuel · crew remains legal</p></div><strong>92</strong></div>
+      </div>
+    </div>
+    <div className="dh-scene-foot"><span><i/> Weather current</span><span><i/> Operator rules loaded</span><span><i/> Aircraft + crew synced</span></div>
+  </div>;
+}
+
 export default function Home(){
   return <div className="dust-home">
-    <section className="dh-hero">
-      <div className="dh-hero-inner">
+    <section className="dh-hero dh-hero-split">
+      <div className="dh-hero-copy-block">
         <div className="dh-kicker">AI OPERATIONS INTELLIGENCE FOR AVIATION</div>
-        <h1>Every operational decision,<br/>in context.</h1>
+        <h1>Every operational decision, in context.</h1>
         <p>Aeros connects operator knowledge, live flight conditions, aircraft and crew context so teams can understand what changed, what it affects, and which options remain viable.</p>
-        <div className="dh-actions">
+        <div className="dh-actions left">
           <Link href="/contact/" className="dh-primary">Request a demo <ArrowUpRight size={14}/></Link>
-          <Link href="/dashboard/" className="dh-secondary">Open the product</Link>
+          <Link href="/dashboard/" className="dh-secondary">Open Aeros →</Link>
         </div>
       </div>
+      <HeroOperationsScene/>
     </section>
 
     <section className="dh-context-strip" aria-label="Aeros operating context">
@@ -45,7 +76,7 @@ export default function Home(){
     <section className="dh-product" id="product">
       <div className="dh-section-copy centered">
         <span>SEE AEROS IN ACTION</span>
-        <h2>One mission. One operating picture.</h2>
+        <h2>AI that uses the full mission context to do real operational work.</h2>
         <p>The product is organized around the decision, not the data source. Everything relevant to the mission stays on the same surface.</p>
       </div>
       <div className="dh-product-frame">
@@ -62,8 +93,9 @@ export default function Home(){
 
     <section className="dh-context" id="how-it-works">
       <div className="dh-section-copy">
-        <span>ONE OPERATING CONTEXT</span>
+        <span>ONE SYSTEM FOR THE DECISION</span>
         <h2>Built around the flight, not another dashboard.</h2>
+        <p>Aeros maintains one operating picture that can be reviewed by people and continuously re-evaluated by software.</p>
       </div>
       <div className="dh-context-list">
         {operatingContext.map(([title,desc],index)=><div className="dh-context-row" key={title}><span>0{index+1}</span><h3>{title}</h3><p>{desc}</p></div>)}
@@ -97,11 +129,22 @@ export default function Home(){
 
     <section className="dh-principles">
       <div className="dh-section-copy centered">
-        <span>TRUST BY DESIGN</span>
+        <span>HUMANS STAY IN CONTROL</span>
         <h2>Built for decisions people have to stand behind.</h2>
+        <p>Aeros is designed to make the reasoning more visible, not to hide operational authority behind a model.</p>
       </div>
       <div className="dh-principle-grid">
         {principles.map(([Icon,title,desc])=><article key={title}><Icon size={18}/><h3>{title}</h3><p>{desc}</p></article>)}
+      </div>
+    </section>
+
+    <section className="dh-roles">
+      <div className="dh-section-copy">
+        <span>ONE OPERATING PICTURE</span>
+        <h2>The same mission context, for every person responsible for it.</h2>
+      </div>
+      <div className="dh-role-grid">
+        {roles.map(([Icon,title,desc])=><article key={title}><Icon size={17}/><div><h3>{title}</h3><p>{desc}</p></div><ArrowUpRight size={13}/></article>)}
       </div>
     </section>
 
