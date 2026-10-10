@@ -14,6 +14,7 @@ import './final-polish.css';
 import './final-iteration.css';
 import './dust-home.css';
 import './dust-shell.css';
+import './dust-home-v2.css';
 import Shell from '../components/Shell';
 
 export const metadata={
