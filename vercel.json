@@ -1,0 +1,5 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "node scripts/bootstrap-dust.mjs && npm install --prefix dust/sparkle --include=dev && npm run build --prefix dust/sparkle && npm install",
+  "buildCommand": "npm run build"
+}
