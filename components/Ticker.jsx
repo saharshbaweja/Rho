@@ -1,1 +1,0 @@
-export default function Ticker(){const a=['RDI-CODE 51.80 +4.6%','EXPERT TRACES 67.4 +7.8%','PROD DEBUG 58.2 +5.1%','SYNTHETIC INSTRUCTION 34.9 -1.2%','MODEL-LIFT / $1K 1.72'];return <div className="ticker"><div>{[...a,...a].map((x,i)=><span key={i}>{x}<i>↗</i></span>)}</div></div>}
