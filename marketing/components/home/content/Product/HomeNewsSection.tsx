@@ -28,11 +28,11 @@ export function HomeNewsSection({ news }: HomeNewsSectionProps = {}) {
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16">
           <div className="flex flex-col gap-4 lg:w-[380px] lg:flex-shrink-0">
             <HomeReveal>
-              <HomeEyebrow label="In the press" />
+              <HomeEyebrow label="The Aeros thesis" />
             </HomeReveal>
             <HomeReveal delay={80}>
               <H2 className="text-balance font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
-                News and announcements
+                Built around real operational decisions
               </H2>
             </HomeReveal>
             <HomeReveal delay={160}>
@@ -40,7 +40,7 @@ export function HomeNewsSection({ news }: HomeNewsSectionProps = {}) {
                 href={SEE_ALL_PRESS_HREF}
                 className="group inline-flex w-fit items-center gap-2 text-base font-medium text-foreground/80 underline-offset-4 transition-colors hover:text-foreground hover:underline focus-visible:rounded-sm focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
               >
-                More about us
+                Explore Aeros
                 <svg
                   width="16"
                   height="16"

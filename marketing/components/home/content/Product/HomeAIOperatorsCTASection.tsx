@@ -12,18 +12,18 @@ interface CTAStat {
 
 const STATS: CTAStat[] = [
   {
-    label: "Agents deployed",
-    display: "300,000+",
+    label: "Mission context",
+    display: "Unified",
     accent: "blue",
   },
   {
-    label: "Teams running on Dust",
-    display: "3,000+",
+    label: "Operational inputs",
+    display: "Connected",
     accent: "golden",
   },
   {
-    label: "Active right now",
-    display: "Live",
+    label: "Human review",
+    display: "Required",
     accent: "green",
   },
 ];
@@ -45,14 +45,14 @@ export function HomeAIOperatorsCTASection() {
         <HomeReveal>
           <span className="inline-flex h-7 w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 font-mono text-[11px] uppercase tracking-[0.12em] text-white/70 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
-            The platform for AI Operators
+            The intelligence layer for flight operations
           </span>
         </HomeReveal>
         <HomeReveal delay={80}>
           <h1 className="m-0 max-w-[920px] text-balance text-center text-4xl font-semibold leading-[1.02] tracking-[-0.04em] text-white md:text-5xl xl:text-6xl">
-            The best teams aren&apos;t just using AI.
+            The best operations teams don&apos;t need more data.
             <br />
-            They&apos;re{" "}
+            They need{" "}
             <HomeReveal
               as="em"
               variant="running"
@@ -65,10 +65,10 @@ export function HomeAIOperatorsCTASection() {
                     'ui-serif, Georgia, Cambria, "Times New Roman", serif',
                 }}
               >
-                running
+                clarity
               </span>
             </HomeReveal>{" "}
-            it.
+            now.
           </h1>
         </HomeReveal>
         <HomeReveal
@@ -76,15 +76,14 @@ export function HomeAIOperatorsCTASection() {
           className="flex max-w-[680px] flex-col gap-6 text-white/70"
         >
           <p className="m-0 text-base leading-[1.6]">
-            There&apos;s a new kind of person emerging in fast-moving companies;
-            someone who doesn&apos;t wait for an AI tool to be handed to them.
-            They build it with judgment, deploy it, and run it for their whole
-            team. We call them AI Operators.
+            Flight operations already have weather, NOTAMs, manuals, crew systems,
+            maintenance data, and scheduling tools. The hard part is understanding
+            what all of it means for this flight, right now.
           </p>
           <p className="m-0 text-base leading-[1.6] text-white/85">
-            Work is being rewritten. The pen is in the hands of AI Operators.
-            <br />
-            We&apos;re building the platform for them.
+            Aeros turns fragmented context into viable operational options, with
+            the evidence and tradeoffs behind each one visible to the people
+            making the decision.
           </p>
         </HomeReveal>
         <HomeReveal
@@ -94,7 +93,7 @@ export function HomeAIOperatorsCTASection() {
           <Button
             variant="highlight"
             size="md"
-            label="We're hiring →"
+            label="Request access →"
             href="https://dust.tt/jobs"
             className="active:scale-[0.97] transition-transform duration-100"
             onClick={withTracking(TRACKING_AREAS.HOME, "ai_operator_hiring")}

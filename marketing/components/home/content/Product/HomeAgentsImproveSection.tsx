@@ -30,33 +30,33 @@ interface FeatureCard {
 const CARDS: FeatureCard[] = [
   {
     number: "01",
-    title: "Agents with company context",
+    title: "Mission context, connected",
     subtitle:
-      "Connect Dust to 70+ connectors, including Slack, Notion, Google Drive, GitHub, Salesforce, and Zendesk. Give agents the context they need to get work done.",
+      "Connect weather, NOTAMs, aircraft status, crew data, airport constraints, and operator procedures. Give every mission the context needed to make a decision.",
     accent: "text-blue-500",
     hoverVideoSrc: "/static/landing/home/features/knows-your-company.mp4",
   },
   {
     number: "02",
-    title: "Multiplayer AI for cross-functional work",
+    title: "Shared intelligence for flight operations",
     subtitle:
-      "Bring people and agents into the same workflow. Dust helps teams coordinate complex work across departments using shared context, reusable skills, connected tools, and human review.",
+      "Bring dispatchers, pilots, schedulers, and operations teams into the same workflow. Aeros keeps mission context, options, evidence, and approvals aligned.",
     accent: "text-rose-500",
     hoverVideoSrc: "/static/landing/home/features/team-sport.mp4",
   },
   {
     number: "03",
-    title: "Model flexibility",
+    title: "Options, not just answers",
     subtitle:
-      "Build agents with 20+ frontier and open-source models from OpenAI, Anthropic, Google, Mistral, and more. Choose the model that fits each workflow.",
+      "Turn changing conditions into viable operational paths. Compare timing, fuel, crew, airport, and recovery tradeoffs before the team makes the call.",
     accent: "text-golden-500",
     hoverVideoSrc: "/static/landing/home/features/best-model.mp4",
   },
   {
     number: "04",
-    title: "AI-native governance",
+    title: "Evidence behind every recommendation",
     subtitle:
-      "Control how AI is used across your company. Set permissions for data, tools, systems, and agents, then use audit logs and analytics to monitor activity, adoption, usage, costs, and ROI.",
+      "Keep people in control. Trace each recommendation back to live conditions, operator procedures, and source rules, with uncertainty and missing inputs surfaced.",
     accent: "text-green-700",
     hoverVideoSrc: "/static/landing/home/features/compounds.mp4",
   },
@@ -208,11 +208,11 @@ export function HomeAgentsImproveSection() {
       <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-16 px-6">
         <div className="flex flex-col items-center gap-6 text-center">
           <HomeReveal>
-            <HomeEyebrow label="Self-improving AI" />
+            <HomeEyebrow label="Operational intelligence" />
           </HomeReveal>
           <HomeReveal delay={80}>
             <H2 className="max-w-[820px] text-balance text-center font-semibold leading-[1.08] tracking-[-0.03em] text-foreground text-center!">
-              One system for your company&apos;s AI work
+              One decision layer for flight operations
             </H2>
           </HomeReveal>
           <HomeReveal delay={160}>
@@ -220,10 +220,10 @@ export function HomeAgentsImproveSection() {
               size="sm"
               className="max-w-[680px] text-center text-muted-foreground"
             >
-              Dust brings your systems, models, and teams together so agents can
-              coordinate complex work across your company. Teams get the
-              flexibility to build and adapt agents, with the security and
-              control enterprise AI requires.
+              Aeros brings live data, operator rules, and mission context together
+              so teams can coordinate complex operational work. Every
+              recommendation stays tied to evidence, tradeoffs, and human
+              review.
             </P>
           </HomeReveal>
         </div>

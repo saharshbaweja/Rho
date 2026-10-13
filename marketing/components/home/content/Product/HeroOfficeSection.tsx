@@ -8,10 +8,10 @@ import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 
-const HEADLINE_LINE_1 = "Multiplayer AI for";
-const HEADLINE_LINE_2 = "human-agent collaboration";
+const HEADLINE_LINE_1 = "AI operations for";
+const HEADLINE_LINE_2 = "every flight decision";
 const LEAD_COPY =
-  "Dust connects your company knowledge, tools, and teams so you can create, share, and run agents across real workflows. Use different models for different tasks, with people in control.";
+  "Aeros connects live flight data, operator rules, and teams so you can understand what changed, compare viable options, and act with evidence. Keep every decision grounded, with people in control.";
 
 const OFFICE_FIRST_NAMES = [
   "Aisha",
@@ -157,7 +157,7 @@ export function HeroOfficeSection() {
               <Button
                 variant="ghost-secondary"
                 size="md"
-                label="Try for free →"
+                label="Request access →"
                 onClick={withTracking(
                   TRACKING_AREAS.HOME,
                   "hero_start_free",

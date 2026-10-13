@@ -9,11 +9,11 @@ export function HomeCoordinatedSection() {
       <div className="mx-auto flex w-full max-w-[1180px] flex-col items-center gap-12 px-6 lg:flex-row-reverse lg:items-center lg:gap-20">
         <div className="flex w-full flex-col gap-6 lg:w-1/2">
           <HomeReveal>
-            <HomeEyebrow label="See Dust in action" />
+            <HomeEyebrow label="See Aeros in action" />
           </HomeReveal>
           <HomeReveal delay={80}>
             <H2 className="text-balance font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
-              AI that uses your context to do real work
+              AI that understands the full mission context
             </H2>
           </HomeReveal>
           <HomeReveal delay={160}>
@@ -21,10 +21,10 @@ export function HomeCoordinatedSection() {
               size="sm"
               className="max-w-[480px] leading-[1.6] text-muted-foreground"
             >
-              Most AI tools can retrieve a message from Slack or a record from
-              your CRM. Dust brings the relevant context together across Slack,
-              CRM, docs, and other company systems, so agents can answer with
-              the full picture and take action.
+              Most aviation systems show one piece of the operation. Aeros brings
+              weather, NOTAMs, aircraft status, crew constraints, and operator
+              procedures together, so teams can see the full picture and act
+              on what changed.
             </P>
           </HomeReveal>
         </div>

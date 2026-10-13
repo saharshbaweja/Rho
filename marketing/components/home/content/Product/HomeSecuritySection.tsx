@@ -54,35 +54,35 @@ interface ComplianceColumn {
 const COLUMNS: ComplianceColumn[] = [
   {
     code: "01",
-    title: "Security and privacy",
+    title: "Evidence and traceability",
     accent: "red",
     items: [
-      "SOC 2 Type II certified",
-      "Data residency in the US or EU",
-      "Dedicated single-tenant deployment",
-      "Custom data retention policies",
+      "Source-linked recommendations",
+      "Separate facts, rules, and AI synthesis",
+      "Surface missing inputs and uncertainty",
+      "Mission-level decision history",
     ],
   },
   {
     code: "02",
-    title: "Governance and access",
+    title: "Human control",
     accent: "green",
     items: [
-      "Single sign-on with your identity provider",
-      "Automated user provisioning and deprovisioning",
-      "Separate data and permissions by team",
-      "Audit logs and advanced security controls",
+      "Review before operational action",
+      "Role-based approvals and access",
+      "Clear ownership of decisions",
+      "Configurable operator procedures",
     ],
   },
   {
     code: "03",
-    title: "Enterprise deployment",
+    title: "Operator deployment",
     accent: "blue",
     items: [
-      "Connect to your existing tools",
-      "Shared workspace credits and volume pricing",
-      "Dedicated customer success support",
-      "Priority support with an SLA",
+      "Connect existing operational systems",
+      "Ingest manuals and procedures",
+      "Configure operator-specific constraints",
+      "Expand integrations as workflows mature",
     ],
   },
 ];
@@ -136,11 +136,11 @@ export function HomeSecuritySection() {
       <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-12 px-6">
         <div className="flex flex-col gap-6">
           <HomeReveal>
-            <HomeEyebrow label="Enterprise-ready" />
+            <HomeEyebrow label="Built for operational trust" />
           </HomeReveal>
           <HomeReveal delay={80}>
             <H2 className="max-w-[820px] text-balance font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
-              Use AI on your terms, without giving up control of your data
+              Use AI without giving up control of the decision
             </H2>
           </HomeReveal>
           <HomeReveal delay={160}>
@@ -148,11 +148,10 @@ export function HomeSecuritySection() {
               size="sm"
               className="max-w-[820px] leading-[1.6] text-muted-foreground"
             >
-              Dust&apos;s dual-layer permission model separates what agents can
-              access from who can use them. SCIM-synced groups, admin-gated
-              overrides, zero privilege escalation, and audit logs let teams
-              move quickly while keeping company data locked down. Granular
-              enough for your CISO, invisible to everyone else.
+              Aeros separates live data, operator rules, and AI-generated synthesis
+              so teams can see exactly what informed a recommendation. Source
+              visibility, human review, role-based access, and decision history
+              keep the system auditable.
             </P>
           </HomeReveal>
         </div>

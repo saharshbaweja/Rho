@@ -11,13 +11,13 @@ export function HomeTeamSportSection() {
   return (
     <section className="w-full bg-background py-14 lg:py-24">
       <div className="mx-auto flex w-full max-w-[1180px] flex-col px-6">
-        {/* Two-column layout: copy + Ryan Wang pull-quote on the left,
+        {/* Two-column layout: copy + Aeros pull-quote on the left,
             collaboration illustration on the right. Mirrors the
             HomeCoordinatedSection layout. */}
         <div className="flex flex-col items-stretch gap-12 lg:flex-row lg:items-center lg:gap-20">
           <div className="flex w-full flex-col gap-6 lg:w-1/2">
             <HomeReveal>
-              <HomeEyebrow label="Team collaboration" />
+              <HomeEyebrow label="Human-in-the-loop operations" />
             </HomeReveal>
             <HomeReveal delay={80}>
               <H2 className="text-balance font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
@@ -29,11 +29,10 @@ export function HomeTeamSportSection() {
                 size="sm"
                 className="max-w-[480px] leading-[1.6] text-muted-foreground"
               >
-                Dust gives people and agents shared access to company knowledge,
-                connected tools, conversations, and notifications. People guide
-                the work, while agents handle repeatable tasks across teams.
-                That is what we mean by multiplayer AI: shared work between
-                people, agents, and the systems they use.
+                Aeros gives dispatchers, pilots, schedulers, and operations teams
+                shared access to mission context, evidence, decisions, and
+                notifications. AI handles the synthesis; people review the
+                tradeoffs, coordinate the response, and own the final call.
               </P>
             </HomeReveal>
             <HomeReveal as="figure" delay={240} className="m-0 mt-4 w-full">
@@ -42,16 +41,15 @@ export function HomeTeamSportSection() {
                 <blockquote
                   className={`${sourceSerif.className} m-0 text-balance text-base font-normal leading-[1.4] tracking-[-0.005em] text-foreground md:text-lg`}
                 >
-                  &ldquo;We made a bet on Dust because we knew the team was
-                  exceptional. What we didn&apos;t expect was how quickly it
-                  would transform how we work. Dust became the connective tissue
-                  that amplifies what each team does best.&rdquo;
+                  &ldquo;The system should organize the context, surface the viable
+                  paths, and make the evidence easy to inspect. The operator
+                  should always own the final decision.&rdquo;
                 </blockquote>
                 <figcaption className="flex items-center gap-3 not-italic">
                   <div className="relative h-9 w-9 flex-shrink-0 overflow-hidden rounded-full bg-muted">
                     <Image
                       src="/static/landing/people/ryan-wang.png"
-                      alt="Ryan Wang, CEO at Assembled"
+                      alt="Aeros, Operating principle"
                       fill
                       className="object-cover"
                       sizes="36px"
@@ -59,10 +57,10 @@ export function HomeTeamSportSection() {
                   </div>
                   <span className="flex flex-col">
                     <span className="text-sm font-medium text-foreground">
-                      Ryan Wang
+                      Aeros
                     </span>
                     <span className="text-xs text-muted-foreground">
-                      CEO at Assembled
+                      Operating principle
                     </span>
                   </span>
                 </figcaption>

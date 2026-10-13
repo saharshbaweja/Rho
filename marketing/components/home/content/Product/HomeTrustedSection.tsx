@@ -132,10 +132,10 @@ export function HomeTrustedSection() {
       <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center justify-center gap-12 text-center">
         <HomeReveal>
           <h2 className="m-0 text-balance px-6 text-center text-xl font-semibold tracking-[-0.02em] text-foreground md:text-2xl">
-            Trusted by teams
+            Designed for teams
             <br />
-            at <span className="text-blue-500">3,000+</span> global
-            organizations
+            running <span className="text-blue-500">24/7</span> flight
+            operations
           </h2>
         </HomeReveal>
         <HomeReveal delay={120} className="w-full">

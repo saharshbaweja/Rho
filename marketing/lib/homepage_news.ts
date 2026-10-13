@@ -9,34 +9,34 @@ export type { NewsItem };
 // homepage updates so the fallback doesn't surface stale press links.
 export const FALLBACK_NEWS: NewsItem[] = [
   {
-    source: "VIBESCALING PODCAST",
+    source: "AEROS · MISSION CONTEXT",
     title:
-      "How We Built Profound's GTM Motion To A $1B+ Valuation w/ Mark Ebert, SVP of Revenue @ Profound",
+      "One flight, one disruption, several viable operational paths",
     date: "May 12, 2026",
     href: "https://youtu.be/iDF_On2kOxo",
   },
   {
-    source: "HYPERTEXT",
-    title: "What is ARR anyway?",
+    source: "AEROS · CHANGE DETECTION",
+    title: "See what changed and why it matters to this mission",
     date: "Apr 17, 2026",
     href: "https://hypertext.fyi/what-is-arr-anyway/",
   },
   {
-    source: "WING VC",
-    title: "Enterprise Tech 30 List 2026",
+    source: "AEROS · EVIDENCE",
+    title: "Every recommendation should show the source behind it",
     date: "Mar 31, 2026",
     href: "https://www.wing.vc/et30/list",
   },
   {
-    source: "VENTUREBEAT",
+    source: "AEROS · HUMAN REVIEW",
     title:
-      "Dust hits $6M ARR helping enterprises build AI agents that actually do stuff instead of just talking",
+      "AI does the synthesis; operators make the call",
     date: "Jul 3, 2025",
     href: "https://venturebeat.com/ai/dust-hits-6m-arr-helping-enterprises-build-ai-agents-that-actually-do-stuff-instead-of-just-talking",
   },
   {
-    source: "SEQUOIA CAPITAL",
-    title: "Partnering with Dust: LLM-Powered Productivity",
+    source: "AEROS · PLATFORM",
+    title: "The intelligence layer above aviation operating systems",
     date: "Jul 3, 2023",
     href: "https://sequoiacap.com/article/partnering-with-dust-llm-powered-productivity/",
   },

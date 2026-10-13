@@ -16,16 +16,16 @@ const TESTIMONIAL_IMAGE = "/static/landing/people/quote-testimonial.png";
 const QUOTES = [
   {
     quote:
-      "Dust is the most impactful software we've adopted since building Clay.",
-    authorName: "Everett Berry",
-    authorRole: "Head of GTM Engineering at Clay",
+      "Turn fragmented operational inputs into a clear set of viable actions.",
+    authorName: "Aeros",
+    authorRole: "Operations intelligence",
     imageSrc: TESTIMONIAL_IMAGE,
     imageAlt: "Everett Berry, Head of GTM Engineering at Clay",
   },
   {
-    quote: "We used to do the work. Now we build the agents that do it.",
-    authorName: "Shashank Khanna",
-    authorRole: "Founder in Residence of GTM Innovation at Vanta",
+    quote: "Every recommendation should show what changed, what it means, and the evidence behind it.",
+    authorName: "Aeros",
+    authorRole: "Decision support",
     imageSrc: "/static/landing/people/shashank-khanna.png",
     imageAlt: "Shashank Khanna, Founder in Residence at Vanta",
     bg: "bg-violet-50",

@@ -40,36 +40,36 @@ const SHAPE_CYCLE: UsageShape[] = ["circle", "pie-bl", "pie-br", "circle"];
 const TABS: UsageTab[] = [
   {
     id: "engineering",
-    label: "Engineering",
-    heading: "Engineering\nOperations",
+    label: "Dispatch",
+    heading: "Flight Dispatch\nOperations",
     imageSrc: "/static/landing/functions/engineering.jpg",
     imageAlt: "Engineering team workflow placeholder",
     bg: "bg-orange-100/40",
     points: [
       {
-        title: "AI-Powered Code Debugging",
+        title: "Mission Briefing",
         description:
-          "Surface relevant context, docs, and historical issues inside your IDE",
+          "Bring route, weather, NOTAMs, aircraft, crew, and operator rules into one review",
         shape: "circle",
         colorClass: "text-pink-300",
       },
       {
-        title: "Automated Code Reviews",
-        description: "Maintain standards and compliance at scale",
+        title: "Change Detection",
+        description: "Surface only the changes that materially affect the active mission",
         shape: "pie-bl",
         colorClass: "text-orange-500",
       },
       {
-        title: "Incident Response",
+        title: "Alternate Planning",
         description:
-          "Execute automated runbooks, integrate communications, and enable rapid root cause analysis",
+          "Compare viable alternates against current operational constraints",
         shape: "pie-br",
         colorClass: "text-yellow-300",
       },
       {
-        title: "Continuous Doc Generation",
+        title: "Release Review",
         description:
-          "Keep user and API docs up-to-date from code changes automatically",
+          "Trace required actions and evidence before the flight is released",
         shape: "circle",
         colorClass: "text-green-700",
       },
@@ -77,34 +77,34 @@ const TABS: UsageTab[] = [
   },
   {
     id: "support",
-    label: "Customer Support",
-    heading: "Customer Support\nOperations",
+    label: "Flight Operations",
+    heading: "Flight Operations\nCommand",
     imageSrc: "/static/landing/functions/customersupport.jpg",
     imageAlt: "Customer support workflow placeholder",
     bg: "bg-blue-100/40",
     points: [
       {
-        title: "Ticket Triage & Routing",
-        description: "Classify and route tickets to the right team instantly",
+        title: "Mission Monitoring",
+        description: "Track material changes from planning through departure",
         shape: SHAPE_CYCLE[0],
         colorClass: "text-blue-400",
       },
       {
-        title: "Draft Responses",
+        title: "Crew & Aircraft Context",
         description:
-          "Generate context-aware replies grounded in your knowledge base",
+          "See legality, qualifications, aircraft state, and mission constraints together",
         shape: SHAPE_CYCLE[1],
         colorClass: "text-pink-300",
       },
       {
-        title: "Knowledge Synthesis",
-        description: "Turn resolved tickets into reusable internal docs",
+        title: "Recovery Options",
+        description: "Compare delay, reroute, alternate, and recovery paths side by side",
         shape: SHAPE_CYCLE[2],
         colorClass: "text-orange-400",
       },
       {
-        title: "Escalation Detection",
-        description: "Spot at-risk accounts and surface them before they churn",
+        title: "Decision Handoffs",
+        description: "Keep dispatch and crew aligned on what changed and what was approved",
         shape: SHAPE_CYCLE[3],
         colorClass: "text-green-500",
       },
@@ -112,33 +112,33 @@ const TABS: UsageTab[] = [
   },
   {
     id: "sales",
-    label: "Sales",
-    heading: "Sales\nOperations",
+    label: "Maintenance",
+    heading: "Maintenance\nCoordination",
     imageSrc: "/static/landing/functions/sales.jpg",
     imageAlt: "Sales workflow placeholder",
     bg: "bg-green-100/40",
     points: [
       {
-        title: "Account Research",
-        description: "Brief reps in seconds with the latest signal on accounts",
+        title: "MEL Impact Review",
+        description: "Understand how deferred items affect the specific mission",
         shape: SHAPE_CYCLE[0],
         colorClass: "text-blue-500",
       },
       {
-        title: "Lead Qualification",
-        description: "Score and route inbound leads with your live ICP",
+        title: "Aircraft Availability",
+        description: "Bring tail status and operational constraints into planning",
         shape: SHAPE_CYCLE[1],
         colorClass: "text-yellow-400",
       },
       {
-        title: "Proposal Drafting",
-        description: "Generate tailored proposals from past wins",
+        title: "Maintenance Constraints",
+        description: "Surface limitations that change route, airport, or timing options",
         shape: SHAPE_CYCLE[2],
         colorClass: "text-pink-300",
       },
       {
-        title: "CRM Hygiene",
-        description: "Auto-log calls, emails, and next steps after every touch",
+        title: "Return-to-Service Handoffs",
+        description: "Keep operations current as aircraft status changes",
         shape: SHAPE_CYCLE[3],
         colorClass: "text-green-500",
       },
@@ -146,34 +146,34 @@ const TABS: UsageTab[] = [
   },
   {
     id: "marketing",
-    label: "Marketing & Content",
-    heading: "Marketing & Content\nOperations",
+    label: "Scheduling & Crew",
+    heading: "Scheduling & Crew\nOperations",
     imageSrc: "/static/landing/functions/marketing.jpg",
     imageAlt: "Marketing workflow placeholder",
     bg: "bg-pink-100/40",
     points: [
       {
-        title: "Brief Generation",
+        title: "Crew Legality Review",
         description:
-          "Turn campaign goals into structured briefs grounded in your brand",
+          "Evaluate duty, qualification, and assignment constraints in context",
         shape: SHAPE_CYCLE[0],
         colorClass: "text-pink-400",
       },
       {
-        title: "Content Localization",
-        description: "Translate and adapt copy across markets in minutes",
+        title: "Duty Margin Monitoring",
+        description: "See which disruptions put crew legality at risk",
         shape: SHAPE_CYCLE[1],
         colorClass: "text-orange-400",
       },
       {
-        title: "Performance Analysis",
-        description: "Roll up campaign data into actionable narratives",
+        title: "Tail Assignment Impact",
+        description: "Understand how aircraft changes affect the active mission",
         shape: SHAPE_CYCLE[2],
         colorClass: "text-blue-400",
       },
       {
-        title: "Social Drafting",
-        description: "Compose on-brand posts from your latest releases",
+        title: "Downstream Schedule Effects",
+        description: "See how an operational decision propagates to later trips",
         shape: SHAPE_CYCLE[3],
         colorClass: "text-green-500",
       },
@@ -181,34 +181,34 @@ const TABS: UsageTab[] = [
   },
   {
     id: "data",
-    label: "Data & analytics",
-    heading: "Data & Analytics\nOperations",
+    label: "Safety & Compliance",
+    heading: "Safety & Compliance\nOperations",
     imageSrc: "/static/landing/functions/data.jpg",
     imageAlt: "Data and analytics workflow placeholder",
     bg: "bg-violet-100/40",
     points: [
       {
-        title: "Self-Service Analytics",
-        description: "Let any teammate ask data questions in plain English",
+        title: "Procedure Retrieval",
+        description: "Find the operator-specific procedure relevant to the mission",
         shape: SHAPE_CYCLE[0],
         colorClass: "text-blue-500",
       },
       {
-        title: "Pipeline Monitoring",
-        description: "Watch dashboards and alert on anomalies automatically",
+        title: "Rule Traceability",
+        description: "Link each conclusion to the rule or source that supports it",
         shape: SHAPE_CYCLE[1],
         colorClass: "text-yellow-400",
       },
       {
-        title: "Metrics Standardization",
+        title: "Decision History",
         description:
-          "Codify definitions so the whole company speaks one number",
+          "Preserve what changed, what was reviewed, and what was approved",
         shape: SHAPE_CYCLE[2],
         colorClass: "text-pink-300",
       },
       {
-        title: "Report Drafting",
-        description: "Turn raw queries into ready-to-share narratives",
+        title: "Exception Review",
+        description: "Surface missing inputs and cases that require human judgment",
         shape: SHAPE_CYCLE[3],
         colorClass: "text-green-500",
       },
@@ -480,17 +480,17 @@ export function HomeTeamUsageSection() {
       <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-12 px-6">
         <div className="flex flex-col items-center gap-6 text-center">
           <HomeReveal>
-            <HomeEyebrow label="How every team uses Dust" />
+            <HomeEyebrow label="How teams use Aeros" />
           </HomeReveal>
           <HomeReveal delay={80}>
             <H2 className="max-w-[760px] text-balance text-center! font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
-              One platform, every team, compounding value
+              One mission context, every operations team
             </H2>
           </HomeReveal>
           <HomeReveal delay={160}>
             <p className="m-0 max-w-[560px] text-base leading-[1.55] text-muted-foreground">
-              Discover how AI Operators across departments are using Dust to
-              rewire the way their companies work.
+              See how dispatch, flight operations, maintenance, scheduling, and
+              safety can work from the same operational picture.
             </p>
           </HomeReveal>
         </div>
