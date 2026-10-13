@@ -8,7 +8,12 @@ if (!existsSync(`${target}/marketing/package.json`)) {
   if (existsSync(target)) {
     rmSync(target, { recursive: true, force: true });
   }
-  execFileSync("git", ["clone", "--filter=blob:none", "https://github.com/dust-tt/dust.git", target], { stdio: "inherit" });
+  execFileSync(
+    "git",
+    ["clone", "--depth", "1", "--filter=blob:none", "--no-checkout", "https://github.com/dust-tt/dust.git", target],
+    { stdio: "inherit" }
+  );
+  execFileSync("git", ["-C", target, "fetch", "--depth", "1", "origin", DUST_SHA], { stdio: "inherit" });
   execFileSync("git", ["-C", target, "checkout", "--detach", DUST_SHA], { stdio: "inherit" });
 }
 
