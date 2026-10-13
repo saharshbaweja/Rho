@@ -6,7 +6,6 @@
     "node": ">=24.16.0"
   },
   "scripts": {
-    "postinstall": "node scripts/bootstrap-dust.mjs",
     "dev": "next dev",
     "build": "NODE_ENV=production next build",
     "start": "next start --keepAliveTimeout 5000",
@@ -19,7 +18,7 @@
     "@contentful/rich-text-react-renderer": "^16.1.6",
     "@contentful/rich-text-types": "^17.2.5",
     "@datadog/browser-logs": "^6.13.0",
-    "@dust-tt/sparkle": "^0.7.7",
+    "@dust-tt/sparkle": "file:./dust/sparkle",
     "@hookform/resolvers": "^3.3.4",
     "@marsidev/react-turnstile": "^1.5.2",
     "@radix-ui/react-dialog": "^1.0.5",
