@@ -8,10 +8,10 @@ import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 
-const HEADLINE_LINE_1 = "AI operations for";
-const HEADLINE_LINE_2 = "every flight decision";
+const HEADLINE_LINE_1 = "Mission intelligence for";
+const HEADLINE_LINE_2 = "modern flight operations";
 const LEAD_COPY =
-  "Aeros connects live flight data, operator rules, and teams so you can understand what changed, compare viable options, and act with evidence. Keep every decision grounded, with people in control.";
+  "Aeros connects your missions, live aviation data, aircraft, crews, and operating procedures so your team can understand every change, evaluate viable options, and make operational decisions with the full picture.";
 
 const OFFICE_FIRST_NAMES = [
   "Aisha",
