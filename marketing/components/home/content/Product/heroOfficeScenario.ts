@@ -131,22 +131,22 @@ const salesScenario: Scenario = {
     {
       id: "a1",
       startRoom: "office-t",
-      label: "@MissionReview",
-      cardRole: "Aeros · Dispatch",
+      label: "@LeadQual",
+      cardRole: "Agent · Sales",
       iconSvg: ICON_TARGET,
       iconImage: "/static/landing/home/agent-leadqual.png",
     },
   ],
   cast: [
-    { ref: "lisa", startRoom: "office-d", role: "Operations Lead" },
-    { ref: "marco", startRoom: "office-t", role: "Flight Coordinator" },
-    { ref: "yuki", startRoom: "office-c", role: "Chief Pilot" },
+    { ref: "lisa", startRoom: "office-d", role: "RevOps Lead" },
+    { ref: "marco", startRoom: "office-t", role: "AE · Sales" },
+    { ref: "yuki", startRoom: "office-c", role: "AE · Sales" },
   ],
   beats: [
     {
       type: "person",
       ref: "lisa",
-      msg: "KASE TAF just amended. @MissionReview is re-checking AO-2418 against weather, alternates, crew, and operator procedures.",
+      msg: "Just shipped v2 of @LeadQual — pulls live usage data from {Snowflake} and cross-references with our ICP scoring in {HubSpot}. Let me know if anything feels off.",
       holdMs: 5400,
       reactions: [
         { from: "marco", emoji: "👍", at: 3600 },
@@ -158,14 +158,14 @@ const salesScenario: Scenario = {
     {
       type: "person",
       ref: "marco",
-      msg: "@{lisa} are we still inside company planning limits?",
+      msg: "@{lisa} does it handle multi-product accounts now?",
       holdMs: 3200,
     },
     { type: "pause", ms: 300 },
     {
       type: "person",
       ref: "lisa",
-      msg: "Yes. The flight is still viable, but the alternate plan needs another look.",
+      msg: "Yep, fixed. Scores per product line and rolls up into a composite.",
       holdMs: 3800,
       reactions: [{ from: "marco", emoji: "✅", at: 2800 }],
     },
@@ -173,7 +173,7 @@ const salesScenario: Scenario = {
     {
       type: "person",
       ref: "marco",
-      msg: "@MissionReview review KPDK to KASE with the latest TAF and runway NOTAM.",
+      msg: "@LeadQual can you qualify Meridian Health? They just booked a demo for Thursday.",
       holdMs: 3800,
     },
     { type: "pause", ms: 300 },
@@ -181,7 +181,15 @@ const salesScenario: Scenario = {
     {
       type: "agent",
       agentId: "a1",
-      msg: "AO-2418 is conditionally viable. KASE ceiling trends below the planning threshold after 21Z. KDEN remains a valid alternate; adding it increases release fuel by about 420 lb. Crew legality and MEL status remain clear. Operator procedure requires destination authorization review before release.",
+      msg: [
+        "Here's what I found on **Meridian Health**:",
+        "* **ICP score:** 87/100 — mid-market healthcare, 340 employees.",
+        "* **Intent:** pricing page 6× this month, downloaded the security whitepaper.",
+        "* **Usage:** trial — 14 active users, 3 agents built. Top agent is a compliance FAQ bot.",
+        "* **Champion:** likely Priya Nair (Head of IT Ops) — built 2 of the 3 agents.",
+        "* **Risk:** no executive sponsor identified yet.",
+        "> Strong fit. Suggest looping in Priya's VP before the demo. Want me to draft a pre-meeting brief?",
+      ].join("\n"),
       holdMs: 7200,
       maxChars: 46,
       reactions: [
@@ -194,21 +202,21 @@ const salesScenario: Scenario = {
     {
       type: "person",
       ref: "marco",
-      msg: "Compare that with a 45-minute delay.",
+      msg: "Yes please. And flag this in {Slack} #sales-pipeline.",
       holdMs: 3200,
     },
     { type: "pause", ms: 300 },
     {
       type: "agent",
       agentId: "a1",
-      msg: "Delay improves the weather window with no major fuel penalty, but reduces crew duty margin. Both paths remain viable.",
+      msg: "Done. Brief posted to the Meridian Health project. Flagged in {Slack} #sales-pipeline with summary.",
       holdMs: 4000,
     },
     { type: "pause", ms: 400 },
     {
       type: "person",
       ref: "yuki",
-      msg: "@{marco} I can take the KASE authorization review while you recalc the alternate fuel.",
+      msg: "@{marco} I worked with Meridian's VP of Ops at my last company — happy to make a warm intro.",
       holdMs: 4400,
       reactions: [
         { from: "marco", emoji: "❤️", at: 3000 },
@@ -219,14 +227,14 @@ const salesScenario: Scenario = {
     {
       type: "person",
       ref: "marco",
-      msg: "@{yuki} perfect. I'll send the updated option set to the crew.",
+      msg: "@{yuki} that would be incredible. Sending you the brief now.",
       holdMs: 3800,
     },
     { type: "pause", ms: 300 },
     {
       type: "person",
       ref: "lisa",
-      msg: "Aeros does the synthesis. The operations team makes the call.",
+      msg: "Agent does the research, humans do the relationships. 🤝",
       holdMs: 4400,
       reactions: [
         { from: "marco", emoji: "💯", at: 2800 },
@@ -251,31 +259,31 @@ const supportScenario: Scenario = {
     {
       id: "a2",
       startRoom: "office-bl",
-      label: "@MELReview",
-      cardRole: "Aeros · Maintenance",
+      label: "@TicketRouter",
+      cardRole: "Agent · Support",
       iconSvg: ICON_GIT_BRANCH,
       iconImage: "/static/landing/home/agent-ticketrouter.png",
     },
     {
       id: "a3",
       startRoom: "office-d",
-      label: "@MxContext",
-      cardRole: "Aeros · Operations",
+      label: "@ProductExpert",
+      cardRole: "Agent · Engineering",
       iconSvg: ICON_WRENCH,
       iconImage: "/static/landing/home/agent-productexpert.png",
     },
   ],
   cast: [
-    { ref: "jordan", startRoom: "office-bl", role: "Maintenance Control" },
-    { ref: "sam", startRoom: "office-t", role: "Flight Coordinator" },
-    { ref: "priya", startRoom: "office-c", role: "Chief Pilot" },
-    { ref: "alex", startRoom: "office-d", role: "Operations Manager" },
+    { ref: "jordan", startRoom: "office-bl", role: "Support Ops" },
+    { ref: "sam", startRoom: "office-t", role: "Customer Success" },
+    { ref: "priya", startRoom: "office-c", role: "Customer Success" },
+    { ref: "alex", startRoom: "office-d", role: "Customer Success" },
   ],
   beats: [
     {
       type: "person",
       ref: "jordan",
-      msg: "Heads up: @MELReview now checks deferred items against the active mission before they reach dispatch.",
+      msg: "Heads up: @TicketRouter now hands off to @ProductExpert when it detects a bug pattern across 3+ tickets. No more manual escalation for repeat issues.",
       holdMs: 5400,
       reactions: [
         { from: "sam", emoji: "🎉", at: 3500 },
@@ -287,14 +295,14 @@ const supportScenario: Scenario = {
     {
       type: "person",
       ref: "sam",
-      msg: "@{jordan} can it tell us whether the indication on N905CR changes the Aspen mission?",
+      msg: "@{jordan} finally. I spent half of Monday chasing an eng answer for a {Salesforce} sync issue that turned out to be a known bug.",
       holdMs: 4600,
     },
     { type: "pause", ms: 300 },
     {
       type: "person",
       ref: "jordan",
-      msg: "That's the point—mission impact, not just maintenance status.",
+      msg: "Exactly why I built this.",
       holdMs: 2400,
       reactions: [{ from: "sam", emoji: "💜", at: 1800 }],
     },
@@ -302,7 +310,7 @@ const supportScenario: Scenario = {
     {
       type: "person",
       ref: "sam",
-      msg: "@MELReview review MEL 32-01 for AO-2418.",
+      msg: "@TicketRouter customer is asking why their data sync keeps failing on the {Salesforce} connector. Ticket #4891 in {Zendesk}.",
       holdMs: 4400,
     },
     { type: "pause", ms: 300 },
@@ -310,7 +318,7 @@ const supportScenario: Scenario = {
     {
       type: "agent",
       agentId: "a2",
-      msg: "MEL 32-01 remains dispatchable for this mission. No route restriction is triggered, but the crew briefing must include the deferred indication and the release should retain the maintenance reference.",
+      msg: "This matches **4 other tickets** this week. Pulling in @ProductExpert for deeper analysis.",
       holdMs: 4000,
     },
     { type: "pause", ms: 300 },
@@ -318,7 +326,12 @@ const supportScenario: Scenario = {
     {
       type: "agent",
       agentId: "a3",
-      msg: "What if we swap to N712LX instead?",
+      msg: [
+        "Found it. A change to the {Salesforce} OAuth refresh logic shipped Tuesday ({GitHub} commit a4f29c) — token rotation window shortened from 30min to 5min, causing race conditions during large syncs.",
+        "Engineering is aware — fix is in {GitHub} PR #2847, expected to ship today.",
+        "Suggested response:",
+        '> "We\'ve identified the root cause: a recent update to our Salesforce connector is causing sync interruptions for large datasets. A fix is shipping today — syncs will resume automatically."',
+      ].join("\n"),
       holdMs: 8000,
       maxChars: 50,
       reactions: [
@@ -331,14 +344,14 @@ const supportScenario: Scenario = {
     {
       type: "person",
       ref: "sam",
-      msg: "@MxContext shows N712LX available after 15:10Z, which would introduce a 40-minute delay and a crew reassignment check.",
+      msg: "Sending now. @{priya} @{alex} — same root cause, fix is shipping today.",
       holdMs: 4000,
     },
     { type: "pause", ms: 300 },
     {
       type: "person",
       ref: "priya",
-      msg: "Keep N905CR as primary. Put the tail swap in the recovery options.",
+      msg: "My customer emailed me three times about this. Sending the update now.",
       holdMs: 4000,
       reactions: [{ from: "sam", emoji: "😅", at: 2800 }],
     },
@@ -346,7 +359,7 @@ const supportScenario: Scenario = {
     {
       type: "person",
       ref: "alex",
-      msg: "Done. Current aircraft stays recommended; alternate tail is available as a recovery path.",
+      msg: "Already sent. @{jordan} this just saved three of us at least an hour each.",
       holdMs: 4000,
       reactions: [{ from: "jordan", emoji: "💯", at: 3000 }],
     },
@@ -354,7 +367,7 @@ const supportScenario: Scenario = {
     {
       type: "person",
       ref: "jordan",
-      msg: "That's exactly what I need—maintenance status translated into an operational decision.",
+      msg: "I'll add a {Slack} notification so you all get pinged automatically when @TicketRouter detects a cluster like this.",
       holdMs: 5000,
       reactions: [
         { from: "sam", emoji: "🚀", at: 3200 },
@@ -380,23 +393,23 @@ const engineeringScenario: Scenario = {
     {
       id: "a4",
       startRoom: "office-t",
-      label: "@OpsWatch",
-      cardRole: "Aeros · IROPS",
+      label: "@Incident",
+      cardRole: "Agent · Ops",
       iconSvg: ICON_ZAP,
       iconImage: "/static/landing/home/agent-incident.png",
     },
   ],
   cast: [
-    { ref: "aisha", startRoom: "office-t", role: "Flight Operations" },
-    { ref: "derek", startRoom: "office-d", role: "Dispatcher" },
-    { ref: "ren", startRoom: "office-d", role: "Scheduling Lead" },
-    { ref: "maya", startRoom: "office-d", role: "Safety" },
+    { ref: "aisha", startRoom: "office-t", role: "Platform Ops" },
+    { ref: "derek", startRoom: "office-d", role: "On-call Engineer" },
+    { ref: "ren", startRoom: "office-d", role: "Engineering Lead" },
+    { ref: "maya", startRoom: "office-d", role: "Engineer" },
   ],
   beats: [
     {
       type: "person",
       ref: "aisha",
-      msg: "Runway 15/33 at KASE just picked up a closure NOTAM. @OpsWatch is checking every affected mission.",
+      msg: "@Incident just triggered on a {Datadog} alert — latency spike on the API gateway. Who's on call?",
       holdMs: 4400,
     },
     { type: "pause", ms: 300 },
@@ -404,7 +417,14 @@ const engineeringScenario: Scenario = {
     {
       type: "agent",
       agentId: "a4",
-      msg: "@{aisha} does AO-2418 still have a usable arrival path?",
+      msg: [
+        "🚨 **API gateway p99 latency > 2s** (normally ~200ms). Started 3 minutes ago.",
+        "* On-call: @{derek}",
+        "* Recent deploys: 1 deploy 22 min ago (feature flag for new billing flow)",
+        "* Affected services: API gateway, billing service",
+        "* Customer impact: ~12% of requests timing out",
+        "@{derek} — I've opened {Slack} #inc-2026-0424. Want me to roll back the last deploy?",
+      ].join("\n"),
       holdMs: 7200,
       maxChars: 50,
     },
@@ -412,7 +432,7 @@ const engineeringScenario: Scenario = {
     {
       type: "person",
       ref: "derek",
-      msg: "I'm pulling the latest airport and weather constraints now.",
+      msg: "Let me check the billing service logs first. @Incident pull the last 15 minutes of errors from the billing service.",
       holdMs: 4400,
     },
     { type: "pause", ms: 300 },
@@ -420,7 +440,12 @@ const engineeringScenario: Scenario = {
     {
       type: "agent",
       agentId: "a4",
-      msg: "@OpsWatch evaluate the closure against AO-2418.",
+      msg: [
+        "* **847 errors** in 15 min, all TimeoutException on POST /billing/calculate",
+        "* Correlates exactly with the deploy timestamp",
+        "* No errors before 13:06 UTC",
+        "High confidence the billing deploy introduced the regression.",
+      ].join("\n"),
       holdMs: 6400,
       maxChars: 50,
     },
@@ -428,7 +453,7 @@ const engineeringScenario: Scenario = {
     {
       type: "person",
       ref: "derek",
-      msg: "The planned runway is unavailable during the current arrival window. Runway 02 remains available, but wind is near the operator crosswind limit.",
+      msg: "Roll it back.",
       holdMs: 2400,
       reactions: [
         { from: "aisha", emoji: "✅", at: 1400 },
@@ -439,31 +464,35 @@ const engineeringScenario: Scenario = {
     {
       type: "agent",
       agentId: "a4",
-      msg: "Show the least disruptive options.",
+      msg: [
+        "✅ Rollback initiated. Latency recovering. Monitoring for 10 minutes and posting to {StatusPage}.",
+        "Draft:",
+        '> "We experienced elevated API latency between 13:06–13:19 UTC. The issue has been identified and resolved. No data was lost. Full postmortem to follow."',
+      ].join("\n"),
       holdMs: 6400,
       maxChars: 50,
     },
     { type: "pause", ms: 400 },
-    { type: "person", ref: "aisha", msg: "Option 1: delay 35 minutes for the closure window. Option 2: depart on time with KEGE as recovery. Option 3: hold KDEN as the alternate and re-check KASE before top of descent.", holdMs: 2400 },
+    { type: "person", ref: "aisha", msg: "Approved. Post it.", holdMs: 2400 },
     { type: "pause", ms: 300 },
     {
       type: "person",
       ref: "ren",
-      msg: "@{derek} crew legality if we take the 35-minute delay?",
+      msg: "@{derek} was this the billing refactor from Tuesday's sprint? I think @{maya} authored that PR.",
       holdMs: 4400,
     },
     { type: "pause", ms: 300 },
     {
       type: "person",
       ref: "derek",
-      msg: "Still legal, with 1h18m duty margin at projected arrival.",
+      msg: "Yep, {GitHub} PR #2201. Feature flag defaulted to on in production — config issue, not code.",
       holdMs: 4600,
     },
     { type: "pause", ms: 300 },
     {
       type: "person",
       ref: "maya",
-      msg: "Put the delay and KEGE recovery side by side for review.",
+      msg: "I tested it with the flag off in staging. The env config didn't propagate. Fixing the default and adding a config check to CI.",
       holdMs: 5200,
       reactions: [
         { from: "aisha", emoji: "💪", at: 3600 },
@@ -475,14 +504,14 @@ const engineeringScenario: Scenario = {
     {
       type: "person",
       ref: "aisha",
-      msg: "Done. Timing, fuel, crew impact, and supporting sources are attached to both options.",
+      msg: "@{maya} that's why we have the rollback flow. 13 minutes customer-facing impact. @Incident — add Maya's CI check to the postmortem.",
       holdMs: 5200,
     },
     { type: "pause", ms: 300 },
     {
       type: "agent",
       agentId: "a4",
-      msg: "This is the handoff I want: one change, clear downstream impact, viable choices.",
+      msg: "Added. Postmortem draft in {Slack} #inc-2026-0424 within the hour.",
       holdMs: 3800,
       reactions: [
         { from: "aisha", emoji: "👍", at: 2400 },
@@ -507,23 +536,23 @@ const onboardingScenario: Scenario = {
     {
       id: "a5",
       startRoom: "office-c",
-      label: "@OpsGuide",
-      cardRole: "Aeros · Knowledge",
+      label: "@OnboardGuide",
+      cardRole: "Agent · People",
       iconSvg: ICON_CLIPBOARD_CHECK,
       iconImage: "/static/landing/home/agent-onboardguide.png",
     },
   ],
   cast: [
-    { ref: "nora", startRoom: "office-c", role: "Director of Operations" },
-    { ref: "clara", startRoom: "office-d", role: "Dispatch Manager" },
-    { ref: "kai", startRoom: "office-d", role: "Flight Coordinator" },
-    { ref: "tom", startRoom: "office-t", role: "Chief Pilot" },
+    { ref: "nora", startRoom: "office-c", role: "People Ops Lead" },
+    { ref: "clara", startRoom: "office-d", role: "Design Manager" },
+    { ref: "kai", startRoom: "office-d", role: "Product Designer" },
+    { ref: "tom", startRoom: "office-t", role: "Senior Designer" },
   ],
   beats: [
     {
       type: "person",
       ref: "nora",
-      msg: "Welcome aboard. @OpsGuide is connected to our operating manuals and procedures so you can ask mission-specific questions.",
+      msg: "Welcome to the team @{kai}! I've set up @OnboardGuide to walk you through your first two weeks. It knows our policies, your team's setup, and your onboarding checklist. Ask it anything.",
       holdMs: 5800,
       reactions: [
         { from: "clara", emoji: "🎉", at: 3600 },
@@ -536,14 +565,14 @@ const onboardingScenario: Scenario = {
     {
       type: "person",
       ref: "clara",
-      msg: "@{nora} where do I find the KASE special-airport requirements?",
+      msg: "@{kai} welcome!! Don't hesitate to ping me anytime, but @OnboardGuide will probably answer faster 😄",
       holdMs: 4800,
     },
     { type: "pause", ms: 300 },
     {
       type: "person",
       ref: "kai",
-      msg: "Ask it in the context of the flight you're working.",
+      msg: "Thank you both!! @OnboardGuide what should I focus on today?",
       holdMs: 3600,
     },
     { type: "pause", ms: 300 },
@@ -551,7 +580,14 @@ const onboardingScenario: Scenario = {
     {
       type: "agent",
       agentId: "a5",
-      msg: "@OpsGuide what has to be reviewed before we release a Part 135 mission into KASE?",
+      msg: [
+        "Welcome @{kai}! 🎉 Here's your **Day 1 checklist**:",
+        "* Accept {Google Workspace} invite ✅",
+        '* Set up {Figma} — your team uses the "Product Design" workspace.',
+        "* Read the Design System principles doc (15 min). Tl;dr: atomic design, shared component library, Friday reviews.",
+        "* Say hi in {Slack} #design-team — @{clara} usually posts a welcome thread.",
+        "* Your first 1:1 with @{clara} is tomorrow at 10am.",
+      ].join("\n"),
       holdMs: 8000,
       maxChars: 50,
     },
@@ -559,14 +595,17 @@ const onboardingScenario: Scenario = {
     {
       type: "person",
       ref: "kai",
-      msg: "For this operator, KASE requires the special-airport review, current destination weather check, applicable runway limitations, and documented crew acknowledgement before release.",
+      msg: "What's the PTO policy? And who do I talk to about a monitor for my home office?",
       holdMs: 4200,
     },
     { type: "pause", ms: 300 },
     {
       type: "agent",
       agentId: "a5",
-      msg: "Can you show me where each requirement comes from?",
+      msg: [
+        "**PTO:** Unlimited with a 15-day minimum. Manager approval for 3+ consecutive days. Full policy in the People Handbook (section 4.2).",
+        "**Equipment:** Post in {Slack} #it-requests. €500 budget for home office peripherals, pre-approved. @{nora} can help with anything outside the standard list.",
+      ].join("\n"),
       holdMs: 6800,
       maxChars: 50,
     },
@@ -574,7 +613,7 @@ const onboardingScenario: Scenario = {
     {
       type: "person",
       ref: "nora",
-      msg: "Yes. I linked the relevant operator procedure and source section beside every requirement.",
+      msg: "All correct. Standing desk is a separate budget — just DM me.",
       holdMs: 3800,
       reactions: [{ from: "kai", emoji: "✅", at: 2800 }],
     },
@@ -582,7 +621,7 @@ const onboardingScenario: Scenario = {
     {
       type: "person",
       ref: "tom",
-      msg: "@{kai} use that on AO-2418 and tell me what's unresolved.",
+      msg: "@{kai} grab 20 min on my calendar this week — I'll walk you through the component library live.",
       holdMs: 4800,
       reactions: [
         { from: "kai", emoji: "❤️", at: 3200 },
@@ -593,7 +632,7 @@ const onboardingScenario: Scenario = {
     {
       type: "person",
       ref: "kai",
-      msg: "AO-2418 still needs destination authorization review and alternate-plan confirmation. Crew legality, MEL eligibility, and crosswind check are clear.",
+      msg: "@{tom} booking now! This is the smoothest first day I've ever had.",
       holdMs: 4200,
       reactions: [
         { from: "nora", emoji: "🥹", at: 2800 },
@@ -605,14 +644,14 @@ const onboardingScenario: Scenario = {
     {
       type: "person",
       ref: "clara",
-      msg: "That makes onboarding much easier than hunting through five PDFs.",
+      msg: "@{nora} whatever you did with @OnboardGuide, every team should have this.",
       holdMs: 4200,
     },
     { type: "pause", ms: 300 },
     {
       type: "person",
       ref: "nora",
-      msg: "Exactly. The manual stays the source of truth; Aeros makes the right section usable in the moment.",
+      msg: "Working on it. Rolling out to Eng and Sales next month. 🚀",
       holdMs: 3800,
       reactions: [
         { from: "clara", emoji: "🔥", at: 2400 },
@@ -636,23 +675,23 @@ const orgNavScenario: Scenario = {
     {
       id: "a8",
       startRoom: "office-c",
-      label: "@Aeros",
-      cardRole: "Aeros · Operations",
+      label: "@Dust",
+      cardRole: "Agent · Knowledge",
       iconSvg: ICON_SPARKLE,
       iconImage: "/static/landing/home/agent-dust.png",
     },
   ],
   cast: [
-    { ref: "kai", startRoom: "office-d", role: "Flight Coordinator" },
-    { ref: "clara", startRoom: "office-d", role: "Dispatch Manager" },
-    { ref: "tom", startRoom: "office-t", role: "Chief Pilot" },
-    { ref: "nora", startRoom: "office-c", role: "Director of Operations" },
+    { ref: "kai", startRoom: "office-d", role: "Product Designer" },
+    { ref: "clara", startRoom: "office-d", role: "Design Manager" },
+    { ref: "tom", startRoom: "office-t", role: "Senior Designer" },
+    { ref: "nora", startRoom: "office-c", role: "People Ops Lead" },
   ],
   beats: [
     {
       type: "person",
       ref: "clara",
-      msg: "@Aeros who owns the final review when destination authorization is unresolved?",
+      msg: "@{kai} — @Dust has full context on our {Slack} channels, {Notion} spaces, and {Gmail} threads. Best way to get up to speed fast.",
       holdMs: 5000,
       reactions: [
         { from: "kai", emoji: "👋", at: 3200 },
@@ -664,7 +703,7 @@ const orgNavScenario: Scenario = {
     {
       type: "person",
       ref: "kai",
-      msg: "For this workflow, Dispatch prepares the mission review and the designated operations approver clears the authorization before release.",
+      msg: "@Dust I'm already in 40+ Slack channels. What should I actually be paying attention to?",
       holdMs: 4400,
     },
     { type: "pause", ms: 300 },
@@ -672,7 +711,15 @@ const orgNavScenario: Scenario = {
     {
       type: "agent",
       agentId: "a8",
-      msg: "@{kai} send me the current AO-2418 decision trace.",
+      msg: [
+        "Based on your role and recent activity across {Slack}, {Notion}, and {Gmail}:",
+        "**Follow closely:**",
+        "* #design-critique — main async review space, daily activity",
+        "* #product-design-eng — where design/eng handoffs get decided. You're already referenced in two open threads.",
+        "* #launches — Design owns the visual QA checklist. You have an open item.",
+        "**Safe to mute:** #general-announcements, #office-random",
+        "**{Notion}:** Design System (updated last week) and Q2 Roadmap (3 new briefs Monday).",
+      ].join("\n"),
       holdMs: 8400,
       maxChars: 50,
       reactions: [
@@ -684,21 +731,21 @@ const orgNavScenario: Scenario = {
     {
       type: "person",
       ref: "kai",
-      msg: "Sharing it now—weather review, alternate strategy, crew legality, MEL status, and source links are all included.",
+      msg: "I want to share an update on the onboarding flow redesign — where should I post it?",
       holdMs: 4200,
     },
     { type: "pause", ms: 300 },
     {
       type: "agent",
       agentId: "a8",
-      msg: "Can you also flag which items still need a human decision?",
+      msg: "Post in {Slack} #product-design-eng — that's where the thread is active and @{tom} has been waiting on an update. Cross-post to #product-updates for broader visibility.",
       holdMs: 5200,
     },
     { type: "pause", ms: 400 },
     {
       type: "person",
       ref: "tom",
-      msg: "Two items: KASE authorization and final alternate selection. Everything else currently passes the configured checks.",
+      msg: "@{kai} exactly right. That thread's been waiting on you.",
       holdMs: 3600,
       reactions: [{ from: "kai", emoji: "✅", at: 2600 }],
     },
@@ -706,7 +753,7 @@ const orgNavScenario: Scenario = {
     {
       type: "person",
       ref: "clara",
-      msg: "@{clara} I'll take authorization. Can you own the alternate decision with the crew?",
+      msg: "@{kai} this is why I stopped writing onboarding docs. @Dust just knows. 😄",
       holdMs: 4200,
       reactions: [
         { from: "kai", emoji: "😄", at: 2800 },
@@ -718,7 +765,7 @@ const orgNavScenario: Scenario = {
     {
       type: "person",
       ref: "nora",
-      msg: "Yep. Aeros keeps the context together; we keep ownership of the decision.",
+      msg: "Rolling this out to every new hire next month.",
       holdMs: 3800,
       reactions: [
         { from: "clara", emoji: "🔥", at: 2400 },
@@ -743,31 +790,31 @@ const marketingScenario: Scenario = {
     {
       id: "a6",
       startRoom: "office-c",
-      label: "@TripBrief",
-      cardRole: "Aeros · Briefing",
+      label: "@LaunchOps",
+      cardRole: "Agent · Marketing",
       iconSvg: ICON_ROCKET,
       iconImage: "/static/landing/home/agent-launchops.png",
     },
     {
       id: "a7",
       startRoom: "office-c",
-      label: "@OpsBrief",
-      cardRole: "Aeros · Operations",
+      label: "@ContentWriter",
+      cardRole: "Agent · Marketing",
       iconSvg: ICON_PEN,
       iconImage: "/static/landing/home/agent-contentwriter.png",
     },
   ],
   cast: [
-    { ref: "theo", startRoom: "office-c", role: "Flight Operations" },
-    { ref: "eva", startRoom: "office-c", role: "Dispatch" },
-    { ref: "marco", startRoom: "office-t", role: "Client Services" },
-    { ref: "sophie", startRoom: "office-t", role: "Scheduler" },
+    { ref: "theo", startRoom: "office-c", role: "Marketing Ops" },
+    { ref: "eva", startRoom: "office-c", role: "Content Lead" },
+    { ref: "marco", startRoom: "office-t", role: "AE · Sales" },
+    { ref: "sophie", startRoom: "office-t", role: "SDR" },
   ],
   beats: [
     {
       type: "person",
       ref: "theo",
-      msg: "AO-2429 changed again. @TripBrief is rebuilding the operational brief from the approved mission state.",
+      msg: "The Meridian Health case study is approved. @LaunchOps — pull from {Google Docs} and kick off the distribution workflow.",
       holdMs: 4800,
     },
     { type: "pause", ms: 300 },
@@ -775,7 +822,15 @@ const marketingScenario: Scenario = {
     {
       type: "agent",
       agentId: "a6",
-      msg: "@{theo} make sure the crew sees the new MYNN weather and customs timing.",
+      msg: [
+        "On it. Based on our launch playbook:",
+        "* **Blog** · full case study ✅ Ready",
+        "* {LinkedIn} · short-form post + pull quote 🔄 Drafting",
+        "* {HubSpot} · newsletter snippet 🔄 Drafting",
+        "* **Sales enablement** · one-pager + talk track ⏳ Pending",
+        "* {Slack} **#wins** · internal announcement ⏳ Pending",
+        "@ContentWriter — can you adapt the case study into a one-pager for sales?",
+      ].join("\n"),
       holdMs: 8400,
       maxChars: 50,
       reactions: [
@@ -796,14 +851,14 @@ const marketingScenario: Scenario = {
     {
       type: "person",
       ref: "eva",
-      msg: "And client services needs the arrival impact without all the dispatch detail.",
+      msg: "@LaunchOps show me the {LinkedIn} draft.",
       holdMs: 2800,
     },
     { type: "pause", ms: 200 },
     {
       type: "agent",
       agentId: "a6",
-      msg: "@TripBrief generate the crew brief from the latest approved option.",
+      msg: "\"Meridian Health's CS team went from spending 45 minutes investigating each technical question to getting verified answers in under 2 minutes. They didn't hire more people — they built 3 specialized agents connected directly to their codebase, customer data, and product docs. Here's how →\"\nIncludes the Priya Nair quote. Want me to adjust tone or length?",
       holdMs: 7200,
       maxChars: 50,
     },
@@ -811,7 +866,7 @@ const marketingScenario: Scenario = {
     {
       type: "person",
       ref: "eva",
-      msg: "Crew brief updated: route, weather change, NOTAMs, fuel impact, aircraft status, required acknowledgements, and source references are included.",
+      msg: "Shorter. Lead with the time saved, not the team name.",
       holdMs: 3200,
     },
     { type: "pause", ms: 200 },
@@ -827,12 +882,12 @@ const marketingScenario: Scenario = {
       ],
     },
     { type: "pause", ms: 400 },
-    { type: "person", ref: "eva", msg: "@OpsBrief give client services the operational impact in plain language.", holdMs: 2400 },
+    { type: "person", ref: "eva", msg: "Ship it. 🚀", holdMs: 2400 },
     { type: "pause", ms: 300 },
     {
       type: "person",
       ref: "marco",
-      msg: "Arrival remains on schedule. No passenger action is required. Customs timing has been re-confirmed and the crew has one new weather item to review.",
+      msg: "Love this. Can I send the one-pager to my healthcare accounts in pipeline?",
       holdMs: 4200,
       reactions: [
         { from: "eva", emoji: "👀", at: 2800 },
@@ -850,14 +905,14 @@ const marketingScenario: Scenario = {
     {
       type: "person",
       ref: "marco",
-      msg: "@{eva} that's clean. I'll send the client update.",
+      msg: "Literally had that conversation yesterday.",
       holdMs: 2800,
     },
     { type: "pause", ms: 300 },
     {
       type: "person",
       ref: "sophie",
-      msg: "@{marco} crew brief is ready too—no need to rebuild it manually.",
+      msg: "Used the one-pager in an outbound sequence this morning. Already got a reply asking for a demo. 👀",
       holdMs: 4400,
       reactions: [
         { from: "marco", emoji: "🎯", at: 2800 },
@@ -869,7 +924,7 @@ const marketingScenario: Scenario = {
     {
       type: "person",
       ref: "eva",
-      msg: "Both briefs now point back to the same approved mission state.",
+      msg: "Already?? This is why I need to hire another content person.",
       holdMs: 4000,
       reactions: [
         { from: "sophie", emoji: "😂", at: 2800 },
@@ -880,7 +935,7 @@ const marketingScenario: Scenario = {
     {
       type: "person",
       ref: "theo",
-      msg: "One decision, different audiences, no conflicting version of the operation.",
+      msg: "Content ships, agents distribute, humans close. ☕",
       holdMs: 4200,
       reactions: [
         { from: "eva", emoji: "💯", at: 2800 },
