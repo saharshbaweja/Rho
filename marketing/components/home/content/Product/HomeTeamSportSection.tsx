@@ -21,7 +21,7 @@ export function HomeTeamSportSection() {
             </HomeReveal>
             <HomeReveal delay={80}>
               <H2 className="text-balance font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
-                Work that moves between people and AI
+                Flight operations is a team sport
               </H2>
             </HomeReveal>
             <HomeReveal delay={160}>
@@ -29,10 +29,10 @@ export function HomeTeamSportSection() {
                 size="sm"
                 className="max-w-[480px] leading-[1.6] text-muted-foreground"
               >
-                Aeros gives dispatchers, pilots, schedulers, and operations teams
-                shared access to mission context, evidence, decisions, and
-                notifications. AI handles the synthesis; people review the
-                tradeoffs, coordinate the response, and own the final call.
+                A mission crosses operations, pilots, maintenance, scheduling,
+                management, and client services. Aeros gives every role the
+                same operational picture while keeping responsibility and
+                approvals with the people who own the decision.
               </P>
             </HomeReveal>
             <HomeReveal as="figure" delay={240} className="m-0 mt-4 w-full">
@@ -41,9 +41,8 @@ export function HomeTeamSportSection() {
                 <blockquote
                   className={`${sourceSerif.className} m-0 text-balance text-base font-normal leading-[1.4] tracking-[-0.005em] text-foreground md:text-lg`}
                 >
-                  &ldquo;The system should organize the context, surface the viable
-                  paths, and make the evidence easy to inspect. The operator
-                  should always own the final decision.&rdquo;
+                  &ldquo;Aeros does the synthesis. Your operations team makes the
+                  call.&rdquo;
                 </blockquote>
                 <figcaption className="flex items-center gap-3 not-italic">
                   <div className="relative h-9 w-9 flex-shrink-0 overflow-hidden rounded-full bg-muted">
