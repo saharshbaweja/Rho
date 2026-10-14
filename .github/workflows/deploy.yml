@@ -108,7 +108,7 @@ jobs:
       thread_ts: ${{ steps.card.outputs.thread_ts }}
       card: ${{ steps.card.outputs.card }}
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           sparse-checkout: |
             /.authors
@@ -172,7 +172,7 @@ jobs:
     if: ${{ !failure() && !cancelled() && contains(fromJSON('["front","front-edge","front-sse","front-collab","connectors","core","oauth","viz","prodbox","dante","egress-proxy","sparkle-storybook"]'), inputs.component) }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 50 # Fetch last 50 commits for commit diff functionality
 
@@ -211,7 +211,7 @@ jobs:
       fail-fast: true
 
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 50 # Fetch last 50 commits for commit diff functionality
 
@@ -259,7 +259,7 @@ jobs:
     if: ${{ !failure() && !cancelled() && (needs.verify-sandbox-images.result == 'success' || needs.verify-sandbox-images.result == 'skipped') }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           sparse-checkout: .github/actions/slack-notify
 
@@ -375,7 +375,7 @@ jobs:
     if: ${{ failure() && needs.notify-start.outputs.thread_ts }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           sparse-checkout: .github/actions/slack-notify
 
