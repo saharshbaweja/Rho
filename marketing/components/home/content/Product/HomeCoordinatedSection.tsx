@@ -13,7 +13,7 @@ export function HomeCoordinatedSection() {
           </HomeReveal>
           <HomeReveal delay={80}>
             <H2 className="text-balance font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
-              AI that understands the full mission context
+              Operational intelligence that uses the full mission context
             </H2>
           </HomeReveal>
           <HomeReveal delay={160}>
@@ -21,10 +21,10 @@ export function HomeCoordinatedSection() {
               size="sm"
               className="max-w-[480px] leading-[1.6] text-muted-foreground"
             >
-              Most aviation systems show one piece of the operation. Aeros brings
-              weather, NOTAMs, aircraft status, crew constraints, and operator
-              procedures together, so teams can see the full picture and act
-              on what changed.
+              Most aviation systems show one piece of the operation—weather,
+              scheduling, maintenance, or flight planning. Aeros brings the
+              relevant context together across every mission so your team can
+              understand what changed, what it affects, and what to do next.
             </P>
           </HomeReveal>
         </div>
