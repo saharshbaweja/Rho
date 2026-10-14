@@ -30,33 +30,33 @@ interface FeatureCard {
 const CARDS: FeatureCard[] = [
   {
     number: "01",
-    title: "Mission context, connected",
+    title: "Every mission, fully understood",
     subtitle:
-      "Connect weather, NOTAMs, aircraft status, crew data, airport constraints, and operator procedures. Give every mission the context needed to make a decision.",
+      "Connect schedules, weather, NOTAMs, aircraft, crew, airport data, and operator procedures. Aeros builds the operational context required to understand each mission as conditions change.",
     accent: "text-blue-500",
     hoverVideoSrc: "/static/landing/home/features/knows-your-company.mp4",
   },
   {
     number: "02",
-    title: "Shared intelligence for flight operations",
+    title: "Changes translated into impact",
     subtitle:
-      "Bring dispatchers, pilots, schedulers, and operations teams into the same workflow. Aeros keeps mission context, options, evidence, and approvals aligned.",
+      "A new TAF or NOTAM isn't another alert. Aeros identifies the missions it affects, reruns the relevant checks, and shows the operational consequence.",
     accent: "text-rose-500",
     hoverVideoSrc: "/static/landing/home/features/team-sport.mp4",
   },
   {
     number: "03",
-    title: "Options, not just answers",
+    title: "Viable options, continuously evaluated",
     subtitle:
-      "Turn changing conditions into viable operational paths. Compare timing, fuel, crew, airport, and recovery tradeoffs before the team makes the call.",
+      "When a mission needs attention, Aeros generates possible moves—delay, alternate, aircraft swap, recovery airport, crew change—and evaluates each against the same operational constraints.",
     accent: "text-golden-500",
     hoverVideoSrc: "/static/landing/home/features/best-model.mp4",
   },
   {
     number: "04",
-    title: "Evidence behind every recommendation",
+    title: "Decisions grounded in evidence",
     subtitle:
-      "Keep people in control. Trace each recommendation back to live conditions, operator procedures, and source rules, with uncertainty and missing inputs surfaced.",
+      "Every conclusion stays connected to its source. See the condition, applicable rule, result, validity, and evidence behind every operational recommendation.",
     accent: "text-green-700",
     hoverVideoSrc: "/static/landing/home/features/compounds.mp4",
   },
@@ -212,7 +212,7 @@ export function HomeAgentsImproveSection() {
           </HomeReveal>
           <HomeReveal delay={80}>
             <H2 className="max-w-[820px] text-balance text-center font-semibold leading-[1.08] tracking-[-0.03em] text-foreground text-center!">
-              One decision layer for flight operations
+              One system for the operational decision
             </H2>
           </HomeReveal>
           <HomeReveal delay={160}>
@@ -220,10 +220,9 @@ export function HomeAgentsImproveSection() {
               size="sm"
               className="max-w-[680px] text-center text-muted-foreground"
             >
-              Aeros brings live data, operator rules, and mission context together
-              so teams can coordinate complex operational work. Every
-              recommendation stays tied to evidence, tradeoffs, and human
-              review.
+              Aeros brings every mission, live condition, operator rule, and
+              operational constraint together so teams can understand change,
+              compare viable paths, and make decisions with evidence.
             </P>
           </HomeReveal>
         </div>
