@@ -79,7 +79,7 @@ const TABS: UsageTab[] = [
     id: "support",
     label: "Flight Operations",
     heading: "Flight Operations\nCommand",
-    imageSrc: "/static/landing/functions/customersupport.jpg",
+    imageSrc: "/static/landing/functions/aeros-flight-operations.png",
     imageAlt: "Customer support workflow placeholder",
     bg: "bg-blue-100/40",
     points: [
@@ -114,7 +114,7 @@ const TABS: UsageTab[] = [
     id: "sales",
     label: "Maintenance",
     heading: "Maintenance\nCoordination",
-    imageSrc: "/static/landing/functions/sales.jpg",
+    imageSrc: "/static/landing/functions/aeros-maintenance.png",
     imageAlt: "Sales workflow placeholder",
     bg: "bg-green-100/40",
     points: [
@@ -148,7 +148,7 @@ const TABS: UsageTab[] = [
     id: "marketing",
     label: "Scheduling & Crew",
     heading: "Scheduling & Crew\nOperations",
-    imageSrc: "/static/landing/functions/marketing.jpg",
+    imageSrc: "/static/landing/functions/aeros-crew-scheduling.png",
     imageAlt: "Marketing workflow placeholder",
     bg: "bg-pink-100/40",
     points: [
@@ -183,7 +183,7 @@ const TABS: UsageTab[] = [
     id: "data",
     label: "Safety & Compliance",
     heading: "Safety & Compliance\nOperations",
-    imageSrc: "/static/landing/functions/data.jpg",
+    imageSrc: "/static/landing/functions/aeros-safety-compliance.png",
     imageAlt: "Data and analytics workflow placeholder",
     bg: "bg-violet-100/40",
     points: [
