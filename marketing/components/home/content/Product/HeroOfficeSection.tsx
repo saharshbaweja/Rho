@@ -69,7 +69,7 @@ export function HeroOfficeSection() {
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
             >
               <source
                 src="/static/landing/home/aeros-agentic-dispatch.mp4"
