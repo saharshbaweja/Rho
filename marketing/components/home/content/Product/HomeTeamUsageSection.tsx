@@ -42,7 +42,7 @@ const TABS: UsageTab[] = [
     id: "engineering",
     label: "Dispatch",
     heading: "Flight Dispatch\nOperations",
-    imageSrc: "/static/landing/functions/engineering.jpg",
+    imageSrc: "/static/landing/functions/aeros-dispatch-portrait.png",
     imageAlt: "Engineering team workflow placeholder",
     bg: "bg-orange-100/40",
     points: [
@@ -79,7 +79,7 @@ const TABS: UsageTab[] = [
     id: "support",
     label: "Flight Operations",
     heading: "Flight Operations\nCommand",
-    imageSrc: "/static/landing/functions/aeros-flight-operations.png",
+    imageSrc: "/static/landing/functions/aeros-flight-operations-portrait.png",
     imageAlt: "Customer support workflow placeholder",
     bg: "bg-blue-100/40",
     points: [
@@ -114,7 +114,7 @@ const TABS: UsageTab[] = [
     id: "sales",
     label: "Maintenance",
     heading: "Maintenance\nCoordination",
-    imageSrc: "/static/landing/functions/aeros-maintenance.png",
+    imageSrc: "/static/landing/functions/aeros-maintenance-portrait.png",
     imageAlt: "Sales workflow placeholder",
     bg: "bg-green-100/40",
     points: [
@@ -148,7 +148,7 @@ const TABS: UsageTab[] = [
     id: "marketing",
     label: "Scheduling & Crew",
     heading: "Scheduling & Crew\nOperations",
-    imageSrc: "/static/landing/functions/aeros-crew-scheduling.png",
+    imageSrc: "/static/landing/functions/aeros-crew-scheduling-portrait.png",
     imageAlt: "Marketing workflow placeholder",
     bg: "bg-pink-100/40",
     points: [
@@ -183,7 +183,7 @@ const TABS: UsageTab[] = [
     id: "data",
     label: "Safety & Compliance",
     heading: "Safety & Compliance\nOperations",
-    imageSrc: "/static/landing/functions/aeros-safety-compliance.png",
+    imageSrc: "/static/landing/functions/aeros-safety-compliance-portrait.png",
     imageAlt: "Data and analytics workflow placeholder",
     bg: "bg-violet-100/40",
     points: [
@@ -320,7 +320,7 @@ function ImageCol({ tab, eager }: { tab: UsageTab; eager: boolean }) {
         fill
         loading={eager ? "eager" : "lazy"}
         sizes="(min-width: 1024px) 50vw, 100vw"
-        className="object-cover"
+        className="object-contain"
       />
     </div>
   );
