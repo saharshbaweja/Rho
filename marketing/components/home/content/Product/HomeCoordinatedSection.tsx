@@ -9,11 +9,11 @@ export function HomeCoordinatedSection() {
       <div className="mx-auto flex w-full max-w-[1180px] flex-col items-center gap-12 px-6 lg:flex-row-reverse lg:items-center lg:gap-20">
         <div className="flex w-full flex-col gap-6 lg:w-1/2">
           <HomeReveal>
-            <HomeEyebrow label="See Aeros in action" />
+            <HomeEyebrow label="From change to decision" />
           </HomeReveal>
           <HomeReveal delay={80}>
             <H2 className="text-balance font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
-              Operational intelligence that uses the full mission context
+              One change. The whole mission in view.
             </H2>
           </HomeReveal>
           <HomeReveal delay={160}>
@@ -21,10 +21,10 @@ export function HomeCoordinatedSection() {
               size="sm"
               className="max-w-[480px] leading-[1.6] text-muted-foreground"
             >
-              Most aviation systems show one piece of the operation—weather,
-              scheduling, maintenance, or flight planning. Aeros brings the
-              relevant context together across every mission so your team can
-              understand what changed, what it affects, and what to do next.
+              A new forecast can change more than the route. Aeros connects
+              weather, aircraft, crew limits, and operator procedures to show
+              the mission impact, compare viable options, and put an
+              evidence-backed decision in your team’s hands.
             </P>
           </HomeReveal>
         </div>
@@ -35,10 +35,10 @@ export function HomeCoordinatedSection() {
         >
           <div className="flex w-full max-w-[520px] items-center justify-center self-stretch rounded-3xl bg-blue-50 p-8">
             <Image
-              src="/static/landing/home/coordinated-flow.png"
-              alt="Dust coordinating a Zendesk ticket through classification, CRM update, and reply"
+              src="/static/landing/home/aeros-mission-decision-flow.svg"
+              alt="Illustrative Aeros workflow: weather change, connected mission context, operational impact, options, and dispatcher review"
               width={880}
-              height={840}
+              height={960}
               className="m-auto h-auto w-full max-w-[420px] object-contain"
               priority={false}
             />
