@@ -8,7 +8,6 @@ import {
   toLogoListRegion,
 } from "@marketing/lib/logo_bars";
 import { useGeolocation } from "@marketing/lib/swr/geo";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 // Logo lineups live in Contentful (`logoList` entries, one per region), with
@@ -52,27 +51,6 @@ const MARQUEE_CSS = `
     .home-trusted-chip { transition: none; }
   }
 `;
-
-// Arrow-up-right icon for the case study chip.
-function ExternalArrowIcon() {
-  return (
-    <svg
-      width="10"
-      height="10"
-      viewBox="0 0 10 10"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M2 8L8 2M8 2H3.5M8 2V6.5"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 function MarqueeMaskWrap({ children }: { children: React.ReactNode }) {
   return (
@@ -123,75 +101,80 @@ export function HomeTrustedMarqueeCompact() {
   );
 }
 
+const MISSION_INPUTS = [
+  {
+    label: "Weather",
+    detail: "Forecasts & conditions",
+    path: "M7 16a4 4 0 1 1 1-7 5 5 0 0 1 9 2 3 3 0 0 1 0 6H7m2 3 1-2m4 2 1-2",
+    color: "#eaf5ff",
+  },
+  {
+    label: "NOTAMs",
+    detail: "Airspace & airport changes",
+    path: "M5 4h14v16H5V4zm4 4h6m-6 4h6m-6 4h3",
+    color: "#f0edff",
+  },
+  {
+    label: "Aircraft",
+    detail: "Readiness & limitations",
+    path: "m12 3 2 7 7 4v2l-7-2v5l2 2H8l2-2v-5l-7 2v-2l7-4 2-7Z",
+    color: "#edf7ef",
+  },
+  {
+    label: "Crew",
+    detail: "Availability & duty limits",
+    path: "M15 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM5 21v-2a7 7 0 0 1 14 0v2M18 4a3 3 0 0 1 0 6m3 7a5 5 0 0 0-3-4",
+    color: "#fff3df",
+  },
+  {
+    label: "Schedules",
+    detail: "Missions & dependencies",
+    path: "M4 6h16v15H4V6zm0 5h16M8 3v5m8-5v5M8 15h3m2 3h3",
+    color: "#ffedf3",
+  },
+  {
+    label: "Procedures",
+    detail: "Operator rules & manuals",
+    path: "M12 5c-3-2-6-2-9-1v15c3-1 6-1 9 1m0-15c3-2 6-2 9-1v15c-3-1-6-1-9 1V5Z",
+    color: "#e8f6f5",
+  },
+];
+
 export function HomeTrustedSection() {
-  const logos = useHomeTrustedLogos();
-  const marqueeLogos = [...logos, ...logos];
   return (
     <section className="flex w-full items-center justify-center bg-background pb-20 pt-12">
-      <style dangerouslySetInnerHTML={{ __html: MARQUEE_CSS }} />
-      <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center justify-center gap-12 text-center">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center justify-center gap-12 px-6 text-center">
         <HomeReveal>
-          <h2 className="m-0 text-balance px-6 text-center text-xl font-semibold tracking-[-0.02em] text-foreground md:text-2xl">
-            Designed for teams
+          <h2 className="m-0 text-balance text-center text-xl font-semibold tracking-[-0.02em] text-foreground md:text-2xl">
+            Every mission has moving parts.
             <br />
-            running <span className="text-blue-500">24/7</span> flight
-            operations
+            Aeros brings them <span className="text-blue-500">into one picture.</span>
           </h2>
+          <p className="mx-auto mb-0 mt-4 max-w-[620px] text-sm leading-relaxed text-muted-foreground">
+            The operational context behind every change, option, and decision.
+          </p>
         </HomeReveal>
         <HomeReveal delay={120} className="w-full">
-          <MarqueeMaskWrap>
-            <div className="home-trusted-track flex w-max items-end gap-x-16 sm:gap-x-20 lg:gap-x-24">
-              {marqueeLogos.map((logo, idx) => {
-                const itemClassName =
-                  "home-trusted-item flex flex-shrink-0 flex-col items-center gap-1";
-                const inner = (
-                  <>
-                    <div className="flex h-12 items-center justify-center opacity-70 transition-opacity duration-150 ease-in-out [.home-trusted-item:hover_&]:opacity-100 md:h-14">
-                      <LogoBarImage
-                        logo={logo}
-                        alt={idx >= logos.length ? "" : logo.name}
-                        width={220}
-                        height={60}
-                      />
-                    </div>
-                    {/* Reserve a fixed-height slot so items with and without a
-                      chip share the same total height. Flex-center the chip
-                      so it sits snug under the logo rather than floating in
-                      the middle of an over-tall line box. */}
-                    <div className="flex h-4 items-center justify-center">
-                      {logo.caseStudyUrl && (
-                        <span className="home-trusted-chip inline-flex items-center gap-1 text-[11px] font-medium leading-none text-foreground/40 [.home-trusted-item:hover_&]:text-foreground/80">
-                          Case study
-                          <ExternalArrowIcon />
-                        </span>
-                      )}
-                    </div>
-                  </>
-                );
-                return logo.caseStudyUrl ? (
-                  <Link
-                    key={`${logo.name}-${idx}`}
-                    href={logo.caseStudyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    tabIndex={idx >= logos.length ? -1 : undefined}
-                    aria-hidden={idx >= logos.length}
-                    className={itemClassName}
-                  >
-                    {inner}
-                  </Link>
-                ) : (
-                  <div
-                    key={`${logo.name}-${idx}`}
-                    className={itemClassName}
-                    aria-hidden={idx >= logos.length}
-                  >
-                    {inner}
-                  </div>
-                );
-              })}
-            </div>
-          </MarqueeMaskWrap>
+          <ul className="m-0 grid w-full list-none grid-cols-2 gap-x-6 gap-y-8 p-0 md:grid-cols-3 lg:grid-cols-6">
+            {MISSION_INPUTS.map((input) => (
+              <li key={input.label} className="flex flex-col items-center">
+                <span
+                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl text-foreground"
+                  style={{ backgroundColor: input.color }}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d={input.path} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <span className="text-base font-semibold tracking-[-0.01em] text-foreground">
+                  {input.label}
+                </span>
+                <span className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  {input.detail}
+                </span>
+              </li>
+            ))}
+          </ul>
         </HomeReveal>
       </div>
     </section>
