@@ -17,11 +17,11 @@ export function HomeTeamSportSection() {
         <div className="flex flex-col items-stretch gap-12 lg:flex-row lg:items-center lg:gap-20">
           <div className="flex w-full flex-col gap-6 lg:w-1/2">
             <HomeReveal>
-              <HomeEyebrow label="Human-in-the-loop operations" />
+              <HomeEyebrow label="Shared context. Clear ownership." />
             </HomeReveal>
             <HomeReveal delay={80}>
               <H2 className="text-balance font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
-                Flight operations is a team sport
+                One mission. Every team aligned.
               </H2>
             </HomeReveal>
             <HomeReveal delay={160}>
@@ -29,10 +29,10 @@ export function HomeTeamSportSection() {
                 size="sm"
                 className="max-w-[480px] leading-[1.6] text-muted-foreground"
               >
-                A mission crosses operations, pilots, maintenance, scheduling,
-                management, and client services. Aeros gives every role the
-                same operational picture while keeping responsibility and
-                approvals with the people who own the decision.
+                When a mission changes, every team needs the same picture.
+                Aeros connects dispatch, crew, and maintenance around the
+                operational impact, supporting evidence, and next steps—so
+                teams can coordinate with clear ownership and human approval.
               </P>
             </HomeReveal>
             <HomeReveal as="figure" delay={240} className="m-0 mt-4 w-full">
@@ -41,14 +41,13 @@ export function HomeTeamSportSection() {
                 <blockquote
                   className={`${sourceSerif.className} m-0 text-balance text-base font-normal leading-[1.4] tracking-[-0.005em] text-foreground md:text-lg`}
                 >
-                  &ldquo;Aeros does the synthesis. Your operations team makes the
-                  call.&rdquo;
+                  &ldquo;Shared intelligence. Human judgment. Clear accountability.&rdquo;
                 </blockquote>
                 <figcaption className="flex items-center gap-3 not-italic">
                   <div className="relative h-9 w-9 flex-shrink-0 overflow-hidden rounded-full bg-muted">
                     <Image
-                      src="/static/landing/people/ryan-wang.png"
-                      alt="Aeros, Operating principle"
+                      src="/static/landing/home/aeros-principle-mark.svg"
+                      alt="Aeros operating principle"
                       fill
                       className="object-cover"
                       sizes="36px"
@@ -73,8 +72,8 @@ export function HomeTeamSportSection() {
           >
             <div className="relative w-full max-w-[520px] self-stretch overflow-hidden rounded-3xl">
               <img
-                src="/static/landing/home/team-sport-collab.svg"
-                alt="Dust collaboration: shared agent in a chat with named teammates and live cursors"
+                src="/static/landing/home/aeros-team-coordination.svg"
+                alt="Aeros shared mission workspace: dispatch, crew scheduling, and maintenance reviews come together for dispatcher approval"
                 className="h-full w-full object-cover"
               />
             </div>
