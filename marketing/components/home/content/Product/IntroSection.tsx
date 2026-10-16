@@ -11,23 +11,29 @@ import { HomeTeamUsageSection } from "@marketing/components/home/content/Product
 import { HomeTrustedSection } from "@marketing/components/home/content/Product/HomeTrustedSection";
 import type { NewsItem } from "@marketing/lib/homepage_news";
 
-const TESTIMONIAL_IMAGE = "/static/landing/people/quote-testimonial.png";
-
 const QUOTES = [
   {
     quote:
       "Turn fragmented operational inputs into a clear set of viable actions.",
     authorName: "Aeros",
     authorRole: "Operations intelligence",
-    imageSrc: TESTIMONIAL_IMAGE,
-    imageAlt: "Everett Berry, Head of GTM Engineering at Clay",
+    imageSrc: "/static/landing/people/delta-occ.jpg",
+    imageCredit: {
+      label: "Photo: Delta Air Lines · Operations Control Center",
+      url: "https://news.delta.com/media/image/8356",
+    },
+    imageAlt: "Delta Air Lines operations control staff working at flight-monitoring screens",
   },
   {
     quote: "Every recommendation should show what changed, what it means, and the evidence behind it.",
     authorName: "Aeros",
     authorRole: "Decision support",
-    imageSrc: "/static/landing/people/shashank-khanna.png",
-    imageAlt: "Shashank Khanna, Founder in Residence at Vanta",
+    imageSrc: "/static/landing/people/sun-country-soc.jpg",
+    imageCredit: {
+      label: "Photo: Sun Country Airlines · System Operations Control",
+      url: "https://stories.suncountry.com/post/beyond-boarding-an-in-depth-look-at-our-system-operations-control-center",
+    },
+    imageAlt: "Sun Country Airlines SOC director Dave Setterstrom reviewing multiple operations screens",
     bg: "bg-violet-50",
   },
 ];

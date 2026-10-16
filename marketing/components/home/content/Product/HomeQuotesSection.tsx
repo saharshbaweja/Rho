@@ -9,6 +9,7 @@ interface QuoteEntry {
   authorRole: string;
   imageSrc: string;
   imageAlt: string;
+  imageCredit?: { label: string; url: string };
   bg?: string;
 }
 
@@ -234,6 +235,16 @@ export function HomeQuotesSection({ quotes }: HomeQuotesSectionProps) {
                 sizes="(min-width: 1024px) 429px, 100vw"
               />
             </div>
+            {activeQuote.imageCredit ? (
+              <a
+                href={activeQuote.imageCredit.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-x-0 bottom-0 z-10 bg-slate-950/80 px-4 py-3 text-xs leading-relaxed text-white underline-offset-2 hover:underline"
+              >
+                {activeQuote.imageCredit.label}
+              </a>
+            ) : null}
           </div>
         </HomeReveal>
       </div>
