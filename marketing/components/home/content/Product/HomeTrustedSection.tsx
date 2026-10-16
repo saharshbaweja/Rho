@@ -36,7 +36,8 @@ const MARQUEE_CSS = `
     animation: home-trusted-marquee 40s linear infinite;
     will-change: transform;
   }
-  .home-trusted-track:hover {
+  .home-trusted-mask:hover .home-trusted-track,
+  .home-trusted-mask:focus-within .home-trusted-track {
     animation-play-state: paused;
   }
 
@@ -55,7 +56,7 @@ const MARQUEE_CSS = `
 function MarqueeMaskWrap({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="relative w-full overflow-hidden"
+      className="home-trusted-mask relative w-full overflow-hidden"
       style={{
         maskImage:
           "linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%)",
@@ -101,80 +102,79 @@ export function HomeTrustedMarqueeCompact() {
   );
 }
 
-const MISSION_INPUTS = [
-  {
-    label: "Weather",
-    detail: "Forecasts & conditions",
-    path: "M7 16a4 4 0 1 1 1-7 5 5 0 0 1 9 2 3 3 0 0 1 0 6H7m2 3 1-2m4 2 1-2",
-    color: "#eaf5ff",
-  },
-  {
-    label: "NOTAMs",
-    detail: "Airspace & airport changes",
-    path: "M5 4h14v16H5V4zm4 4h6m-6 4h6m-6 4h3",
-    color: "#f0edff",
-  },
-  {
-    label: "Aircraft",
-    detail: "Readiness & limitations",
-    path: "m12 3 2 7 7 4v2l-7-2v5l2 2H8l2-2v-5l-7 2v-2l7-4 2-7Z",
-    color: "#edf7ef",
-  },
-  {
-    label: "Crew",
-    detail: "Availability & duty limits",
-    path: "M15 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM5 21v-2a7 7 0 0 1 14 0v2M18 4a3 3 0 0 1 0 6m3 7a5 5 0 0 0-3-4",
-    color: "#fff3df",
-  },
-  {
-    label: "Schedules",
-    detail: "Missions & dependencies",
-    path: "M4 6h16v15H4V6zm0 5h16M8 3v5m8-5v5M8 15h3m2 3h3",
-    color: "#ffedf3",
-  },
-  {
-    label: "Procedures",
-    detail: "Operator rules & manuals",
-    path: "M12 5c-3-2-6-2-9-1v15c3-1 6-1 9 1m0-15c3-2 6-2 9-1v15c-3-1-6-1-9 1V5Z",
-    color: "#e8f6f5",
-  },
+// Source marks identify reference agencies in the product roadmap, not customers.
+const CAPABILITY_ROADMAP = [
+  { name: "FAA", image: "faa.svg", capability: "NOTAMs, TFRs & airport status", url: "https://www.faa.gov/" },
+  { name: "NOAA", image: "noaa.png", capability: "METARs, TAFs & weather hazards", url: "https://aviationweather.gov/" },
+  { name: "EUROCONTROL", image: "eurocontrol.svg", capability: "Airspace, network & flow constraints", url: "https://www.eurocontrol.int/" },
+  { name: "EASA", image: "easa.svg", capability: "Regulations & airworthiness", url: "https://www.easa.europa.eu/en" },
+  { name: "Mission intelligence", capability: "Live context & change detection" },
+  { name: "Crew & scheduling", capability: "Availability, duty & mission dependencies" },
+  { name: "Aircraft & maintenance", capability: "Readiness, MELs & operational impact" },
+  { name: "Operator procedures", capability: "Manuals, policies & operating limits" },
+  { name: "Recovery planning", capability: "Delays, alternates & aircraft swaps" },
+  { name: "Decision evidence", capability: "Source-linked options & tradeoffs" },
+  { name: "Team coordination", capability: "Shared context & role-based approvals" },
 ];
 
 export function HomeTrustedSection() {
+  const capabilities = [...CAPABILITY_ROADMAP, ...CAPABILITY_ROADMAP];
   return (
     <section className="flex w-full items-center justify-center bg-background pb-20 pt-12">
-      <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center justify-center gap-12 px-6 text-center">
+      <style dangerouslySetInnerHTML={{ __html: MARQUEE_CSS }} />
+      <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center justify-center gap-12 text-center">
         <HomeReveal>
-          <h2 className="m-0 text-balance text-center text-xl font-semibold tracking-[-0.02em] text-foreground md:text-2xl">
-            Every mission has moving parts.
+          <h2 className="m-0 text-balance px-6 text-center text-xl font-semibold tracking-[-0.02em] text-foreground md:text-2xl">
+            The aviation ecosystem.
             <br />
-            Aeros brings them <span className="text-blue-500">into one picture.</span>
+            One <span className="text-blue-500">operational picture.</span>
           </h2>
-          <p className="mx-auto mb-0 mt-4 max-w-[620px] text-sm leading-relaxed text-muted-foreground">
-            The operational context behind every change, option, and decision.
+          <p className="mx-auto mb-0 mt-4 max-w-[620px] px-6 text-sm leading-relaxed text-muted-foreground">
+            The Aeros roadmap: aviation data, operational constraints, and coordinated decisions.
           </p>
         </HomeReveal>
         <HomeReveal delay={120} className="w-full">
-          <ul className="m-0 grid w-full list-none grid-cols-2 gap-x-6 gap-y-8 p-0 md:grid-cols-3 lg:grid-cols-6">
-            {MISSION_INPUTS.map((input) => (
-              <li key={input.label} className="flex flex-col items-center">
-                <span
-                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl text-foreground"
-                  style={{ backgroundColor: input.color }}
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d={input.path} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <span className="text-base font-semibold tracking-[-0.01em] text-foreground">
-                  {input.label}
-                </span>
-                <span className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {input.detail}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <MarqueeMaskWrap>
+            <div className="home-trusted-track flex w-max items-end">
+              {capabilities.map((item, idx) => {
+                const duplicate = idx >= CAPABILITY_ROADMAP.length;
+                const content = (
+                  <>
+                    <div className="flex h-14 items-center justify-center gap-3">
+                      {"image" in item ? (
+                        <img
+                          src={`/static/landing/sources/${item.image}`}
+                          alt={duplicate ? "" : item.name}
+                          className="h-14 w-[160px] object-contain"
+                          width={160}
+                          height={56}
+                        />
+                      ) : (
+                        <>
+                          <img src="/static/landing/home/aeros-principle-mark.svg" alt="" className="h-7 w-7" width={28} height={28} />
+                          <span className="max-w-[190px] text-left text-lg font-semibold leading-tight tracking-[-0.025em] text-foreground/80">{item.name}</span>
+                        </>
+                      )}
+                    </div>
+                    <span className="mt-4 text-[11px] leading-none text-muted-foreground">{item.capability}</span>
+                  </>
+                );
+                const className = "flex w-[288px] flex-shrink-0 flex-col items-center px-6";
+                return "url" in item ? (
+                  <a key={`${item.name}-${idx}`} href={item.url} target="_blank" rel="noopener noreferrer" tabIndex={duplicate ? -1 : undefined} aria-hidden={duplicate} className={className}>
+                    {content}
+                  </a>
+                ) : (
+                  <div key={`${item.name}-${idx}`} aria-hidden={duplicate} className={className}>
+                    {content}
+                  </div>
+                );
+              })}
+            </div>
+          </MarqueeMaskWrap>
+          <p className="mb-0 mt-7 px-6 text-[11px] leading-relaxed text-muted-foreground">
+            Sources shown for reference. Roadmap scope; availability varies by integration. No agency endorsement implied.
+          </p>
         </HomeReveal>
       </div>
     </section>
