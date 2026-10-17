@@ -86,7 +86,7 @@ export default function TrustedBy({
     >
       {showTitle && (
         <H4 className="mb-6 w-full text-center text-foreground">
-          Trusted by <span className="text-blue-500">3,000+</span> organizations
+          Reference logos from <span className="text-blue-500">Dust</span> customers
         </H4>
       )}
 
@@ -148,7 +148,7 @@ export default function TrustedBy({
       <Button
         variant="highlight"
         size="md"
-        label="Join them"
+        label="View access options"
         className="mt-8"
         onClick={openSignUpModal}
       />

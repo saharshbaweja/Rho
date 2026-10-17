@@ -13,7 +13,7 @@ export function PageMetadata({
   pathname,
   ogImage,
 }: PageMetadataProps) {
-  const fullTitle = title.includes("Dust") ? title : `${title} | Dust`;
+  const fullTitle = title.includes("Dust") ? title : `${title} | Aeros`;
   const canonicalUrl = `https://dust.tt${pathname}`;
   const defaultOgImage = "https://dust.tt/static/og_image.png";
 
