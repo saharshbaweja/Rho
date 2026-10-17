@@ -28,8 +28,8 @@ export function CapabilitySection() {
                 Connect every mission, constraint, and operational decision
               </H2>
               <img
-                src="/static/landing/product/product-screen-chat.png"
-                alt="Dust chat interface with conversation history, projects, and an agent ready to help"
+                src="/static/landing/product/aeros-mission-workspace.svg"
+                alt="Illustrative Aeros workspace showing a mission assessment and recovery review"
                 className="aspect-[2/1] w-full max-w-[1040px] rounded-t-2xl object-cover object-top shadow-lg"
               />
             </div>

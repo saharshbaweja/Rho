@@ -42,6 +42,7 @@ interface SecurityFeaturesSectionProps {
   // When set, an autoplaying video replaces the static image visual.
   videoSrc?: string;
   imageSrc?: string;
+  imageAlt?: string;
   // Optional heading rendered above the accordion column.
   accordionTitle?: string;
 }
@@ -52,6 +53,7 @@ export function SecurityFeaturesSection({
   features = defaultSecurityFeatures,
   videoSrc,
   imageSrc = "/static/landing/product/models.svg",
+  imageAlt = "Security",
   accordionTitle,
 }: SecurityFeaturesSectionProps = {}) {
   const [activeFeature, setActiveFeature] = useState<string>(features[0].id);
@@ -113,7 +115,7 @@ export function SecurityFeaturesSection({
               ) : (
                 <img
                   src={imageSrc}
-                  alt="Security"
+                  alt={imageAlt}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               )}

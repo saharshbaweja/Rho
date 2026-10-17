@@ -112,19 +112,23 @@ export function Landing() {
             showHeader={false}
             reverse
             features={CAPABILITY_FEATURES}
+            imageSrc="/static/landing/product/aeros-mission-assessment.svg"
+            imageAlt="Aeros mission assessment connecting weather, aircraft limitations, and crew impact"
             accordionTitle="Monitor the mission. Understand the change."
           />
           <SecurityFeaturesSection
             showHeader={false}
             features={MODEL_FEATURES}
-            videoSrc="/static/landing/home/features/best-model.mp4"
+            imageSrc="/static/landing/product/aeros-recovery-options.svg"
+            imageAlt="Aeros recovery review comparing departure, alternate, and routing options"
             accordionTitle="Compare the options. See the tradeoffs."
           />
           <SecurityFeaturesSection
             showHeader={false}
             reverse
             features={GOVERN_FEATURES}
-            imageSrc="/static/landing/product/govern-ai-usage.svg"
+            imageSrc="/static/landing/product/aeros-decision-control.svg"
+            imageAlt="Aeros decision record with source evidence, team checks, and dispatcher approval"
             accordionTitle="Coordinate the response. Keep people in control."
           />
           <InteractiveFeaturesSection />
