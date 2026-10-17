@@ -144,13 +144,13 @@ const PLANS: Plan[] = [
     ctaStyle: "primary",
     featured: true,
     highlights: [
-      "20+ frontier models — GPT, Claude, Gemini, Mistral, DeepSeek",
-      "Custom agents with your skills, knowledge & tools",
-      "Multi-agent workflows on schedules & triggers",
-      "Connect Slack, Notion, GitHub, Drive + 20 more — or any tool via MCP",
-      "Team collaboration workspaces",
-      "SSO with Okta, Entra ID & Jumpcloud",
-      "US & EU data residency",
+      "Mission planning and dispatch workspace",
+      "Live weather, NOTAM, airport, aircraft & crew context",
+      "Operational change detection and mission monitoring",
+      "Crew legality, duty and qualification checks",
+      "Maintenance and MEL impact awareness",
+      "Shared decision history and operational handoffs",
+      "Aeros AI assistant for mission questions and procedures",
     ],
   },
   {
@@ -162,12 +162,12 @@ const PLANS: Plan[] = [
     featured: false,
     highlightsHeader: "Everything in Business plus:",
     highlights: [
-      "Unlimited connectors & MCP servers",
-      "Workspace-pooled credits & volume pricing",
-      "SCIM, audit logs & custom data retention",
-      "US & EU data residency & single-tenant deployment",
-      "Dedicated CSM, priority support & SLA",
-      "Custom legal terms (MSA, DPA)",
+      "Unlimited users, missions and connected operational data",
+      "Custom integrations with scheduling, maintenance and flight systems",
+      "Advanced safety, compliance and audit controls",
+      "SSO, SCIM and role-based access controls",
+      "Dedicated implementation, priority support and SLA",
+      "Custom deployment, retention and legal terms",
     ],
   },
 ];
@@ -1037,7 +1037,3 @@ export default function Pricing() {
     </MotionConfig>
   );
 }
-
-Pricing.getLayout = (page: ReactElement, pageProps: LandingLayoutProps) => {
-  return <LandingLayout pageProps={pageProps}>{page}</LandingLayout>;
-};
