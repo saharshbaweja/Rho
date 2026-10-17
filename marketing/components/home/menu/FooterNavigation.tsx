@@ -1,4 +1,4 @@
-import { DustLogoGray } from "@dust-tt/sparkle";
+import { AerosLogo } from "@marketing/components/home/AerosLogo";
 import { A, Grid } from "@marketing/components/home/ContentComponents";
 import { menuConfig } from "@marketing/components/home/menu/config";
 import type { LinkProps } from "next/link";
@@ -18,7 +18,7 @@ export function FooterNavigation({
       <div className="w-full px-6 sm:px-12">
         <Grid gap="gap-6">
           <div className="col-span-12">
-            <DustLogoGray className="h-6 w-24" />
+            <AerosLogo className="h-6 w-24" />
           </div>
           {menuConfig.footerNav.map((item, index) => (
             <div

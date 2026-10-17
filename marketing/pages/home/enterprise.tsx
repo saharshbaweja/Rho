@@ -1,4 +1,5 @@
-import { ChevronDown, ChevronUp, DustLogo, Rocket02 } from "@dust-tt/sparkle";
+import { AerosLogo } from "@marketing/components/home/AerosLogo";
+import { ChevronDown, ChevronUp, Rocket02 } from "@dust-tt/sparkle";
 import UTMButton from "@marketing/components/UTMButton";
 import { H1, H2, H3, P } from "@marketing/components/home/ContentComponents";
 import type { LandingLayoutProps } from "@marketing/components/home/LandingLayout";
@@ -781,7 +782,7 @@ function HowTeamsUseSection() {
         <H1 mono className="text-center text-3xl md:text-4xl lg:text-5xl">
           How every team uses
         </H1>
-        <DustLogo className="h-8 w-32" />
+        <AerosLogo className="h-8 w-32" />
       </div>
 
       {/* Tabs */}

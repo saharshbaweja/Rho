@@ -1,7 +1,7 @@
+import { AerosLogo } from "@marketing/components/home/AerosLogo";
 import {
   Button,
   ChevronRight,
-  DustLogo,
   Menu01,
   ScrollArea,
   Sheet,
@@ -41,7 +41,7 @@ export function MobileNavigation() {
             hideButton
           >
             <SheetTitle className="flex w-full items-center justify-between">
-              <DustLogo className="h-6 w-24" />
+              <AerosLogo className="h-6 w-24" />
               <Button
                 tooltip="Close menu"
                 size="sm"

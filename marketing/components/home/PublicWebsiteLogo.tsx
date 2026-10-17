@@ -1,4 +1,4 @@
-import { DustLogo } from "@dust-tt/sparkle";
+import { AerosLogo } from "@marketing/components/home/AerosLogo";
 import { LinkWrapper } from "@marketing/lib/platform";
 
 interface PublicWebsiteLogoProps {
@@ -21,7 +21,7 @@ export const PublicWebsiteLogo = ({
 
   return (
     <LinkWrapper href={href}>
-      <DustLogo className={LOGO_CLASS_NAMES[size]} />
+      <AerosLogo className={LOGO_CLASS_NAMES[size]} compact={size === "small"} />
     </LinkWrapper>
   );
 };

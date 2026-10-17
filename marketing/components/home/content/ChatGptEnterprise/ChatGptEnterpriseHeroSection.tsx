@@ -154,7 +154,7 @@ export function ChatGptEnterpriseHeroSection({
                   <div className="rounded-xl border border-[#1C91FF]/40 bg-white/95 p-2 shadow-[0_4px_20px_rgba(28,145,255,0.4)] backdrop-blur-sm">
                     <Image
                       src="/static/landing/chatgpt-enterprise/dust_logo.svg"
-                      alt="Dust"
+                      alt="Aeros"
                       width={40}
                       height={40}
                       unoptimized

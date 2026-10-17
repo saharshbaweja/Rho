@@ -1,10 +1,10 @@
+import { AerosLogo } from "@marketing/components/home/AerosLogo";
 import {
   ArrowUp,
   CheckCircle,
   ConversationMessageContainer,
   ConversationMessageContent,
   cn,
-  DustLogoSquare,
   getPlatformLogo,
   Icon,
   PuzzlePiece01,
@@ -120,7 +120,7 @@ export function IntegrationChatMockupSection({
 function TopBar() {
   return (
     <div className="flex items-center gap-3 border-b border-border bg-muted/20 px-4 py-2.5">
-      <DustLogoSquare className="h-5 w-5 shrink-0" />
+      <AerosLogo compact className="h-5 w-5 shrink-0" />
       <span className="text-sm font-medium text-foreground">
         Dust · My workspace
       </span>
@@ -221,7 +221,7 @@ function AgentHeader({
       {/* Top line: avatar + agent name, matches the real Dust conversation
           header where the agent's name renders next to its small avatar. */}
       <div className="flex items-center gap-1.5 text-sm font-medium text-foreground">
-        <DustLogoSquare className="h-4 w-4 shrink-0" />
+        <AerosLogo compact className="h-4 w-4 shrink-0" />
         <span>dust</span>
       </div>
       {/* Second line: subtle "Completed in N sec" status. No green pill — the
@@ -356,7 +356,7 @@ function AgentResponseBubble({
 }
 
 // Persistent input bar at the bottom of the chat area. Matches the real Dust
-// InputBar: agent picker chip on the left (DustLogoSquare avatar + agent
+// InputBar: agent picker chip on the left (AerosLogo avatar + agent
 // name), placeholder text, and a blue circular send button on the right.
 // Always visible, never animated.
 function PersistentInputBar() {
@@ -371,7 +371,7 @@ function PersistentInputBar() {
         </span>
         <div className="flex items-center gap-2">
           <span className="inline-flex items-center gap-1.5 rounded-md bg-foreground/[0.06] px-1.5 py-0.5 text-xs font-medium text-foreground">
-            <DustLogoSquare className="h-3.5 w-3.5 shrink-0" />
+            <AerosLogo compact className="h-3.5 w-3.5 shrink-0" />
             dust
           </span>
           <span className="ml-auto inline-flex h-7 w-8 shrink-0 items-center justify-center rounded-md bg-blue-500 text-white">
