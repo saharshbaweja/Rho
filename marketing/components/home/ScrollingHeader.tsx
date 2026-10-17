@@ -31,7 +31,7 @@ const ScrollingHeader = ({
   // `top`/`height` via `transition-all`, which triggers layout. Duration is
   // matched to the banner (200ms) so the two move as one paired unit.
   const baseClasses =
-    "fixed top-0 w-full border-b z-50 transition-[transform,height,background-color,border-color] duration-200 ease-out";
+    "fixed top-0 w-full border-b z-[100] transition-[transform,height,background-color,border-color] duration-200 ease-out";
   const idleClasses = `${hasBanner ? "translate-y-10" : "translate-y-0"} h-24 border-transparent`;
   const scrolledClasses =
     "translate-y-0 h-16 border-border bg-muted-background/70 backdrop-blur-lg";
