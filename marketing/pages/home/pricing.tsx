@@ -45,8 +45,6 @@ export async function getStaticProps() {
   };
 }
 
-// ---------- Types ----------
-
 type CtaStyle = "primary" | "outline" | "dark";
 
 interface SeatTier {
@@ -91,29 +89,27 @@ interface FAQItemData {
 
 type Billing = "yearly" | "monthly";
 
-// ---------- Data (mirrors pricing bundle / feature.csv) ----------
-
 const SEAT_TIERS: SeatTier[] = [
   {
     id: "free",
-    name: "Free seat",
-    priceYearDollars: 0,
-    priceMonthDollars: 0,
-    credits: "500 credits · Lifetime",
+    name: "1–3 aircraft",
+    priceYearDollars: 349,
+    priceMonthDollars: 435,
+    credits: "per active aircraft / month · unlimited users",
   },
   {
     id: "pro",
-    name: "Pro seat",
-    priceYearDollars: 24,
-    priceMonthDollars: 30,
-    credits: "8,000 credits /seat/mo",
+    name: "4–10 aircraft",
+    priceYearDollars: 299,
+    priceMonthDollars: 375,
+    credits: "per active aircraft / month · unlimited users",
   },
   {
     id: "max",
-    name: "Max seat",
-    priceYearDollars: 120,
-    priceMonthDollars: 150,
-    credits: "40,000 credits /seat/mo",
+    name: "11–25 aircraft",
+    priceYearDollars: 249,
+    priceMonthDollars: 310,
+    credits: "per active aircraft / month · unlimited users",
   },
 ];
 
@@ -138,101 +134,95 @@ const PLANS: Plan[] = [
   {
     id: "business",
     name: "Business",
-    tagline: "For teams up to 100 people",
+    tagline: "For private, charter and regional operators up to 25 aircraft",
     seatTiers: SEAT_TIERS,
-    cta: "Start for free",
+    cta: "Request access",
     ctaStyle: "primary",
     featured: true,
     highlights: [
-      "Mission planning and dispatch workspace",
-      "Live weather, NOTAM, airport, aircraft & crew context",
-      "Operational change detection and mission monitoring",
-      "Crew legality, duty and qualification checks",
+      "Mission planning, monitoring and dispatch workspace",
+      "Live weather, NOTAM, flight-tracking, airport and aircraft context",
+      "Crew duty, qualification and legality context",
       "Maintenance and MEL impact awareness",
-      "Shared decision history and operational handoffs",
-      "Aeros AI assistant for mission questions and procedures",
+      "AI-generated operational options with source traceability",
+      "Shared mission timeline, approvals and operational handoffs",
+      "Unlimited users across operations, dispatch, crew and maintenance",
     ],
   },
   {
     id: "enterprise",
     name: "Enterprise",
-    tagline: "For AI at scale",
+    tagline: "For large fleets and mission-critical operations",
     cta: "Talk to sales",
     ctaStyle: "dark",
     featured: false,
     highlightsHeader: "Everything in Business plus:",
     highlights: [
-      "Unlimited users, missions and connected operational data",
-      "Custom integrations with scheduling, maintenance and flight systems",
-      "Advanced safety, compliance and audit controls",
-      "SSO, SCIM and role-based access controls",
+      "Custom integrations with scheduling, maintenance, crew and flight systems",
+      "Higher-frequency data feeds and fleet-wide monitoring",
+      "SSO, SCIM, advanced roles and centralized administration",
+      "Custom retention, audit exports and deployment controls",
       "Dedicated implementation, priority support and SLA",
-      "Custom deployment, retention and legal terms",
+      "Volume fleet pricing and custom contract terms",
     ],
   },
 ];
 
 const COMPARISON: ComparisonSectionData[] = [
   {
-    section: "Features",
+    section: "Operational intelligence",
     rows: [
       {
-        feature:
-          "20+ frontier models (GPT, Claude, Gemini, Mistral, DeepSeek) + multi-modal input",
-        featureShort: "20+ frontier models + multi-modal input",
+        feature: "Mission planning and live mission monitoring",
         business: true,
         enterprise: true,
       },
       {
-        feature: "Custom agents with skills + knowledge & tools",
+        feature: "Weather, NOTAM, airport and airspace context",
         business: true,
         enterprise: true,
       },
       {
-        feature:
-          "Multi-agent orchestration & triggers (scheduled + event-driven)",
-        featureShort: "Multi-agent orchestration & triggers",
+        feature: "Flight tracking and material change detection",
         business: true,
         enterprise: true,
       },
       {
-        feature: "MCP servers (native + remote)",
-        business: "5 remote",
+        feature: "Crew legality, duty and qualification context",
+        business: true,
         enterprise: true,
       },
       {
-        feature: "Frames (interactive dashboards & apps)",
-        featureShort: "Frames",
-        business: "Standard",
-        enterprise: "White-labelled",
+        feature: "Maintenance and MEL impact awareness",
+        business: true,
+        enterprise: true,
       },
       {
-        feature: "Pods (collaborative workspaces with shared context)",
-        featureShort: "Pods",
+        feature: "AI operational options with source traceability",
+        featureShort: "AI options with source traceability",
         business: true,
         enterprise: true,
       },
     ],
   },
   {
-    section: "Company data",
+    section: "Data & integrations",
     rows: [
       {
-        feature: "Connectors to 20+ data sources",
-        business: "Up to 3",
-        enterprise: true,
+        feature: "Aircraft, crew, schedule and SOP data imports",
+        business: "Standard",
+        enterprise: "Custom + bi-directional",
       },
       {
-        feature: "Search + query & extract across all company data",
-        featureShort: "Search, query & extract",
-        business: true,
-        enterprise: true,
+        feature: "Live aviation data feeds",
+        business: "Included",
+        enterprise: "High-volume + custom",
       },
       {
-        feature: "Spaces for data segmentation & permissions",
-        featureShort: "Spaces",
-        business: "5",
-        enterprise: true,
+        feature: "Integrations with existing operations systems",
+        featureShort: "Operations system integrations",
+        business: "Up to 3 standard",
+        enterprise: "Unlimited + custom",
       },
     ],
   },
@@ -240,13 +230,13 @@ const COMPARISON: ComparisonSectionData[] = [
     section: "Security & admin",
     rows: [
       {
-        feature: "SOC 2 Type II",
+        feature: "Role-based access controls",
         business: true,
         enterprise: true,
       },
       {
-        feature: "SSO (Okta, Entra ID, Jumpcloud)",
-        business: "5+ seats on demand",
+        feature: "Single sign-on (SSO)",
+        business: false,
         enterprise: true,
       },
       {
@@ -255,14 +245,19 @@ const COMPARISON: ComparisonSectionData[] = [
         enterprise: true,
       },
       {
-        feature: "Audit logs & advanced security controls",
-        business: false,
+        feature: "Decision history and operational audit trail",
+        business: true,
         enterprise: true,
       },
       {
-        feature: "Data residency",
-        business: "US / EU",
-        enterprise: "US / EU",
+        feature: "Data retention",
+        business: "Standard",
+        enterprise: "Custom",
+      },
+      {
+        feature: "Deployment and data-residency options",
+        business: "Standard cloud",
+        enterprise: "Custom",
       },
       {
         feature: "Single-tenant deployment",
@@ -274,11 +269,6 @@ const COMPARISON: ComparisonSectionData[] = [
         business: false,
         enterprise: true,
       },
-      {
-        feature: "Usage analytics & adoption reporting",
-        business: false,
-        enterprise: true,
-      },
     ],
   },
   {
@@ -286,34 +276,34 @@ const COMPARISON: ComparisonSectionData[] = [
     rows: [
       {
         feature: "Support tier",
-        business: "Email",
+        business: "Email + in-app",
         enterprise: "Priority + SLA",
       },
       {
-        feature: "Dedicated CSM & onboarding",
-        business: false,
-        enterprise: true,
+        feature: "Onboarding and implementation",
+        business: "Guided",
+        enterprise: "Dedicated",
       },
     ],
   },
   {
-    section: "Developer tools",
+    section: "Platform & APIs",
     rows: [
       {
-        feature: "Developer API",
-        business: "Conversation API",
-        enterprise: "+ Data Source API",
+        feature: "API and webhooks",
+        business: "Standard",
+        enterprise: "Expanded + custom",
       },
       {
-        feature: "Automation platforms (Zapier, Make, n8n, Power Automate)",
-        featureShort: "Automation platforms",
+        feature: "SMS and email operational alerts",
+        featureShort: "Operational alerts",
         business: true,
         enterprise: true,
       },
       {
-        feature: "Programmatic usage rate",
-        business: "$0.01 / credit",
-        enterprise: "Custom",
+        feature: "AI and aviation-data usage",
+        business: "Included fair use",
+        enterprise: "Pooled + custom limits",
       },
     ],
   },
@@ -324,44 +314,39 @@ function SeatTiersFAQAnswer() {
   const formatSeatPrice = (priceDollars: number) =>
     formatPriceWithCurrency(priceDollars, currency);
 
-  const pro = SEAT_TIERS.find((tier) => tier.id === "pro");
-  const max = SEAT_TIERS.find((tier) => tier.id === "max");
+  const small = SEAT_TIERS.find((tier) => tier.id === "free");
+  const growing = SEAT_TIERS.find((tier) => tier.id === "pro");
+  const scaled = SEAT_TIERS.find((tier) => tier.id === "max");
 
   return (
     <>
       <p className="mb-3">
-        These are seat types within the Business plan. Admins assign one to each
-        user based on that individual's expected usage:
+        Business pricing is based on the number of aircraft actively managed in
+        Aeros, not on the number of people who need access:
       </p>
       <ul>
         <li>
-          <strong>Free:</strong> {formatSeatPrice(0)}, 500 credits lifetime.
-          Best for occasional users or people trying Dust.
+          <strong>1–3 aircraft:</strong>{" "}
+          {formatSeatPrice(small?.priceMonthDollars ?? 435)}/aircraft/month, or{" "}
+          {formatSeatPrice(small?.priceYearDollars ?? 349)}/aircraft/month billed
+          yearly.
         </li>
         <li>
-          <strong>Pro:</strong> {formatSeatPrice(pro?.priceMonthDollars ?? 30)}
-          /month, or {formatSeatPrice(pro?.priceYearDollars ?? 24)}/month billed
-          yearly, with 8,000 credits/month. Best for most team members.
+          <strong>4–10 aircraft:</strong>{" "}
+          {formatSeatPrice(growing?.priceMonthDollars ?? 375)}/aircraft/month, or{" "}
+          {formatSeatPrice(growing?.priceYearDollars ?? 299)}/aircraft/month billed
+          yearly.
         </li>
         <li>
-          <strong>Max:</strong> {formatSeatPrice(max?.priceMonthDollars ?? 150)}
-          /month, or {formatSeatPrice(max?.priceYearDollars ?? 120)}/month
-          billed yearly, with 40,000 credits/month. Best for power users running
-          complex automations, Deep research, or tool-heavy workflows regularly.
+          <strong>11–25 aircraft:</strong>{" "}
+          {formatSeatPrice(scaled?.priceMonthDollars ?? 310)}/aircraft/month, or{" "}
+          {formatSeatPrice(scaled?.priceYearDollars ?? 249)}/aircraft/month billed
+          yearly.
         </li>
       </ul>
       <p className="mt-3">
-        You can mix and match seat types across your workspace and reassign them
-        anytime as usage changes.{" "}
-        <a
-          href="https://docs.dust.tt/docs/seat-management"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-medium text-highlight hover:underline"
-        >
-          Learn more about seats
-        </a>
-        .
+        All Business tiers include unlimited users so dispatch, operations, crew,
+        maintenance and leadership can work from the same operational picture.
       </p>
     </>
   );
@@ -369,74 +354,38 @@ function SeatTiersFAQAnswer() {
 
 const FAQS: FAQItemData[] = [
   {
-    q: "What is a credit?",
-    a: (
-      <>
-        A credit is Dust's unit for measuring AI usage. Credit consumption
-        depends on the model used, the complexity of the task, and any tools the
-        agent uses, such as search, data retrieval, code execution, or actions
-        in connected apps.{" "}
-        <a
-          href="https://docs.dust.tt/docs/credits"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-medium text-highlight hover:underline"
-        >
-          Learn more about credits
-        </a>
-        .
-      </>
-    ),
+    q: "How is Aeros priced?",
+    a: "Business is priced per active aircraft, with unlimited users included. The per-aircraft rate decreases as your fleet grows. Enterprise pricing is tailored to larger fleets, custom integrations, data volume, governance, deployment requirements and support.",
   },
   {
-    q: "How are credits consumed?",
-    a: (
-      <>
-        Credits are charged per message, based on the model used and the actions
-        performed. Basic chat with a token-efficient model like Claude Sonnet
-        will consume few credits, while a deep research task that requires
-        complex, multi-step orchestration and tool use will consume more. You'll
-        be able to track your credit usage in Dust so that you can understand
-        how different workflows consume credits.{" "}
-        <a
-          href="https://docs.dust.tt/docs/credit-management"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-medium text-highlight hover:underline"
-        >
-          Learn more about managing credits
-        </a>
-        .
-      </>
-    ),
+    q: "What counts as an active aircraft?",
+    a: "An active aircraft is a tail enabled in Aeros for mission planning, monitoring or operational decision support during the billing period. You are not charged per flight, message or dispatcher.",
   },
   {
-    q: "Do unused credits roll over?",
-    a: "No. Each seat's monthly credit allocation resets at the start of every billing period. This keeps pricing predictable and makes it easier for teams to plan.",
+    q: "Are users charged separately?",
+    a: "No. Business includes unlimited users. We want operations, dispatch, crew, maintenance and leadership working from the same source of truth instead of rationing access by seat.",
   },
   {
-    q: "What happens when I run out of credits?",
-    a: "If an agent is already generating a response, it will finish; you won't be cut off mid-response. After that, additional usage depends on your seat type and workspace settings. Pro and Max users will be able to continue through workspace overage if enabled by an admin up to a capped amount. Free users are prompted to request an upgrade.",
+    q: "Is AI or aviation-data usage metered?",
+    a: "Core mission analysis, monitoring and aviation-data usage are included under a fair-use policy for Business customers. Very high-volume polling, custom data feeds or unusually compute-intensive workflows can be scoped separately. Enterprise plans use pooled and custom usage limits.",
   },
   {
-    q: "What's the difference between Free, Pro, and Max seats?",
+    q: "How do the Business fleet tiers work?",
     a: <SeatTiersFAQAnswer />,
   },
   {
-    q: "How does billing work when I add or remove members?",
-    a: "Adding a member mid-cycle is prorated: they get their full credit allocation immediately, and you're charged only for the remaining days in the period on your next invoice. Removing a member frees the seat for reassignment. Monthly seats can be cancelled anytime; annual seats stay available for reassignment until their commitment ends.",
+    q: "Can we start with a smaller pilot?",
+    a: "Yes. Operators can begin with a selected set of aircraft and workflows, validate the operational value, then expand to the rest of the fleet. Enterprise pilots can also be scoped around a specific mission type, base or operations team.",
   },
   {
-    q: "Which AI models are included?",
-    a: "All plans include access to 20+ models from OpenAI, Anthropic, Google, Mistral, and DeepSeek. You choose the model per agent. No model is locked behind a higher plan, though higher-capability models may consume more credits per message.",
+    q: "What happens if our fleet size changes?",
+    a: "Monthly customers are billed according to the active-aircraft tier for that billing period. Annual customers keep their committed tier and can add aircraft during the term; larger fleet expansions can be moved to a volume or Enterprise agreement.",
   },
   {
     q: "When should I consider Enterprise?",
-    a: "Enterprise is best for organizations that need advanced security and admin controls, dedicated support, custom terms, or more flexible usage arrangements at scale. This includes needs like SCIM, audit logs, SLAs, hands-on onboarding, and Customer Success support.",
+    a: "Enterprise is designed for fleets above 25 aircraft and operators that need custom scheduling, maintenance, crew or flight-system integrations; higher-frequency data feeds; SSO or SCIM; dedicated implementation; custom retention or deployment controls; or contractual SLAs.",
   },
 ];
-
-// ---------- Subcomponents ----------
 
 interface BillingToggleProps {
   billing: Billing;
@@ -450,8 +399,6 @@ function BillingToggle({ billing, setBilling }: BillingToggleProps) {
     width: number;
   }>({ left: 0, width: 0 });
 
-  // Measured before paint so the slider never flashes at width 0, and
-  // re-measured on container resize (window resize, late font load).
   useLayoutEffect(() => {
     const wrap = wrapRef.current;
     if (!wrap) {
@@ -636,7 +583,7 @@ function PlanCard({
               })}
             </div>
             <p className="copy-xs mt-5 text-right text-primary-400">
-              Excluding VAT
+              Pricing shown per active aircraft / month
             </p>
           </div>
         </>
@@ -677,16 +624,12 @@ function Hero({
   return (
     <section className="-mx-6 flex flex-col items-center px-4 pt-6 text-center md:mx-0 md:px-0 md:pt-10 lg:pt-14">
       <Link
-        href="https://dust.tt/blog/economics-of-multiplayer-ai"
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={withTracking(TRACKING_AREAS.PRICING, "hero_blog_pill")}
+        href="/home/contact"
+        onClick={withTracking(TRACKING_AREAS.PRICING, "hero_pricing_pill")}
         className="group mb-5 inline-flex items-center gap-2 rounded-full border border-gray-100 bg-white py-1.5 pl-3 pr-3 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50"
       >
         <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-500" />
-        <span className="whitespace-nowrap">
-          The economics of multiplayer AI
-        </span>
+        <span className="whitespace-nowrap">Priced by active aircraft, not seats</span>
         <svg
           width="12"
           height="12"
@@ -711,11 +654,12 @@ function Hero({
       >
         Pricing that scales
         <br />
-        with the work you get done
+        with your operation
       </h1>
       <p className="copy-lg mb-9 max-w-2xl text-balance text-muted-foreground">
-        Choose self-serve plan for your team, or talk to us about
-        enterprise-ready deployment, governance, and support
+        Business pricing scales with active aircraft and includes unlimited users.
+        Enterprise is tailored to fleet size, integrations, data volume, governance,
+        deployment requirements and support.
       </p>
 
       <div className="mt-12 grid w-full grid-cols-1 items-stretch gap-5 md:grid-cols-2 md:max-w-3xl">
@@ -780,8 +724,6 @@ function ComparisonTable({
   const isSearching = normalizedQuery.length > 0;
 
   const toggleSection = (sectionName: string) => {
-    // Sections are forced open while searching; ignore toggles so the
-    // stored open state doesn't silently flip underneath.
     if (isSearching) {
       return;
     }
@@ -813,7 +755,7 @@ function ComparisonTable({
         <Button
           variant="highlight"
           size="sm"
-          label="Start for free"
+          label="Request access"
           onClick={onBusinessStart}
         />
       );
@@ -835,10 +777,8 @@ function ComparisonTable({
           <h2 className="heading-5xl">Compare plans feature by feature</h2>
         </div>
 
-        {/* Table */}
         <div>
           <table className="w-full border-separate border-spacing-0">
-            {/* top-16 matches the ScrollingHeader scrolled height (h-16). */}
             <thead className="sticky top-16 z-10">
               <tr className="grid grid-cols-2 bg-background md:table-row">
                 <th className="hidden border-b border-border bg-background px-2 text-left align-bottom md:table-cell md:py-5">
@@ -877,8 +817,6 @@ function ComparisonTable({
               return (
                 <tbody
                   key={section.section}
-                  // Row-dim on hover, gated to hover-capable devices to avoid
-                  // sticky hover on touch.
                   className="motion-safe:[&_tr[data-row=feature]]:transition-opacity motion-safe:[&_tr[data-row=feature]]:duration-200 [@media(hover:hover)]:[&:has(tr[data-row=feature]:hover)_tr[data-row=feature]:not(:hover)]:opacity-40"
                 >
                   <tr className="grid grid-cols-1 md:table-row">
@@ -985,8 +923,6 @@ function FAQSection() {
   );
 }
 
-// ---------- Page ----------
-
 // oxlint-disable-next-line dust/nextjsPageComponentNaming -- pre-existing
 export default function Pricing() {
   const router = useRouter();
@@ -1016,8 +952,8 @@ export default function Pricing() {
   return (
     <MotionConfig reducedMotion="user">
       <PageMetadata
-        title="Dust Pricing: Business and Enterprise Plans for AI Agents"
-        description="Dust scales from a single builder to thousands of seats. Business self-serve with Pro ($24/seat/mo yearly) and Max ($120/seat/mo yearly) seats, Enterprise for organizations at scale."
+        title="Aeros Pricing: Business and Enterprise Plans for Flight Operations"
+        description="Aeros Business pricing scales by active aircraft with unlimited users included. Enterprise plans support larger fleets, custom integrations, governance, deployment requirements and SLAs."
         pathname={router.asPath}
       />
       <Hero
