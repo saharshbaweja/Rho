@@ -30,33 +30,33 @@ interface FeatureCard {
 const CARDS: FeatureCard[] = [
   {
     number: "01",
-    title: "Every mission, fully understood",
+    title: "Mission Monitoring",
     subtitle:
-      "Connect schedules, weather, NOTAMs, aircraft, crew, airport data, and operator procedures. Aeros builds the operational context required to understand each mission as conditions change.",
+      "Bring flights, weather, airports, airspace, and alerts into one mission view. Follow changes from planning through the active operation.",
     accent: "text-blue-500",
     hoverVideoSrc: "/static/landing/home/features/knows-your-company.mp4",
   },
   {
     number: "02",
-    title: "Changes translated into impact",
+    title: "Dispatch Intelligence",
     subtitle:
-      "A new TAF or NOTAM isn't another alert. Aeros identifies the missions it affects, reruns the relevant checks, and shows the operational consequence.",
+      "Connect NOTAMs, airport information, forecasts, aircraft limitations, and operator rules to the missions they affect.",
     accent: "text-rose-500",
     hoverVideoSrc: "/static/landing/home/features/team-sport.mp4",
   },
   {
     number: "03",
-    title: "Viable options, continuously evaluated",
+    title: "Planning & Recovery",
     subtitle:
-      "When a mission needs attention, Aeros generates possible moves—delay, alternate, aircraft swap, recovery airport, crew change—and evaluates each against the same operational constraints.",
+      "Compare departure windows, alternates, route changes, aircraft swaps, and crew options with downstream effects in view.",
     accent: "text-golden-500",
     hoverVideoSrc: "/static/landing/home/features/best-model.mp4",
   },
   {
     number: "04",
-    title: "Decisions grounded in evidence",
+    title: "Evidence & Coordination",
     subtitle:
-      "Every conclusion stays connected to its source. See the condition, applicable rule, result, validity, and evidence behind every operational recommendation.",
+      "Review the sources, assumptions, open actions, and approvals behind a recommendation. Keep the responsible people in control.",
     accent: "text-green-700",
     hoverVideoSrc: "/static/landing/home/features/compounds.mp4",
   },
@@ -208,11 +208,11 @@ export function HomeAgentsImproveSection() {
       <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-16 px-6">
         <div className="flex flex-col items-center gap-6 text-center">
           <HomeReveal>
-            <HomeEyebrow label="Operational intelligence" />
+            <HomeEyebrow label="The Aeros platform" />
           </HomeReveal>
           <HomeReveal delay={80}>
             <H2 className="max-w-[820px] text-balance text-center font-semibold leading-[1.08] tracking-[-0.03em] text-foreground text-center!">
-              One system for the operational decision
+              From flight watch to the next decision
             </H2>
           </HomeReveal>
           <HomeReveal delay={160}>
@@ -220,9 +220,9 @@ export function HomeAgentsImproveSection() {
               size="sm"
               className="max-w-[680px] text-center text-muted-foreground"
             >
-              Aeros brings every mission, live condition, operator rule, and
-              operational constraint together so teams can understand change,
-              compare viable paths, and make decisions with evidence.
+              Aeros brings monitoring, contextual alerts, dispatch assessment,
+              planning, and recovery into one product direction—connecting
+              operational evidence with the people making the call.
             </P>
           </HomeReveal>
         </div>

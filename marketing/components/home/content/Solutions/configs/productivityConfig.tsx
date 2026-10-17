@@ -16,26 +16,23 @@ import type {
 
 // Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Productivity",
-  title: <>Get Things Done Faster, Better</>,
+  uptitle: "Operations Leadership",
+  title: <> Turn operational reviews into shared learning. </>,
   accentColor: "text-brand-hunter-green",
   description: (
-    <>
-      Automate routine tasks, enhance your communications, and get expert
-      feedback tied to your company resources.
-    </>
+    <> Bring recurring disruptions, decision context, and cross-team actions into focus so leaders can improve how the operation responds. </>
   ),
   bulletPoints: [
-    "Generate instant meeting summaries.",
-    "Summarize complex documents quickly.",
-    "Polish communications professionally.",
-    "Get expert coaching on any topic.",
+    "Review the missions requiring attention and the constraints driving the current plan.",
+    "Understand the alternatives considered, the evidence available, and the selected response.",
+    "Keep open actions and decision responsibilities clear across dispatch, crew, and maintenance.",
+    "Use mission reviews to identify data gaps, recurring constraints, and procedures that need attention.",
   ],
   image: "/static/landing/productivity/contentoptimizer.png",
   seo: {
-    title: "AI Productivity Agents: Get Things Done Faster, Better",
+    title: "Aeros for Operations Leadership | Mission Intelligence",
     description:
-      "Automate routine tasks, enhance your communications, and get expert feedback tied to your company resources. Generate meeting summaries, summarize documents.",
+      "Bring recurring disruptions, decision context, and cross-team actions into focus so leaders can improve how the operation responds.",
   },
 };
 
@@ -67,37 +64,37 @@ export const Hero: HeroProps = {
   ],
   ctaButtons: {
     primary: {
-      label: "Get started",
+      label: "Explore Aeros",
       href: "/home/pricing",
       icon: Rocket02,
     },
     secondary: {
-      label: "Talk to sales",
+      label: "Request a demo",
       href: "/home/contact",
     },
   },
 };
 
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Supercharge your personal productivity and growth",
+  sectionTitle: "Operations Leadership, with the mission in view",
   items: [
     {
       icon: MagicWand02,
-      title: "Focus on impact",
+      title: "Understand the mission",
       description:
-        "Maximize your time by automating note-taking and content processing.",
+        "Bring recurring disruptions, decision context, and cross-team actions into focus so leaders can improve how the operation responds.",
     },
     {
       icon: CheckCircle,
-      title: "Enhance clarity",
+      title: "Evaluate the impact",
       description:
-        "Instantly transform complex information into clear, actionable insights.",
+        "Understand the alternatives considered, the evidence available, and the selected response.",
     },
     {
       icon: Users01,
-      title: "Accelerate growth",
+      title: "Coordinate the response",
       description:
-        "Turn every interaction into a learning opportunity with personalized guidance.",
+        "Use mission reviews to identify data gaps, recurring constraints, and procedures that need attention.",
     },
   ],
 };
@@ -105,44 +102,44 @@ export const Benefits: BenefitsProps = {
 export const Metrics: MetricProps = {
   metrics: [
     {
-      value: "43%",
-      description: <>of Kyriba employees save more than 3 hours weekly</>,
+      value: "Context",
+      description: <> The mission, its constraints, and the changes that matter. </>,
     },
     {
-      value: "90%",
-      description: <>weekly active users at Alan</>,
+      value: "Evidence",
+      description: <> The sources, assumptions, and human review behind the response. </>,
     },
   ],
   color: "golden",
 };
 
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Your use cases, your way",
+  sectionTitle: "Operations Leadership workflows",
   sectionDescription:
-    "Customize and automate tasks without writing a single line of code.",
+    "The Aeros roadmap for operations leadership, from assessment to coordinated action.",
   items: [
     {
-      title: "Meeting summaries",
+      title: "Operational overview",
       content:
-        "Instantly change transcripts into personalized, richly contextualized summaries with clear next steps.",
+        "Review the missions requiring attention and the constraints driving the current plan.",
       images: ["/static/landing/productivity/leadershipmeetingrecap.png"],
     },
     {
-      title: "Content summarization",
+      title: "Decision review",
       content:
-        "Transform lengthy documents into clear summaries and key takeaways for quick comprehension.",
+        "Understand the alternatives considered, the evidence available, and the selected response.",
       images: ["/static/landing/productivity/blogdigest.png"],
     },
     {
-      title: "Writing coach",
+      title: "Cross-team ownership",
       content:
-        "Enhance your communications with professional polish, improved clarity, and perfect grammar.",
+        "Keep open actions and decision responsibilities clear across dispatch, crew, and maintenance.",
       images: ["/static/landing/productivity/contentoptimizer.png"],
     },
     {
-      title: "Domain Expert",
+      title: "Process improvement",
       content:
-        "Access expert guidance and deep insights across any skill or knowledge domain.",
+        "Use mission reviews to identify data gaps, recurring constraints, and procedures that need attention.",
       images: ["/static/landing/productivity/discoverycoach.png"],
     },
   ],
@@ -152,19 +149,19 @@ export const Quote: QuoteProps = {
   quote:
     "The Dust platform is more than just a tool for post-ideation; it's a catalyst for innovation, stimulating idea generation as employees engage with it.",
   name: "Boris Lipiainen",
-  title: "Chief Product and Technology Officer at Kyriba",
+  title: "Dust customer reference · Chief Product and Technology Officer at Kyriba",
   logo: "/static/landing/logos/color/kyriba.png",
 };
 
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Watch Dust in motion",
+  sectionTitle: "Reference workflow demonstration",
   videoUrl: "https://fast.wistia.net/embed/iframe/rnyvpdxfrk",
   showCaptions: true,
 };
 
 export const Stories: CustomerStory[] = [
   {
-    title: "Kyriba's adoption of Dust across all functions",
+    title: "Dust reference: Kyriba's adoption of Dust across all functions",
     content:
       "43% of Kyriba employees save more than 3 hours weekly leveraging Dust for RFPs.",
     href: "/customers/kyriba-accelerating-innovation-with-dust",
@@ -172,14 +169,14 @@ export const Stories: CustomerStory[] = [
   },
   {
     title:
-      "PayFit Accelerates Content Creation and Knowledge Sharing with Dust",
+      "Dust reference: PayFit Accelerates Content Creation and Knowledge Sharing with Dust",
     content:
       "PayFit leverages Dust AI assistants to improve their internal processes across the board.",
     href: "/customers/dust-ai-payfit-efficiency",
     src: "https://blog.dust.tt/content/images/size/w2000/2025/01/dust_payfit.png",
   },
   {
-    title: "November Five's journey to minimizing routine tasks with Dust",
+    title: "Dust reference: November Five's journey to minimizing routine tasks with Dust",
     content:
       "Discover how November Five accelerates work with Dust, turning 3-hour tasks into 30 minutes.",
     href: "/customers/november-five-ai-transformation-dust",

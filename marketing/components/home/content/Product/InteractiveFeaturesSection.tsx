@@ -17,22 +17,22 @@ interface FeatureItem {
 const features: FeatureItem[] = [
   {
     id: "pods",
-    title: "Pods",
+    title: "Shared mission context",
     description:
-      "Persistent shared workspace where humans and agents collaborate around any topic, project, or initiative. Shared conversations, tasks, files and agents, all in one place.",
+      "Bring the mission, changing conditions, evidence, and open actions into one team review. Dispatch, crew, and maintenance work from the same context while retaining clear responsibilities.",
     panelGradient: "linear-gradient(125deg, #FFF1F7 0.54%, #FFC3DF 100%)",
     videoSrc: "/static/landing/product/PODS_Website-asset%201.mp4",
-    ctaLabel: "Learn more",
+    ctaLabel: "View reference workflow",
     ctaHref: "https://docs.dust.tt/docs/user-documentation/pods/overview",
   },
   {
     id: "skill",
-    title: "Self-improving skills",
+    title: "Continuous reassessment",
     description:
-      "Skills that get smarter with every use. As your team runs agents, the system learns and improves, compounding your organization's intelligence over time without any manual effort.",
+      "Revisit affected missions when forecasts, restrictions, schedules, or aircraft conditions change. Keep the operational impact and the next review visible as the situation develops.",
     panelGradient: "linear-gradient(125deg, #E9F7FF 0.54%, #9FDBFF 100%)",
     videoSrc: "/static/landing/product/Self-improving%20Skills.mp4",
-    ctaLabel: "Learn more",
+    ctaLabel: "View reference workflow",
     ctaHref:
       "https://dust.tt/blog/introducing-self-improving-skills-reusable-ai-capabilities",
   },
@@ -77,7 +77,7 @@ export function InteractiveFeaturesSection() {
       <div className="mx-auto flex w-full max-w-[1180px] flex-col items-center px-6">
         <HomeReveal>
           <h2 className="m-0 py-[8px] text-center font-sans text-[48px] font-normal leading-[52px] tracking-[-0.06em] text-white">
-            Capabilities built for AI Operator
+            Built around the operational decision
           </h2>
         </HomeReveal>
       </div>

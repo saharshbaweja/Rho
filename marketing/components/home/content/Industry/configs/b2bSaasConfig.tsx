@@ -4,9 +4,9 @@ import { createLayoutConfig } from "@marketing/components/home/content/Industry/
 
 export const b2bSaasConfig: IndustryPageConfig = {
   seo: {
-    title: "Dust for B2B SaaS",
+    title: "Aeros for Airlines",
     description:
-      "The AI solution trusted by leading SaaS innovators. Say goodbye to scattered info, manual busywork, and buried insights.",
+      "Connect dispatch, flight watch, crew, and maintenance around the operational changes that affect the schedule.",
   },
   layout: createLayoutConfig([
     "hero",
@@ -22,25 +22,22 @@ export const b2bSaasConfig: IndustryPageConfig = {
   ]),
   hero: {
     chip: {
-      label: "B2B SaaS",
+      label: "Airlines",
       color: "warning",
       icon: Building04,
     },
     title: (
-      <>
-        Dust for
-        <br /> B2B SaaS
-      </>
+      <> Coordinate the network, one <br /> mission at a time. </>
     ),
     description:
-      "The AI solution trusted by leading SaaS innovators. Say goodbye to scattered info, manual busywork, and buried insights.",
+      "Connect dispatch, flight watch, crew, and maintenance around the operational changes that affect the schedule.",
     ctaButtons: {
       primary: {
-        label: "Get started",
+        label: "Explore Aeros",
         href: "/home/pricing",
       },
       secondary: {
-        label: "Talk to sales",
+        label: "Request a demo",
         href: "/home/contact",
       },
     },
@@ -49,7 +46,7 @@ export const b2bSaasConfig: IndustryPageConfig = {
         "Dust is the most impactful software we've adopted since building Clay.",
       author: {
         name: "Everett Berry",
-        title: "Head of GTM Engineering at Clay",
+        title: "Dust customer reference · Head of GTM Engineering at Clay",
       },
       company: {
         logo: "/static/landing/logos/color/clay_white.png",
@@ -64,159 +61,159 @@ export const b2bSaasConfig: IndustryPageConfig = {
     },
   },
   aiAgents: {
-    title: "What if your teams focused on growth?",
+    title: "Mission intelligence for airlines",
     description:
-      "Deploy agents that research information, share insights across teams, and automate routine tasks—handling all the time-consuming work that slows you down. Your teams focus on growing your business while leveraging everything your organization has already built.",
+      "Connect dispatch, flight watch, crew, and maintenance around the operational changes that affect the schedule. The product roadmap brings mission monitoring, contextual alerts, recovery options, and team review into the same operating picture.",
     bgColor: "bg-gray-50",
   },
   trustedBy: {
-    title: "Trusted by SaaS leaders",
+    title: "Reference ecosystem · existing third-party logos",
     logoSet: "b2b-saas",
   },
   painPoints: {
-    title: "Transform how you work",
+    title: "From changing conditions to coordinated action",
     painPoints: [
       {
         icon: "/static/landing/industry/d-blue.svg",
-        title: "Automate busywork that slows you down",
+        title: "Understand the mission",
         description:
-          "Stop wasting hours on research, data entry, and repetitive tasks. Deploy AI that works your way—understanding your processes, terminology, and decision-making patterns",
+          "Connect dispatch, flight watch, crew, and maintenance around the operational changes that affect the schedule.",
         color: "red",
       },
       {
         icon: "/static/landing/industry/d-red.svg",
-        title: "Build your intelligence engine",
+        title: "Evaluate the impact",
         description:
-          "Transform scattered conversations, documents, and insights across all departments into a unified knowledge base that gets smarter with every interaction",
+          "Prioritize changes by their effect on the mission, its aircraft, and its operating window.",
         color: "blue",
       },
       {
         icon: "/static/landing/industry/d-green.svg",
-        title: "Scale your best people instantly",
+        title: "Coordinate the response",
         description:
-          "New team members gain immediate access to the expertise and methodologies that typically take years to develop, with AI agents that work exactly how your organization works",
+          "Prepare clear operational updates with the condition, impact, and proposed response for human review.",
         color: "green",
       },
     ],
   },
   dustInAction: {
-    title: "Dust in action",
+    title: "Airlines workflows",
     useCases: [
       {
-        title: "GTM operations & sales enablement",
+        title: "Mission monitoring",
         image: "/static/landing/industry/features/Sales_agent.webp",
         bgColor: "bg-blue-100",
         features: [
           {
             icon: "bg-red-500",
-            title: "360° account intelligence",
+            title: "Flight watch",
             description:
-              "Generate snapshots of your customers leveraging product usage, support tickets, and previous interactions",
+              "Monitor mission status alongside route weather, airport conditions, and airspace constraints.",
           },
           {
             icon: "bg-yellow-400 rounded-tr-full",
-            title: "Automated follow-ups",
+            title: "Mission-relevant alerts",
             description:
-              "Automate follow-ups and CRM updates using meeting transcripts and cross-team insights automatically",
+              "Prioritize changes by their effect on the mission, its aircraft, and its operating window.",
           },
           {
             icon: "bg-blue-500 rounded-bl-full",
-            title: "Prospect questions",
+            title: "Operational handover",
             description:
-              "Generate responses using your complete knowledge base—technical docs, competitive intel, customer stories",
+              "Carry the current assessment, open actions, and ownership into the next shift.",
           },
           {
             icon: "bg-sky-400 rounded-br-full",
-            title: "Revenue intelligence",
+            title: "Crew coordination",
             description:
-              "Extract insights from interactions to surface sales, support, and product feedback",
+              "Prepare clear operational updates with the condition, impact, and proposed response for human review.",
           },
         ],
       },
       {
-        title: "Marketing operations",
+        title: "Operational assessment",
         image: "/static/landing/industry/features/Content_localization.webp",
         bgColor: "bg-rose-100",
         features: [
           {
             icon: "bg-pink-400 rounded-tl-full",
-            title: "Content localization at scale",
+            title: "Flight watch",
             description:
-              "Maintain brand voice and technical accuracy across markets using tailored agents",
+              "Monitor mission status alongside route weather, airport conditions, and airspace constraints.",
           },
           {
             icon: "bg-red-500",
-            title: "Market intelligence",
+            title: "Mission-relevant alerts",
             description:
-              "Monitor trends and competitors leveraging external sources and real customer conversations",
+              "Prioritize changes by their effect on the mission, its aircraft, and its operating window.",
           },
           {
             icon: "bg-yellow-400 rounded-tr-full",
-            title: "Content optimization",
+            title: "Operational handover",
             description:
-              "Create content using authentic customer language from sales calls and brand guidelines",
+              "Carry the current assessment, open actions, and ownership into the next shift.",
           },
         ],
       },
       {
-        title: "Customer experience",
+        title: "Recovery planning",
         image: "/static/landing/industry/features/Connection_management.webp",
         bgColor: "bg-green-100",
         features: [
           {
             icon: "bg-pink-400 rounded-tl-full",
-            title: "AI ticket deflection & routing",
+            title: "Flight watch",
             description:
-              "Rapidly resolve L1 cases, route complex issues, and ensure SLA compliance",
+              "Monitor mission status alongside route weather, airport conditions, and airspace constraints.",
           },
           {
             icon: "bg-red-500",
-            title: "Accelerated case resolution",
+            title: "Mission-relevant alerts",
             description:
-              "Pre-draft responses using company context - internal docs, similar tickets, recent changes",
+              "Prioritize changes by their effect on the mission, its aircraft, and its operating window.",
           },
           {
             icon: "bg-yellow-400 rounded-tr-full",
-            title: "Knowledge base automation",
+            title: "Operational handover",
             description:
-              "Convert tickets into help articles referencing actual customer conversations and decisions",
+              "Carry the current assessment, open actions, and ownership into the next shift.",
           },
           {
             icon: "bg-green-500",
-            title: "Support insights",
+            title: "Crew coordination",
             description:
-              "Analyze customer interactions to surface insights, optimize documentation, and improve CSAT",
+              "Prepare clear operational updates with the condition, impact, and proposed response for human review.",
           },
         ],
       },
       {
-        title: "Engineering operations",
+        title: "Team coordination",
         image: "/static/landing/industry/features/Eng_debug.webp",
         bgColor: "bg-gray-100",
         features: [
           {
             icon: "bg-pink-400 rounded-tl-full",
-            title: "AI-Powered code debugging",
+            title: "Flight watch",
             description:
-              "Provide context beyond your codebase - recent changes, customer impact - to debug faster",
+              "Monitor mission status alongside route weather, airport conditions, and airspace constraints.",
           },
           {
             icon: "bg-red-500",
-            title: "Automated code reviews",
+            title: "Mission-relevant alerts",
             description:
-              "Tie your internal guidelines to automate code reviews and maintain standards",
+              "Prioritize changes by their effect on the mission, its aircraft, and its operating window.",
           },
           {
             icon: "bg-yellow-400 rounded-tr-full",
-            title: "Incident response",
+            title: "Operational handover",
             description:
-              "Troubleshoot issues, automate communications, and dig deep into your context for your post-mortems",
+              "Carry the current assessment, open actions, and ownership into the next shift.",
           },
           {
             icon: "bg-green-500",
-            title: "Continuous doc generation",
+            title: "Crew coordination",
             description:
-              "Keep user and API docs up-to-date from code changes automatically",
+              "Prepare clear operational updates with the condition, impact, and proposed response for human review.",
           },
         ],
       },
@@ -226,30 +223,30 @@ export const b2bSaasConfig: IndustryPageConfig = {
     bgColor: "bg-blue-50",
     metrics: [
       {
-        value: "20",
-        unit: "%",
-        type: "Increase",
-        description: "in productivity gains for Sales teams",
+        value: "01",
+        unit: "",
+        type: "Context",
+        description: "Mission context comes before a recommendation.",
         bgColor: "bg-pink-300",
         badgeColor: "bg-red-500",
         badgeTextColor: "text-white",
         borderRadius: "rounded-l-full",
       },
       {
-        value: "50",
-        unit: "%",
-        type: "Faster",
-        description: "customer support resolution time",
+        value: "02",
+        unit: "",
+        type: "Options",
+        description: "A proposed move needs evidence and visible assumptions.",
         bgColor: "bg-lime-300",
         badgeColor: "bg-green-600",
         badgeTextColor: "text-white",
         borderRadius: "rounded-r-full",
       },
       {
-        value: "90",
-        unit: "%",
-        type: "Reduction",
-        description: "in content localization time",
+        value: "03",
+        unit: "",
+        type: "Review",
+        description: "The authorized operations team owns the decision.",
         bgColor: "bg-blue-300",
         badgeColor: "bg-pink-300",
         badgeTextColor: "text-gray-900",
@@ -258,7 +255,7 @@ export const b2bSaasConfig: IndustryPageConfig = {
     ],
   },
   demoVideo: {
-    sectionTitle: "See Dust in motion",
+    sectionTitle: "Reference workflow demonstration",
     videoUrl: "https://fast.wistia.net/embed/iframe/8q80neektv",
   },
   testimonial: {
@@ -266,7 +263,7 @@ export const b2bSaasConfig: IndustryPageConfig = {
       "Dust is the most impactful software we've adopted since building Clay.",
     author: {
       name: "Everett Berry",
-      title: "Head of GTM Engineering at Clay",
+      title: "Dust customer reference · Head of GTM Engineering at Clay",
     },
     company: {
       logo: "/static/landing/logos/color/clay_white.png",
@@ -276,15 +273,15 @@ export const b2bSaasConfig: IndustryPageConfig = {
     textColor: "text-white",
   },
   justUseDust: {
-    title: "Just use Dust",
+    title: "Explore Aeros for your operation",
     titleColor: "text-blue-600",
     ctaButtons: {
       primary: {
-        label: "Start Free Trial",
+        label: "Explore access",
         href: "/api/workos/login",
       },
       secondary: {
-        label: "Contact Sales",
+        label: "Request a demo",
         href: "/home/contact",
       },
     },

@@ -16,26 +16,23 @@ import type {
 
 // Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Legal",
-  title: <>Accelerate Legal Operations and Compliance</>,
+  uptitle: "Safety & Compliance",
+  title: <> Make every assessment open to review. </>,
   accentColor: "text-brand-electric-blue",
   description: (
-    <>
-      Assist your teams on legal or compliance reviews, and make legal support
-      more self-served across your organization.
-    </>
+    <> Connect applicable rules, operator procedures, source evidence, and decision ownership so teams can review the basis for an operational recommendation. </>
   ),
   bulletPoints: [
-    "Get instant legal guidance and answers.",
-    "Review contracts with expert insights.",
-    "Navigate legal research efficiently.",
-    "Generate compliant legal documents.",
+    "Bring the applicable operator procedure and operating restriction into the mission assessment.",
+    "Inspect the source, effective period, and reasoning behind a flagged condition.",
+    "Keep required operational approvals with the authorized people and roles.",
+    "Retain the assessment, human review, and selected action as part of the mission history.",
   ],
   image: "/static/landing/legal/legalreviewer.png",
   seo: {
-    title: "AI Legal Agents: Accelerate Legal Operations and Compliance",
+    title: "Aeros for Safety & Compliance | Mission Intelligence",
     description:
-      "Assist your teams on legal or compliance reviews, and make legal support more self-served across your organization. Review contracts, navigate research efficiently.",
+      "Connect applicable rules, operator procedures, source evidence, and decision ownership so teams can review the basis for an operational recommendation.",
   },
 };
 
@@ -67,37 +64,37 @@ export const Hero: HeroProps = {
   ],
   ctaButtons: {
     primary: {
-      label: "Get started",
+      label: "Explore Aeros",
       href: "/home/pricing",
       icon: Rocket02,
     },
     secondary: {
-      label: "Talk to sales",
+      label: "Request a demo",
       href: "/home/contact",
     },
   },
 };
 
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Transform your legal operations into strategic advantage",
+  sectionTitle: "Safety & Compliance, with the mission in view",
   items: [
     {
       icon: MagicWand02,
-      title: "Focus on expertise",
+      title: "Understand the mission",
       description:
-        "Maximize lawyer time by automating routine legal guidance and reviews.",
+        "Connect applicable rules, operator procedures, source evidence, and decision ownership so teams can review the basis for an operational recommendation.",
     },
     {
       icon: CheckCircle,
-      title: "Ensure compliance",
+      title: "Evaluate the impact",
       description:
-        "Instantly verify requirements and stay current with regulatory changes.",
+        "Inspect the source, effective period, and reasoning behind a flagged condition.",
     },
     {
       icon: Users01,
-      title: "Scale legal support",
+      title: "Coordinate the response",
       description:
-        "Turn legal expertise into accessible guidance for the entire organization.",
+        "Retain the assessment, human review, and selected action as part of the mission history.",
     },
   ],
 };
@@ -105,45 +102,45 @@ export const Benefits: BenefitsProps = {
 export const Metrics: MetricProps = {
   metrics: [
     {
-      value: "50%",
-      description: <>time saved on legal tasks</>,
+      value: "Context",
+      description: <> The mission, its constraints, and the changes that matter. </>,
     },
     {
-      value: "80%",
-      description: <>first level legal answers deflected</>,
+      value: "Evidence",
+      description: <> The sources, assumptions, and human review behind the response. </>,
     },
   ],
   color: "golden",
 };
 
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Your use cases, your way",
+  sectionTitle: "Safety & Compliance workflows",
   sectionDescription:
-    "Customize and automate tasks without writing a single line of code.",
+    "The Aeros roadmap for safety & compliance, from assessment to coordinated action.",
   items: [
     {
-      title: "Legal helpdesk",
+      title: "Rule context",
       content:
-        "Provide team members instant legal guidance using your approved policies, documentation and external sources.",
+        "Bring the applicable operator procedure and operating restriction into the mission assessment.",
       images: ["/static/landing/legal/asklegal.png"],
     },
     {
-      title: "Legal review",
+      title: "Evidence review",
       content:
-        "Analyze contracts or RFPs automatically for compliance and risk, highlighting key terms and obligations.",
+        "Inspect the source, effective period, and reasoning behind a flagged condition.",
       images: ["/static/landing/legal/legalreviewer.png"],
     },
     {
-      title: "Legal research and monitoring",
+      title: "Approval ownership",
       content:
-        "Navigate legal databases and documentation to surface relevant precedents. Monitor regulation updates for compliance check.",
+        "Keep required operational approvals with the authorized people and roles.",
       images: ["/static/landing/legal/regulatorywatch.png"],
     },
 
     {
-      title: "Document creation",
+      title: "Decision record",
       content:
-        "Generate legal documents and agreements using pre-approved templates and clauses.",
+        "Retain the assessment, human review, and selected action as part of the mission history.",
       images: ["/static/landing/legal/contractwriter.png"],
     },
   ],
@@ -153,19 +150,19 @@ export const Quote: QuoteProps = {
   quote:
     "Dust transformed our privacy reviews. It handles compliance checks, suggests improvements, and drafts communications. It both cuts our review time and helps pressure-test our legal interpretations.",
   name: "Thomas Adhumeau",
-  title: "Chief Privacy Officer at Didomi",
+  title: "Dust customer reference · Chief Privacy Officer at Didomi",
   logo: "/static/landing/logos/color/didomi.png",
 };
 
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Watch Dust in motion",
+  sectionTitle: "Reference workflow demonstration",
   videoUrl: "https://fast.wistia.net/embed/iframe/zzbhe95pvz",
   showCaptions: true,
 };
 
 export const Stories: CustomerStory[] = [
   {
-    title: "Wakam cuts legal contract analysis time by 50% with Dust",
+    title: "Dust reference: Wakam cuts legal contract analysis time by 50% with Dust",
     content:
       "How Wakam developed specialized AI agents to automate contract analysis, data extraction, and regulatory monitoring.",
     href: "/customers/how-wakam-cut-legal-contract-analysis-time-by-50-with-dust",
@@ -173,7 +170,7 @@ export const Stories: CustomerStory[] = [
   },
   {
     title:
-      "50% Time Savings in Legal: How Didomi's CPO Transformed Privacy Compliance",
+      "Dust reference: 50% Time Savings in Legal: How Didomi's CPO Transformed Privacy Compliance",
     content:
       "Dust AI agents cut their legal team's workload in half, enabling them to scale operations across multiple countries without additional headcount.",
     href: "/customers/how-thomas-uses-ai-assistants-to-manage-legal-and-data-privacy-at-didomi",
@@ -181,7 +178,7 @@ export const Stories: CustomerStory[] = [
   },
   {
     title:
-      "50,000 Hours Saved: How Qonto Revolutionized Compliance and Risk Assessment with AI",
+      "Dust reference: 50,000 Hours Saved: How Qonto Revolutionized Compliance and Risk Assessment with AI",
     content:
       "Germi, Qonto's AI assistant, analyzes German industry codes and screens prohibited activities, automating compliance checks across European markets.",
     href: "/customers/qonto-dust-ai-partnership",

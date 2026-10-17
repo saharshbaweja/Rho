@@ -52,93 +52,93 @@ interface ExtensionTab {
 
 const EXTENSION_TABS: ExtensionTab[] = [
   {
-    label: "Sales",
-    heading: "Close faster, from any tab.",
+    label: "Dispatch",
+    heading: "Mission context, where dispatch works.",
     image: {
       src: "/static/landing/chrome_ext/Ext_Sales.png",
       alt: "Sales teams using Dust Chrome Extension",
     },
     features: [
       {
-        title: "Instant follow-ups from any call",
+        title: "Mission briefing",
         description:
-          "Paste a Gong transcript, get a personalized follow-up email without switching tools.",
+          "Bring route conditions, relevant restrictions, and operator procedures into a focused mission review.",
         dotCSS: "text-pink-400",
         shape: "circle",
       },
       {
-        title: "Outreach that feels human",
+        title: "Operational evidence",
         description:
-          "Pull context from your CRM and craft tailored messages right where you're prospecting.",
+          "Inspect the source and effective period behind a condition before acting on an assessment.",
         dotCSS: "text-red-500",
         shape: "rectangle",
       },
       {
-        title: "Your knowledge, everywhere you browse",
+        title: "Operator knowledge",
         description:
-          "Access playbooks, battlecards, and customer data while you're live on a prospect's website.",
+          "Keep approved manuals and company operating limits within reach during a mission review.",
         dotCSS: "text-yellow-400",
         shape: "triangle",
       },
     ],
   },
   {
-    label: "Engineering",
-    heading: "Build faster, from any tab.",
+    label: "Maintenance",
+    heading: "Aircraft context, inside the review.",
     image: {
       src: "/static/landing/chrome_ext/Ext_Engineer.png",
       alt: "Engineering teams using Dust Chrome Extension",
     },
     features: [
       {
-        title: "Code reviews, where you code",
+        title: "Aircraft readiness",
         description:
-          "Leverage review assistants directly from PRs without leaving your browser.",
+          "Review open items and aircraft limitations against the requirements of the planned mission.",
         dotCSS: "text-pink-400",
         shape: "rectangle",
       },
       {
-        title: "Suggestions while you browse docs",
+        title: "Procedure research",
         description:
-          "Get intelligent suggestions while browsing documentation.",
+          "Find the relevant operating procedure and its supporting passage for human verification.",
         dotCSS: "text-red-500",
         shape: "circle",
       },
       {
-        title: "Better PR comments, faster",
+        title: "Cross-team handover",
         description:
-          "Share better PR comments on the go using company knowledge.",
+          "Share the operational consequence, unresolved condition, and owner of the next action.",
         dotCSS: "text-yellow-500",
         shape: "triangle",
       },
     ],
   },
   {
-    label: "Customer Support",
-    heading: "Resolve faster, from any tab.",
+    label: "Flight Operations",
+    heading: "One mission picture for the operation.",
     image: {
       src: "/static/landing/chrome_ext/Ext_CSupport.png",
       alt: "Support teams using Dust Chrome Extension",
     },
     features: [
       {
-        title: "Respond from any web tool",
+        title: "Flight watch",
         description:
-          "Reply to customer tickets from any web-based solution without switching apps.",
+          "Keep active flights and their changing operational context connected to the OCC review.",
         dotCSS: "text-pink-400",
         shape: "square",
       },
       {
-        title: "AI-assisted analysis",
+        title: "Impact assessment",
         description:
-          "Analyze dashboards with AI assistance right where you need it.",
+          "Understand which missions a weather, airport, or airspace change can affect.",
         dotCSS: "text-red-500",
         shape: "rectangle",
       },
       {
-        title: "Knowledge at your fingertips",
+        title: "Decision context",
         description:
-          "Get instant access to knowledge base without switching apps.",
+          "Review the evidence, alternatives, and approvals required for the next operational step.",
         dotCSS: "text-blue-500",
         shape: "circle",
       },
@@ -159,8 +159,8 @@ interface InstallationStep {
 const INSTALLATION_STEPS: InstallationStep[] = [
   {
     number: "1.",
-    title: "Install",
-    description: "Install the Dust Chrome Extension from the Chrome Web Store.",
+    title: "Review scope",
+    description: "Define the mission workflow, source systems, and access requirements for an Aeros rollout.",
     image: {
       src: "/static/landing/chrome_ext/Step1.png",
       alt: "Chrome Web Store installation",
@@ -168,8 +168,8 @@ const INSTALLATION_STEPS: InstallationStep[] = [
   },
   {
     number: "2.",
-    title: "Configure",
-    description: "Pin the Dust extension to keep it at your fingertips.",
+    title: "Connect context",
+    description: "Map the relevant mission, operator knowledge, and aviation data into the review.",
     image: {
       src: "/static/landing/chrome_ext/Step2.png",
       alt: "Extension configuration interface",
@@ -177,9 +177,9 @@ const INSTALLATION_STEPS: InstallationStep[] = [
   },
   {
     number: "3.",
-    title: "Start using",
+    title: "Validate with the team",
     description:
-      "Access Dust AI assistance directly from any web page with a simple click.",
+      "Validate outputs and human review responsibilities before expanding operational use.",
     image: {
       src: "/static/landing/chrome_ext/Step3.png",
       alt: "Chrome extension in action",
@@ -213,21 +213,16 @@ function HeroSection() {
           <H1
             mono
             className="mb-4 text-4xl font-medium leading-tight md:text-5xl lg:text-6xl xl:text-7xl"
-          >
-            Bring Dust agents into your browser
-          </H1>
+          > Aeros Operational Assistant </H1>
           <P
             size="lg"
             className="pb-6 text-muted-foreground md:max-w-lg md:pb-8"
-          >
-            Access company knowledge and AI assistance without leaving your
-            current tab.
-          </P>
+          > The Aeros roadmap for bringing mission context and operator knowledge into the tools your team already uses. </P>
           <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
             <Button
               variant="primary"
               size="md"
-              label="Install Chrome Extension"
+              label="View reference extension"
               icon={() => (
                 <img src="/static/landing/chrome_ext/Chrome.svg" alt="Chrome" />
               )}
@@ -267,9 +262,8 @@ function WebAppSidebarSection() {
   return (
     <Grid>
       <div className={GRID_SECTION_CLASSES}>
-        <H2 className="text-center">
-          Everything the web app can do in your{" "}
-          <span className="text-brand-electric-blue">sidebar</span>
+        <H2 className="text-center"> Operational context alongside your {" "}
+          <span className="text-brand-electric-blue"> workflow </span>
         </H2>
         <DemoVideoSection
           demoVideo={{
@@ -286,7 +280,7 @@ function ChromeExtensionInActionFor() {
   return (
     <div className={SECTION_CLASSES}>
       <div className={CONTAINER_CLASSES}>
-        <H2 className="mb-8 text-center">Chrome extension in action for</H2>
+        <H2 className="mb-8 text-center"> Designed around operational roles </H2>
 
         <Tabs defaultValue={EXTENSION_TABS[0].label}>
           <TabsList border>
@@ -345,7 +339,7 @@ function InstallationSection() {
   return (
     <div className="py-16 md:py-20">
       <div className={CONTAINER_CLASSES}>
-        <H2 className="mb-12 text-center">How to install</H2>
+        <H2 className="mb-12 text-center"> From workflow to rollout </H2>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
           {INSTALLATION_STEPS.map((step, index) => (
@@ -373,7 +367,7 @@ function InstallationSection() {
           <Button
             variant="primary"
             size="md"
-            label="Install Chrome Extension"
+            label="View reference extension"
             icon={() => (
               <img src="/static/landing/chrome_ext/Chrome.svg" alt="Chrome" />
             )}
@@ -393,8 +387,8 @@ export default function ChromeExtension() {
   return (
     <>
       <PageMetadata
-        title="Dust Chrome Extension: AI Agents in Your Browser"
-        description="Bring your Dust agents right into your browser. Access company knowledge and AI assistance without leaving your current tab."
+        title="Aeros Operational Assistant | Mission Context"
+        description="Explore the Aeros operational assistant roadmap: mission context, source evidence, operator knowledge, and cross-team review in existing workflows."
         pathname={router.asPath}
         ogImage="https://dust.tt/static/landing/hero_dust.png"
       />

@@ -120,8 +120,8 @@ export default function IntegrationsPageNextJS({
   return (
     <>
       <PageMetadata
-        title="Integrations | Dust AI Agents"
-        description="Connect Dust to 50+ tools and data sources. Slack, Notion, GitHub, Salesforce, Google Drive, and more. Build AI agents that work with your entire stack."
+        title="Aeros | Data & Integration Roadmap"
+        description="Plan how aviation data, schedules, crew, aircraft, maintenance, and operator knowledge connect to Aeros. Integration scope is validated with each operator."
         pathname={router.asPath}
       />
 
@@ -141,13 +141,8 @@ export default function IntegrationsPageNextJS({
             <H1
               mono
               className="mb-2 text-center text-4xl font-medium leading-tight text-foreground md:text-5xl"
-            >
-              Integrations
-            </H1>
-            <P size="lg" className="mb-8 max-w-2xl text-muted-foreground">
-              Connect Dust to your favorite tools and data sources. Build AI
-              agents that work with your entire stack.
-            </P>
+            > Data &amp; Integration Roadmap </H1>
+            <P size="lg" className="mb-8 max-w-2xl text-muted-foreground"> Aeros is designed to connect aviation sources and operator systems. The catalogue below retains reference connectors; it does not indicate verified Aeros integrations. </P>
 
             {/* Search */}
             <div className="mb-8 w-full max-w-md">
@@ -183,8 +178,7 @@ export default function IntegrationsPageNextJS({
             {/* Count */}
             <p className="mt-6 text-sm text-muted-foreground">
               {filteredIntegrations.length} integration
-              {filteredIntegrations.length !== 1 ? "s" : ""} available
-            </p>
+              {filteredIntegrations.length !== 1 ? "s" : ""} in the reference catalogue </p>
           </div>
         </FullWidthSection>
 
@@ -225,9 +219,7 @@ export default function IntegrationsPageNextJS({
 
           {filteredIntegrations.length === 0 && (
             <div className="py-12 text-center">
-              <p className="text-muted-foreground">
-                No integration found yet... but you can connect any MCP server
-                you want in Dust!{" "}
+              <p className="text-muted-foreground"> Aeros integration requirements are scoped by source coverage, operator access, data freshness, and workflow needs. {" "}
                 <a
                   href="https://docs.dust.tt/docs/remote-mcp-server"
                   target="_blank"
@@ -244,18 +236,18 @@ export default function IntegrationsPageNextJS({
         {/* CTA Section */}
         <FinalCTASection
           config={{
-            title: "Ready to connect your tools?",
+            title: "Connect the context behind your missions",
             subtitle:
-              "Start building AI agents that work with your entire tech stack.",
+              "Scope aviation feeds, schedules, crew, aircraft, and operator knowledge around the decisions your team needs to make.",
             primaryCTA: {
-              label: "Start free trial",
+              label: "Explore access",
               href: "/api/workos/login?screenHint=sign-up",
             },
             secondaryCTA: {
               label: "Talk to sales",
               href: "/home/contact",
             },
-            trustText: "14-day free trial. No credit card required.",
+            trustText: "Integration availability and rollout scope are confirmed with each operator.",
           }}
           trackingPrefix="integrations_listing"
         />
@@ -287,8 +279,7 @@ function IntegrationCard({ integration }: IntegrationCardProps) {
       {integration.tools.length > 0 && (
         <p className="mt-3 text-xs text-muted-foreground">
           {integration.tools.length} action
-          {integration.tools.length !== 1 ? "s" : ""} available
-        </p>
+          {integration.tools.length !== 1 ? "s" : ""} in the reference catalogue </p>
       )}
     </Link>
   );

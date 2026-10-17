@@ -16,22 +16,22 @@ import type {
 
 // Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Recruiting & People",
-  title: <>Streamline Operations, Focus on People</>,
+  uptitle: "Flight Deck & Crew",
+  title: <> Give the flight deck the operational context. </>,
   accentColor: "text-brand-red-rose",
   description: (
-    <>Expedite HR operations and focus on what matters most - people.</>
+    <> Keep pilots and crew aligned with dispatch on changing conditions, mission constraints, and the options under review. </>
   ),
   bulletPoints: [
-    "Answer recurring HR questions with information from your policies.",
-    "Onboard new hires through company processes and documentation.",
-    "Guide managers to deliver quality feedback based on your company guidelines.",
+    "Prepare concise mission updates with weather, airport restrictions, and relevant operating conditions.",
+    "Give dispatch and the flight deck a consistent view of the condition and its operational impact.",
+    "Organize updates around the affected flight and the action that needs review.",
   ],
   image: "/static/landing/hr/askhr.png",
   seo: {
-    title: "AI HR & Recruiting Agents: Streamline Operations, Focus on People",
+    title: "Aeros for Flight Deck & Crew | Mission Intelligence",
     description:
-      "Expedite HR operations and focus on what matters most - people. Answer HR questions, onboard new hires, guide managers to deliver quality feedback.",
+      "Keep pilots and crew aligned with dispatch on changing conditions, mission constraints, and the options under review.",
   },
 };
 
@@ -63,37 +63,37 @@ export const Hero: HeroProps = {
   ],
   ctaButtons: {
     primary: {
-      label: "Get started",
+      label: "Explore Aeros",
       href: "/home/pricing",
       icon: Rocket02,
     },
     secondary: {
-      label: "Talk to sales",
+      label: "Request a demo",
       href: "/home/contact",
     },
   },
 };
 
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Transform HR operations into strategic impact",
+  sectionTitle: "Flight Deck & Crew, with the mission in view",
   items: [
     {
       icon: MagicWand02,
-      title: "Scale HR knowledge",
+      title: "Understand the mission",
       description:
-        "Turn policies into instant answers, enabling employee self-service.",
+        "Keep pilots and crew aligned with dispatch on changing conditions, mission constraints, and the options under review.",
     },
     {
       icon: CheckCircle,
-      title: "Save HR time",
+      title: "Evaluate the impact",
       description:
-        "Automate routine tasks to invest more time in people development.",
+        "Give dispatch and the flight deck a consistent view of the condition and its operational impact.",
     },
     {
       icon: Users01,
-      title: "Support managers",
+      title: "Coordinate the response",
       description:
-        "Deploy consistent coaching and feedback across all management levels.",
+        "Support crew judgment with evidence while preserving established command and approval responsibilities.",
     },
   ],
 };
@@ -101,44 +101,44 @@ export const Benefits: BenefitsProps = {
 export const Metrics: MetricProps = {
   metrics: [
     {
-      value: "100%",
-      description: <>daily active users in HR at Alan</>,
+      value: "Context",
+      description: <> The mission, its constraints, and the changes that matter. </>,
     },
     {
-      value: "30%",
-      description: <>time savings on employee questions</>,
+      value: "Evidence",
+      description: <> The sources, assumptions, and human review behind the response. </>,
     },
   ],
   color: "golden",
 };
 
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Your use cases, your way",
+  sectionTitle: "Flight Deck & Crew workflows",
   sectionDescription:
-    "Customize and automate tasks without writing a single line of code.",
+    "The Aeros roadmap for flight deck & crew, from assessment to coordinated action.",
   items: [
     {
-      title: "HR helpdesk",
+      title: "Crew briefing",
       content:
-        "Answer employee questions instantly using your HR policies and documented processes.",
+        "Prepare concise mission updates with weather, airport restrictions, and relevant operating conditions.",
       images: ["/static/landing/hr/askhr.png"],
     },
     {
-      title: "Recruiting assistant",
+      title: "Shared assessment",
       content:
-        "Streamline candidate screening, communications, and interview preparation with automated support.",
+        "Give dispatch and the flight deck a consistent view of the condition and its operational impact.",
       images: ["/static/landing/hr/interviewnotes.png"],
     },
     {
-      title: "Manager coach",
+      title: "Change communication",
       content:
-        "Guide managers through feedback and reviews using company guidelines and best practices.",
+        "Organize updates around the affected flight and the action that needs review.",
       images: ["/static/landing/hr/reviewhelper.png"],
     },
     {
-      title: "Onboarding guide",
+      title: "Human authority",
       content:
-        "Provide new employees with personalized guidance through company processes and culture.",
+        "Support crew judgment with evidence while preserving established command and approval responsibilities.",
       images: ["/static/landing/hr/onboardingbuddy.png"],
     },
   ],
@@ -148,33 +148,33 @@ export const Quote: QuoteProps = {
   quote:
     "We asked ourselves for years: what if your team had 20% more time? Dust has made it possible, empowering our employees to work smarter, innovate, and push boundaries.",
   name: "Matthieu Birach",
-  title: "Chief People Officer at Doctolib",
+  title: "Dust customer reference · Chief People Officer at Doctolib",
   logo: "/static/landing/logos/color/doctolib.png",
 };
 
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Watch Dust in motion",
+  sectionTitle: "Reference workflow demonstration",
   videoUrl: "https://fast.wistia.net/embed/iframe/eu73efeak9",
   showCaptions: true,
 };
 
 export const Stories: CustomerStory[] = [
   {
-    title: "Creating an AI-first culture at Doctolib: the People team's role",
+    title: "Dust reference: Creating an AI-first culture at Doctolib: the People team's role",
     content:
       "Doctolib's People team laid the foundations for AI transformation, driving 70% weekly usage across 3,000 employees through cultural change.",
     href: "/customers/why-doctolib-made-company-wide-enterprise-ai-a-national-cause",
     src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Doctolib-__-Dust---Part-1.jpg",
   },
   {
-    title: "30% time savings in HR: How Alan's People team scaled with Dust",
+    title: "Dust reference: 30% time savings in HR: How Alan's People team scaled with Dust",
     content:
       "Alan's HR team quadrupled AI adoption and saved 30% of time spent on employee queries by deploying custom Dust agents for people operations.",
     href: "/customers/how-lucas-people-analyst-at-alan-introduced-dust-to-his-hr-team",
     src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Alan-__-Dust-1--1-.png",
   },
   {
-    title: "Clay accelerates team onboarding with Dust AI agents",
+    title: "Dust reference: Clay accelerates team onboarding with Dust AI agents",
     content:
       "Clay uses Dust AI agents to onboard new GTM engineers faster and reduce bottlenecks, achieving 100% adoption and saving 58 hours monthly across their growing team",
     href: "/customers/clay-scaling-gtme-team",

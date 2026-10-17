@@ -4,9 +4,9 @@ import { createLayoutConfig } from "@marketing/components/home/content/Industry/
 
 export const financialServicesConfig: IndustryPageConfig = {
   seo: {
-    title: "Dust for Financial Services",
+    title: "Aeros for Cargo Operations",
     description:
-      "AI agents for compliance, support, and growth. Transform financial operations with intelligent automation while maintaining the highest security and regulatory standards.",
+      "Assess airport windows, aircraft constraints, weather, and downstream legs together when conditions change.",
   },
   layout: createLayoutConfig([
     "hero",
@@ -22,25 +22,22 @@ export const financialServicesConfig: IndustryPageConfig = {
   ]),
   hero: {
     chip: {
-      label: "Financial Services",
+      label: "Cargo Operations",
       color: "info",
       icon: Bank,
     },
     title: (
-      <>
-        Dust for
-        <br /> Financial Services
-      </>
+      <> Protect the rotation behind <br /> every cargo mission. </>
     ),
     description:
-      "AI agents for compliance, support, and growth. Transform financial operations with intelligent automation while maintaining the highest security and regulatory standards.",
+      "Assess airport windows, aircraft constraints, weather, and downstream legs together when conditions change.",
     ctaButtons: {
       primary: {
-        label: "Get started",
+        label: "Explore Aeros",
         href: "/home/pricing",
       },
       secondary: {
-        label: "Talk to sales",
+        label: "Request a demo",
         href: "/home/contact",
       },
     },
@@ -49,7 +46,7 @@ export const financialServicesConfig: IndustryPageConfig = {
         "Dust helped us transform Kyriba's operations and foster a culture of continuous innovation.",
       author: {
         name: "Boris Lipiainen",
-        title: "Chief Technology Officer",
+        title: "Dust customer reference · Chief Technology Officer",
       },
       company: {
         logo: "/static/landing/logos/white/kyriba.svg",
@@ -64,165 +61,165 @@ export const financialServicesConfig: IndustryPageConfig = {
     },
   },
   aiAgents: {
-    title: "AI agents for compliance, support, and growth",
+    title: "Mission intelligence for cargo operations",
     description:
-      "Augment your compliance, support, and revenue teams with AI agents built for modern financial institutions. Dust connects your people, automates workflows, and delivers insights—so you can focus on growth, risk management, and exceptional client experience.",
+      "Assess airport windows, aircraft constraints, weather, and downstream legs together when conditions change. The product roadmap brings mission monitoring, contextual alerts, recovery options, and team review into the same operating picture.",
     bgColor: "bg-gray-50",
   },
   trustedBy: {
-    title: "Trusted by financial leaders",
+    title: "Reference ecosystem · existing third-party logos",
     logoSet: "finance",
   },
   painPoints: {
-    title: "Transform how you work",
+    title: "From changing conditions to coordinated action",
     painPoints: [
       {
         icon: "/static/landing/industry/d-blue.svg",
-        title: "Slash the cost and risk of compliance operations",
+        title: "Understand the mission",
         description:
-          "Automate KYC/KYB and onboarding. AI agents verify documents, flag risks, and answer compliance questions instantly—cutting manual work to minutes.",
+          "Assess airport windows, aircraft constraints, weather, and downstream legs together when conditions change.",
         color: "blue",
       },
       {
         icon: "/static/landing/industry/d-red.svg",
-        title: "Transform support complexity into fast, confident answers",
+        title: "Evaluate the impact",
         description:
-          "Resolve  routine queries, route tough cases, and give support teams instant access to solutions—turning every ticket into searchable knowledge.",
+          "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
         color: "red",
       },
       {
         icon: "/static/landing/industry/d-green.svg",
-        title: "Achieve instant, precise, and relevant market engagement",
+        title: "Coordinate the response",
         description:
-          "Equip your teams to deliver fast, accurate, and jargon-perfect answers—always aligned with the latest trends, regulations, and client expectations.",
+          "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
         color: "green",
       },
     ],
   },
   dustInAction: {
-    title: "Dust in action",
+    title: "Cargo Operations workflows",
     useCases: [
       {
-        title: "Compliance operations",
+        title: "Mission monitoring",
         image: "/static/landing/industry/features/Compliance_verification.webp",
         bgColor: "bg-blue-100",
         features: [
           {
             icon: "bg-red-500 rounded-tr-full",
-            title: "KYB & document review",
+            title: "Network impact",
             description:
-              "Instantly analyze and flag onboarding, KYC, and AML documents—extract key data and risks so compliance can focus on complex cases.",
+              "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
           },
           {
             icon: "bg-yellow-400 rounded-bl-full",
-            title: "Automated document analysis",
+            title: "Recovery scenarios",
             description:
-              "Quickly process contracts and forms, detecting inconsistencies and non-compliance to reduce risk and speed reviews",
+              "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
           },
           {
             icon: "bg-green-500 rounded-bl-full",
-            title: "Compliance knowledge assistant",
+            title: "Operational tradeoffs",
             description:
-              "Provide instant, reliable regulatory answers—always aligned with current global and local frameworks",
+              "Review time, fuel, crew, and passenger considerations where the required data is available.",
           },
           {
             icon: "bg-blue-400 rounded-tr-full",
-            title: "Tax & regulation expertise",
+            title: "Decision handover",
             description:
-              "Resolve tax, accounting, and regulatory questions for teams or clients in seconds, ensuring accurate, compliant decisions",
+              "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
           },
         ],
       },
       {
-        title: "Commercial operations",
+        title: "Operational assessment",
         image: "/static/landing/industry/features/Sales_agent_2.webp",
         bgColor: "bg-purple-100",
         features: [
           {
             icon: "bg-pink-400",
-            title: "Prospect account insights",
+            title: "Network impact",
             description:
-              "Enrich prospect profiles with financial and usage data for smarter qualification and engagement",
+              "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
           },
           {
             icon: "bg-red-500 rounded-tr-full",
-            title: "Enterprise RFPs & solution proposals",
+            title: "Recovery scenarios",
             description:
-              "Draft tailored proposals using proven templates and real product configurations for faster turnaround",
+              "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
           },
           {
             icon: "bg-yellow-400 rounded-bl-full",
-            title: "Revenue intelligence",
+            title: "Operational tradeoffs",
             description:
-              "Extract winning playbooks and coach sales teams in real time using insights from actual interactions",
+              "Review time, fuel, crew, and passenger considerations where the required data is available.",
           },
           {
             icon: "bg-blue-400 rounded-tr-full",
-            title: "Market & solution research",
+            title: "Decision handover",
             description:
-              "Compile market intelligence and track competitor, technology, and partnership opportunities",
+              "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
           },
         ],
       },
       {
-        title: "Support operations",
+        title: "Recovery planning",
         image: "/static/landing/industry/features/Incident_copilot_slack.webp",
         bgColor: "bg-green-100",
         features: [
           {
             icon: "bg-green-500",
-            title: "AI ticket deflection & smart routing",
+            title: "Network impact",
             description:
-              "Automatically resolve common inquiries and route complex issues to the right specialists",
+              "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
           },
           {
             icon: "bg-blue-500 rounded-tl-full",
-            title: "Accelerated resolution",
+            title: "Recovery scenarios",
             description:
-              "Instantly find relevant docs, cases, and history so agents resolve issues faster and more accurately",
+              "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
           },
           {
             icon: "bg-red-400 rounded-br-full",
-            title: "Augmented knowledge base",
+            title: "Operational tradeoffs",
             description:
-              "Turn support interactions into searchable, compliant knowledge for faster, consistent answers",
+              "Review time, fuel, crew, and passenger considerations where the required data is available.",
           },
           {
             icon: "bg-yellow-400",
-            title: "Support analytics",
+            title: "Decision handover",
             description:
-              "Gain actionable insights from support data to improve digital journeys and boost customer satisfaction",
+              "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
           },
         ],
       },
       {
-        title: "Marketing & content generation",
+        title: "Team coordination",
         image: "/static/landing/industry/features/Content_localization.webp",
         bgColor: "bg-golden-100",
         features: [
           {
             icon: "bg-golden-500",
-            title: "Content creation & localization",
+            title: "Network impact",
             description:
-              "Instantly adapt content for multiple languages and regulations, ensuring accuracy and relevance",
+              "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
           },
           {
             icon: "bg-blue-500 rounded-tl-full",
-            title: "Content optimization",
+            title: "Recovery scenarios",
             description:
-              "Turn drafts and technical docs into polished, SEO-ready, compliant assets",
+              "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
           },
           {
             icon: "bg-purple-400 rounded-br-full",
-            title: "Financial social media",
+            title: "Operational tradeoffs",
             description:
-              "Generate compelling, insight-driven posts tailored for financial audiences",
+              "Review time, fuel, crew, and passenger considerations where the required data is available.",
           },
           {
             icon: "bg-red-400",
-            title: "Market intelligence",
+            title: "Decision handover",
             description:
-              "Track regulatory changes, competitors, and market trends in real time",
+              "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
           },
         ],
       },
@@ -232,27 +229,27 @@ export const financialServicesConfig: IndustryPageConfig = {
     bgColor: "bg-blue-50",
     metrics: [
       {
-        value: "70",
-        unit: "%",
-        type: "Reduction",
-        description: "in content localization",
+        value: "01",
+        unit: "",
+        type: "Context",
+        description: "Mission context comes before a recommendation.",
       },
       {
-        value: "80",
-        unit: "%",
-        type: "Adoption",
-        description: "weekly users at top financial leaders",
+        value: "02",
+        unit: "",
+        type: "Options",
+        description: "A proposed move needs evidence and visible assumptions.",
       },
       {
-        value: "3",
-        unit: "h",
-        type: "Savings",
-        description: "weekly hours saved overall",
+        value: "03",
+        unit: "",
+        type: "Review",
+        description: "The authorized operations team owns the decision.",
       },
     ],
   },
   demoVideo: {
-    sectionTitle: "See Dust in motion",
+    sectionTitle: "Reference workflow demonstration",
     videoUrl: "https://fast.wistia.net/embed/iframe/zzbhe95pvz",
   },
   testimonial: {
@@ -260,7 +257,7 @@ export const financialServicesConfig: IndustryPageConfig = {
       "Dust helped us transform Kyriba's operations and foster a culture of continuous innovation.",
     author: {
       name: "Boris Lipiainen",
-      title: "Chief Technology Officer",
+      title: "Dust customer reference · Chief Technology Officer",
     },
     company: {
       logo: "/static/landing/logos/white/kyriba.svg",
@@ -270,15 +267,15 @@ export const financialServicesConfig: IndustryPageConfig = {
     textColor: "text-white",
   },
   justUseDust: {
-    title: "Just use Dust",
+    title: "Explore Aeros for your operation",
     titleColor: "text-blue-600",
     ctaButtons: {
       primary: {
-        label: "Start Free Trial",
+        label: "Explore access",
         href: "/api/workos/login",
       },
       secondary: {
-        label: "Contact Sales",
+        label: "Request a demo",
         href: "/home/contact",
       },
     },

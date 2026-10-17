@@ -95,27 +95,27 @@ const IndustriesMenuConfig: MenuConfig = {
   title: "Industries",
   items: [
     {
-      title: "B2B SaaS",
+      title: "Airlines",
       href: "/home/industry/b2b-saas",
     },
     {
-      title: "Consulting",
+      title: "Business Aviation",
       href: "/home/industry/consulting",
     },
     {
-      title: "Financial Services",
+      title: "Cargo Operations",
       href: "/home/industry/financial-services",
     },
     {
-      title: "Insurance",
+      title: "Charter Operators",
       href: "/home/industry/insurance",
     },
     {
-      title: "Marketplaces",
+      title: "Regional Operators",
       href: "/home/industry/marketplace",
     },
     {
-      title: "Retail & E-commerce",
+      title: "Special Missions",
       href: "/home/industry/retail-ecommerce",
     },
   ],
@@ -125,26 +125,26 @@ const SolutionsMenuConfig: MenuConfig = {
   title: "Solutions",
   items: [
     {
-      title: "Departments",
+      title: "Operations teams",
     },
     {
-      title: "Sales",
+      title: "Dispatch",
       href: "/home/solutions/sales",
     },
     {
-      title: "Customer Support",
+      title: "Flight Operations",
       href: "/home/solutions/customer-support",
     },
     {
-      title: "Marketing & Content",
+      title: "Crew & Scheduling",
       href: "/home/solutions/marketing",
     },
     {
-      title: "Engineering",
+      title: "Maintenance Control",
       href: "/home/solutions/engineering",
     },
     {
-      title: "Data & Analytics",
+      title: "Network & Recovery",
       href: "/home/solutions/data-analytics",
     },
     {
@@ -154,23 +154,23 @@ const SolutionsMenuConfig: MenuConfig = {
       title: "",
     },
     {
-      title: "Knowledge",
+      title: "Operational Knowledge",
       href: "/home/solutions/knowledge",
     },
     {
-      title: "IT",
+      title: "Systems & Data",
       href: "/home/solutions/it",
     },
     {
-      title: "Legal",
+      title: "Safety & Compliance",
       href: "/home/solutions/legal",
     },
     {
-      title: "People",
+      title: "Flight Deck & Crew",
       href: "/home/solutions/recruiting-people",
     },
     {
-      title: "Productivity",
+      title: "Operations Leadership",
       href: "/home/solutions/productivity",
     },
     {
@@ -192,11 +192,11 @@ const DevelopersMenuConfig: MenuConfig = {
   title: "Developers",
   items: [
     {
-      title: "Developer Platform",
+      title: "Operational Data Platform",
       href: "/home/solutions/dust-platform",
     },
     {
-      title: "Dust for Engineers",
+      title: "Maintenance Intelligence",
       href: "/home/solutions/engineering",
     },
     {
@@ -220,15 +220,15 @@ const ProductMenuConfig: MenuConfig = {
       href: "/home/product",
     },
     {
-      title: "Chrome Extension",
+      title: "Operational Assistant",
       href: "/home/chrome-extension",
     },
     {
-      title: "Frames",
+      title: "Mission Workspace",
       href: "/home/frames",
     },
     {
-      title: "Integrations",
+      title: "Data & Integrations",
       href: "/integrations",
     },
   ],
@@ -410,7 +410,7 @@ export const menuConfig: DocsConfig = {
           href: "/home/product",
         },
         {
-          title: "Chrome Extension",
+          title: "Operational Assistant",
           href: "/home/chrome-extension",
         },
         {

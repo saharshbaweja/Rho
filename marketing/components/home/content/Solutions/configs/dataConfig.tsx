@@ -16,26 +16,23 @@ import type {
 
 // Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Data & Analytics",
-  title: <>Turn Data Into Business Decisions</>,
+  uptitle: "Network & Recovery",
+  title: <> Resolve disruption with the whole network in view. </>,
   accentColor: "text-brand-red-rose",
   description: (
-    <>
-      Transform complex data into instant insights, automate queries, and
-      democratize analytics across teams.
-    </>
+    <> Compare recovery paths across flights, aircraft rotations, crews, and airports. Make the downstream effect of each option visible before choosing the next move. </>
   ),
   bulletPoints: [
-    "Enable teams to analyze data independently.",
-    "Write SQL queries from natural language.",
-    "Create instant data visualizations and analysis.",
-    "Answer data questions with documentation context.",
+    "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
+    "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
+    "Review time, fuel, crew, and passenger considerations where the required data is available.",
+    "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
   ],
   image: "/static/landing/data-analytics/analyst.png",
   seo: {
-    title: "AI Data Analytics Agents: Turn Data Into Business Decisions",
+    title: "Aeros for Network & Recovery | Mission Intelligence",
     description:
-      "Transform complex data into instant insights, automate queries, and democratize analytics across teams. Write SQL from natural language, create visualizations.",
+      "Compare recovery paths across flights, aircraft rotations, crews, and airports. Make the downstream effect of each option visible before choosing the next move.",
   },
 };
 
@@ -67,37 +64,37 @@ export const Hero: HeroProps = {
   ],
   ctaButtons: {
     primary: {
-      label: "Get started",
+      label: "Explore Aeros",
       href: "/home/pricing",
       icon: Rocket02,
     },
     secondary: {
-      label: "Talk to sales",
+      label: "Request a demo",
       href: "/home/contact",
     },
   },
 };
 
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Reduce toil, scale data education and deepen exploration",
+  sectionTitle: "Network & Recovery, with the mission in view",
   items: [
     {
       icon: MagicWand02,
-      title: "Focus on insights",
+      title: "Understand the mission",
       description:
-        "Maximize analysis time by automating query writing and data exploration.",
+        "Compare recovery paths across flights, aircraft rotations, crews, and airports. Make the downstream effect of each option visible before choosing the next move.",
     },
     {
       icon: CheckCircle,
-      title: "Accelerate answers",
+      title: "Evaluate the impact",
       description:
-        "Instantly transform business questions into accurate queries and visualizations.",
+        "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
     },
     {
       icon: Users01,
-      title: "Democratize data",
+      title: "Coordinate the response",
       description:
-        "Turn complex data models into accessible insights for the entire organization.",
+        "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
     },
   ],
 };
@@ -105,44 +102,44 @@ export const Benefits: BenefitsProps = {
 export const Metrics: MetricProps = {
   metrics: [
     {
-      value: "90%",
-      description: <>faster RFP response times</>,
+      value: "Context",
+      description: <> The mission, its constraints, and the changes that matter. </>,
     },
     {
-      value: "8h",
-      description: <> saved weekly per rep for selling</>,
+      value: "Evidence",
+      description: <> The sources, assumptions, and human review behind the response. </>,
     },
   ],
   color: "golden",
 };
 
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Your use cases, your way",
+  sectionTitle: "Network & Recovery workflows",
   sectionDescription:
-    "Customize and automate tasks without writing a single line of code.",
+    "The Aeros roadmap for network & recovery, from assessment to coordinated action.",
   items: [
     {
-      title: "Self-serve analytics",
+      title: "Network impact",
       content:
-        "Execute complex data queries and generate visualizations automatically to answer business questions instantly.",
+        "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
       images: ["/static/landing/data-analytics/analyst.png"],
     },
     {
-      title: "SQL assistant",
+      title: "Recovery scenarios",
       content:
-        "Generate, debug and optimize SQL queries that align with your business logic and data models.",
+        "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
       images: ["/static/landing/data-analytics/sqlWriter.png"],
     },
     {
-      title: "Data catalog",
+      title: "Operational tradeoffs",
       content:
-        "Navigate your entire data ecosystem with instant access to schemas and relationships across tables.",
+        "Review time, fuel, crew, and passenger considerations where the required data is available.",
       images: ["/static/landing/data-analytics/dataCatalog.png"],
     },
     {
-      title: "Data runbooks",
+      title: "Decision handover",
       content:
-        "Access and understand data team processes and documentation to streamline operations and troubleshooting.",
+        "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
       images: ["/static/landing/data-analytics/dataDoc.png"],
     },
   ],
@@ -152,26 +149,26 @@ export const Quote: QuoteProps = {
   quote:
     "Dust has revolutionized our partner insights, condensing days of manual research into minutes of AI-powered conversation. It's not just about efficiency and time savings—it's about making smarter decisions and doing things we could not do before.",
   name: "Alexandre Morillon",
-  title: "CEO at Wakam",
+  title: "Dust customer reference · CEO at Wakam",
   logo: "/static/landing/logos/color/wakam.svg",
 };
 
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Watch Dust in motion",
+  sectionTitle: "Reference workflow demonstration",
   videoUrl: "https://fast.wistia.net/embed/iframe/9u1uft5pg7",
   showCaptions: true,
 };
 
 export const Stories: CustomerStory[] = [
   {
-    title: "Wakam enables self-service analytics across 220 users",
+    title: "Dust reference: Wakam enables self-service analytics across 220 users",
     content:
       "Wakam breaks down data silos with specialized AI agents, reducing partner intelligence processing by 90% and democratizing data access company-wide.",
     href: "/customers/wakam-empowers-teams-with-self-service-data-intelligence-while-reducing-processing-time",
     src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Wakam.jpg",
   },
   {
-    title: "Alan eliminates data queues and expands data insights with Dust",
+    title: "Dust reference: Alan eliminates data queues and expands data insights with Dust",
     content:
       "Alan's @Metabase agent reduces query development time from hours to minutes, achieving a growing 60% weekly usage in their Operations team.",
     href: "/customers/the-end-of-data-queues-how-alan-scaled-analytics-with-dust-2",

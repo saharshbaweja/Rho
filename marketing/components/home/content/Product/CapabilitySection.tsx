@@ -25,7 +25,7 @@ export function CapabilitySection() {
             />
             <div className="relative z-10 flex w-full flex-col items-center gap-8 px-6">
               <H2 className="text-center text-3xl font-medium text-white md:text-4xl xl:text-5xl">
-                Bring teams, models, and systems together around the work
+                Connect every mission, constraint, and operational decision
               </H2>
               <img
                 src="/static/landing/product/product-screen-chat.png"

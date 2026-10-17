@@ -4,9 +4,9 @@ import { createLayoutConfig } from "@marketing/components/home/content/Industry/
 
 export const consultingConfig: IndustryPageConfig = {
   seo: {
-    title: "Dust for Consulting Firms",
+    title: "Aeros for Business Aviation",
     description:
-      "Empower your consultants to deliver more value—faster. Build AI agents that instantly access firm knowledge, using best-in-class models of your choice.",
+      "Bring airport restrictions, aircraft readiness, crew availability, and operator procedures into a focused review for each trip.",
   },
   layout: createLayoutConfig([
     "hero",
@@ -18,26 +18,22 @@ export const consultingConfig: IndustryPageConfig = {
   ]),
   hero: {
     chip: {
-      label: "Consulting Firms",
+      label: "Business Aviation",
       color: "highlight",
       icon: BarChart01,
     },
     title: (
-      <>
-        Dust for
-        <br /> Consulting
-        <br /> Firms
-      </>
+      <> Keep every mission connected <br /> to the <br /> full context. </>
     ),
     description:
-      "Empower your consultants to deliver more value—faster. Build AI agents that instantly access firm knowledge, using best-in-class models of your choice.",
+      "Bring airport restrictions, aircraft readiness, crew availability, and operator procedures into a focused review for each trip.",
     ctaButtons: {
       primary: {
-        label: "Get started",
+        label: "Explore Aeros",
         href: "/home/pricing",
       },
       secondary: {
-        label: "Talk to sales",
+        label: "Request a demo",
         href: "/home/contact",
       },
     },
@@ -46,7 +42,7 @@ export const consultingConfig: IndustryPageConfig = {
         "In less than a year, we went from manual processes to 42 AI agents handling everything from strategy analysis to final delivery.",
       author: {
         name: "Vincent Vitré",
-        title: "COO & Partner at Insign",
+        title: "Dust customer reference · COO & Partner at Insign",
       },
       company: {
         logo: "/static/landing/logos/white/insign.svg",
@@ -64,150 +60,150 @@ export const consultingConfig: IndustryPageConfig = {
     bgColor: "bg-blue-50",
     metrics: [
       {
-        value: "90",
-        unit: "%+",
-        type: "Adoption",
-        description: "firm-wide",
+        value: "01",
+        unit: "",
+        type: "Context",
+        description: "Mission context comes before a recommendation.",
       },
       {
-        value: "50",
-        unit: "%",
-        type: "Time Saved",
-        description: "on commercial proposals",
+        value: "02",
+        unit: "",
+        type: "Options",
+        description: "A proposed move needs evidence and visible assumptions.",
       },
       {
-        value: "20",
-        unit: "min",
-        type: "Deep Research",
+        value: "03",
+        unit: "",
+        type: "Review",
         description:
-          "across sectors, clients & projects vs. 4 days of traditional research",
+          "The authorized operations team owns the decision.",
       },
     ],
   },
   dustInAction: {
-    title: "Top Use Cases for Consulting Firms",
+    title: "Business Aviation workflows",
     useCases: [
       {
-        title: "Commercial Support",
+        title: "Mission monitoring",
         image: "/static/landing/industry/features/Sales_agent.webp",
         bgColor: "bg-rose-100",
         features: [
           {
             icon: "bg-red-500 rounded-br-full",
-            title: "RFP & Proposal Response",
+            title: "Mission briefing",
             description:
-              "Craft tailored RFP/proposal responses using internal best practices.",
+              "Assemble the route, time windows, forecasts, notices, and operating limits into a focused briefing for dispatcher review.",
           },
           {
             icon: "bg-purple-500 rounded-tl-full",
-            title: "Workforce Planning & CV Matching",
+            title: "Airport suitability",
             description:
-              "Identify best people for RFPs based on skills and former project experience.",
+              "Assess airport hours, runway restrictions, available services, and aircraft requirements for the planned arrival or departure.",
           },
           {
             icon: "bg-blue-500 rounded-tr-full",
-            title: "CXO Meeting Preparation & Follow-ups",
+            title: "Departure options",
             description:
-              "Compile CXO-ready briefing packs with client + industry insights.",
+              "Compare departure windows and alternates against the same mission constraints, including the effect on later legs.",
           },
           {
             icon: "bg-green-500 rounded-bl-full",
-            title: "Prospect Outreach & Communication",
+            title: "Release review",
             description:
-              "Generate targeted outreach emails, meeting follow-ups, and social posts for prospects.",
+              "Keep unresolved conditions, supporting sources, and required approvals together before an authorized dispatcher makes the release decision.",
           },
         ],
       },
       {
-        title: "Consulting Delivery Operations",
+        title: "Operational assessment",
         image: "/static/landing/industry/features/Search_assistant.webp",
         bgColor: "bg-blue-100",
         features: [
           {
             icon: "bg-blue-500 rounded-tl-full",
-            title: "Report & Slide Generation",
+            title: "Mission briefing",
             description:
-              "Auto-draft executive summaries, strategic reports, and client presentations.",
+              "Assemble the route, time windows, forecasts, notices, and operating limits into a focused briefing for dispatcher review.",
           },
           {
             icon: "bg-pink-400 rounded-tr-full",
-            title: "Data Analysis Assistant",
+            title: "Airport suitability",
             description:
-              "Analyze client-level data, build SQL queries, Excel formulas, and generate data-driven recommendations.",
+              "Assess airport hours, runway restrictions, available services, and aircraft requirements for the planned arrival or departure.",
           },
           {
             icon: "bg-green-500 rounded-bl-full",
-            title: "Documentation & CRM Management",
+            title: "Departure options",
             description:
-              "Auto-populate CRM, sanitize client files for archiving, and structure project documentation.",
+              "Compare departure windows and alternates against the same mission constraints, including the effect on later legs.",
           },
           {
             icon: "bg-yellow-400 rounded-br-full",
-            title: "Cognitive Twin",
+            title: "Release review",
             description:
-              "Capture and replicate expert knowledge to scale consulting expertise across the firm.",
+              "Keep unresolved conditions, supporting sources, and required approvals together before an authorized dispatcher makes the release decision.",
           },
         ],
       },
       {
-        title: "Internal Operations & Compliance",
+        title: "Recovery planning",
         image: "/static/landing/industry/features/Doc_analysis_2.webp",
         bgColor: "bg-green-100",
         features: [
           {
             icon: "bg-gray-600 rounded-tl-full",
-            title: "Mission Status Reporting",
+            title: "Mission briefing",
             description:
-              "Automate project status reports and track mission progress across engagements.",
+              "Assemble the route, time windows, forecasts, notices, and operating limits into a focused briefing for dispatcher review.",
           },
           {
             icon: "bg-blue-500 rounded-tr-full",
-            title: "Internal Policy & Compliance Support",
+            title: "Airport suitability",
             description:
-              "Answer policy, HR, governance & compliance questions on demand.",
+              "Assess airport hours, runway restrictions, available services, and aircraft requirements for the planned arrival or departure.",
           },
           {
             icon: "bg-yellow-400 rounded-bl-full",
-            title: "Project Insights & Post-Mortem Analyzer",
+            title: "Departure options",
             description:
-              "Extract project lessons learned; drive post-mortem analyses.",
+              "Compare departure windows and alternates against the same mission constraints, including the effect on later legs.",
           },
           {
             icon: "bg-green-500 rounded-br-full",
-            title: "Financial Support",
+            title: "Release review",
             description:
-              "Automate financial reports, client payment reminders & compliance tasks.",
+              "Keep unresolved conditions, supporting sources, and required approvals together before an authorized dispatcher makes the release decision.",
           },
         ],
       },
       {
-        title: "Marketing & Intelligence",
+        title: "Team coordination",
         image: "/static/landing/industry/features/Social_post.webp",
         bgColor: "bg-orange-100",
         features: [
           {
             icon: "bg-blue-500 rounded-tl-full",
-            title: "Strategic Project Insights",
+            title: "Mission briefing",
             description:
-              "Generate strategic insights and analysis from internal project data.",
+              "Assemble the route, time windows, forecasts, notices, and operating limits into a focused briefing for dispatcher review.",
           },
           {
             icon: "bg-sky-400",
-            title: "Industry Intelligence",
+            title: "Airport suitability",
             description:
-              "Develop industry radars and competitive landscape reports.",
+              "Assess airport hours, runway restrictions, available services, and aircraft requirements for the planned arrival or departure.",
           },
           {
             icon: "bg-red-500 rounded-br-full",
-            title: "Competitive Intelligence",
+            title: "Departure options",
             description:
-              "Monitor competitor activities, market positioning, and win/loss analysis.",
+              "Compare departure windows and alternates against the same mission constraints, including the effect on later legs.",
           },
           {
             icon: "bg-green-500 rounded-tr-full",
-            title: "Content Creation & Optimization",
+            title: "Release review",
             description:
-              "Write LinkedIn/blog posts aligned with brand guidelines.",
+              "Keep unresolved conditions, supporting sources, and required approvals together before an authorized dispatcher makes the release decision.",
           },
         ],
       },
@@ -218,7 +214,7 @@ export const consultingConfig: IndustryPageConfig = {
       "In less than a year, we went from manual processes to 42 AI agents handling everything from strategy analysis to final delivery.",
     author: {
       name: "Vincent Vitré",
-      title: "COO & Partner at Insign",
+      title: "Dust customer reference · COO & Partner at Insign",
     },
     company: {
       logo: "/static/landing/logos/white/insign.svg",
@@ -228,15 +224,15 @@ export const consultingConfig: IndustryPageConfig = {
     textColor: "text-white",
   },
   justUseDust: {
-    title: "#JustUseDust",
+    title: "Explore Aeros for your operation",
     titleColor: "text-blue-600",
     ctaButtons: {
       primary: {
-        label: "Get started",
+        label: "Explore access",
         href: "/home/pricing",
       },
       secondary: {
-        label: "Talk to sales",
+        label: "Request a demo",
         href: "/home/contact",
       },
     },

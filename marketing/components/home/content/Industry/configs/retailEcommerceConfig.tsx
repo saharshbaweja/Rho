@@ -4,9 +4,9 @@ import { createLayoutConfig } from "@marketing/components/home/content/Industry/
 
 export const retailEcommerceConfig: IndustryPageConfig = {
   seo: {
-    title: "Dust for Retail & e-Commerce",
+    title: "Aeros for Special Missions",
     description:
-      "The AI Solution trusted by leading retail brands — say goodbye to scattered product data, operational bottlenecks, and missed market intelligence.",
+      "Bring mission-specific requirements, airport capability, aircraft status, and operational procedures into one evidence-led review.",
   },
   layout: createLayoutConfig([
     "hero",
@@ -22,25 +22,22 @@ export const retailEcommerceConfig: IndustryPageConfig = {
   ]),
   hero: {
     chip: {
-      label: "Retail & e-Commerce",
+      label: "Special Missions",
       color: "success",
       icon: Building02,
     },
     title: (
-      <>
-        Dust for
-        <br /> Retail & e-Commerce
-      </>
+      <> Build each <br /> assessment around the mission. </>
     ),
     description:
-      "The AI Solution trusted by leading retail brands — say goodbye to scattered product data, operational bottlenecks, and missed market intelligence.",
+      "Bring mission-specific requirements, airport capability, aircraft status, and operational procedures into one evidence-led review.",
     ctaButtons: {
       primary: {
-        label: "Get started",
+        label: "Explore Aeros",
         href: "/home/pricing",
       },
       secondary: {
-        label: "Talk to sales",
+        label: "Request a demo",
         href: "/home/contact",
       },
     },
@@ -49,7 +46,7 @@ export const retailEcommerceConfig: IndustryPageConfig = {
         "Curiosity turned into necessity: I couldn't do half my job without Dust.",
       author: {
         name: "Valentine Chelius",
-        title: "Head of Marketing",
+        title: "Dust customer reference · Head of Marketing",
       },
       company: {
         logo: "/static/landing/logos/white/fleet.svg",
@@ -64,196 +61,196 @@ export const retailEcommerceConfig: IndustryPageConfig = {
     },
   },
   aiAgents: {
-    title: "AI agents that drive commerce forward",
+    title: "Mission intelligence for special missions",
     description:
-      "Accelerate retail & e-commerce growth with AI agents built for modern commerce. Dust automates customer support, operations, and competitive intelligence—freeing your teams to focus on strategic growth decisions.",
+      "Bring mission-specific requirements, airport capability, aircraft status, and operational procedures into one evidence-led review. The product roadmap brings mission monitoring, contextual alerts, recovery options, and team review into the same operating picture.",
     bgColor: "bg-gray-50",
   },
   trustedBy: {
-    title: "Trusted by retail leaders",
+    title: "Reference ecosystem · existing third-party logos",
     logoSet: "retail",
   },
   painPoints: {
-    title: "Transform how you work",
+    title: "From changing conditions to coordinated action",
     painPoints: [
       {
         icon: "/static/landing/industry/d-blue.svg",
-        title: "Turn customer chaos into service excellence",
+        title: "Understand the mission",
         description:
-          "Auto-route tickets and resolve inquiries. Teams handle complex issues while customer satisfaction stays high.",
+          "Bring mission-specific requirements, airport capability, aircraft status, and operational procedures into one evidence-led review.",
         color: "blue",
       },
       {
         icon: "/static/landing/industry/d-red.svg",
-        title: "Automate manual operations",
+        title: "Evaluate the impact",
         description:
-          "Extract specs, generate content, automate workflows. Teams shift from repetitive tasks to strategic decisions.",
+          "Read published airport information alongside temporary restrictions and mission timing.",
         color: "red",
       },
       {
         icon: "/static/landing/industry/d-green.svg",
-        title: "Transform scattered data into intelligence",
+        title: "Coordinate the response",
         description:
-          "Monitor competition and analyze market trends. Teams get actionable intelligence for smarter pricing and positioning.",
+          "Show where a conclusion came from, when it applies, and which inputs still need verification.",
         color: "green",
       },
     ],
   },
   dustInAction: {
-    title: "Dust in action",
+    title: "Special Missions workflows",
     useCases: [
       {
-        title: "Customer service",
+        title: "Mission monitoring",
         image: "/static/landing/industry/features/UxWriter_2.webp",
         bgColor: "bg-pink-100",
         features: [
           {
             icon: "bg-red-500",
-            title: "Ticket triaging",
+            title: "Procedure research",
             description:
-              "Automatically classify support tickets, route to appropriate teams, suggest solutions, and optimize workflows for service efficiency.",
+              "Find relevant passages in approved manuals and procedures without losing the source context.",
           },
           {
             icon: "bg-yellow-400 rounded-tr-full",
-            title: "Enhanced consumer support",
+            title: "Airport context",
             description:
-              "Deliver automated responses for orders, returns, refunds, and policy inquiries; provide expert assistance across all retail channels.",
+              "Read published airport information alongside temporary restrictions and mission timing.",
           },
           {
             icon: "bg-green-600 rounded-bl-full",
-            title: "Support insights",
+            title: "Operator limits",
             description:
-              "Analyze ticket patterns to identify optimization opportunities and improve customer service efficiency.",
+              "Keep company-specific restrictions and approved operating policies in the assessment.",
           },
           {
             icon: "bg-blue-400",
-            title: "Seller knowledge",
+            title: "Source traceability",
             description:
-              "Provide sellers with updated information about new product lines, promotional campaigns, etc",
+              "Show where a conclusion came from, when it applies, and which inputs still need verification.",
           },
         ],
       },
       {
-        title: "Business intelligence & analytics",
+        title: "Operational assessment",
         image: "/static/landing/industry/features/Data_graph.webp",
         bgColor: "bg-green-100",
         features: [
           {
             icon: "bg-pink-400",
-            title: "Data co-pilot",
+            title: "Procedure research",
             description:
-              "Create Excel formulas and SQL queries, guide A/B test design. Empower anyone to accelerate complex data work.",
+              "Find relevant passages in approved manuals and procedures without losing the source context.",
           },
           {
             icon: "bg-red-500 rounded-tr-full",
-            title: "Self-service retail analytics",
+            title: "Airport context",
             description:
-              "Empower teams with a self-service engine which can deliver actionable analytics and visualizations on trends and activity.",
+              "Read published airport information alongside temporary restrictions and mission timing.",
           },
           {
             icon: "bg-yellow-400 rounded-bl-full",
-            title: "Consumer feedback analysis",
+            title: "Operator limits",
             description:
-              "Systematically categorize customer reviews and feedback to uncover quality issues and improvement opportunities.",
+              "Keep company-specific restrictions and approved operating policies in the assessment.",
           },
           {
             icon: "bg-blue-400",
-            title: "News monitoring",
+            title: "Source traceability",
             description:
-              "Track real-time industry news, competitor announcements, and market developments impacting your business decisions.",
+              "Show where a conclusion came from, when it applies, and which inputs still need verification.",
           },
         ],
       },
       {
-        title: "Marketing & intelligence",
+        title: "Recovery planning",
         image: "/static/landing/industry/features/Radar_AIDigest.webp",
         bgColor: "bg-gray-950",
         features: [
           {
             icon: "bg-pink-400",
-            title: "Content creation",
+            title: "Procedure research",
             description:
-              "Generate multilingual customer engagement across email, reviews, social media, and feedback platforms consistently.",
+              "Find relevant passages in approved manuals and procedures without losing the source context.",
           },
           {
             icon: "bg-red-500 rounded-tr-full",
-            title: "Brand compliance review",
+            title: "Airport context",
             description:
-              "Automatically check content against brand guidelines and regulatory requirements to ensure consistent messaging and compliance.",
+              "Read published airport information alongside temporary restrictions and mission timing.",
           },
           {
             icon: "bg-yellow-400 rounded-bl-full",
-            title: "Reputation monitoring",
+            title: "Operator limits",
             description:
-              "Track real-time news mentions, online reputation, and brand sentiment across digital channels with alerts.",
+              "Keep company-specific restrictions and approved operating policies in the assessment.",
           },
           {
             icon: "bg-green-600",
-            title: "Industry & competitive research",
+            title: "Source traceability",
             description:
-              "Conduct competitive analysis and market intelligence. Generate reports on competitors, trends, and positioning opportunities.",
+              "Show where a conclusion came from, when it applies, and which inputs still need verification.",
           },
         ],
       },
       {
-        title: "Product & catalog operations",
+        title: "Team coordination",
         image: "/static/landing/industry/features/Catalog.webp",
         bgColor: "bg-blue-100",
         features: [
           {
             icon: "bg-pink-400",
-            title: "Product information management (PIM)",
+            title: "Procedure research",
             description:
-              "Automatically extract and standardize product specifications from supplier catalogs into consistent, channel-optimized content.",
+              "Find relevant passages in approved manuals and procedures without losing the source context.",
           },
           {
             icon: "bg-red-500 rounded-tr-full",
-            title: "Multi-channel content adaptation",
+            title: "Airport context",
             description:
-              "Transform single product data into optimized content for different platforms and regulatory submissions.",
+              "Read published airport information alongside temporary restrictions and mission timing.",
           },
           {
             icon: "bg-yellow-400 rounded-bl-full",
-            title: "Intelligent product categorization",
+            title: "Operator limits",
             description:
-              "Automatically classify new products into appropriate categories based on specifications and performance data.",
+              "Keep company-specific restrictions and approved operating policies in the assessment.",
           },
           {
             icon: "bg-blue-400",
-            title: "Product performance insights",
+            title: "Source traceability",
             description:
-              "Analyze which products drive revenue, margins, and customer loyalty for optimized catalog decisions.",
+              "Show where a conclusion came from, when it applies, and which inputs still need verification.",
           },
         ],
       },
       {
-        title: "Merchant management",
+        title: "Mission monitoring",
         image: "/static/landing/industry/features/Provider_list.webp",
         bgColor: "bg-orange-100",
         features: [
           {
             icon: "bg-pink-400",
-            title: "Merchant/Supplier validation & risk assessment",
+            title: "Procedure research",
             description:
-              "Instantly assess potential partners using comprehensive due diligence, financial screening, and online presence verification.",
+              "Find relevant passages in approved manuals and procedures without losing the source context.",
           },
           {
             icon: "bg-red-500 rounded-tr-full",
-            title: "RFP response automation",
+            title: "Airport context",
             description:
-              "Automatically generate comprehensive, tailored responses based on company capabilities, past proposals, and supplier requirements.",
+              "Read published airport information alongside temporary restrictions and mission timing.",
           },
           {
             icon: "bg-yellow-400 rounded-bl-full",
-            title: "Contract intelligence",
+            title: "Operator limits",
             description:
-              "Analyze vendor agreements and partnership terms to identify risk factors and streamline negotiations.",
+              "Keep company-specific restrictions and approved operating policies in the assessment.",
           },
           {
             icon: "bg-green-600",
-            title: "Partnership proposals & communications",
+            title: "Source traceability",
             description:
-              "Craft professional supplier communications, partnership proposals, and vendor relationship management emails.",
+              "Show where a conclusion came from, when it applies, and which inputs still need verification.",
           },
         ],
       },
@@ -263,27 +260,27 @@ export const retailEcommerceConfig: IndustryPageConfig = {
     bgColor: "bg-blue-50",
     metrics: [
       {
-        value: "50",
-        unit: "%",
-        type: "Reduction",
-        description: "in customer support resolution time",
+        value: "01",
+        unit: "",
+        type: "Context",
+        description: "Mission context comes before a recommendation.",
       },
       {
-        value: "70",
-        unit: "%",
-        type: "Faster",
-        description: "content creation in all languages",
+        value: "02",
+        unit: "",
+        type: "Options",
+        description: "A proposed move needs evidence and visible assumptions.",
       },
       {
-        value: "80",
-        unit: "%",
-        type: "Adoption",
-        description: "weekly active users",
+        value: "03",
+        unit: "",
+        type: "Review",
+        description: "The authorized operations team owns the decision.",
       },
     ],
   },
   demoVideo: {
-    sectionTitle: "See Dust in motion",
+    sectionTitle: "Reference workflow demonstration",
     videoUrl: "https://fast.wistia.net/embed/iframe/9u1uft5pg7",
   },
   testimonial: {
@@ -291,7 +288,7 @@ export const retailEcommerceConfig: IndustryPageConfig = {
       "Curiosity turned into necessity: I couldn't do half my job without Dust.",
     author: {
       name: "Valentine Chelius",
-      title: "Head of Marketing",
+      title: "Dust customer reference · Head of Marketing",
     },
     company: {
       logo: "/static/landing/logos/white/fleet.svg",
@@ -301,15 +298,15 @@ export const retailEcommerceConfig: IndustryPageConfig = {
     textColor: "text-white",
   },
   justUseDust: {
-    title: "Just use Dust",
+    title: "Explore Aeros for your operation",
     titleColor: "text-blue-600",
     ctaButtons: {
       primary: {
-        label: "Start Free Trial",
+        label: "Explore access",
         href: "/api/workos/login",
       },
       secondary: {
-        label: "Contact Sales",
+        label: "Request a demo",
         href: "/home/contact",
       },
     },

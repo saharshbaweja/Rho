@@ -47,29 +47,29 @@ const TABS: UsageTab[] = [
     bg: "bg-orange-100/40",
     points: [
       {
-        title: "Mission Briefing",
+        title: "Mission briefing",
         description:
-          "Bring route, weather, NOTAMs, aircraft, crew, and operator rules into one review",
+          "Assemble the route, time windows, forecasts, notices, and operating limits into a focused briefing for dispatcher review.",
         shape: "circle",
         colorClass: "text-pink-300",
       },
       {
-        title: "Change Detection",
-        description: "Surface only the changes that materially affect the active mission",
+        title: "Airport suitability",
+        description: "Assess airport hours, runway restrictions, available services, and aircraft requirements for the planned arrival or departure.",
         shape: "pie-bl",
         colorClass: "text-orange-500",
       },
       {
-        title: "Alternate Planning",
+        title: "Departure options",
         description:
-          "Compare viable alternates against current operational constraints",
+          "Compare departure windows and alternates against the same mission constraints, including the effect on later legs.",
         shape: "pie-br",
         colorClass: "text-yellow-300",
       },
       {
-        title: "Release Review",
+        title: "Release review",
         description:
-          "Trace required actions and evidence before the flight is released",
+          "Keep unresolved conditions, supporting sources, and required approvals together before an authorized dispatcher makes the release decision.",
         shape: "circle",
         colorClass: "text-green-700",
       },
@@ -84,27 +84,27 @@ const TABS: UsageTab[] = [
     bg: "bg-blue-100/40",
     points: [
       {
-        title: "Mission Monitoring",
-        description: "Track material changes from planning through departure",
+        title: "Flight watch",
+        description: "Monitor mission status alongside route weather, airport conditions, and airspace constraints.",
         shape: SHAPE_CYCLE[0],
         colorClass: "text-blue-400",
       },
       {
-        title: "Crew & Aircraft Context",
+        title: "Mission-relevant alerts",
         description:
-          "See legality, qualifications, aircraft state, and mission constraints together",
+          "Prioritize changes by their effect on the mission, its aircraft, and its operating window.",
         shape: SHAPE_CYCLE[1],
         colorClass: "text-pink-300",
       },
       {
-        title: "Recovery Options",
-        description: "Compare delay, reroute, alternate, and recovery paths side by side",
+        title: "Operational handover",
+        description: "Carry the current assessment, open actions, and ownership into the next shift.",
         shape: SHAPE_CYCLE[2],
         colorClass: "text-orange-400",
       },
       {
-        title: "Decision Handoffs",
-        description: "Keep dispatch and crew aligned on what changed and what was approved",
+        title: "Crew coordination",
+        description: "Prepare clear operational updates with the condition, impact, and proposed response for human review.",
         shape: SHAPE_CYCLE[3],
         colorClass: "text-green-500",
       },
@@ -119,26 +119,26 @@ const TABS: UsageTab[] = [
     bg: "bg-green-100/40",
     points: [
       {
-        title: "MEL Impact Review",
-        description: "Understand how deferred items affect the specific mission",
+        title: "Aircraft readiness",
+        description: "Review aircraft status, open items, and mission requirements in one operational context.",
         shape: SHAPE_CYCLE[0],
         colorClass: "text-blue-500",
       },
       {
-        title: "Aircraft Availability",
-        description: "Bring tail status and operational constraints into planning",
+        title: "Deferred defect impact",
+        description: "Connect MEL conditions and deferred items to route requirements and available station equipment.",
         shape: SHAPE_CYCLE[1],
         colorClass: "text-yellow-400",
       },
       {
-        title: "Maintenance Constraints",
-        description: "Surface limitations that change route, airport, or timing options",
+        title: "Maintenance windows",
+        description: "Show how aircraft availability and maintenance timing affect the operating schedule.",
         shape: SHAPE_CYCLE[2],
         colorClass: "text-pink-300",
       },
       {
-        title: "Return-to-Service Handoffs",
-        description: "Keep operations current as aircraft status changes",
+        title: "Aircraft recovery",
+        description: "Assess aircraft substitution and repositioning options before the team commits to a recovery plan.",
         shape: SHAPE_CYCLE[3],
         colorClass: "text-green-500",
       },
@@ -153,27 +153,27 @@ const TABS: UsageTab[] = [
     bg: "bg-pink-100/40",
     points: [
       {
-        title: "Crew Legality Review",
+        title: "Crew availability",
         description:
-          "Evaluate duty, qualification, and assignment constraints in context",
+          "Bring roster availability and required qualifications into mission planning.",
         shape: SHAPE_CYCLE[0],
         colorClass: "text-pink-400",
       },
       {
-        title: "Duty Margin Monitoring",
-        description: "See which disruptions put crew legality at risk",
+        title: "Duty impact",
+        description: "Evaluate how delays, diversions, and revised arrival times affect duty and rest margins.",
         shape: SHAPE_CYCLE[1],
         colorClass: "text-orange-400",
       },
       {
-        title: "Tail Assignment Impact",
-        description: "Understand how aircraft changes affect the active mission",
+        title: "Rotation dependencies",
+        description: "Trace a proposed change through later legs and identify where the crew plan needs review.",
         shape: SHAPE_CYCLE[2],
         colorClass: "text-blue-400",
       },
       {
-        title: "Downstream Schedule Effects",
-        description: "See how an operational decision propagates to later trips",
+        title: "Recovery coordination",
+        description: "Compare rescheduling and coverage options with the relevant mission and operator constraints visible.",
         shape: SHAPE_CYCLE[3],
         colorClass: "text-green-500",
       },
@@ -188,27 +188,27 @@ const TABS: UsageTab[] = [
     bg: "bg-violet-100/40",
     points: [
       {
-        title: "Procedure Retrieval",
-        description: "Find the operator-specific procedure relevant to the mission",
+        title: "Rule context",
+        description: "Bring the applicable operator procedure and operating restriction into the mission assessment.",
         shape: SHAPE_CYCLE[0],
         colorClass: "text-blue-500",
       },
       {
-        title: "Rule Traceability",
-        description: "Link each conclusion to the rule or source that supports it",
+        title: "Evidence review",
+        description: "Inspect the source, effective period, and reasoning behind a flagged condition.",
         shape: SHAPE_CYCLE[1],
         colorClass: "text-yellow-400",
       },
       {
-        title: "Decision History",
+        title: "Approval ownership",
         description:
-          "Preserve what changed, what was reviewed, and what was approved",
+          "Keep required operational approvals with the authorized people and roles.",
         shape: SHAPE_CYCLE[2],
         colorClass: "text-pink-300",
       },
       {
-        title: "Exception Review",
-        description: "Surface missing inputs and cases that require human judgment",
+        title: "Decision record",
+        description: "Retain the assessment, human review, and selected action as part of the mission history.",
         shape: SHAPE_CYCLE[3],
         colorClass: "text-green-500",
       },

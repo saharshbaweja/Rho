@@ -8,15 +8,11 @@ export function ExtensibilitySection({ page = "default" }) {
   return (
     <div className="w-full">
       <div className="mb-8">
-        <H2>Push further with custom code</H2>
-        <P size="lg" className="max-w-[700px] text-muted-foreground">
-          Developer friendly&nbsp;platform designed to&nbsp;build custom actions
-          and&nbsp;application orchestration to&nbsp;fit your
-          team’s&nbsp;exact&nbsp;needs.
-          <br />{" "}
+        <H2> Connect the systems behind the decision </H2>
+        <P size="lg" className="max-w-[700px] text-muted-foreground"> Plan the data connections and review workflows that fit your operation, from mission inputs to the approved response. <br />{" "}
           {page == "default" && (
             <Link href="/home/solutions/dust-platform" shallow={true}>
-              <A variant="primary">More about Dust’s&nbsp;Developer Platform</A>
+              <A variant="primary"> More about the Aeros platform </A>
             </Link>
           )}
           {page != "default" && (
@@ -25,7 +21,7 @@ export function ExtensibilitySection({ page = "default" }) {
               shallow={true}
               target="_blank"
             >
-              <A variant="primary">See our documentation</A>
+              <A variant="primary"> View reference documentation </A>
             </Link>
           )}
         </P>
@@ -33,12 +29,9 @@ export function ExtensibilitySection({ page = "default" }) {
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
         <ImgBlock
-          title={<>Build custom agentic tools</>}
+          title={<> Connect operational workflows </>}
           content={
-            <>
-              Develop advanced or agentic capabilities, from document
-              auto-updates, triggered actions, or leveraging external APIs.
-            </>
+            <> Scope mission updates, evidence review, and team handovers around your established operational procedures. </>
           }
         >
           <Hover3D
@@ -56,13 +49,9 @@ export function ExtensibilitySection({ page = "default" }) {
           </Hover3D>
         </ImgBlock>
         <ImgBlock
-          title={<>Build custom connections</>}
+          title={<> Bring mission inputs together </>}
           content={
-            <>
-              No ceiling on data connections. Leverage the API to import in
-              knowledge from any source and let agents tackle more ambitious use
-              cases.
-            </>
+            <> Map aviation sources, schedules, aircraft, crews, and operator knowledge to the missions they describe. Validate freshness and coverage before rollout. </>
           }
         >
           <Hover3D
@@ -80,12 +69,9 @@ export function ExtensibilitySection({ page = "default" }) {
           </Hover3D>
         </ImgBlock>
         <ImgBlock
-          title={<>Build custom integrations</>}
+          title={<> Fit the operator environment </>}
           content={
-            <>
-              Use our API to embed agents in your apps or websites, unlocking
-              fully custom user experiences and deep automation.
-            </>
+            <> Define integration access, ownership, human review, and deployment scope with the teams responsible for the operation. </>
           }
         >
           <Hover3D

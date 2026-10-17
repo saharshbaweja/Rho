@@ -15,26 +15,26 @@ export function ProductIntroSection() {
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:gap-2 lg:px-6">
           <HomeReveal>
             <H1 className="text-center text-5xl font-semibold md:text-6xl lg:text-7xl">
-              Multiplayer AI for <RotatingWord />
+              Mission intelligence for <RotatingWord />
             </H1>
           </HomeReveal>
           <HomeReveal delay={80}>
             <P size="lg" className="text-base text-muted-foreground sm:text-lg">
-              Dust is multiplayer, multi-model AI that gives digital teams of
-              people and agents a single place to work together in parallel,
-              with shared knowledge, tools, and skills, and governed by design.
+              Aeros is building a connected operations platform for mission
+              monitoring, dispatch assessment, recovery planning, and team
+              coordination—with source evidence and human judgment at its core.
             </P>
           </HomeReveal>
           <HomeReveal delay={160}>
             <div className="mt-4 flex flex-row justify-center gap-4">
               <Link href="/home/contact" shallow={true}>
-                <Button variant="highlight" size="md" label="Contact Sales" />
+                <Button variant="highlight" size="md" label="Request a demo" />
               </Link>
               <Link href="/home/pricing" shallow={true}>
                 <Button
                   variant="outline"
                   size="md"
-                  label="Try Dust Now"
+                  label="Explore access"
                   icon={Rocket02}
                 />
               </Link>

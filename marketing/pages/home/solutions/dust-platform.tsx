@@ -31,7 +31,7 @@ export async function getStaticProps() {
 }
 
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Dust in motion",
+  sectionTitle: "Reference platform demonstration",
   videoUrl:
     "https://fast.wistia.net/embed/iframe/3ej9a2ruip?web_component=true&seo=true",
 };
@@ -43,8 +43,8 @@ export default function DustPlatform() {
   return (
     <>
       <PageMetadata
-        title="Dust AI Platform: Build Custom AI Agents for Your Organization"
-        description="The enterprise platform for building, deploying, and managing AI agents. Connect your tools, customize workflows, and maintain security and compliance."
+        title="Aeros Platform | Operational Data & Workflow Integration"
+        description="Plan the aviation data, operator system, and workflow connections that support mission intelligence, evidence, and human review."
         pathname={router.asPath}
       />
       <PlatformIntroSection />
@@ -56,14 +56,9 @@ export default function DustPlatform() {
           )}
         >
           <ImgBlock
-            title={<>MCP: Integrate custom tools into Dust agents</>}
+            title={<> Connect aviation and operator data </>}
             content={[
-              <>
-                Seamlessly connect your own and external tools to Dust agents
-                using MCP servers. Customize agent capabilities, manage
-                authentication, and control access—all through a flexible
-                integration framework.
-              </>,
+              <> Define the sources behind the mission assessment: aviation feeds, schedules, aircraft, crews, and approved operator knowledge. Validate coverage, access, and data quality for each connection. </>,
             ]}
           >
             <Hover3D
@@ -86,13 +81,9 @@ export default function DustPlatform() {
             </Hover3D>
           </ImgBlock>
           <ImgBlock
-            title={<>Custom Webhooks: Connect agents to your workflow</>}
+            title={<> Respond to operational changes </>}
             content={[
-              <>
-                Build webhook endpoints to trigger agents from any external
-                system. Receive events from GitHub, Jira, Slack, or your own
-                services with full company context.
-              </>,
+              <> The Aeros roadmap connects source updates to affected mission reviews, so a changed condition can be assessed in context and routed to the responsible team. </>,
             ]}
           >
             <Hover3D
@@ -112,13 +103,9 @@ export default function DustPlatform() {
             </Hover3D>
           </ImgBlock>
           <ImgBlock
-            title={<>Dust API: Integrate Dust across your tools</>}
+            title={<> Keep the review in your workflow </>}
             content={[
-              <>
-                Access Dust's capabilities through a developer API to manage
-                agents and data sources programmatically. Use Dust on your terms
-                and on the product surfaces of your choice.
-              </>,
+              <> Scope how assessments, supporting evidence, and open actions fit into the operator's existing systems. Integration availability and deployment requirements are validated during rollout. </>,
             ]}
           >
             <Hover3D
@@ -144,7 +131,7 @@ export default function DustPlatform() {
       <QuoteSection
         quote="Dust functions as a 'meta-platform.' Its aggregation approach offers flexibility, allowing us to leverage multiple data sources across tools and avoid being locked into specific tools or vertical ecosystems."
         name="Charles Gorintin"
-        title="CTO at Alan"
+        title="Dust customer reference · CTO at Alan"
         logo="/static/landing/logos/color/alan.png"
       />
       <div
@@ -171,7 +158,7 @@ export default function DustPlatform() {
             <Button
               variant="highlight"
               size="md"
-              label="Try Dust now"
+              label="Explore access"
               icon={Rocket02}
               onClick={withTracking(
                 TRACKING_AREAS.SOLUTIONS,

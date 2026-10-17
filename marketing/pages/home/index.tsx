@@ -37,8 +37,8 @@ export function Landing({ news }: HomeProps) {
   return (
     <>
       <PageMetadata
-        title="Dust - Multiplayer AI for human-agent collaboration"
-        description="Dust connects your company knowledge, tools, and teams so you can create, share, and run agents across real workflows. Use different models for different tasks, with people in control."
+        title="Aeros | Mission Intelligence for Flight Operations"
+        description="Aeros brings mission monitoring, operational assessment, contextual alerts, planning, and recovery into one connected picture for flight operations teams."
         pathname={router.asPath}
       />
       <IntroSection news={news} />

@@ -17,26 +17,23 @@ import type {
 
 // Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Marketing",
-  title: <>Create On-Brand Content At Scale</>,
+  uptitle: "Crew & Scheduling",
+  title: <> Keep the crew plan connected to the mission. </>,
   accentColor: "text-brand-orange-golden",
   description: (
-    <>
-      Scale content production, maintain brand consistency,
-      and&nbsp;optimize&nbsp;reach across channels.
-    </>
+    <> Review crew availability, qualifications, duty limits, and aircraft rotations alongside the changes that can disrupt the schedule. </>
   ),
   bulletPoints: [
-    "Localize content in multiple languages with brand consistency.",
-    "Draft high-quality customer stories following company templates.",
-    "Create compelling social media copy.",
-    "Monitor industry and competitor news.",
+    "Bring roster availability and required qualifications into mission planning.",
+    "Evaluate how delays, diversions, and revised arrival times affect duty and rest margins.",
+    "Trace a proposed change through later legs and identify where the crew plan needs review.",
+    "Compare rescheduling and coverage options with the relevant mission and operator constraints visible.",
   ],
   image: "/static/landing/marketing/crossMedia.png",
   seo: {
-    title: "AI Marketing Agents: Create On-Brand Content at Scale",
+    title: "Aeros for Crew & Scheduling | Mission Intelligence",
     description:
-      "Scale content production, maintain brand consistency, and optimize reach across channels. Localize content, draft customer stories, create social media copy.",
+      "Review crew availability, qualifications, duty limits, and aircraft rotations alongside the changes that can disrupt the schedule.",
   },
 };
 
@@ -68,37 +65,37 @@ export const Hero: HeroProps = {
   ],
   ctaButtons: {
     primary: {
-      label: "Get started",
+      label: "Explore Aeros",
       href: "/home/pricing",
       icon: Rocket02,
     },
     secondary: {
-      label: "Talk to sales",
+      label: "Request a demo",
       href: "/home/contact",
     },
   },
 };
 
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Elevate your content strategy to new heights",
+  sectionTitle: "Crew & Scheduling, with the mission in view",
   items: [
     {
       icon: MagicWand02,
-      title: "Focus on strategy",
+      title: "Understand the mission",
       description:
-        "Maximize impact by automating content creation and optimization tasks.",
+        "Review crew availability, qualifications, duty limits, and aircraft rotations alongside the changes that can disrupt the schedule.",
     },
     {
       icon: CheckCircle,
-      title: "Ensure consistency",
+      title: "Evaluate the impact",
       description:
-        "Maintain perfect brand alignment across all content and communication channels.",
+        "Evaluate how delays, diversions, and revised arrival times affect duty and rest margins.",
     },
     {
       icon: Users01,
-      title: "Scale production",
+      title: "Coordinate the response",
       description:
-        "Transform your content workflow into an efficient, brand-compliant machine.",
+        "Compare rescheduling and coverage options with the relevant mission and operator constraints visible.",
     },
   ],
 };
@@ -106,52 +103,52 @@ export const Benefits: BenefitsProps = {
 export const Metrics: MetricProps = {
   metrics: [
     {
-      value: "70%",
-      description: <>time reduction in localization</>,
+      value: "Context",
+      description: <> The mission, its constraints, and the changes that matter. </>,
     },
     {
-      value: "5X",
-      description: <> brand-compliant copy generation</>,
+      value: "Evidence",
+      description: <> The sources, assumptions, and human review behind the response. </>,
     },
   ],
   color: "golden",
 };
 
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Your use cases, your way",
+  sectionTitle: "Crew & Scheduling workflows",
   sectionDescription:
-    "Customize and automate tasks without writing a single line of code.",
+    "The Aeros roadmap for crew & scheduling, from assessment to coordinated action.",
   items: [
     {
-      title: "Content localization",
+      title: "Crew availability",
       content:
-        "Translate and adapt content across languages while maintaining brand voice and cultural relevance.",
+        "Bring roster availability and required qualifications into mission planning.",
       images: ["/static/landing/marketing/localizer.png"],
     },
     {
-      title: "Content optimization",
+      title: "Duty impact",
       content:
-        "Transform raw content into polished, SEO-optimized pieces that align with brand guidelines.",
+        "Evaluate how delays, diversions, and revised arrival times affect duty and rest margins.",
       images: ["/static/landing/marketing/contentOptimizer.png"],
     },
     {
-      title: "Social media cross-posting",
+      title: "Rotation dependencies",
       content:
-        "Create engaging UX and social media content that consistently reflects your brand identity.",
+        "Trace a proposed change through later legs and identify where the crew plan needs review.",
       images: ["/static/landing/marketing/crossMedia.png"],
     },
     {
-      title: "Market intelligence",
+      title: "Recovery coordination",
       content:
-        "Monitor market movements and competitor activities to inform your content strategy and battle cards.",
+        "Compare rescheduling and coverage options with the relevant mission and operator constraints visible.",
       images: ["/static/landing/marketing/aiNewsletter.png"],
     },
   ],
 };
 
 export const ROI: ROIProps = {
-  number: "70%",
-  subtitle: "time reduction in localization",
+  number: "Review",
+  subtitle: "Illustrative reference asset; not an Aeros performance result.",
   logo: "/static/landing/logos/gray/qonto.png",
 };
 
@@ -159,33 +156,33 @@ export const Quote: QuoteProps = {
   quote:
     "Dust is not just a tool - it's like having an extra team member who knows your brand voice, can handle recurring tasks, and helps you tackle new challenges. I couldn't do half of my job without it, especially with tight deadlines and a small team.",
   name: "Valentine Chelius",
-  title: "Head of Marketing at Fleet",
+  title: "Dust customer reference · Head of Marketing at Fleet",
   logo: "/static/landing/logos/color/fleet.png",
 };
 
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Watch Dust in motion",
+  sectionTitle: "Reference workflow demonstration",
   videoUrl: "https://fast.wistia.net/embed/iframe/z8ky9a7ugn",
   showCaptions: true,
 };
 
 export const Stories: CustomerStory[] = [
   {
-    title: "How Alan produces customer stories 80% faster with Dust",
+    title: "Dust reference: How Alan produces customer stories 80% faster with Dust",
     content:
       "Alan's marketing team uses Dust to create customer stories that resonate with their audience, all while maintaining brand consistency.",
     href: "/customers/alan-marketing-customer-story-production-dust",
     src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Alan-__-Dust-1.png",
   },
   {
-    title: "How Qonto Achieved 70% Faster Localization with Dust",
+    title: "Dust reference: How Qonto Achieved 70% Faster Localization with Dust",
     content:
       "Qonto's Tolki assistant serves as a virtual polyglot, helping the content team localize content while maintaining brand voice and regional standards.",
     href: "/customers/qonto-dust-ai-partnership",
     src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Qonto-__-Dust.jpg",
   },
   {
-    title: "Building a Marketing Engine from Scratch at Fleet",
+    title: "Dust reference: Building a Marketing Engine from Scratch at Fleet",
     content:
       "With just two interns, Valentine created a scalable marketing operation using Dust's AI capabilities for content and brand management.",
     href: "/customers/how-valentine-head-of-marketing-at-fleet-uses-dust",

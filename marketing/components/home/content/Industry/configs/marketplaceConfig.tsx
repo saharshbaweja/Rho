@@ -4,9 +4,9 @@ import { createLayoutConfig } from "@marketing/components/home/content/Industry/
 
 export const marketplaceConfig: IndustryPageConfig = {
   seo: {
-    title: "Dust for Marketplaces",
+    title: "Aeros for Regional Operators",
     description:
-      "The AI solution powering Marketplace success. Streamline supplier acquisition, eliminate content bottlenecks, and scale support effortlessly.",
+      "Connect short rotations, station constraints, crew margins, and aircraft availability to the decisions that keep the network coordinated.",
   },
   layout: createLayoutConfig([
     "hero",
@@ -22,25 +22,22 @@ export const marketplaceConfig: IndustryPageConfig = {
   ]),
   hero: {
     chip: {
-      label: "Marketplace",
+      label: "Regional Operators",
       color: "highlight",
       icon: ShoppingBag01,
     },
     title: (
-      <>
-        Dust for
-        <br /> Marketplaces
-      </>
+      <> See how one change affects <br /> the next leg. </>
     ),
     description:
-      "The AI solution powering Marketplace success. Streamline supplier acquisition, eliminate content bottlenecks, and scale support effortlessly.",
+      "Connect short rotations, station constraints, crew margins, and aircraft availability to the decisions that keep the network coordinated.",
     ctaButtons: {
       primary: {
-        label: "Get started",
+        label: "Explore Aeros",
         href: "/home/pricing",
       },
       secondary: {
-        label: "Talk to sales",
+        label: "Request a demo",
         href: "/home/contact",
       },
     },
@@ -49,7 +46,7 @@ export const marketplaceConfig: IndustryPageConfig = {
         "Dust has empowered our employees to work smarter, innovate, and push boundaries.",
       author: {
         name: "Matthieu Birach",
-        title: "Chief People Officer at Doctolib",
+        title: "Dust customer reference · Chief People Officer at Doctolib",
       },
       company: {
         logo: "/static/landing/logos/white/doctolib.svg",
@@ -64,170 +61,170 @@ export const marketplaceConfig: IndustryPageConfig = {
     },
   },
   aiAgents: {
-    title: "Empower your marketplace teams to focus on growth, not grunt work",
+    title: "Mission intelligence for regional operators",
     description:
-      "Dust connects your teams, automates operational complexity, and unlocks critical insights from your data—across supply acquisition, community engagement, support operations, and market intelligence.",
+      "Connect short rotations, station constraints, crew margins, and aircraft availability to the decisions that keep the network coordinated. The product roadmap brings mission monitoring, contextual alerts, recovery options, and team review into the same operating picture.",
     bgColor: "bg-gray-50",
   },
   trustedBy: {
-    title: "Trusted by marketplace leaders",
+    title: "Reference ecosystem · existing third-party logos",
     logoSet: "marketplace",
   },
   painPoints: {
-    title: "Transform how you work",
+    title: "From changing conditions to coordinated action",
     painPoints: [
       {
         icon: "/static/landing/industry/d-blue.svg",
-        title: "Accelerate quality provider acquisition",
+        title: "Understand the mission",
         description:
-          "Transform prospecting and qualification with automated workflows. Sign the best suppliers faster while efficiently answering all provider questions.",
+          "Connect short rotations, station constraints, crew margins, and aircraft availability to the decisions that keep the network coordinated.",
         color: "blue",
       },
       {
         icon: "/static/landing/industry/d-red.svg",
-        title: "Scale content creation effortlessly",
+        title: "Evaluate the impact",
         description:
-          "Generate targeted, high-quality content at scale to keep supplier and customer communities engaged across all your markets.",
+          "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
         color: "red",
       },
       {
         icon: "/static/landing/industry/d-green.svg",
-        title: "Scale your best support expertise instantly",
+        title: "Coordinate the response",
         description:
-          "Let AI handle tier 1 & 2 support so your experts can focus on complex cases that drive real marketplace value.",
+          "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
         color: "green",
       },
     ],
   },
   dustInAction: {
-    title: "Dust in action",
+    title: "Regional Operators workflows",
     useCases: [
       {
-        title: "Supply growth & provider acquisition",
+        title: "Mission monitoring",
         image: "/static/landing/industry/features/Sales_agent.webp",
         bgColor: "bg-blue-100",
         features: [
           {
             icon: "bg-blue-500",
-            title: "Prospection & lead enrichment",
+            title: "Network impact",
             description:
-              "Automatically aggregate and enrich service provider information using public data and marketplace insights.",
+              "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
           },
           {
             icon: "bg-yellow-400 rounded-tr-full",
-            title: "Account 360° view",
+            title: "Recovery scenarios",
             description:
-              "Generate comprehensive provider overviews combining platform activity, performance data, and engagement history.",
+              "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
           },
           {
             icon: "bg-green-500",
-            title: "Sales enablement",
+            title: "Operational tradeoffs",
             description:
-              "Auto-draft responses to provider applications and inquiries using current marketplace policies and product information.",
+              "Review time, fuel, crew, and passenger considerations where the required data is available.",
           },
           {
             icon: "bg-pink-400 rounded-tl-full",
-            title: "Sales insights",
+            title: "Decision handover",
             description:
-              "Extract winning narratives from calls and coach teams on pitch delivery and objection response.",
+              "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
           },
         ],
       },
       {
-        title: "Support & success automation",
+        title: "Operational assessment",
         image: "/static/landing/industry/features/UxWriter_2.webp",
         bgColor: "bg-green-100",
         features: [
           {
             icon: "bg-sky-400 rounded-br-full",
-            title: "Smart request routing",
+            title: "Network impact",
             description:
-              "Route issues to the right team instantly, based on urgency and type.",
+              "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
           },
           {
             icon: "bg-red-500",
-            title: "Technical troubleshooting",
+            title: "Recovery scenarios",
             description:
-              "Accelerate resolution with deep troubleshooting and suggested resolution paths.",
+              "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
           },
           {
             icon: "bg-yellow-400 rounded-tr-full",
-            title: "Customer communication",
+            title: "Operational tradeoffs",
             description:
-              "Craft clear, professional support communication at scale.",
+              "Review time, fuel, crew, and passenger considerations where the required data is available.",
           },
           {
             icon: "bg-green-500",
-            title: "Support insights",
+            title: "Decision handover",
             description:
-              "Analyze interactions and feedback to improve marketplace experience.",
+              "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
           },
           {
             icon: "bg-pink-400",
-            title: "Knowledge hub building",
+            title: "Network impact",
             description:
-              "Transform resolved cases into searchable resources for providers, customers, and support teams.",
+              "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
           },
         ],
       },
       {
-        title: "Community operations",
+        title: "Recovery planning",
         image: "/static/landing/industry/features/Contact_analysis.webp",
         bgColor: "bg-rose-100",
         features: [
           {
             icon: "bg-yellow-400",
-            title: "Contact deflection",
+            title: "Network impact",
             description:
-              "Automate responses to common inquiries, enabling your team to be more responsive and freeing up resources for higher-value interactions.",
+              "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
           },
           {
             icon: "bg-indigo-500",
-            title: "Community insights",
+            title: "Recovery scenarios",
             description:
-              "Extract actionable insights: identify top ambassadors, uncover key community topics, and detect gaps in documentation.",
+              "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
           },
           {
             icon: "bg-red-500",
-            title: "Community education",
+            title: "Operational tradeoffs",
             description:
-              "Create and deliver high-quality educational resources—bridging knowledge gaps and empowering your audience to succeed with your product or service.",
+              "Review time, fuel, crew, and passenger considerations where the required data is available.",
           },
           {
             icon: "bg-pink-400 rounded-tl-full",
-            title: "Community engagement",
+            title: "Decision handover",
             description:
-              "Generate high quality content, deepening engagement and encouraging active participation from your community.",
+              "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
           },
         ],
       },
       {
-        title: "Marketing & intelligence",
+        title: "Team coordination",
         image: "/static/landing/industry/features/Content_localization.webp",
         bgColor: "bg-yellow-100",
         features: [
           {
             icon: "bg-yellow-400 rounded-tr-full",
-            title: "Content creation & localization",
+            title: "Network impact",
             description:
-              "Turn raw notes into SEO-optimized and brand-compliant communications across multiple languages.",
+              "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
           },
           {
             icon: "bg-blue-500",
-            title: "Industry & competitive intelligence",
+            title: "Recovery scenarios",
             description:
-              "Monitor competitive activity, pricing trends and analyze reports to inform platform strategy.",
+              "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
           },
           {
             icon: "bg-green-500",
-            title: "Customer insights",
-            description: "Summarize feedback to identify improvement areas.",
+            title: "Operational tradeoffs",
+            description: "Review time, fuel, crew, and passenger considerations where the required data is available.",
           },
           {
             icon: "bg-pink-400 rounded-tl-full",
-            title: "Marketplace analytics",
+            title: "Decision handover",
             description:
-              "Retrieve analytics for internal and stakeholder reporting.",
+              "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
           },
         ],
       },
@@ -237,21 +234,21 @@ export const marketplaceConfig: IndustryPageConfig = {
     bgColor: "bg-blue-50",
     metrics: [
       {
-        value: "70",
-        unit: "%",
-        type: "company-wide adoption",
-        description: "weekly active users",
+        value: "01",
+        unit: "",
+        type: "Context",
+        description: "Mission context comes before a recommendation.",
       },
       {
-        value: "50",
-        unit: "%",
-        type: "faster",
-        description: "support ticket resolution through smart routing",
+        value: "02",
+        unit: "",
+        type: "Options",
+        description: "A proposed move needs evidence and visible assumptions.",
       },
     ],
   },
   demoVideo: {
-    sectionTitle: "See Dust in motion",
+    sectionTitle: "Reference workflow demonstration",
     videoUrl: "https://fast.wistia.net/embed/iframe/r0dwaexoez",
   },
   testimonial: {
@@ -259,7 +256,7 @@ export const marketplaceConfig: IndustryPageConfig = {
       "Dust has empowered our employees to work smarter, innovate, and push boundaries.",
     author: {
       name: "Matthieu Birach",
-      title: "Chief People Officer at Doctolib",
+      title: "Dust customer reference · Chief People Officer at Doctolib",
     },
     company: {
       logo: "/static/landing/logos/white/doctolib.svg",
@@ -269,15 +266,15 @@ export const marketplaceConfig: IndustryPageConfig = {
     textColor: "text-white",
   },
   justUseDust: {
-    title: "Just use Dust",
+    title: "Explore Aeros for your operation",
     titleColor: "text-blue-600",
     ctaButtons: {
       primary: {
-        label: "Start Free Trial",
+        label: "Explore access",
         href: "/api/workos/login",
       },
       secondary: {
-        label: "Contact Sales",
+        label: "Request a demo",
         href: "/home/contact",
       },
     },

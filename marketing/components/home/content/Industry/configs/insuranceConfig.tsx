@@ -4,9 +4,9 @@ import { createLayoutConfig } from "@marketing/components/home/content/Industry/
 
 export const insuranceConfig: IndustryPageConfig = {
   seo: {
-    title: "Dust for Insurance",
+    title: "Aeros for Charter Operators",
     description:
-      "The AI Solution to streamline operations & enhance member experience. Transform insurance workflows with intelligent automation while ensuring compliance and improving customer satisfaction.",
+      "Review changing itineraries against crew, aircraft, airport, and operator requirements before committing to the next move.",
   },
   layout: createLayoutConfig([
     "hero",
@@ -22,25 +22,22 @@ export const insuranceConfig: IndustryPageConfig = {
   ]),
   hero: {
     chip: {
-      label: "Insurance",
+      label: "Charter Operators",
       color: "highlight",
       icon: MedicalCross,
     },
     title: (
-      <>
-        Dust for
-        <br /> Insurance
-      </>
+      <> Plan the trip. Understand <br /> the constraints. </>
     ),
     description:
-      "The AI Solution to streamline operations & enhance member experience. Transform insurance workflows with intelligent automation while ensuring compliance and improving customer satisfaction.",
+      "Review changing itineraries against crew, aircraft, airport, and operator requirements before committing to the next move.",
     ctaButtons: {
       primary: {
-        label: "Get started",
+        label: "Explore Aeros",
         href: "/home/pricing",
       },
       secondary: {
-        label: "Talk to sales",
+        label: "Request a demo",
         href: "/home/contact",
       },
     },
@@ -49,7 +46,7 @@ export const insuranceConfig: IndustryPageConfig = {
         "Dust isn't just about saving time—it's about making better, more informed decisions.",
       author: {
         name: "Etienne Debost",
-        title: "Head of Architecture",
+        title: "Dust customer reference · Head of Architecture",
       },
       company: {
         logo: "/static/landing/logos/white/wakam.svg",
@@ -65,159 +62,159 @@ export const insuranceConfig: IndustryPageConfig = {
   },
   aiAgents: {
     title:
-      "The AI Solution to streamline operations & enhance member experience",
+      "Mission intelligence for charter operators",
     description:
-      "Deploy specialized AI agents that automate insurance workflows, enhance member service, and ensure regulatory compliance—transforming how your organization operates while improving customer satisfaction and operational efficiency.",
+      "Review changing itineraries against crew, aircraft, airport, and operator requirements before committing to the next move. The product roadmap brings mission monitoring, contextual alerts, recovery options, and team review into the same operating picture.",
     bgColor: "bg-gray-50",
   },
   trustedBy: {
-    title: "Trusted by insurance leaders",
+    title: "Reference ecosystem · existing third-party logos",
     logoSet: "insurance",
   },
   painPoints: {
-    title: "Transform how you work",
+    title: "From changing conditions to coordinated action",
     painPoints: [
       {
         icon: "/static/landing/industry/d-blue.svg",
-        title: "Remove manual process bottlenecks",
+        title: "Understand the mission",
         description:
-          "Eliminate departmental silos and reduce manual work in claims, underwriting, and support to accelerate service delivery and decision-making.",
+          "Review changing itineraries against crew, aircraft, airport, and operator requirements before committing to the next move.",
         color: "blue",
       },
       {
         icon: "/static/landing/industry/d-red.svg",
-        title: "Free up specialized personnel",
+        title: "Evaluate the impact",
         description:
-          "Free adjusters, underwriters, and legal experts from repetitive tasks, enabling focus on complex cases, risk assessment, and high-value interactions.",
+          "Evaluate how delays, diversions, and revised arrival times affect duty and rest margins.",
         color: "red",
       },
       {
         icon: "/static/landing/industry/d-green.svg",
-        title: "Unlock data intelligence",
+        title: "Coordinate the response",
         description:
-          "Leverage customer interactions, claims histories, and regulatory data to optimize pricing, enhance products, mitigate risks, and ensure compliance.",
+          "Compare rescheduling and coverage options with the relevant mission and operator constraints visible.",
         color: "green",
       },
     ],
   },
   dustInAction: {
-    title: "Dust in action",
+    title: "Charter Operators workflows",
     useCases: [
       {
-        title: "Customer service",
+        title: "Mission monitoring",
         image: "/static/landing/industry/features/UxWriter.webp",
         bgColor: "bg-golden-100",
         features: [
           {
             icon: "bg-golden-500",
-            title: "Smart claims handling",
+            title: "Crew availability",
             description:
-              "Automate insurance processing – document verification, risk assessment, coverage validation – accelerating settlements.",
+              "Bring roster availability and required qualifications into mission planning.",
           },
           {
             icon: "bg-blue-500 rounded-tl-full",
-            title: "Support resolution",
+            title: "Duty impact",
             description:
-              "Enable help desk teams to instantly resolve customer inquiries about policy details, account status, and troubleshooting without escalation.",
+              "Evaluate how delays, diversions, and revised arrival times affect duty and rest margins.",
           },
           {
             icon: "bg-purple-400 rounded-br-full",
-            title: "Insurance expert",
+            title: "Rotation dependencies",
             description:
-              "Answer colleague questions about insurance products, coverage, and insurer agreements on behalf of experts.",
+              "Trace a proposed change through later legs and identify where the crew plan needs review.",
           },
           {
             icon: "bg-red-400",
-            title: "Documentation generation",
+            title: "Recovery coordination",
             description:
-              "Produce compliant and relevant documentation on your insurance products, in all languages, to deflect basic questions",
+              "Compare rescheduling and coverage options with the relevant mission and operator constraints visible.",
           },
         ],
       },
       {
-        title: "Business development",
+        title: "Operational assessment",
         image: "/static/landing/industry/features/Compliance_verification.webp",
         bgColor: "bg-blue-100",
         features: [
           {
             icon: "bg-golden-500",
-            title: "Client & Partner 360",
+            title: "Crew availability",
             description:
-              "Create comprehensive client and partner summaries by consolidating past interactions, internal data, and relevant external information",
+              "Bring roster availability and required qualifications into mission planning.",
           },
           {
             icon: "bg-blue-500 rounded-tl-full",
-            title: "RFP automation",
+            title: "Duty impact",
             description:
-              "Generate detailed RFP responses and business offerings using past proposals and internal documentation",
+              "Evaluate how delays, diversions, and revised arrival times affect duty and rest margins.",
           },
           {
             icon: "bg-purple-400 rounded-br-full",
-            title: "Content generation",
+            title: "Rotation dependencies",
             description:
-              "Create and validate content, insurance comparisons, and website materials in all languages while ensuring accuracy and compliance",
+              "Trace a proposed change through later legs and identify where the crew plan needs review.",
           },
           {
             icon: "bg-red-400",
-            title: "Sales intelligence",
+            title: "Recovery coordination",
             description:
-              "Analyze customer interactions and policy data to generate actionable insights for sales teams and optimize insurance product positioning",
+              "Compare rescheduling and coverage options with the relevant mission and operator constraints visible.",
           },
         ],
       },
       {
-        title: "Legal & compliance support",
+        title: "Recovery planning",
         image: "/static/landing/industry/features/Legal_review_3.webp",
         bgColor: "bg-green-100",
         features: [
           {
             icon: "bg-golden-500",
-            title: "Partner & customer due diligence",
+            title: "Crew availability",
             description:
-              "Evaluate new business applications and potential partnerships to identify and assess potential risks and concerns",
+              "Bring roster availability and required qualifications into mission planning.",
           },
           {
             icon: "bg-blue-500 rounded-tl-full",
-            title: "Contracts & policy documentation",
+            title: "Duty impact",
             description:
-              "Review program documentation, policy wordings, and contractual agreements for accuracy, compliance, and key provisions",
+              "Evaluate how delays, diversions, and revised arrival times affect duty and rest margins.",
           },
           {
             icon: "bg-purple-400 rounded-br-full",
-            title: "Regulatory guidance",
+            title: "Rotation dependencies",
             description:
-              "Address regulatory inquiries and support the implementation and monitoring of compliance processes",
+              "Trace a proposed change through later legs and identify where the crew plan needs review.",
           },
         ],
       },
       {
-        title: "Intelligence",
+        title: "Team coordination",
         image: "/static/landing/industry/features/Radar_AIDigest.webp",
         bgColor: "bg-gray-950",
         features: [
           {
             icon: "bg-golden-500",
-            title: "Market & competitor updates",
+            title: "Crew availability",
             description:
-              "Track and analyze industry developments and competitor activities",
+              "Bring roster availability and required qualifications into mission planning.",
           },
           {
             icon: "bg-blue-500 rounded-tl-full",
-            title: "Regulatory monitoring",
+            title: "Duty impact",
             description:
-              "Monitor the evolving regulatory landscape and disseminate updates to ensure organizational awareness",
+              "Evaluate how delays, diversions, and revised arrival times affect duty and rest margins.",
           },
           {
             icon: "bg-purple-400 rounded-br-full",
-            title: "Offer benchmarking",
+            title: "Rotation dependencies",
             description:
-              "Evaluate internal program structures and operational performance against relevant market standards and best practices",
+              "Trace a proposed change through later legs and identify where the crew plan needs review.",
           },
           {
             icon: "bg-red-400",
-            title: "Claims insights",
+            title: "Recovery coordination",
             description:
-              "Analyze claims performance, financial settlements, and profitability across different broker partnerships or distribution channels",
+              "Compare rescheduling and coverage options with the relevant mission and operator constraints visible.",
           },
         ],
       },
@@ -227,27 +224,27 @@ export const insuranceConfig: IndustryPageConfig = {
     bgColor: "bg-blue-50",
     metrics: [
       {
-        value: "50",
-        unit: "%",
-        type: "Reduction",
-        description: "in legal contract processing time",
+        value: "01",
+        unit: "",
+        type: "Context",
+        description: "Mission context comes before a recommendation.",
       },
       {
-        value: "90",
-        unit: "%",
-        type: "Faster",
-        description: "partner 360 analysis",
+        value: "02",
+        unit: "",
+        type: "Options",
+        description: "A proposed move needs evidence and visible assumptions.",
       },
       {
-        value: "80",
-        unit: "%",
-        type: "Adoption",
-        description: "weekly active users",
+        value: "03",
+        unit: "",
+        type: "Review",
+        description: "The authorized operations team owns the decision.",
       },
     ],
   },
   demoVideo: {
-    sectionTitle: "See Dust in motion",
+    sectionTitle: "Reference workflow demonstration",
     videoUrl: "https://fast.wistia.net/embed/iframe/zzbhe95pvz",
   },
   testimonial: {
@@ -255,7 +252,7 @@ export const insuranceConfig: IndustryPageConfig = {
       "Dust isn't just about saving time—it's about making better, more informed decisions.",
     author: {
       name: "Etienne Debost",
-      title: "Head of Architecture",
+      title: "Dust customer reference · Head of Architecture",
     },
     company: {
       logo: "/static/landing/logos/white/wakam.svg",
@@ -265,15 +262,15 @@ export const insuranceConfig: IndustryPageConfig = {
     textColor: "text-white",
   },
   justUseDust: {
-    title: "Just use Dust",
+    title: "Explore Aeros for your operation",
     titleColor: "text-blue-600",
     ctaButtons: {
       primary: {
-        label: "Start Free Trial",
+        label: "Explore access",
         href: "/api/workos/login",
       },
       secondary: {
-        label: "Contact Sales",
+        label: "Request a demo",
         href: "/home/contact",
       },
     },

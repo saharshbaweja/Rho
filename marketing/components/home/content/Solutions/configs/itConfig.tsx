@@ -16,25 +16,23 @@ import type {
 
 // Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "IT",
-  title: <>Automate Support, Empower Employees</>,
+  uptitle: "Systems & Data",
+  title: <> Connect the systems behind the operation. </>,
   accentColor: "text-brand-orange-golden",
   description: (
-    <>
-      Scale IT support, automate routine requests, and keep your IT desk clean.
-    </>
+    <> Plan the data connections that bring schedules, aircraft, crews, aviation sources, and operator knowledge into a consistent mission context. </>
   ),
   bulletPoints: [
-    "Answer employee IT questions instantly.",
-    "Guide system administrators through troubleshooting.",
-    "Streamline procurement processes.",
-    "Surface IT trends for proactive improvements.",
+    "Scope weather, NOTAM, airport, and airspace feeds by coverage, freshness, and access requirements.",
+    "Map schedule, crew, aircraft, and maintenance inputs to the missions they describe.",
+    "Make missing, stale, and conflicting inputs visible before a recommendation is reviewed.",
+    "Define ownership, permissions, and rollout scope for each operational connection.",
   ],
   image: "/static/landing/it/itHelpdesk.png",
   seo: {
-    title: "AI IT Support Agents: Automate Support, Empower Employees",
+    title: "Aeros for Systems & Data | Mission Intelligence",
     description:
-      "Scale IT support, automate routine requests, and keep your IT desk clean. Answer employee questions instantly, guide troubleshooting, streamline procurement.",
+      "Plan the data connections that bring schedules, aircraft, crews, aviation sources, and operator knowledge into a consistent mission context.",
   },
 };
 
@@ -66,37 +64,37 @@ export const Hero: HeroProps = {
   ],
   ctaButtons: {
     primary: {
-      label: "Get started",
+      label: "Explore Aeros",
       href: "/home/pricing",
       icon: Rocket02,
     },
     secondary: {
-      label: "Talk to sales",
+      label: "Request a demo",
       href: "/home/contact",
     },
   },
 };
 
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Create IT agents that knows your systems inside out",
+  sectionTitle: "Systems & Data, with the mission in view",
   items: [
     {
       icon: MagicWand02,
-      title: "Focus on complex tasks",
+      title: "Understand the mission",
       description:
-        "Maximize IT team efficiency by automating routine support requests.",
+        "Plan the data connections that bring schedules, aircraft, crews, aviation sources, and operator knowledge into a consistent mission context.",
     },
     {
       icon: CheckCircle,
-      title: "Speed up resolution",
+      title: "Evaluate the impact",
       description:
-        "Instantly provide accurate solutions using your documented knowledge base.",
+        "Map schedule, crew, aircraft, and maintenance inputs to the missions they describe.",
     },
     {
       icon: Users01,
-      title: "Empower employees",
+      title: "Coordinate the response",
       description:
-        "Turn IT support into a self-service experience that scales across the organization.",
+        "Define ownership, permissions, and rollout scope for each operational connection.",
     },
   ],
 };
@@ -104,24 +102,16 @@ export const Benefits: BenefitsProps = {
 export const Metrics: MetricProps = {
   metrics: [
     {
-      value: "30%",
+      value: "Context",
       description: (
-        <>
-          Fewer IT
-          <br />
-          tickets
-        </>
+        <> The mission, its constraints, and the <br /> changes that matter. </>
       ),
     },
     {
-      value: "4h",
+      value: "Evidence",
       description: (
         <>
-          {" "}
-          Saved weekly
-          <br />
-          filling RFP
-        </>
+          {" "} The sources, assumptions, and human <br /> review behind the response. </>
       ),
     },
   ],
@@ -129,32 +119,32 @@ export const Metrics: MetricProps = {
 };
 
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Your use cases, your way",
+  sectionTitle: "Systems & Data workflows",
   sectionDescription:
-    "Customize and automate tasks without writing a single line of code.",
+    "The Aeros roadmap for systems & data, from assessment to coordinated action.",
   items: [
     {
-      title: "IT helpdesk",
+      title: "Aviation sources",
       content:
-        "Answer common employee IT questions instantly using your internal documentation and policies.",
+        "Scope weather, NOTAM, airport, and airspace feeds by coverage, freshness, and access requirements.",
       images: ["/static/landing/it/itHelpdesk.png"],
     },
     {
-      title: "IT ops assistant",
+      title: "Operational systems",
       content:
-        "Support system administrators with troubleshooting guidance based on your documented procedures.",
+        "Map schedule, crew, aircraft, and maintenance inputs to the missions they describe.",
       images: ["/static/landing/it/itOps.png"],
     },
     {
-      title: "Procurement helper",
+      title: "Data quality",
       content:
-        "Guide employees through procurement processes and requirements with automated assistance.",
+        "Make missing, stale, and conflicting inputs visible before a recommendation is reviewed.",
       images: ["/static/landing/it/procureHelp.png"],
     },
     {
-      title: "Ticket analytics",
+      title: "Integration governance",
       content:
-        "Analyze support patterns to identify improvement opportunities and optimize documentation.",
+        "Define ownership, permissions, and rollout scope for each operational connection.",
       images: ["/static/landing/it/itInsights.png"],
     },
   ],
@@ -164,33 +154,33 @@ export const Quote: QuoteProps = {
   quote:
     "One of the things that impressed me about Dust is that all the use cases around internal and external support for teams who need to maintain processes are impressive. Being able to call an agent that parses all the knowledge is a huge pain reliever.",
   name: "Raphael Brousse ",
-  title: "VP Operations at Lifen",
+  title: "Dust customer reference · VP Operations at Lifen",
   logo: "/static/landing/logos/color/lifen.png",
 };
 
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Watch Dust in motion",
+  sectionTitle: "Reference workflow demonstration",
   videoUrl: "https://fast.wistia.net/embed/iframe/4a4bjtxdpf",
   showCaptions: true,
 };
 
 export const Stories: CustomerStory[] = [
   {
-    title: "Lifen Saves Two Hours per Week per Employee with Dust", // Soon to be replaced with Clay for RFP?
+    title: "Dust reference: Lifen Saves Two Hours per Week per Employee with Dust", // Soon to be replaced with Clay for RFP?
     content:
       "Lifen uses Dust AI agents to boost team productivity and save hours of work each week.",
     href: "/customers/customer-story-lifen",
     src: "https://blog.dust.tt/content/images/size/w2000/2024/11/lifen_dust_customer_story.jpg",
   },
   {
-    title: "20%+ productivity gains in Sales: Insights from Alan and Payfit",
+    title: "Dust reference: 20%+ productivity gains in Sales: Insights from Alan and Payfit",
     content:
       "Dust agents significantly lowered their acquisition costs, allowing them to hire more salespeople.",
     href: "/customers/generative-ai-insights-alan-payfit-leaders",
     src: "https://blog.dust.tt/content/images/size/w2000/2025/01/Founder.jpg",
   },
   {
-    title: "Kyriba's RFP Agent for improving pre-sales efficiency",
+    title: "Dust reference: Kyriba's RFP Agent for improving pre-sales efficiency",
     content:
       "43% of Kyriba employees save more than 3 hours weekly leveraging Dust for RFPs.",
     href: "/customers/kyriba-accelerating-innovation-with-dust",

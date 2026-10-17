@@ -13,23 +13,23 @@ import type { ReactElement } from "react";
 const CAPABILITY_FEATURES: SecurityFeature[] = [
   {
     id: "org-intelligence",
-    title: "Company knowledge, search, and MCPs",
+    title: "Aeros Monitor",
     description:
-      "Put a deep understanding of how your company works, through semantic search and 70+ out-of-the-box MCP connectors, into action.",
+      "Follow missions, airport conditions, route weather, and airspace changes in one operational context.",
     placeholder: "",
   },
   {
     id: "collaboration",
-    title: "Human-agent collaboration",
+    title: "Aeros Assess",
     description:
-      "Orchestrate complex work across digital teams of people and agents using Pods and Frames, powered by a shared virtual computer and automations.",
+      "Interpret weather, NOTAMs, airport information, aircraft limitations, and operator procedures against each mission.",
     placeholder: "",
   },
   {
     id: "activation",
-    title: "Composable workflows that compound with use",
+    title: "Aeros Alert",
     description:
-      "Execute structured and unstructured work using reusable, governable AI skills, agents, and memory that compound with use.",
+      "Focus attention on changes that affect the mission, with the relevant condition, timing, and evidence attached.",
     placeholder: "",
   },
 ];
@@ -37,23 +37,23 @@ const CAPABILITY_FEATURES: SecurityFeature[] = [
 const MODEL_FEATURES: SecurityFeature[] = [
   {
     id: "flexibility",
-    title: "Model flexibility without lock-in",
+    title: "Aeros Plan",
     description:
-      "Build custom agents with 20+ frontier and open-source models from OpenAI, Anthropic, Google, Mistral, and more. Choose the right model for each workflow and switch as your needs change.",
+      "Compare routes, departure windows, and alternates against the operating constraints and data available.",
     placeholder: "",
   },
   {
     id: "cost",
-    title: "Performance with cost visibility",
+    title: "Aeros Recover",
     description:
-      "Credit-based pricing and usage analytics by agent and model show what each workflow costs, helping you balance performance and efficiency with spend.",
+      "Evaluate delay, diversion, aircraft substitution, and crew recovery options with later legs in view.",
     placeholder: "",
   },
   {
     id: "sovereignty",
-    title: "AI sovereignty",
+    title: "Aeros Optimize",
     description:
-      "Protect your company's data from vendor lock-in and geopolitical risk by controlling where it is processed and which model providers you rely on.",
+      "Explore route, altitude, and timing tradeoffs with fuel, time, weather, and operational priorities considered together.",
     placeholder: "",
   },
 ];
@@ -61,23 +61,23 @@ const MODEL_FEATURES: SecurityFeature[] = [
 const GOVERN_FEATURES: SecurityFeature[] = [
   {
     id: "security",
-    title: "Security and access controls",
+    title: "Aeros Coordinate",
     description:
-      "Control access to data, tools, and systems across teams of people and agents. Use Spaces and Groups to define permissions, with audit logs to track activity.",
+      "Bring dispatch, pilots, crew scheduling, and maintenance into a shared mission review with clear action ownership.",
     placeholder: "",
   },
   {
     id: "observability",
-    title: "AI observability and analytics",
+    title: "Aeros Evidence",
     description:
-      "Track and manage AI usage and adoption across the organization with analytics that show how agents and models are being used over time.",
+      "Keep conclusions connected to source material, effective periods, operator rules, and unresolved assumptions.",
     placeholder: "",
   },
   {
     id: "cost-control",
-    title: "Cost control",
+    title: "Aeros Control",
     description:
-      "Measure ROI, forecast consumption, and manage AI costs. Use programmatic rate limits to control automated usage and manage a shared credit pool across teams and workflows.",
+      "Keep operational authority, access, approvals, and decision history with the people responsible for the mission.",
     placeholder: "",
   },
 ];
@@ -97,8 +97,8 @@ export function Landing() {
   return (
     <>
       <PageMetadata
-        title="Dust Product: AI Agents That Know Your Company"
-        description="Discover how Dust AI agents access your company knowledge, integrate with your tools, and help teams work smarter. Secure, customizable, and enterprise-ready."
+        title="Aeros Product | Mission Intelligence for Flight Operations"
+        description="Explore the Aeros product roadmap: mission monitoring, operational assessment, contextual alerts, planning, recovery, optimization, and human decision control."
         pathname={router.asPath}
       />
       {/* Single section child: keeps the LandingLayout container gap from
@@ -112,20 +112,20 @@ export function Landing() {
             showHeader={false}
             reverse
             features={CAPABILITY_FEATURES}
-            accordionTitle="Multiplayer AI built for real, cross-functional work"
+            accordionTitle="Monitor the mission. Understand the change."
           />
           <SecurityFeaturesSection
             showHeader={false}
             features={MODEL_FEATURES}
             videoSrc="/static/landing/home/features/best-model.mp4"
-            accordionTitle="Use any model, switch any time, and control your data"
+            accordionTitle="Compare the options. See the tradeoffs."
           />
           <SecurityFeaturesSection
             showHeader={false}
             reverse
             features={GOVERN_FEATURES}
             imageSrc="/static/landing/product/govern-ai-usage.svg"
-            accordionTitle="Govern AI usage and costs across people and agents"
+            accordionTitle="Coordinate the response. Keep people in control."
           />
           <InteractiveFeaturesSection />
         </div>

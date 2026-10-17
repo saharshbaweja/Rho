@@ -16,26 +16,23 @@ import type {
 
 // Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Knowledge",
-  title: <>Make Company Knowledge Instantly Accessible.</>,
+  uptitle: "Operational Knowledge",
+  title: <> Put operator knowledge inside the decision. </>,
   accentColor: "text-brand-hunter-green",
   description: (
-    <>
-      Transform organizational knowledge into structured insights and empower
-      teams with instant access to precise information.
-    </>
+    <> Bring manuals, airport information, local procedures, and company operating limits into mission reviews with clear source references. </>
   ),
   bulletPoints: [
-    "Access company-wide knowledge instantly.",
-    "Find product information across knowledge bases.",
-    "Get answers in Slack with relevant context and citations.",
-    "Surface blockers from project discussions.",
+    "Find relevant passages in approved manuals and procedures without losing the source context.",
+    "Read published airport information alongside temporary restrictions and mission timing.",
+    "Keep company-specific restrictions and approved operating policies in the assessment.",
+    "Show where a conclusion came from, when it applies, and which inputs still need verification.",
   ],
   image: "/static/landing/knowledge/askacme.png",
   seo: {
-    title: "AI Knowledge Agents: Make Company Knowledge Instantly Accessible",
+    title: "Aeros for Operational Knowledge | Mission Intelligence",
     description:
-      "Transform organizational knowledge into structured insights and empower teams with instant access to precise information. Get answers with context and citations.",
+      "Bring manuals, airport information, local procedures, and company operating limits into mission reviews with clear source references.",
   },
 };
 
@@ -67,37 +64,37 @@ export const Hero: HeroProps = {
   ],
   ctaButtons: {
     primary: {
-      label: "Get started",
+      label: "Explore Aeros",
       href: "/home/pricing",
       icon: Rocket02,
     },
     secondary: {
-      label: "Talk to sales",
+      label: "Request a demo",
       href: "/home/contact",
     },
   },
 };
 
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Transform your company knowledge into actionable intelligence",
+  sectionTitle: "Operational Knowledge, with the mission in view",
   items: [
     {
       icon: MagicWand02,
-      title: "Drop tribal knowledge",
+      title: "Understand the mission",
       description:
-        "Maximize productivity by making all company knowledge instantly accessible.",
+        "Bring manuals, airport information, local procedures, and company operating limits into mission reviews with clear source references.",
     },
     {
       icon: CheckCircle,
-      title: "Accelerate learning",
+      title: "Evaluate the impact",
       description:
-        "Turn scattered information into organized, searchable knowledge for everyone.",
+        "Read published airport information alongside temporary restrictions and mission timing.",
     },
     {
       icon: Users01,
-      title: "Scale expertise",
+      title: "Coordinate the response",
       description:
-        "Make every team member an expert with instant access to collective knowledge.",
+        "Show where a conclusion came from, when it applies, and which inputs still need verification.",
     },
   ],
 };
@@ -105,44 +102,44 @@ export const Benefits: BenefitsProps = {
 export const Metrics: MetricProps = {
   metrics: [
     {
-      value: "90%",
-      description: <>weekly users at Alan</>,
+      value: "Context",
+      description: <> The mission, its constraints, and the changes that matter. </>,
     },
     {
-      value: "43%",
-      description: <>of Kyriba employees save more than 3 hours weekly</>,
+      value: "Evidence",
+      description: <> The sources, assumptions, and human review behind the response. </>,
     },
   ],
   color: "golden",
 };
 
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Your use cases, your way",
+  sectionTitle: "Operational Knowledge workflows",
   sectionDescription:
-    "Customize and automate tasks without writing a single line of code.",
+    "The Aeros roadmap for operational knowledge, from assessment to coordinated action.",
   items: [
     {
-      title: "Team knowledge",
+      title: "Procedure research",
       content:
-        "Uncover tribal knowledge and answer employee questions with internal documentation and communication.",
+        "Find relevant passages in approved manuals and procedures without losing the source context.",
       images: ["/static/landing/knowledge/askacme.png"],
     },
     {
-      title: "Product expert",
+      title: "Airport context",
       content:
-        "Provide comprehensive product information and documentation support to all employees.",
+        "Read published airport information alongside temporary restrictions and mission timing.",
       images: ["/static/landing/knowledge/productexpert.png"],
     },
     {
-      title: "Activity digests",
+      title: "Operator limits",
       content:
-        "Generate automated summaries of company activities, discussions, and project status updates.",
+        "Keep company-specific restrictions and approved operating policies in the assessment.",
       images: ["/static/landing/knowledge/projectstatus.png"],
     },
     {
-      title: "Industry radar",
+      title: "Source traceability",
       content:
-        "Track and structure relevant news and market information into actionable insights and custom reports.",
+        "Show where a conclusion came from, when it applies, and which inputs still need verification.",
       images: ["/static/landing/knowledge/aidigest.png"],
     },
   ],
@@ -152,26 +149,26 @@ export const Quote: QuoteProps = {
   quote:
     "It became evident that Dust could serve as a knowledgeable buddy for all staff, enhancing productivity whether you're newly onboarded or a veteran team member.",
   name: "Boris Lipiainen",
-  title: "Chief Product and Technology Officer at Kyriba",
+  title: "Dust customer reference · Chief Product and Technology Officer at Kyriba",
   logo: "/static/landing/logos/color/kyriba.png",
 };
 
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Watch Dust in motion",
+  sectionTitle: "Reference workflow demonstration",
   videoUrl: "https://fast.wistia.net/embed/iframe/qtnvwgyt0o",
   showCaptions: true,
 };
 
 export const Stories: CustomerStory[] = [
   {
-    title: "Clay creates scalable knowledge hub with Dust AI agents",
+    title: "Dust reference: Clay creates scalable knowledge hub with Dust AI agents",
     content:
       "Clay uses Dust AI agents to solve team scaling challenges with instant knowledge access for rapid growth.",
     href: "/customers/clay-scaling-gtme-team",
     src: "https://blog.dust.tt/content/images/size/w2000/2025/06/clay_dust_agents.jpg",
   },
   {
-    title: "Kyriba's adoption of Dust across all functions",
+    title: "Dust reference: Kyriba's adoption of Dust across all functions",
     content:
       "43% of Kyriba employees save more than 3 hours weekly leveraging Dust for RFPs.",
     href: "/customers/kyriba-accelerating-innovation-with-dust",
@@ -179,14 +176,14 @@ export const Stories: CustomerStory[] = [
   },
   {
     title:
-      "PayFit Accelerates Content Creation and Knowledge Sharing with Dust",
+      "Dust reference: PayFit Accelerates Content Creation and Knowledge Sharing with Dust",
     content:
       "PayFit leverages Dust AI assistants to improve their internal processes across the board.",
     href: "/customers/dust-ai-payfit-efficiency",
     src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Payfit-__-Dust.png",
   },
   {
-    title: "November Five's journey to minimizing routine tasks with Dust",
+    title: "Dust reference: November Five's journey to minimizing routine tasks with Dust",
     content:
       "Discover how November Five accelerates work with Dust, turning 3-hour tasks into 30 minutes.",
     href: "/customers/november-five-ai-transformation-dust",
