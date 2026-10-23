@@ -1,3 +1,4 @@
+import { FeatureFilm } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
 import {
   LegacyButton as Button,
   Div3D,
@@ -43,19 +44,7 @@ export const HeroSection: FC<HeroSectionProps> = ({
   ctaButtons,
   trackingPrefix = "hero",
 }) => {
-  const MainVisual = () => (
-    <Hover3D depth={-40} perspective={1000} className="relative">
-      {visuals.map((visual, index) => (
-        <Div3D
-          key={index}
-          depth={visual.depth}
-          className={index > 0 ? "absolute top-0" : ""}
-        >
-          <img src={visual.src} alt={visual.alt} />
-        </Div3D>
-      ))}
-    </Hover3D>
-  );
+  const MainVisual = () => <FeatureFilm film="mission-story" />;
 
   return (
     <div className="container flex w-full flex-col pt-24">

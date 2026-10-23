@@ -21,10 +21,8 @@ const config = {
     }
 
     // Using process.env here to make sure the function is usable on the client side.
-    if (!process.env.NEXT_PUBLIC_DUST_API_URL) {
-      throw new Error("NEXT_PUBLIC_DUST_API_URL is not set");
-    }
-    return process.env.NEXT_PUBLIC_DUST_API_URL;
+    // Standalone marketing deployments use same-origin public API routes.
+    return process.env.NEXT_PUBLIC_DUST_API_URL ?? "";
   },
   // URL for the main app pages (/w/..., /share/..., etc.).
   // Use this for page URLs, not API endpoints.

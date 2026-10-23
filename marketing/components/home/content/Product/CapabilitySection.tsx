@@ -1,3 +1,4 @@
+import { MissionArchitecture } from "@marketing/components/home/content/Product/mission-control/MissionArchitecture";
 import { H2 } from "@marketing/components/home/ContentComponents";
 import {
   HomeReveal,
@@ -25,13 +26,11 @@ export function CapabilitySection() {
             />
             <div className="relative z-10 flex w-full flex-col items-center gap-8 px-6">
               <H2 className="text-center text-3xl font-medium text-white md:text-4xl xl:text-5xl">
-                Connect every mission, constraint, and operational decision
+                Your existing fleet. One orchestration layer.
               </H2>
-              <img
-                src="/static/landing/product/aeros-mission-workspace.svg"
-                alt="Illustrative Aeros workspace showing a mission assessment and recovery review"
-                className="aspect-[2/1] w-full max-w-[1040px] rounded-t-2xl object-cover object-top shadow-lg"
-              />
+              <div className="w-full max-w-[1040px]">
+                <MissionArchitecture />
+              </div>
             </div>
           </div>
         </HomeReveal>

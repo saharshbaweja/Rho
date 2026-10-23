@@ -15,14 +15,15 @@ export function ProductIntroSection() {
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:gap-2 lg:px-6">
           <HomeReveal>
             <H1 className="text-center text-5xl font-semibold md:text-6xl lg:text-7xl">
-              Mission intelligence for <RotatingWord />
+              AI dispatch for <RotatingWord />
             </H1>
           </HomeReveal>
           <HomeReveal delay={80}>
             <P size="lg" className="text-base text-muted-foreground sm:text-lg">
-              Aeros is building a connected operations platform for mission
-              monitoring, dispatch assessment, recovery planning, and team
-              coordination—with source evidence and human judgment at its core.
+              Describe the mission. Aeros plans, assigns, and coordinates work
+              across your existing drone fleets and providers. Readiness checks,
+              exception handling, and operator oversight stay connected from the
+              first request to the final report.
             </P>
           </HomeReveal>
           <HomeReveal delay={160}>

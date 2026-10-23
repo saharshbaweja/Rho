@@ -12,178 +12,124 @@ import type { UseCaseProps } from "@marketing/components/home/content/Solutions/
 import type {
   HeroProps,
   pageSettingsProps,
+  ROIProps,
 } from "@marketing/components/home/content/Solutions/configs/utils";
-
-// Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Systems & Data",
-  title: <> Connect the systems behind the operation. </>,
-  accentColor: "text-brand-orange-golden",
-  description: (
-    <> Plan the data connections that bring schedules, aircraft, crews, aviation sources, and operator knowledge into a consistent mission context. </>
-  ),
+  uptitle: "Fleet integrations",
+  title: "Connect your fleet without replacing it.",
+  description:
+    "Aeros sits above existing drone, dock, and mission-execution systems. Integration scope is validated against each provider’s available interfaces and permissions.",
+  accentColor: "text-brand-electric-blue",
   bulletPoints: [
-    "Scope weather, NOTAM, airport, and airspace feeds by coverage, freshness, and access requirements.",
-    "Map schedule, crew, aircraft, and maintenance inputs to the missions they describe.",
-    "Make missing, stale, and conflicting inputs visible before a recommendation is reviewed.",
-    "Define ownership, permissions, and rollout scope for each operational connection.",
+    "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+    "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+    "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+    "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
   ],
-  image: "/static/landing/it/itHelpdesk.png",
+  image: "/static/landing/drone/workspace.svg",
   seo: {
-    title: "Aeros for Systems & Data | Mission Intelligence",
+    title: "Aeros for Fleet integrations",
     description:
-      "Plan the data connections that bring schedules, aircraft, crews, aviation sources, and operator knowledge into a consistent mission context.",
+      "Aeros sits above existing drone, dock, and mission-execution systems. Integration scope is validated against each provider’s available interfaces and permissions.",
   },
 };
-
 export const Hero: HeroProps = {
   uptitle: pageSettings.uptitle,
   title: pageSettings.title,
   description: pageSettings.description,
   visuals: [
     {
-      src: "/static/landing/it/it1.png",
-      alt: "IT Visual 1",
-      depth: -30,
-    },
-    {
-      src: "/static/landing/it/it2.png",
-      alt: "IT Visual 2",
-      depth: -10,
-    },
-    {
-      src: "/static/landing/it/it3.png",
-      alt: "IT Visual 3",
-      depth: 20,
-    },
-    {
-      src: "/static/landing/it/it4.png",
-      alt: "IT Visual 4",
-      depth: 50,
+      src: "/static/landing/drone/workspace.svg",
+      alt: "Fleet integrations drone dispatch workspace",
+      depth: 0,
     },
   ],
   ctaButtons: {
     primary: {
-      label: "Explore Aeros",
-      href: "/home/pricing",
+      label: "Explore the platform",
+      href: "/home/product",
       icon: Rocket02,
     },
-    secondary: {
-      label: "Request a demo",
-      href: "/home/contact",
-    },
+    secondary: { label: "Request a demo", href: "/home/contact" },
   },
 };
-
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Systems & Data, with the mission in view",
+  sectionTitle: "Fleet integrations, coordinated from request to result",
   items: [
     {
       icon: MagicWand02,
-      title: "Understand the mission",
+      title: "Natural-language planning",
       description:
-        "Plan the data connections that bring schedules, aircraft, crews, aviation sources, and operator knowledge into a consistent mission context.",
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
     },
     {
       icon: CheckCircle,
-      title: "Evaluate the impact",
+      title: "Mission-aware dispatch",
       description:
-        "Map schedule, crew, aircraft, and maintenance inputs to the missions they describe.",
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
     },
     {
       icon: Users01,
-      title: "Coordinate the response",
+      title: "Operator-led recovery",
       description:
-        "Define ownership, permissions, and rollout scope for each operational connection.",
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
     },
   ],
 };
-
 export const Metrics: MetricProps = {
   metrics: [
+    { value: "Connected", description: "Your existing fleets and providers." },
     {
-      value: "Context",
-      description: (
-        <> The mission, its constraints, and the <br /> changes that matter. </>
-      ),
-    },
-    {
-      value: "Evidence",
-      description: (
-        <>
-          {" "} The sources, assumptions, and human <br /> review behind the response. </>
-      ),
+      value: "Accountable",
+      description: "Operator approvals and mission history.",
     },
   ],
   color: "golden",
 };
-
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Systems & Data workflows",
+  sectionTitle: "Fleet integrations workflows",
   sectionDescription:
-    "The Aeros roadmap for systems & data, from assessment to coordinated action.",
+    "From the first request to mission completion, keep fleet state, operating constraints, and people connected.",
   items: [
     {
-      title: "Aviation sources",
+      title: "Describe the job",
       content:
-        "Scope weather, NOTAM, airport, and airspace feeds by coverage, freshness, and access requirements.",
-      images: ["/static/landing/it/itHelpdesk.png"],
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+      images: ["/static/landing/drone/workspace.svg"],
     },
     {
-      title: "Operational systems",
+      title: "Dispatch the right fleet",
       content:
-        "Map schedule, crew, aircraft, and maintenance inputs to the missions they describe.",
-      images: ["/static/landing/it/itOps.png"],
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+      images: ["/static/landing/drone/fleet.svg"],
     },
     {
-      title: "Data quality",
+      title: "Adapt with oversight",
       content:
-        "Make missing, stale, and conflicting inputs visible before a recommendation is reviewed.",
-      images: ["/static/landing/it/procureHelp.png"],
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+      images: ["/static/landing/drone/recovery.svg"],
     },
     {
-      title: "Integration governance",
+      title: "Close the loop",
       content:
-        "Define ownership, permissions, and rollout scope for each operational connection.",
-      images: ["/static/landing/it/itInsights.png"],
+        "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
+      images: ["/static/landing/drone/flow.svg"],
     },
   ],
 };
-
 export const Quote: QuoteProps = {
   quote:
-    "One of the things that impressed me about Dust is that all the use cases around internal and external support for teams who need to maintain processes are impressive. Being able to call an agent that parses all the knowledge is a huge pain reliever.",
-  name: "Raphael Brousse ",
-  title: "Dust customer reference · VP Operations at Lifen",
-  logo: "/static/landing/logos/color/lifen.png",
+    "Describe the outcome. Coordinate the fleet. Keep operators in control.",
+  name: "Aeros",
+  title: "Our operating principle",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
 };
-
+export const ROI: ROIProps = {
+  number: "Connected",
+  subtitle: "A shared mission context across your fleet.",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
+};
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Reference workflow demonstration",
-  videoUrl: "https://fast.wistia.net/embed/iframe/4a4bjtxdpf",
-  showCaptions: true,
+  sectionTitle: "Explore the dispatch workflow",
 };
-
-export const Stories: CustomerStory[] = [
-  {
-    title: "Dust reference: Lifen Saves Two Hours per Week per Employee with Dust", // Soon to be replaced with Clay for RFP?
-    content:
-      "Lifen uses Dust AI agents to boost team productivity and save hours of work each week.",
-    href: "/customers/customer-story-lifen",
-    src: "https://blog.dust.tt/content/images/size/w2000/2024/11/lifen_dust_customer_story.jpg",
-  },
-  {
-    title: "Dust reference: 20%+ productivity gains in Sales: Insights from Alan and Payfit",
-    content:
-      "Dust agents significantly lowered their acquisition costs, allowing them to hire more salespeople.",
-    href: "/customers/generative-ai-insights-alan-payfit-leaders",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/01/Founder.jpg",
-  },
-  {
-    title: "Dust reference: Kyriba's RFP Agent for improving pre-sales efficiency",
-    content:
-      "43% of Kyriba employees save more than 3 hours weekly leveraging Dust for RFPs.",
-    href: "/customers/kyriba-accelerating-innovation-with-dust",
-    src: "https://blog.dust.tt/content/images/size/w2000/2024/10/kyriba_dust.jpg",
-  },
-];
+export const Stories: CustomerStory[] = [];

@@ -13,22 +13,32 @@ export function PageMetadata({
   pathname,
   ogImage,
 }: PageMetadataProps) {
-  const fullTitle = title.includes("Dust") ? title : `${title} | Aeros`;
-  const canonicalUrl = `https://dust.tt${pathname}`;
-  const defaultOgImage = "https://dust.tt/static/og_image.png";
+  const fullTitle = title.includes("Aeros") ? title : `${title} | Aeros`;
+  const origin = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+  const cleanPath = pathname.split(/[?#]/)[0];
+  const canonicalUrl = origin
+    ? `${origin}${cleanPath === "/home" ? "/" : cleanPath}`
+    : undefined;
+  const defaultOgImage = origin
+    ? `${origin}/static/landing/drone/workspace.svg`
+    : "/static/landing/drone/workspace.svg";
 
   return (
     <Head>
       <title key="title">{fullTitle}</title>
       <meta key="description" name="description" content={description} />
-      <link key="canonical" rel="canonical" href={canonicalUrl} />
+      {canonicalUrl && (
+        <link key="canonical" rel="canonical" href={canonicalUrl} />
+      )}
       <meta key="og:title" property="og:title" content={fullTitle} />
       <meta
         key="og:description"
         property="og:description"
         content={description}
       />
-      <meta key="og:url" property="og:url" content={canonicalUrl} />
+      {canonicalUrl && (
+        <meta key="og:url" property="og:url" content={canonicalUrl} />
+      )}
       <meta key="og:type" property="og:type" content="website" />
       <meta
         key="og:image"

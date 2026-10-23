@@ -12,174 +12,124 @@ import type { UseCaseProps } from "@marketing/components/home/content/Solutions/
 import type {
   HeroProps,
   pageSettingsProps,
+  ROIProps,
 } from "@marketing/components/home/content/Solutions/configs/utils";
-
-// Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Operations Leadership",
-  title: <> Turn operational reviews into shared learning. </>,
-  accentColor: "text-brand-hunter-green",
-  description: (
-    <> Bring recurring disruptions, decision context, and cross-team actions into focus so leaders can improve how the operation responds. </>
-  ),
+  uptitle: "Mission readiness",
+  title: "Ready means ready for this mission.",
+  description:
+    "Review the aircraft, payload, battery, dock, site, and operator constraints that determine whether a mission can proceed.",
+  accentColor: "text-brand-electric-blue",
   bulletPoints: [
-    "Review the missions requiring attention and the constraints driving the current plan.",
-    "Understand the alternatives considered, the evidence available, and the selected response.",
-    "Keep open actions and decision responsibilities clear across dispatch, crew, and maintenance.",
-    "Use mission reviews to identify data gaps, recurring constraints, and procedures that need attention.",
+    "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+    "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+    "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+    "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
   ],
-  image: "/static/landing/productivity/contentoptimizer.png",
+  image: "/static/landing/drone/workspace.svg",
   seo: {
-    title: "Aeros for Operations Leadership | Mission Intelligence",
+    title: "Aeros for Mission readiness",
     description:
-      "Bring recurring disruptions, decision context, and cross-team actions into focus so leaders can improve how the operation responds.",
+      "Review the aircraft, payload, battery, dock, site, and operator constraints that determine whether a mission can proceed.",
   },
 };
-
 export const Hero: HeroProps = {
   uptitle: pageSettings.uptitle,
   title: pageSettings.title,
   description: pageSettings.description,
   visuals: [
     {
-      src: "/static/landing/productivity/productivity1.png",
-      alt: "Productivity Visual 1",
-      depth: -30,
-    },
-    {
-      src: "/static/landing/productivity/productivity2.png",
-      alt: "Productivity Visual 2",
-      depth: -10,
-    },
-    {
-      src: "/static/landing/productivity/productivity3.png",
-      alt: "Productivity Visual 3",
-      depth: 20,
-    },
-    {
-      src: "/static/landing/productivity/productivity4.png",
-      alt: "Productivity Visual 4",
-      depth: 50,
+      src: "/static/landing/drone/workspace.svg",
+      alt: "Mission readiness drone dispatch workspace",
+      depth: 0,
     },
   ],
   ctaButtons: {
     primary: {
-      label: "Explore Aeros",
-      href: "/home/pricing",
+      label: "Explore the platform",
+      href: "/home/product",
       icon: Rocket02,
     },
-    secondary: {
-      label: "Request a demo",
-      href: "/home/contact",
-    },
+    secondary: { label: "Request a demo", href: "/home/contact" },
   },
 };
-
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Operations Leadership, with the mission in view",
+  sectionTitle: "Mission readiness, coordinated from request to result",
   items: [
     {
       icon: MagicWand02,
-      title: "Understand the mission",
+      title: "Natural-language planning",
       description:
-        "Bring recurring disruptions, decision context, and cross-team actions into focus so leaders can improve how the operation responds.",
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
     },
     {
       icon: CheckCircle,
-      title: "Evaluate the impact",
+      title: "Mission-aware dispatch",
       description:
-        "Understand the alternatives considered, the evidence available, and the selected response.",
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
     },
     {
       icon: Users01,
-      title: "Coordinate the response",
+      title: "Operator-led recovery",
       description:
-        "Use mission reviews to identify data gaps, recurring constraints, and procedures that need attention.",
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
     },
   ],
 };
-
 export const Metrics: MetricProps = {
   metrics: [
+    { value: "Connected", description: "Your existing fleets and providers." },
     {
-      value: "Context",
-      description: <> The mission, its constraints, and the changes that matter. </>,
-    },
-    {
-      value: "Evidence",
-      description: <> The sources, assumptions, and human review behind the response. </>,
+      value: "Accountable",
+      description: "Operator approvals and mission history.",
     },
   ],
   color: "golden",
 };
-
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Operations Leadership workflows",
+  sectionTitle: "Mission readiness workflows",
   sectionDescription:
-    "The Aeros roadmap for operations leadership, from assessment to coordinated action.",
+    "From the first request to mission completion, keep fleet state, operating constraints, and people connected.",
   items: [
     {
-      title: "Operational overview",
+      title: "Describe the job",
       content:
-        "Review the missions requiring attention and the constraints driving the current plan.",
-      images: ["/static/landing/productivity/leadershipmeetingrecap.png"],
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+      images: ["/static/landing/drone/workspace.svg"],
     },
     {
-      title: "Decision review",
+      title: "Dispatch the right fleet",
       content:
-        "Understand the alternatives considered, the evidence available, and the selected response.",
-      images: ["/static/landing/productivity/blogdigest.png"],
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+      images: ["/static/landing/drone/fleet.svg"],
     },
     {
-      title: "Cross-team ownership",
+      title: "Adapt with oversight",
       content:
-        "Keep open actions and decision responsibilities clear across dispatch, crew, and maintenance.",
-      images: ["/static/landing/productivity/contentoptimizer.png"],
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+      images: ["/static/landing/drone/recovery.svg"],
     },
     {
-      title: "Process improvement",
+      title: "Close the loop",
       content:
-        "Use mission reviews to identify data gaps, recurring constraints, and procedures that need attention.",
-      images: ["/static/landing/productivity/discoverycoach.png"],
+        "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
+      images: ["/static/landing/drone/flow.svg"],
     },
   ],
 };
-
 export const Quote: QuoteProps = {
   quote:
-    "The Dust platform is more than just a tool for post-ideation; it's a catalyst for innovation, stimulating idea generation as employees engage with it.",
-  name: "Boris Lipiainen",
-  title: "Dust customer reference · Chief Product and Technology Officer at Kyriba",
-  logo: "/static/landing/logos/color/kyriba.png",
+    "Describe the outcome. Coordinate the fleet. Keep operators in control.",
+  name: "Aeros",
+  title: "Our operating principle",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
 };
-
+export const ROI: ROIProps = {
+  number: "Connected",
+  subtitle: "A shared mission context across your fleet.",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
+};
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Reference workflow demonstration",
-  videoUrl: "https://fast.wistia.net/embed/iframe/rnyvpdxfrk",
-  showCaptions: true,
+  sectionTitle: "Explore the dispatch workflow",
 };
-
-export const Stories: CustomerStory[] = [
-  {
-    title: "Dust reference: Kyriba's adoption of Dust across all functions",
-    content:
-      "43% of Kyriba employees save more than 3 hours weekly leveraging Dust for RFPs.",
-    href: "/customers/kyriba-accelerating-innovation-with-dust",
-    src: "https://blog.dust.tt/content/images/size/w2000/2024/10/kyriba_dust.jpg",
-  },
-  {
-    title:
-      "Dust reference: PayFit Accelerates Content Creation and Knowledge Sharing with Dust",
-    content:
-      "PayFit leverages Dust AI assistants to improve their internal processes across the board.",
-    href: "/customers/dust-ai-payfit-efficiency",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/01/dust_payfit.png",
-  },
-  {
-    title: "Dust reference: November Five's journey to minimizing routine tasks with Dust",
-    content:
-      "Discover how November Five accelerates work with Dust, turning 3-hour tasks into 30 minutes.",
-    href: "/customers/november-five-ai-transformation-dust",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/01/dust_november_five.png",
-  },
-];
+export const Stories: CustomerStory[] = [];

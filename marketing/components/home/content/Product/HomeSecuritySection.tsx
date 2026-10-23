@@ -80,7 +80,7 @@ const COLUMNS: ComplianceColumn[] = [
     accent: "blue",
     items: [
       "Connect existing operational systems",
-      "Ingest manuals and procedures",
+      "Configure mission and recovery policies",
       "Configure operator-specific constraints",
       "Expand integrations as workflows mature",
     ],
@@ -148,10 +148,10 @@ export function HomeSecuritySection() {
               size="sm"
               className="max-w-[820px] leading-[1.6] text-muted-foreground"
             >
-              Aeros separates live data, operator rules, and AI-generated synthesis
-              so teams can see exactly what informed a recommendation. Source
-              visibility, human review, role-based access, and decision history
-              keep the system auditable.
+              Aeros separates live data, operator rules, and AI-generated
+              synthesis so teams can see exactly what informed a recommendation.
+              Source visibility, human review, role-based access, and decision
+              history keep the system auditable.
             </P>
           </HomeReveal>
         </div>
@@ -163,10 +163,10 @@ export function HomeSecuritySection() {
               Trust datasheet
             </span>
             <a
-              href="https://dust.tt/security"
+              href="/home/security"
               className="group inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-blue-500"
             >
-              Visit Trust Center
+              Explore operator oversight
               <span
                 aria-hidden="true"
                 className="transition-transform duration-200 group-hover:translate-x-0.5"

@@ -39,6 +39,12 @@ export function MainNavigation() {
               type="button"
               aria-expanded={isOpen}
               aria-haspopup="true"
+              onClick={() => setOpenId(isOpen ? null : item.title)}
+              onKeyDown={(event) => {
+                if (event.key === "Escape") {
+                  setOpenId(null);
+                }
+              }}
               className="inline-flex h-9 items-center gap-1 px-4 text-sm font-medium text-foreground/70 transition-colors duration-150 hover:text-foreground focus:outline-hidden"
             >
               {item.title}
@@ -52,7 +58,7 @@ export function MainNavigation() {
             </button>
 
             <div
-              role="menu"
+              hidden={!isOpen}
               aria-label={item.title}
               className={classNames(
                 "absolute left-0 top-full pt-2 origin-top",

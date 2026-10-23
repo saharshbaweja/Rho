@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const WORDS = ["Dispatch", "Flight Ops", "Crew", "Maintenance"];
+const WORDS = ["your fleets", "inspections", "site patrols", "field teams"];
 const TYPING_SPEED_MS = 60;
 const DELETING_SPEED_MS = 40;
 const PAUSE_AFTER_TYPE_MS = 1500;

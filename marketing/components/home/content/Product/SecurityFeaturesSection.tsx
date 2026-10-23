@@ -1,3 +1,5 @@
+import { FeatureFilm } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
+import type { FilmKind } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
 import { ChevronUp, Separator } from "@dust-tt/sparkle";
 import { H2, P } from "@marketing/components/home/ContentComponents";
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
@@ -41,6 +43,7 @@ interface SecurityFeaturesSectionProps {
   features?: SecurityFeature[];
   // When set, an autoplaying video replaces the static image visual.
   videoSrc?: string;
+  film?: FilmKind;
   imageSrc?: string;
   imageAlt?: string;
   // Optional heading rendered above the accordion column.
@@ -52,6 +55,7 @@ export function SecurityFeaturesSection({
   reverse = false,
   features = defaultSecurityFeatures,
   videoSrc,
+  film,
   imageSrc = "/static/landing/product/models.svg",
   imageAlt = "Security",
   accordionTitle,
@@ -90,7 +94,7 @@ export function SecurityFeaturesSection({
           className={`order-1 w-full ${imageOrder} lg:w-1/2`}
         >
           <div
-            className={`relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl ${
+            className={`relative flex aspect-[5/3] items-center justify-center overflow-hidden rounded-2xl ${
               activeFeature === "ingest"
                 ? "bg-rose-50"
                 : activeFeature === "models"
@@ -102,7 +106,9 @@ export function SecurityFeaturesSection({
           >
             <div className="relative h-full w-full">
               {/* Same visual for every accordion title. */}
-              {videoSrc ? (
+              {film ? (
+                <FeatureFilm film={film} />
+              ) : videoSrc ? (
                 <video
                   src={videoSrc}
                   autoPlay

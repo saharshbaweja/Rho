@@ -4,7 +4,7 @@ import { Grid } from "@marketing/components/home/ContentComponents";
 import type { LandingLayoutProps } from "@marketing/components/home/LandingLayout";
 import LandingLayout from "@marketing/components/home/LandingLayout";
 import { PageMetadata } from "@marketing/components/home/PageMetadata";
-import TrustedBy from "@marketing/components/home/TrustedBy";
+import { HomeTrustedSection as TrustedBy } from "@marketing/components/home/content/Product/HomeTrustedSection";
 import { BenefitsSection } from "@marketing/components/home/content/Solutions/BenefitsSection";
 // import { CustomerStoriesSection } from "@marketing/components/home/content/Solutions/CustomerStoriesSection";
 import { DemoVideoSection } from "@marketing/components/home/content/Solutions/DemoVideoSection";
@@ -31,7 +31,6 @@ export async function getStaticProps() {
   return {
     props: {
       gtmTrackingId: process.env.NEXT_PUBLIC_GTM_TRACKING_ID ?? null,
-      logoLists: await fetchLogoLists(),
     },
     // The logo bar is editor-managed in Contentful, so the page has to
     // revalidate for a GTM change to go live without a deploy.

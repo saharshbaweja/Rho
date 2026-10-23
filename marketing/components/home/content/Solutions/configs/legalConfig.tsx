@@ -12,176 +12,124 @@ import type { UseCaseProps } from "@marketing/components/home/content/Solutions/
 import type {
   HeroProps,
   pageSettingsProps,
+  ROIProps,
 } from "@marketing/components/home/content/Solutions/configs/utils";
-
-// Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Safety & Compliance",
-  title: <> Make every assessment open to review. </>,
+  uptitle: "Operator oversight",
+  title: "Keep mission authority with your team.",
+  description:
+    "Use operating policies, explicit approvals, and decision records to coordinate AI-assisted planning and recovery.",
   accentColor: "text-brand-electric-blue",
-  description: (
-    <> Connect applicable rules, operator procedures, source evidence, and decision ownership so teams can review the basis for an operational recommendation. </>
-  ),
   bulletPoints: [
-    "Bring the applicable operator procedure and operating restriction into the mission assessment.",
-    "Inspect the source, effective period, and reasoning behind a flagged condition.",
-    "Keep required operational approvals with the authorized people and roles.",
-    "Retain the assessment, human review, and selected action as part of the mission history.",
+    "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+    "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+    "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+    "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
   ],
-  image: "/static/landing/legal/legalreviewer.png",
+  image: "/static/landing/drone/workspace.svg",
   seo: {
-    title: "Aeros for Safety & Compliance | Mission Intelligence",
+    title: "Aeros for Operator oversight",
     description:
-      "Connect applicable rules, operator procedures, source evidence, and decision ownership so teams can review the basis for an operational recommendation.",
+      "Use operating policies, explicit approvals, and decision records to coordinate AI-assisted planning and recovery.",
   },
 };
-
 export const Hero: HeroProps = {
   uptitle: pageSettings.uptitle,
   title: pageSettings.title,
   description: pageSettings.description,
   visuals: [
     {
-      src: "/static/landing/legal/legal1.png",
-      alt: "Legal Visual 1",
-      depth: -30,
-    },
-    {
-      src: "/static/landing/legal/legal2.png",
-      alt: "Legal Visual 2",
-      depth: -10,
-    },
-    {
-      src: "/static/landing/legal/legal3.png",
-      alt: "Legal Visual 3",
-      depth: 20,
-    },
-    {
-      src: "/static/landing/legal/legal4.png",
-      alt: "Legal Visual 4",
-      depth: 50,
+      src: "/static/landing/drone/workspace.svg",
+      alt: "Operator oversight drone dispatch workspace",
+      depth: 0,
     },
   ],
   ctaButtons: {
     primary: {
-      label: "Explore Aeros",
-      href: "/home/pricing",
+      label: "Explore the platform",
+      href: "/home/product",
       icon: Rocket02,
     },
-    secondary: {
-      label: "Request a demo",
-      href: "/home/contact",
-    },
+    secondary: { label: "Request a demo", href: "/home/contact" },
   },
 };
-
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Safety & Compliance, with the mission in view",
+  sectionTitle: "Operator oversight, coordinated from request to result",
   items: [
     {
       icon: MagicWand02,
-      title: "Understand the mission",
+      title: "Natural-language planning",
       description:
-        "Connect applicable rules, operator procedures, source evidence, and decision ownership so teams can review the basis for an operational recommendation.",
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
     },
     {
       icon: CheckCircle,
-      title: "Evaluate the impact",
+      title: "Mission-aware dispatch",
       description:
-        "Inspect the source, effective period, and reasoning behind a flagged condition.",
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
     },
     {
       icon: Users01,
-      title: "Coordinate the response",
+      title: "Operator-led recovery",
       description:
-        "Retain the assessment, human review, and selected action as part of the mission history.",
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
     },
   ],
 };
-
 export const Metrics: MetricProps = {
   metrics: [
+    { value: "Connected", description: "Your existing fleets and providers." },
     {
-      value: "Context",
-      description: <> The mission, its constraints, and the changes that matter. </>,
-    },
-    {
-      value: "Evidence",
-      description: <> The sources, assumptions, and human review behind the response. </>,
+      value: "Accountable",
+      description: "Operator approvals and mission history.",
     },
   ],
   color: "golden",
 };
-
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Safety & Compliance workflows",
+  sectionTitle: "Operator oversight workflows",
   sectionDescription:
-    "The Aeros roadmap for safety & compliance, from assessment to coordinated action.",
+    "From the first request to mission completion, keep fleet state, operating constraints, and people connected.",
   items: [
     {
-      title: "Rule context",
+      title: "Describe the job",
       content:
-        "Bring the applicable operator procedure and operating restriction into the mission assessment.",
-      images: ["/static/landing/legal/asklegal.png"],
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+      images: ["/static/landing/drone/workspace.svg"],
     },
     {
-      title: "Evidence review",
+      title: "Dispatch the right fleet",
       content:
-        "Inspect the source, effective period, and reasoning behind a flagged condition.",
-      images: ["/static/landing/legal/legalreviewer.png"],
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+      images: ["/static/landing/drone/fleet.svg"],
     },
     {
-      title: "Approval ownership",
+      title: "Adapt with oversight",
       content:
-        "Keep required operational approvals with the authorized people and roles.",
-      images: ["/static/landing/legal/regulatorywatch.png"],
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+      images: ["/static/landing/drone/recovery.svg"],
     },
-
     {
-      title: "Decision record",
+      title: "Close the loop",
       content:
-        "Retain the assessment, human review, and selected action as part of the mission history.",
-      images: ["/static/landing/legal/contractwriter.png"],
+        "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
+      images: ["/static/landing/drone/flow.svg"],
     },
   ],
 };
-
 export const Quote: QuoteProps = {
   quote:
-    "Dust transformed our privacy reviews. It handles compliance checks, suggests improvements, and drafts communications. It both cuts our review time and helps pressure-test our legal interpretations.",
-  name: "Thomas Adhumeau",
-  title: "Dust customer reference · Chief Privacy Officer at Didomi",
-  logo: "/static/landing/logos/color/didomi.png",
+    "Describe the outcome. Coordinate the fleet. Keep operators in control.",
+  name: "Aeros",
+  title: "Our operating principle",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
 };
-
+export const ROI: ROIProps = {
+  number: "Connected",
+  subtitle: "A shared mission context across your fleet.",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
+};
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Reference workflow demonstration",
-  videoUrl: "https://fast.wistia.net/embed/iframe/zzbhe95pvz",
-  showCaptions: true,
+  sectionTitle: "Explore the dispatch workflow",
 };
-
-export const Stories: CustomerStory[] = [
-  {
-    title: "Dust reference: Wakam cuts legal contract analysis time by 50% with Dust",
-    content:
-      "How Wakam developed specialized AI agents to automate contract analysis, data extraction, and regulatory monitoring.",
-    href: "/customers/how-wakam-cut-legal-contract-analysis-time-by-50-with-dust",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Wakam_Dust.png",
-  },
-  {
-    title:
-      "Dust reference: 50% Time Savings in Legal: How Didomi's CPO Transformed Privacy Compliance",
-    content:
-      "Dust AI agents cut their legal team's workload in half, enabling them to scale operations across multiple countries without additional headcount.",
-    href: "/customers/how-thomas-uses-ai-assistants-to-manage-legal-and-data-privacy-at-didomi",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Didomi-__-Dust.jpg",
-  },
-  {
-    title:
-      "Dust reference: 50,000 Hours Saved: How Qonto Revolutionized Compliance and Risk Assessment with AI",
-    content:
-      "Germi, Qonto's AI assistant, analyzes German industry codes and screens prohibited activities, automating compliance checks across European markets.",
-    href: "/customers/qonto-dust-ai-partnership",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Qonto-__-Dust.jpg",
-  },
-];
+export const Stories: CustomerStory[] = [];

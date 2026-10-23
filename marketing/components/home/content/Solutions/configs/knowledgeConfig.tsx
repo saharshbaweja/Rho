@@ -12,181 +12,124 @@ import type { UseCaseProps } from "@marketing/components/home/content/Solutions/
 import type {
   HeroProps,
   pageSettingsProps,
+  ROIProps,
 } from "@marketing/components/home/content/Solutions/configs/utils";
-
-// Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Operational Knowledge",
-  title: <> Put operator knowledge inside the decision. </>,
-  accentColor: "text-brand-hunter-green",
-  description: (
-    <> Bring manuals, airport information, local procedures, and company operating limits into mission reviews with clear source references. </>
-  ),
+  uptitle: "Mission context",
+  title: "Keep every decision connected to the mission.",
+  description:
+    "Bring fleet state, operating policies, weather, airspace, and work orders into a shared review.",
+  accentColor: "text-brand-electric-blue",
   bulletPoints: [
-    "Find relevant passages in approved manuals and procedures without losing the source context.",
-    "Read published airport information alongside temporary restrictions and mission timing.",
-    "Keep company-specific restrictions and approved operating policies in the assessment.",
-    "Show where a conclusion came from, when it applies, and which inputs still need verification.",
+    "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+    "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+    "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+    "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
   ],
-  image: "/static/landing/knowledge/askacme.png",
+  image: "/static/landing/drone/workspace.svg",
   seo: {
-    title: "Aeros for Operational Knowledge | Mission Intelligence",
+    title: "Aeros for Mission context",
     description:
-      "Bring manuals, airport information, local procedures, and company operating limits into mission reviews with clear source references.",
+      "Bring fleet state, operating policies, weather, airspace, and work orders into a shared review.",
   },
 };
-
 export const Hero: HeroProps = {
   uptitle: pageSettings.uptitle,
   title: pageSettings.title,
   description: pageSettings.description,
   visuals: [
     {
-      src: "/static/landing/knowledge/knowledge1.png",
-      alt: "Knowledge Visual 1",
-      depth: -30,
-    },
-    {
-      src: "/static/landing/knowledge/knowledge2.png",
-      alt: "Knowledge Visual 2",
-      depth: -10,
-    },
-    {
-      src: "/static/landing/knowledge/knowledge3.png",
-      alt: "Knowledge Visual 3",
-      depth: 20,
-    },
-    {
-      src: "/static/landing/knowledge/knowledge4.png",
-      alt: "Knowledge Visual 4",
-      depth: 50,
+      src: "/static/landing/drone/workspace.svg",
+      alt: "Mission context drone dispatch workspace",
+      depth: 0,
     },
   ],
   ctaButtons: {
     primary: {
-      label: "Explore Aeros",
-      href: "/home/pricing",
+      label: "Explore the platform",
+      href: "/home/product",
       icon: Rocket02,
     },
-    secondary: {
-      label: "Request a demo",
-      href: "/home/contact",
-    },
+    secondary: { label: "Request a demo", href: "/home/contact" },
   },
 };
-
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Operational Knowledge, with the mission in view",
+  sectionTitle: "Mission context, coordinated from request to result",
   items: [
     {
       icon: MagicWand02,
-      title: "Understand the mission",
+      title: "Natural-language planning",
       description:
-        "Bring manuals, airport information, local procedures, and company operating limits into mission reviews with clear source references.",
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
     },
     {
       icon: CheckCircle,
-      title: "Evaluate the impact",
+      title: "Mission-aware dispatch",
       description:
-        "Read published airport information alongside temporary restrictions and mission timing.",
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
     },
     {
       icon: Users01,
-      title: "Coordinate the response",
+      title: "Operator-led recovery",
       description:
-        "Show where a conclusion came from, when it applies, and which inputs still need verification.",
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
     },
   ],
 };
-
 export const Metrics: MetricProps = {
   metrics: [
+    { value: "Connected", description: "Your existing fleets and providers." },
     {
-      value: "Context",
-      description: <> The mission, its constraints, and the changes that matter. </>,
-    },
-    {
-      value: "Evidence",
-      description: <> The sources, assumptions, and human review behind the response. </>,
+      value: "Accountable",
+      description: "Operator approvals and mission history.",
     },
   ],
   color: "golden",
 };
-
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Operational Knowledge workflows",
+  sectionTitle: "Mission context workflows",
   sectionDescription:
-    "The Aeros roadmap for operational knowledge, from assessment to coordinated action.",
+    "From the first request to mission completion, keep fleet state, operating constraints, and people connected.",
   items: [
     {
-      title: "Procedure research",
+      title: "Describe the job",
       content:
-        "Find relevant passages in approved manuals and procedures without losing the source context.",
-      images: ["/static/landing/knowledge/askacme.png"],
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+      images: ["/static/landing/drone/workspace.svg"],
     },
     {
-      title: "Airport context",
+      title: "Dispatch the right fleet",
       content:
-        "Read published airport information alongside temporary restrictions and mission timing.",
-      images: ["/static/landing/knowledge/productexpert.png"],
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+      images: ["/static/landing/drone/fleet.svg"],
     },
     {
-      title: "Operator limits",
+      title: "Adapt with oversight",
       content:
-        "Keep company-specific restrictions and approved operating policies in the assessment.",
-      images: ["/static/landing/knowledge/projectstatus.png"],
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+      images: ["/static/landing/drone/recovery.svg"],
     },
     {
-      title: "Source traceability",
+      title: "Close the loop",
       content:
-        "Show where a conclusion came from, when it applies, and which inputs still need verification.",
-      images: ["/static/landing/knowledge/aidigest.png"],
+        "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
+      images: ["/static/landing/drone/flow.svg"],
     },
   ],
 };
-
 export const Quote: QuoteProps = {
   quote:
-    "It became evident that Dust could serve as a knowledgeable buddy for all staff, enhancing productivity whether you're newly onboarded or a veteran team member.",
-  name: "Boris Lipiainen",
-  title: "Dust customer reference · Chief Product and Technology Officer at Kyriba",
-  logo: "/static/landing/logos/color/kyriba.png",
+    "Describe the outcome. Coordinate the fleet. Keep operators in control.",
+  name: "Aeros",
+  title: "Our operating principle",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
 };
-
+export const ROI: ROIProps = {
+  number: "Connected",
+  subtitle: "A shared mission context across your fleet.",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
+};
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Reference workflow demonstration",
-  videoUrl: "https://fast.wistia.net/embed/iframe/qtnvwgyt0o",
-  showCaptions: true,
+  sectionTitle: "Explore the dispatch workflow",
 };
-
-export const Stories: CustomerStory[] = [
-  {
-    title: "Dust reference: Clay creates scalable knowledge hub with Dust AI agents",
-    content:
-      "Clay uses Dust AI agents to solve team scaling challenges with instant knowledge access for rapid growth.",
-    href: "/customers/clay-scaling-gtme-team",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/06/clay_dust_agents.jpg",
-  },
-  {
-    title: "Dust reference: Kyriba's adoption of Dust across all functions",
-    content:
-      "43% of Kyriba employees save more than 3 hours weekly leveraging Dust for RFPs.",
-    href: "/customers/kyriba-accelerating-innovation-with-dust",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Kyriba-__-Dust.png",
-  },
-  {
-    title:
-      "Dust reference: PayFit Accelerates Content Creation and Knowledge Sharing with Dust",
-    content:
-      "PayFit leverages Dust AI assistants to improve their internal processes across the board.",
-    href: "/customers/dust-ai-payfit-efficiency",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Payfit-__-Dust.png",
-  },
-  {
-    title: "Dust reference: November Five's journey to minimizing routine tasks with Dust",
-    content:
-      "Discover how November Five accelerates work with Dust, turning 3-hour tasks into 30 minutes.",
-    href: "/customers/november-five-ai-transformation-dust",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Pennylane-__-Dust-1.jpg",
-  },
-];
+export const Stories: CustomerStory[] = [];

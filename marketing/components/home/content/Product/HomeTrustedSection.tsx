@@ -104,17 +104,17 @@ export function HomeTrustedMarqueeCompact() {
 
 // Source marks identify reference agencies in the product roadmap, not customers.
 const CAPABILITY_ROADMAP = [
-  { name: "FAA", image: "faa.svg", capability: "NOTAMs, TFRs & airport status", url: "https://www.faa.gov/" },
-  { name: "NOAA", image: "noaa.png", capability: "METARs, TAFs & weather hazards", url: "https://aviationweather.gov/" },
-  { name: "EUROCONTROL", image: "eurocontrol.svg", capability: "Airspace, network & flow constraints", url: "https://www.eurocontrol.int/" },
-  { name: "EASA", image: "easa.svg", capability: "Regulations & airworthiness", url: "https://www.easa.europa.eu/en" },
-  { name: "Mission intelligence", capability: "Live context & change detection" },
-  { name: "Crew & scheduling", capability: "Availability, duty & mission dependencies" },
-  { name: "Aircraft & maintenance", capability: "Readiness, MELs & operational impact" },
-  { name: "Operator procedures", capability: "Manuals, policies & operating limits" },
-  { name: "Recovery planning", capability: "Delays, alternates & aircraft swaps" },
-  { name: "Decision evidence", capability: "Source-linked options & tradeoffs" },
-  { name: "Team coordination", capability: "Shared context & role-based approvals" },
+  { name: "Existing drone fleets", capability: "Aircraft, docks & payloads" },
+  { name: "Fleet providers", capability: "One shared mission workspace" },
+  { name: "Weather & airspace", capability: "Constraints before dispatch" },
+  {
+    name: "Mission readiness",
+    capability: "Battery, availability & permissions",
+  },
+  { name: "Work orders & GIS", capability: "Turn asset lists into missions" },
+  { name: "Recovery planning", capability: "Reassign, delay & return" },
+  { name: "Operator oversight", capability: "Approvals & decision history" },
+  { name: "Results & reporting", capability: "Close the loop on every job" },
 ];
 
 export function HomeTrustedSection() {
@@ -125,12 +125,13 @@ export function HomeTrustedSection() {
       <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center justify-center gap-12 text-center">
         <HomeReveal>
           <h2 className="m-0 text-balance px-6 text-center text-xl font-semibold tracking-[-0.02em] text-foreground md:text-2xl">
-            The aviation ecosystem.
+            The fleets you already run.
             <br />
-            One <span className="text-blue-500">operational picture.</span>
+            One <span className="text-blue-500">dispatch layer.</span>
           </h2>
           <p className="mx-auto mb-0 mt-4 max-w-[620px] px-6 text-sm leading-relaxed text-muted-foreground">
-            The Aeros roadmap: aviation data, operational constraints, and coordinated decisions.
+            A vendor-neutral layer connecting mission demand with your existing
+            drone operations.
           </p>
         </HomeReveal>
         <HomeReveal delay={120} className="w-full">
@@ -141,31 +142,30 @@ export function HomeTrustedSection() {
                 const content = (
                   <>
                     <div className="flex h-14 items-center justify-center gap-3">
-                      {"image" in item ? (
-                        <img
-                          src={`/static/landing/sources/${item.image}`}
-                          alt={duplicate ? "" : item.name}
-                          className="h-14 w-[160px] object-contain"
-                          width={160}
-                          height={56}
-                        />
-                      ) : (
-                        <>
-                          <img src="/static/landing/home/aeros-principle-mark.svg" alt="" className="h-7 w-7" width={28} height={28} />
-                          <span className="max-w-[190px] text-left text-lg font-semibold leading-tight tracking-[-0.025em] text-foreground/80">{item.name}</span>
-                        </>
-                      )}
+                      <img
+                        src="/static/landing/home/aeros-principle-mark.svg"
+                        alt=""
+                        className="h-7 w-7"
+                        width={28}
+                        height={28}
+                      />
+                      <span className="max-w-[190px] text-left text-lg font-semibold leading-tight tracking-[-0.025em] text-foreground/80">
+                        {item.name}
+                      </span>
                     </div>
-                    <span className="mt-4 text-[11px] leading-none text-muted-foreground">{item.capability}</span>
+                    <span className="mt-4 text-[11px] leading-none text-muted-foreground">
+                      {item.capability}
+                    </span>
                   </>
                 );
-                const className = "flex w-[288px] flex-shrink-0 flex-col items-center px-6";
-                return "url" in item ? (
-                  <a key={`${item.name}-${idx}`} href={item.url} target="_blank" rel="noopener noreferrer" tabIndex={duplicate ? -1 : undefined} aria-hidden={duplicate} className={className}>
-                    {content}
-                  </a>
-                ) : (
-                  <div key={`${item.name}-${idx}`} aria-hidden={duplicate} className={className}>
+                const className =
+                  "flex w-[288px] flex-shrink-0 flex-col items-center px-6";
+                return (
+                  <div
+                    key={`${item.name}-${idx}`}
+                    aria-hidden={duplicate}
+                    className={className}
+                  >
                     {content}
                   </div>
                 );
@@ -173,7 +173,8 @@ export function HomeTrustedSection() {
             </div>
           </MarqueeMaskWrap>
           <p className="mb-0 mt-7 px-6 text-[11px] leading-relaxed text-muted-foreground">
-            Sources shown for reference. Roadmap scope; availability varies by integration. No agency endorsement implied.
+            Integration scope is validated with each fleet and provider.
+            Aircraft and flight authority remain with your operating team.
           </p>
         </HomeReveal>
       </div>

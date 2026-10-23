@@ -1,53 +1,22 @@
-import { cn } from "@dust-tt/sparkle";
 import { H2 } from "@marketing/components/home/ContentComponents";
-import type { FC } from "react";
-
+import { MissionControl } from "@marketing/components/home/content/Product/mission-control/MissionControl";
 export interface DemoVideoProps {
   sectionTitle?: string;
-  videoUrl: string;
+  videoUrl?: string;
   autoPlay?: boolean;
   showCaptions?: boolean;
 }
-
-interface DemoVideoSectionProps {
-  demoVideo: DemoVideoProps;
-  id?: string;
-}
-
-export const DemoVideoSection: FC<DemoVideoSectionProps> = ({
+export function DemoVideoSection({
   demoVideo,
   id,
-}) => {
-  // Construct the video URL with consistent parameters
-  const videoUrl = new URL(demoVideo.videoUrl);
-  videoUrl.searchParams.set("seo", "true");
-  videoUrl.searchParams.set("videoFoam", "true");
-  if (demoVideo.autoPlay) {
-    videoUrl.searchParams.set("autoPlay", "true");
-  }
-  if (demoVideo.showCaptions) {
-    videoUrl.searchParams.set("captions", "on");
-  }
-
+}: {
+  demoVideo: DemoVideoProps;
+  id?: string;
+}) {
   return (
     <div id={id} className="flex flex-col justify-center gap-8 pb-4">
-      {demoVideo.sectionTitle && (
-        <div>
-          <H2>{demoVideo.sectionTitle}</H2>
-        </div>
-      )}
-      <div className={cn("mx-auto w-full")}>
-        <div className="relative w-full rounded-2xl pt-[56.25%]">
-          {/* 16:9 aspect ratio */}
-          <iframe
-            src={videoUrl.toString()}
-            title="Dust product tour"
-            allow="autoplay; fullscreen"
-            frameBorder="0"
-            className="absolute inset-0 h-full w-full overflow-hidden rounded-2xl"
-          />
-        </div>
-      </div>
+      {demoVideo.sectionTitle && <H2>{demoVideo.sectionTitle}</H2>}
+      <MissionControl />
     </div>
   );
-};
+}

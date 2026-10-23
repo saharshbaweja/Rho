@@ -2,7 +2,6 @@ import { H2 } from "@marketing/components/home/ContentComponents";
 import { HomeEyebrow } from "@marketing/components/home/content/Product/HomeEyebrow";
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
 import type { NewsItem } from "@marketing/lib/homepage_news";
-import { FALLBACK_NEWS } from "@marketing/lib/homepage_news";
 import Link from "next/link";
 
 interface HomeNewsSectionProps {
@@ -21,7 +20,26 @@ const SEE_ALL_PRESS_HREF = "/home/about";
 // Falls back to the hardcoded FALLBACK_NEWS list if the prop is missing
 // or empty, so the section always renders something.
 export function HomeNewsSection({ news }: HomeNewsSectionProps = {}) {
-  const items = news && news.length > 0 ? news : FALLBACK_NEWS;
+  const items = [
+    {
+      source: "01 / REQUEST",
+      title: "Describe the outcome, assets, and completion window.",
+      href: "/home/product#dispatch-demo",
+      date: "Natural-language tasking",
+    },
+    {
+      source: "02 / COORDINATE",
+      title: "Assign connected fleets and adapt when conditions change.",
+      href: "/home/product",
+      date: "Mission orchestration",
+    },
+    {
+      source: "03 / COMPLETE",
+      title: "Return coverage, exceptions, and results to your workflow.",
+      href: "/home/solutions/data-analytics",
+      date: "Results & reporting",
+    },
+  ];
   return (
     <section className="w-full bg-background py-14 lg:py-24">
       <div className="mx-auto w-full max-w-[1180px] px-6">
@@ -32,7 +50,7 @@ export function HomeNewsSection({ news }: HomeNewsSectionProps = {}) {
             </HomeReveal>
             <HomeReveal delay={80}>
               <H2 className="text-balance font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
-                Built around real operational decisions
+                Built around the job to be done
               </H2>
             </HomeReveal>
             <HomeReveal delay={160}>
@@ -65,7 +83,6 @@ export function HomeNewsSection({ news }: HomeNewsSectionProps = {}) {
                 <HomeReveal delay={Math.min(index, 3) * 80}>
                   <a
                     href={item.href}
-                    target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center gap-6 border-b border-border py-5 transition-[border-color,transform] duration-300 ease-out hover:border-foreground/30 active:scale-[0.99] motion-reduce:transition-none motion-reduce:active:scale-100 focus-visible:rounded-md focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                   >
