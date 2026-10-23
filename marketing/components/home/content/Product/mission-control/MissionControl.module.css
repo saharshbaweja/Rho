@@ -1777,3 +1777,15 @@
     display: none;
   }
 }
+.expanded .body {
+  grid-template-rows: minmax(0, 1fr);
+}
+.expanded .fleetPanel {
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.expanded .mapPanel,
+.expanded .rail {
+  min-height: 0;
+}
