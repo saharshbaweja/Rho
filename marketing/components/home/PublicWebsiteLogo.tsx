@@ -21,7 +21,10 @@ export const PublicWebsiteLogo = ({
 
   return (
     <LinkWrapper href={href}>
-      <AerosLogo className={LOGO_CLASS_NAMES[size]} compact={size === "small"} />
+      <AerosLogo
+        className={LOGO_CLASS_NAMES[size]}
+        compact={size === "small"}
+      />
     </LinkWrapper>
   );
 };

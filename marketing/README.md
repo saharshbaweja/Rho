@@ -12,4 +12,3 @@ You have it already !
 - from the root repository `nvm install`
 - from the root repository `npm install`
 - from marketing repository `npm run dev`
-

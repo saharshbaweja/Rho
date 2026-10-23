@@ -86,7 +86,8 @@ export default function TrustedBy({
     >
       {showTitle && (
         <H4 className="mb-6 w-full text-center text-foreground">
-          Reference logos from <span className="text-blue-500">Dust</span> customers
+          Reference logos from <span className="text-blue-500">Dust</span>{" "}
+          customers
         </H4>
       )}
 

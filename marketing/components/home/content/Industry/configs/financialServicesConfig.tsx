@@ -27,7 +27,10 @@ export const financialServicesConfig: IndustryPageConfig = {
       icon: Bank,
     },
     title: (
-      <> Protect the rotation behind <br /> every cargo mission. </>
+      <>
+        {" "}
+        Protect the rotation behind <br /> every cargo mission.{" "}
+      </>
     ),
     description:
       "Assess airport windows, aircraft constraints, weather, and downstream legs together when conditions change.",

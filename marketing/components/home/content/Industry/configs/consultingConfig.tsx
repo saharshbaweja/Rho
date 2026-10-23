@@ -23,7 +23,10 @@ export const consultingConfig: IndustryPageConfig = {
       icon: BarChart01,
     },
     title: (
-      <> Keep every mission connected <br /> to the <br /> full context. </>
+      <>
+        {" "}
+        Keep every mission connected <br /> to the <br /> full context.{" "}
+      </>
     ),
     description:
       "Bring airport restrictions, aircraft readiness, crew availability, and operator procedures into a focused review for each trip.",
@@ -75,8 +78,7 @@ export const consultingConfig: IndustryPageConfig = {
         value: "03",
         unit: "",
         type: "Review",
-        description:
-          "The authorized operations team owns the decision.",
+        description: "The authorized operations team owns the decision.",
       },
     ],
   },

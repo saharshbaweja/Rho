@@ -27,7 +27,10 @@ export const retailEcommerceConfig: IndustryPageConfig = {
       icon: Building02,
     },
     title: (
-      <> Build each <br /> assessment around the mission. </>
+      <>
+        {" "}
+        Build each <br /> assessment around the mission.{" "}
+      </>
     ),
     description:
       "Bring mission-specific requirements, airport capability, aircraft status, and operational procedures into one evidence-led review.",

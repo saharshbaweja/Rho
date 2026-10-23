@@ -27,7 +27,10 @@ export const insuranceConfig: IndustryPageConfig = {
       icon: MedicalCross,
     },
     title: (
-      <> Plan the trip. Understand <br /> the constraints. </>
+      <>
+        {" "}
+        Plan the trip. Understand <br /> the constraints.{" "}
+      </>
     ),
     description:
       "Review changing itineraries against crew, aircraft, airport, and operator requirements before committing to the next move.",
@@ -61,8 +64,7 @@ export const insuranceConfig: IndustryPageConfig = {
     },
   },
   aiAgents: {
-    title:
-      "Mission intelligence for charter operators",
+    title: "Mission intelligence for charter operators",
     description:
       "Review changing itineraries against crew, aircraft, airport, and operator requirements before committing to the next move. The product roadmap brings mission monitoring, contextual alerts, recovery options, and team review into the same operating picture.",
     bgColor: "bg-gray-50",

@@ -7,7 +7,7 @@ brought to the same shape, and so the model is reviewable in a PR.
 ## Running one
 
 You need a **Content Management API** token (Contentful → Settings → API keys →
-Content management tokens). This is *not* the delivery token the site uses at
+Content management tokens). This is _not_ the delivery token the site uses at
 build time, and it must not be committed or added to the app's env.
 
 ```bash
@@ -23,7 +23,7 @@ The CLI prints the plan and asks for confirmation before writing.
 ### Running from a git worktree
 
 `node_modules` in a worktree may be a symlink to the main checkout's tree (it is
-in `dust-logo-bars`). `npm install` there would reconcile the *main* checkout's
+in `dust-logo-bars`). `npm install` there would reconcile the _main_ checkout's
 installed packages against this branch's lockfile, breaking whatever is checked
 out over there. Run the CLI through `npx` instead, which caches outside the
 project:
@@ -57,7 +57,7 @@ Creates the two types behind the "Trusted by …" logo bars:
   the referenced story's slug, so it can't drift; a logo with no reference
   renders without a link. Unpublishing an entry removes that logo from every
   list it appears in.
-- **Logo list** (`logoList`) — one entry per *audience*, identified by `country`,
+- **Logo list** (`logoList`) — one entry per _audience_, identified by `country`,
   holding an ordered list of Customer logo references in the `customerLogo`
   field. Drag order in Contentful is the display order on the site.
 
@@ -85,12 +85,12 @@ That audience switches to Contentful on the next revalidation (15 min). Every
 other audience is untouched, so this rolls out one country at a time and is
 reverted by unpublishing.
 
-| Audience (`country`) | Who sees it |
-| --- | --- |
-| `FR` | France |
-| `UK` | The United Kingdom |
-| `EU` | The 27 EU countries — **not** the UK, Switzerland or Norway |
-| `US` | The United States and everywhere else |
+| Audience (`country`) | Who sees it                                                 |
+| -------------------- | ----------------------------------------------------------- |
+| `FR`                 | France                                                      |
+| `UK`                 | The United Kingdom                                          |
+| `EU`                 | The 27 EU countries — **not** the UK, Switzerland or Norway |
+| `US`                 | The United States and everywhere else                       |
 
 A region with no published list falls back to the hardcoded lineup, not to
 `US` — so each region goes live entirely on its own.
@@ -106,11 +106,11 @@ values rather than trusting a typed one.
 
 So:
 
-| | Who | Deploy? |
-| --- | --- | --- |
-| Which markets exist | Engineering | Yes — a ~4-line PR |
-| Whether a market is **live** | Engineering | Yes — one line |
-| Logos in a market, their order, retiring one | Marketing | No |
+|                                              | Who         | Deploy?            |
+| -------------------------------------------- | ----------- | ------------------ |
+| Which markets exist                          | Engineering | Yes — a ~4-line PR |
+| Whether a market is **live**                 | Engineering | Yes — one line     |
+| Logos in a market, their order, retiring one | Marketing   | No                 |
 
 Those first two are separate on purpose. A region can be in the Contentful
 dropdown while `LIVE_LOGO_LIST_REGIONS` in `lib/logo_bars.ts` leaves it out, so
