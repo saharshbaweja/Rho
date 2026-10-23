@@ -8,10 +8,16 @@ interface NavItemWithChildren {
 }
 const product = {
   title: "Product",
-  rows: 4,
+  rows: 5,
   items: [
     { title: "Platform overview", href: "/home/product" },
     { title: "Interactive dispatch demo", href: "/home/product#dispatch-demo" },
+    { title: "Aeros Dispatch", href: "/home/product#dispatch" },
+    { title: "Aeros Fleet", href: "/home/product#fleet" },
+    { title: "Aeros Readiness", href: "/home/product#readiness" },
+    { title: "Aeros Recover", href: "/home/product#recover" },
+    { title: "Aeros Control", href: "/home/product#control" },
+    { title: "Aeros Report", href: "/home/product#report" },
     { title: "Fleet integrations", href: "/integrations" },
     { title: "Operator oversight", href: "/home/security" },
   ],

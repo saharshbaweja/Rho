@@ -1,22 +1,6 @@
 import { useId } from "react";
 import { FLEET } from "./scenario";
 
-const BLOCKS = Array.from({ length: 156 }, (_, i) => {
-  const row = Math.floor(i / 13);
-  const col = i % 13;
-  return {
-    x: 78 + col * 49 + Math.sin(row * 2) * 12,
-    y: 45 + row * 39,
-    w: 12 + ((i * 7) % 24),
-    h: 7 + ((i * 3) % 15),
-    rotation: ((row % 3) - 1) * 7,
-  };
-});
-const CONTOURS = Array.from(
-  { length: 25 },
-  (_, i) =>
-    `M${-100 + i * 15} ${-40 + i * 28} C${180 + i * 9} ${-60 + i * 26} ${90 + i * 20} ${400 + i * 11} ${400 + i * 22} ${390 + i * 12} S${700 + i * 18} ${620 + i * 11} ${1100 + i * 10} ${410 + i * 21}`
-);
 function routePosition(route: string, fraction: number) {
   const numbers = (route.match(/\d+/g) ?? []).map(Number);
   const points = Array.from({ length: numbers.length / 2 }, (_, i) => ({
@@ -128,95 +112,19 @@ export function MissionMap({
       <g
         transform={`translate(${450 - 450 * zoom} ${280 - 280 * zoom}) scale(${zoom})`}
       >
-        <g filter={`url(#${prefix}-terrain)`}>
-          <path
-            d="M0 0H380L280 180L340 300L180 410L100 560H0Z"
-            fill="#29372c"
-            opacity=".44"
-          />
-          <path
-            d="M520 0H900V560H730L800 380L650 290L710 100Z"
-            fill="#354035"
-            opacity=".25"
-          />
-          <path
-            d="M460-40C300 80 470 120 420 220S430 340 535 380S480 490 570 600"
-            fill="none"
-            stroke="#0d1a21"
-            strokeWidth="67"
-          />
-          <path
-            d="M460-40C300 80 470 120 420 220S430 340 535 380S480 490 570 600"
-            fill="none"
-            stroke="#5b8a9d"
-            strokeOpacity=".2"
-            strokeWidth="1"
-          />
-          {CONTOURS.map((path, i) => (
-            <path
-              key={i}
-              d={path}
-              fill="none"
-              stroke="#8f9d8a"
-              strokeOpacity=".12"
-              strokeWidth=".8"
-            />
-          ))}
-          {BLOCKS.filter((b) => b.x < 335 || b.x > 550).map((b, i) => (
-            <rect
-              key={i}
-              x={b.x}
-              y={b.y}
-              width={b.w}
-              height={b.h}
-              rx="1"
-              transform={`rotate(${b.rotation} ${b.x} ${b.y})`}
-              fill={i % 4 === 0 ? "#54605a" : "#3c4946"}
-              stroke="#63716b"
-              strokeOpacity=".2"
-              strokeWidth=".7"
-            />
-          ))}
-          <g fill="none">
-            <path
-              d="M-40 480C200 310 300 410 460 210S700 180 940 30"
-              stroke="#788278"
-              strokeOpacity=".2"
-              strokeWidth="16"
-            />
-            <path
-              d="M-40 480C200 310 300 410 460 210S700 180 940 30"
-              stroke="#a6b2a0"
-              strokeOpacity=".22"
-              strokeWidth="2"
-            />
-            <path
-              d="M0 165L240 180L370 280L640 315L900 470"
-              stroke="#a2afa0"
-              strokeOpacity=".23"
-              strokeWidth="3"
-            />
-            <path
-              d="M140 0L180 160L130 400L260 560M620 0L660 220L640 420L720 560"
-              stroke="#909b8d"
-              strokeOpacity=".19"
-              strokeWidth="2"
-            />
-          </g>
-        </g>
-        <rect width="900" height="560" fill={`url(#${prefix}-grid)`} />
-        <g fontFamily="inherit" fontSize="10" letterSpacing="2" fill="#9eaead">
-          <text x="90" y="115" opacity=".6">
-            NORTH DISTRICT
+        <image
+          href="/static/landing/drone/alameda-aerial.jpg"
+          width="900"
+          height="560"
+          preserveAspectRatio="xMidYMid slice"
+        />
+        <rect width="900" height="560" fill="#132335" opacity=".24" />
+        <g fontFamily="inherit" fontSize="10" letterSpacing="1.5" fill="#fff">
+          <text x="350" y="270">
+            ALAMEDA POINT
           </text>
-          <text x="570" y="445" opacity=".6">
-            EAST CORRIDOR
-          </text>
-          <text x="342" y="495" opacity=".3" transform="rotate(-25 342 495)">
-            CEDAR CREEK
-          </text>
-          <text x="755" y="350" opacity=".4">
-            SECTOR 03
+          <text x="440" y="100">
+            OAKLAND INNER HARBOR
           </text>
         </g>
         {layer !== "weather" && (
@@ -411,7 +319,13 @@ export function MissionMap({
                     <text x="9" y="16" fontSize="10" fill="#e3ece8">
                       {drone.id}{" "}
                       <tspan fill="#8caaa7">
-                        {i === selected ? "↗ 32m" : "↗ 45m"}
+                        {chapter === 1
+                          ? "Ready"
+                          : chapter === 4
+                            ? "Landed"
+                            : i === selected
+                              ? "↗ 32m"
+                              : "↗ 45m"}
                       </tspan>
                     </text>
                   </g>
@@ -449,10 +363,10 @@ export function MissionMap({
       </g>
       <g fontSize="8" fontFamily="monospace" fill="#7f9291" opacity=".65">
         <text x="20" y="535">
-          33°58′12″ N
+          37°47′10″ N
         </text>
         <text x="799" y="535">
-          83°42′30″ W
+          122°18′07″ W
         </text>
         <path d="M750 515h100m-100-4v8m100-8v8" stroke="#7f9291" />
         <text x="785" y="505">

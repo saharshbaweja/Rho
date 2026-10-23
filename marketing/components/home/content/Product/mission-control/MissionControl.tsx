@@ -139,9 +139,22 @@ export function MissionControl({
       className={`${styles.host} ${compact ? styles.compact : ""} ${expanded ? styles.expanded : ""}`}
     >
       <div className={styles.console} data-chapter={chapter}>
+        <div className={styles.macChrome}>
+          <span>
+            <i />
+            <i />
+            <i />
+          </span>
+          <span>Aeros · Mission Control</span>
+          <span>North district workspace</span>
+        </div>
         <header className={styles.topbar}>
           <div className={styles.brand}>
-            <span className={styles.brandmark}>a</span>
+            <img
+              className={styles.brandmark}
+              src="/static/aeros-logo.png"
+              alt=""
+            />
             <strong>aeros</strong>
             <span className={styles.divider} />
             <span>Operations</span>
@@ -403,8 +416,8 @@ export function MissionControl({
               </div>
             )}
             <div className={styles.mapFoot}>
-              <span>SCHEMATIC · SIMULATED TELEMETRY</span>
-              <span>EPSG 4326</span>
+              <span>USGS / NAIP · DEMONSTRATION OVERLAYS</span>
+              <span>ALAMEDA, CA</span>
             </div>
           </div>
           <aside className={styles.intelligence}>

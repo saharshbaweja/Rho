@@ -1,11 +1,14 @@
-import { FeatureFilm } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 import { H2, P } from "@marketing/components/home/ContentComponents";
 import { HomeEyebrow } from "@marketing/components/home/content/Product/HomeEyebrow";
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
 
 export function HomeCoordinatedSection() {
   return (
-    <section className="w-full bg-background py-14 lg:py-24">
+    <section
+      id="dispatch-workflow"
+      className="w-full bg-background py-14 lg:py-24"
+    >
       <div className="mx-auto flex w-full max-w-[1180px] flex-col items-center gap-12 px-6 lg:flex-row-reverse lg:items-center lg:gap-20">
         <div className="flex w-full flex-col gap-6 lg:w-1/2">
           <HomeReveal>
@@ -33,8 +36,8 @@ export function HomeCoordinatedSection() {
           delay={120}
           className="flex w-full justify-center self-stretch lg:w-1/2"
         >
-          <div className="flex w-full items-center self-stretch rounded-3xl bg-blue-50 p-3 lg:p-4">
-            <FeatureFilm film="mission-story" />
+          <div className="flex w-full items-center self-stretch rounded-3xl bg-blue-50">
+            <FeatureScene film="mission-story" />
           </div>
         </HomeReveal>
       </div>

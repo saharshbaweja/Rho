@@ -1802,3 +1802,314 @@
   line-height: 1.6;
   margin-bottom: 10px;
 }
+
+/* One desktop application, with invariant geometry across mission states. */
+.host {
+  --mc-bg: #151b23;
+  --mc-panel: #1c242e;
+  --mc-border: #ffffff12;
+  --mc-text: #eef1f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+}
+.console {
+  border-radius: 12px;
+  border: 1px solid #161c27;
+  box-shadow:
+    0 2px 3px #16223412,
+    0 30px 70px -30px #16223470;
+}
+.macChrome {
+  height: 34px;
+  background: #eceef1;
+  border-bottom: 1px solid #d1d5dc;
+  color: #707782;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  font-size: 10px;
+  font-weight: 500;
+}
+.macChrome > span:first-child {
+  display: flex;
+  gap: 7px;
+  width: 160px;
+}
+.macChrome > span:last-child {
+  width: 160px;
+  text-align: right;
+  font-size: 9px;
+}
+.macChrome i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ff6058;
+  border: 1px solid #00000010;
+}
+.macChrome i:nth-child(2) {
+  background: #febc2e;
+}
+.macChrome i:nth-child(3) {
+  background: #28c840;
+}
+.topbar {
+  background: #f9fafb;
+  color: #293343;
+  height: 52px;
+  border-bottom: 1px solid #d9dde3;
+}
+.brand strong {
+  color: #182030;
+  font-size: 19px;
+  letter-spacing: -0.8px;
+}
+.brandmark {
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 0;
+  transform: none;
+  object-fit: contain;
+}
+.workspace {
+  color: #485366;
+  font-size: 11px;
+}
+.simulation {
+  color: #6f7888;
+  font-size: 8px;
+}
+.avatar {
+  background: #e9edf3;
+  color: #445065;
+  border-color: #d0d7e0;
+}
+.body,
+.compact .body {
+  height: 574px;
+  min-height: 574px;
+  max-height: 574px;
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: 44px 174px minmax(0, 1fr) 300px;
+}
+.rail {
+  background: #151c26;
+}
+.fleetPanel {
+  background: #1b2330;
+  min-height: 0;
+  overflow: auto;
+}
+.mapPanel {
+  height: 100%;
+  min-height: 0;
+}
+.intelligence {
+  background: #fafbfc;
+  color: #243247;
+  min-height: 0;
+  border-color: #dce1e8;
+}
+.assistantHeading {
+  height: 58px;
+  flex-shrink: 0;
+  border-color: #e2e6eb;
+}
+.assistantHeading small {
+  color: #7b8798;
+  font-size: 10px;
+}
+.assistantSymbol {
+  color: #426cf0;
+}
+.conversation {
+  min-height: 0;
+  overflow-y: auto;
+  padding: 18px;
+  scrollbar-width: thin;
+}
+.messageMeta {
+  color: #8290a2;
+  font-size: 8px;
+}
+.userMessage {
+  color: #27354a;
+  font-size: 12px;
+  min-height: 62px;
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+.assistantMessage > p {
+  color: #5e6d81;
+  font-size: 11px;
+  line-height: 1.65;
+}
+.planCard,
+.recoveryCard,
+.reportCard {
+  background: white;
+  border-color: #dce2ea;
+  color: #28364b;
+  box-shadow: 0 3px 9px #24324706;
+  border-radius: 8px;
+}
+.planCard strong,
+.recoveryCard strong,
+.reportCard > strong {
+  color: #25344a;
+}
+.planCard li,
+.recoveryCard p {
+  color: #64748b;
+}
+.planCard dd,
+.recoveryCard dd {
+  color: #25344a;
+}
+.planCard button,
+.recoveryCard button,
+.reportCard button {
+  background: #355fda;
+  color: #fff;
+  border-color: #355fda;
+  font-size: 10px;
+}
+.reasoning {
+  color: #46689b;
+  background: #edf2fc;
+  border-color: #dbe5f8;
+}
+.assistantFoot {
+  flex-shrink: 0;
+  background: #f6f8fb;
+  border-color: #e2e7ee;
+  color: #8190a4;
+}
+.commandInput {
+  color: #26364c;
+  background: #fff;
+  border-color: #d3dce8;
+}
+.mapFoot {
+  background: #17212dc9;
+  color: #e2e8ef;
+  padding: 5px 8px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 7px;
+}
+.expanded .body {
+  height: calc(94vh - 250px);
+  min-height: 380px;
+  max-height: none;
+}
+
+.commandForm {
+  background: #f6f8fb;
+  border-color: #dce3ec;
+}
+.commandForm input {
+  color: #304258;
+  background: #fff;
+}
+.commandForm button {
+  background: #e4ebf7;
+  color: #4a67a0;
+}
+
+.commandComposer {
+  background: white;
+  border-color: #d5dfe9;
+}
+.commandComposer input {
+  color: #34445c;
+}
+.commandComposer input::placeholder {
+  color: #8b97a9;
+}
+.commandComposer button {
+  background: #e5ecfa;
+  color: #4265a5;
+}
+.expanded .assistantHeading {
+  height: 48px;
+}
+.expanded .conversation {
+  padding: 12px 16px;
+}
+.expanded .userMessage {
+  margin: 8px 0 12px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.expanded .assistantMessage > p {
+  margin: 6px 0 9px;
+  line-height: 1.5;
+}
+.expanded .planCard > div:first-child {
+  padding: 9px 10px;
+}
+.expanded .planCard dl {
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+}
+.expanded .planCard ul {
+  gap: 5px;
+  margin-bottom: 9px;
+}
+.executionCard {
+  background: #fff;
+  border-color: #dce2ea;
+}
+.executionCard > div:first-child,
+.executionCard p {
+  color: #4d627b;
+}
+.executionCard p strong {
+  color: #2b435e;
+}
+.planCard button:hover,
+.recoveryCard button:hover,
+.reportCard button:hover {
+  background: #284ec1;
+}
+@media (max-width: 700px) {
+  .dialog {
+    padding: 44px 12px 16px;
+  }
+  .dialog .expanded .body {
+    height: 720px;
+    min-height: 720px;
+    max-height: 720px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 260px 460px;
+  }
+  .dialog .expanded .rail,
+  .dialog .expanded .fleetPanel {
+    display: none;
+  }
+  .dialog .expanded .mapPanel {
+    height: 260px;
+  }
+  .dialog .expanded .intelligence {
+    display: flex;
+    flex-direction: column;
+    height: 460px;
+  }
+  .dialog .expanded .conversation {
+    display: block;
+    overflow-y: auto;
+  }
+  .dialog .expanded .workspace,
+  .dialog .expanded .macChrome > span:last-child {
+    display: none;
+  }
+  .dialog .expanded .userMessage {
+    min-height: 0;
+  }
+  .dialog .expanded .macChrome > span:first-child {
+    width: auto;
+  }
+}

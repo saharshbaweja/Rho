@@ -1,6 +1,6 @@
 "use client";
 
-import { FeatureFilm } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 
 import { H2 } from "@marketing/components/home/ContentComponents";
 import { HomeEyebrow } from "@marketing/components/home/content/Product/HomeEyebrow";
@@ -322,10 +322,10 @@ interface TeamOutgoingState {
 // reference) while the content slides horizontally with the tab direction
 // (carries the directional intent). Both share the same 300ms ease-out-cubic
 // so they finish together; only the motion paths differ.
-function ImageCol({ tab, eager }: { tab: UsageTab; eager: boolean }) {
+function ImageCol({ tab }: { tab: UsageTab }) {
   return (
     <div className="relative flex w-full items-center overflow-hidden rounded-2xl lg:h-full lg:min-h-[480px]">
-      <FeatureFilm
+      <FeatureScene
         film={
           tab.imageSrc.includes("readiness")
             ? "fleet-readiness"
@@ -455,7 +455,6 @@ export function HomeTeamUsageSection() {
   }, [activeId]);
 
   const activeTab = TABS.find((t) => t.id === activeId) ?? TABS[0];
-  const activeIndex = TABS.findIndex((t) => t.id === activeId);
 
   // Content (heading + list) slides horizontally with the tab direction.
   const incomingContentAnim = outgoing
@@ -577,7 +576,7 @@ export function HomeTeamUsageSection() {
               presence it had before the split. */}
             <div className="relative">
               <div className="invisible" aria-hidden>
-                <ImageCol tab={activeTab} eager={false} />
+                <ImageCol tab={activeTab} />
               </div>
               {outgoingTab && outgoingImgAnim && (
                 <div
@@ -586,7 +585,7 @@ export function HomeTeamUsageSection() {
                   style={{ animation: `${outgoingImgAnim} ${animBase}` }}
                   aria-hidden
                 >
-                  <ImageCol tab={outgoingTab} eager={false} />
+                  <ImageCol tab={outgoingTab} />
                 </div>
               )}
               <div
@@ -598,7 +597,7 @@ export function HomeTeamUsageSection() {
                     : undefined
                 }
               >
-                <ImageCol tab={activeTab} eager={activeIndex === 0} />
+                <ImageCol tab={activeTab} />
               </div>
             </div>
 

@@ -1,4 +1,4 @@
-import { MissionControl } from "@marketing/components/home/content/Product/mission-control/MissionControl";
+import { DesktopPreview } from "@marketing/components/home/content/Product/mission-control/DesktopPreview";
 import { Button } from "@dust-tt/sparkle";
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
@@ -56,7 +56,7 @@ export function HeroOfficeSection() {
         </div>
 
         <HomeReveal delay={80} className="relative w-full lg:w-[63%]">
-          <MissionControl compact />
+          <DesktopPreview />
         </HomeReveal>
       </div>
     </section>

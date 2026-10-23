@@ -1,4 +1,4 @@
-import { FeatureFilm } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 import {
   HomeReveal,
   HomeRevealStyles,
@@ -57,7 +57,7 @@ export function OperationsPage({
               </div>
             </div>
             <HomeReveal className="w-full lg:w-1/2">
-              <FeatureFilm
+              <FeatureScene
                 film={
                   eyebrow.toLowerCase().includes("oversight") ||
                   eyebrow.toLowerCase().includes("security")

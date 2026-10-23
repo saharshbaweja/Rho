@@ -4,7 +4,6 @@ import {
   HomeReveal,
   HomeRevealStyles,
 } from "@marketing/components/home/content/Product/HomeReveal";
-import { RotatingWord } from "@marketing/components/home/content/Product/RotatingWord";
 import Link from "next/link";
 
 export function ProductIntroSection() {
@@ -15,7 +14,9 @@ export function ProductIntroSection() {
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:gap-2 lg:px-6">
           <HomeReveal>
             <H1 className="text-center text-5xl font-semibold md:text-6xl lg:text-7xl">
-              AI dispatch for <RotatingWord />
+              Your fleet.
+              <br />
+              One operating picture.
             </H1>
           </HomeReveal>
           <HomeReveal delay={80}>

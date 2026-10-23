@@ -1,0 +1,15 @@
+.viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1200 / 768;
+  isolation: isolate;
+}
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1200px;
+  height: 768px;
+  transform-origin: top left;
+  container-type: inline-size;
+}

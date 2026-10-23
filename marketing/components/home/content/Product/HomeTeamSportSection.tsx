@@ -1,4 +1,4 @@
-import { FeatureFilm } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 import { H2, P } from "@marketing/components/home/ContentComponents";
 import { HomeEyebrow } from "@marketing/components/home/content/Product/HomeEyebrow";
 import { HomeQuoteMark } from "@marketing/components/home/content/Product/HomeQuoteMark";
@@ -73,7 +73,7 @@ export function HomeTeamSportSection() {
             className="flex w-full justify-center self-stretch lg:w-1/2"
           >
             <div className="relative flex w-full max-w-[560px] items-center self-stretch overflow-hidden rounded-3xl">
-              <FeatureFilm film="fleet-readiness" />
+              <FeatureScene film="fleet-readiness" />
             </div>
           </HomeReveal>
         </div>

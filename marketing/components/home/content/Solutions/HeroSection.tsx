@@ -1,4 +1,4 @@
-import { FeatureFilm } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 import { LegacyButton as Button, Rocket02 } from "@dust-tt/sparkle";
 import { Grid, H1, H3, P } from "@marketing/components/home/ContentComponents";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
@@ -39,7 +39,7 @@ export const HeroSection: FC<HeroSectionProps> = ({
   ctaButtons,
   trackingPrefix = "hero",
 }) => {
-  const MainVisual = () => <FeatureFilm film="mission-story" />;
+  const MainVisual = () => <FeatureScene film="mission-story" />;
 
   return (
     <div className="container flex w-full flex-col pt-24">

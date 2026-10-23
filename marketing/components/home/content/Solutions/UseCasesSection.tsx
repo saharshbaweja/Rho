@@ -1,4 +1,4 @@
-import { FeatureFilm } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 import { Div3D, Hover3D } from "@dust-tt/sparkle";
 import { ImgBlock } from "@marketing/components/home/ContentBlocks";
 import { H2, P } from "@marketing/components/home/ContentComponents";
@@ -35,7 +35,7 @@ export function UseCasesSection({ useCase }: { useCase: UseCaseProps }) {
                   depth={LAYER_DEPTHS[imgIndex]}
                   className={imgIndex > 0 ? "absolute top-0" : ""}
                 >
-                  <FeatureFilm
+                  <FeatureScene
                     film={
                       index === 1
                         ? "fleet-readiness"

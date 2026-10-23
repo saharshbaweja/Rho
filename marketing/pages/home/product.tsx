@@ -1,3 +1,7 @@
+import {
+  ProductDetails,
+  ProductQuestions,
+} from "@marketing/components/home/content/Product/ProductDetails";
 import type { LandingLayoutProps } from "@marketing/components/home/LandingLayout";
 import LandingLayout from "@marketing/components/home/LandingLayout";
 import { PageMetadata } from "@marketing/components/home/PageMetadata";
@@ -108,6 +112,7 @@ export function Landing() {
           <ProductIntroSection />
           <ProductVideoSection />
           <CapabilitySection />
+          <ProductDetails detailed />
           <SecurityFeaturesSection
             showHeader={false}
             reverse
@@ -132,6 +137,7 @@ export function Landing() {
             accordionTitle="Coordinate the response. Keep people in control."
           />
           <InteractiveFeaturesSection />
+          <ProductQuestions />
         </div>
       </section>
     </>

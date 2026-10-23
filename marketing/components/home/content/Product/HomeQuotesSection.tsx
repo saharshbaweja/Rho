@@ -1,4 +1,4 @@
-import { FeatureFilm } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 import { HomeQuoteMark } from "@marketing/components/home/content/Product/HomeQuoteMark";
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
 import { useEffect, useState } from "react";
@@ -210,7 +210,7 @@ export function HomeQuotesSection({ quotes }: HomeQuotesSectionProps) {
                 aria-hidden
               >
                 <div className="flex h-full w-full items-center p-4">
-                  <FeatureFilm film="mission-recovery" />
+                  <FeatureScene film="mission-recovery" />
                 </div>
               </div>
             )}
@@ -224,7 +224,7 @@ export function HomeQuotesSection({ quotes }: HomeQuotesSectionProps) {
               }
             >
               <div className="flex h-full w-full items-center p-4">
-                <FeatureFilm
+                <FeatureScene
                   film={activeIdx === 0 ? "mission-story" : "mission-recovery"}
                 />
               </div>

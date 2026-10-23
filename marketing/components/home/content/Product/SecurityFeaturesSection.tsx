@@ -1,4 +1,4 @@
-import { FeatureFilm } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 import type { FilmKind } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
 import { ChevronUp, Separator } from "@dust-tt/sparkle";
 import { H2, P } from "@marketing/components/home/ContentComponents";
@@ -94,7 +94,7 @@ export function SecurityFeaturesSection({
           className={`order-1 w-full ${imageOrder} lg:w-1/2`}
         >
           <div
-            className={`relative flex aspect-[5/3] items-center justify-center overflow-hidden rounded-2xl ${
+            className={`relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-2xl ${
               activeFeature === "ingest"
                 ? "bg-rose-50"
                 : activeFeature === "models"
@@ -107,7 +107,10 @@ export function SecurityFeaturesSection({
             <div className="relative h-full w-full">
               {/* Same visual for every accordion title. */}
               {film ? (
-                <FeatureFilm film={film} />
+                <FeatureScene
+                  film={film}
+                  feature={features.find((f) => f.id === activeFeature)?.title}
+                />
               ) : videoSrc ? (
                 <video
                   src={videoSrc}

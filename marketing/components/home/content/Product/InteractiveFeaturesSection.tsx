@@ -1,4 +1,4 @@
-import { FeatureFilm } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 import UTMButton from "@marketing/components/UTMButton";
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
 
@@ -53,11 +53,11 @@ export function InteractiveFeaturesSection() {
           <HomeReveal key={feature.id} delay={80 + i * 80} className="h-full">
             <div className="flex h-full flex-col items-center gap-[32px] rounded-[16px] bg-[#090F2A] p-[32px]">
               <div
-                className="relative aspect-[5/3] w-full shrink-0 overflow-hidden rounded-[8px]"
+                className="relative aspect-[4/5] w-full shrink-0 overflow-hidden rounded-[8px]"
                 style={{ backgroundImage: feature.panelGradient }}
               >
                 {feature.videoSrc ? (
-                  <FeatureFilm
+                  <FeatureScene
                     film={
                       feature.id === "pods"
                         ? "fleet-readiness"

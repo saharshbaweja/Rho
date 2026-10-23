@@ -1,6 +1,6 @@
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
 import { HomeEyebrow } from "@marketing/components/home/content/Product/HomeEyebrow";
-import { MissionControl } from "./MissionControl";
+import { DesktopPreview } from "./DesktopPreview";
 export function MissionShowcaseSection() {
   return (
     <section
@@ -25,7 +25,7 @@ export function MissionShowcaseSection() {
           </div>
         </HomeReveal>
         <HomeReveal delay={100}>
-          <MissionControl />
+          <DesktopPreview />
         </HomeReveal>
         <div className="flex flex-wrap justify-between gap-5 border-t border-[#dce6eb] pt-6 text-xs text-[#7b909c]">
           <span>

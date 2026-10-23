@@ -1,7 +1,5 @@
-import { isDevelopment } from "@marketing/types/shared/env";
-
 export function getFaviconPath(): string {
-  return isDevelopment() ? "/static/local_favicon.png" : "/static/favicon.png";
+  return "/static/aeros-logo.png";
 }
 
 export function classNames(...classes: (string | null | boolean)[]) {

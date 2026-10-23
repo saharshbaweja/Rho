@@ -1,7 +1,10 @@
 import { MissionShowcaseSection } from "@marketing/components/home/content/Product/mission-control/MissionShowcaseSection";
 import { HeroOfficeSection } from "@marketing/components/home/content/Product/HeroOfficeSection";
 import { HomeAIOperatorsCTASection } from "@marketing/components/home/content/Product/HomeAIOperatorsCTASection";
-import { HomeAgentsImproveSection } from "@marketing/components/home/content/Product/HomeAgentsImproveSection";
+import {
+  ProductDetails,
+  ProductQuestions,
+} from "@marketing/components/home/content/Product/ProductDetails";
 import { HomeCoordinatedSection } from "@marketing/components/home/content/Product/HomeCoordinatedSection";
 import { HomeNewsSection } from "@marketing/components/home/content/Product/HomeNewsSection";
 import { HomeQuotesSection } from "@marketing/components/home/content/Product/HomeQuotesSection";
@@ -46,11 +49,12 @@ export function IntroSection({ news }: IntroSectionProps = {}) {
           <MissionShowcaseSection />
           <HomeCoordinatedSection />
           <HomeQuotesSection quotes={QUOTES} />
-          <HomeAgentsImproveSection />
+          <ProductDetails />
           <HomeTeamSportSection />
           <HomeSecuritySection />
           <HomeTeamUsageSection />
           <HomeNewsSection news={news} />
+          <ProductQuestions />
           <HomeAIOperatorsCTASection />
         </div>
       </div>
