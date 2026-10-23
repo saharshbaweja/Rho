@@ -34,10 +34,6 @@ interface UsageTab {
   points: UsagePoint[];
 }
 
-// The four shapes cycle through every tab so each list reads with the same
-// rhythm: circle → quarter-pie left → quarter-pie right → circle.
-const SHAPE_CYCLE: UsageShape[] = ["circle", "pie-bl", "pie-br", "circle"];
-
 const TABS: UsageTab[] = [
   {
     id: "dispatch",

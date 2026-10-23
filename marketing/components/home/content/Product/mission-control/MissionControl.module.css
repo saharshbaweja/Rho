@@ -1789,3 +1789,16 @@
 .expanded .rail {
   min-height: 0;
 }
+.expanded .userMessage {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 0;
+  margin-bottom: 14px;
+}
+.expanded .assistantMessage > p {
+  font-size: 10px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}

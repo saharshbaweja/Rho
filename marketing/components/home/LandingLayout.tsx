@@ -4,7 +4,6 @@ import type { CookieConsentChoices } from "@marketing/components/home/CookieBann
 import { CookieBanner } from "@marketing/components/home/CookieBanner";
 import { LogoListsProvider } from "@marketing/components/home/LogoListsContext";
 import { OpenDustButton } from "@marketing/components/home/OpenDustButton";
-import { PromoBanner } from "@marketing/components/home/PromoBanner";
 import { PublicWebsiteLogo } from "@marketing/components/home/PublicWebsiteLogo";
 import ScrollingHeader from "@marketing/components/home/ScrollingHeader";
 import { SkipLandingPrompt } from "@marketing/components/home/SkipLandingPrompt";
@@ -30,7 +29,6 @@ import { useLandingAuthContext } from "@marketing/lib/swr/website";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import { classNames, getFaviconPath } from "@marketing/lib/utils";
 import { getOrCreateAnonymousId } from "@marketing/lib/utils/anonymous_id";
-import { appendUTMParams } from "@marketing/lib/utils/utm";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
@@ -56,13 +54,7 @@ export default function LandingLayout({
   children: React.ReactNode;
   pageProps: LandingLayoutProps;
 }) {
-  const {
-    postLoginReturnToUrl = "/api/login",
-    gtmTrackingId,
-    hideNavigation,
-    fullWidth,
-    logoLists,
-  } = pageProps;
+  const { gtmTrackingId, hideNavigation, fullWidth, logoLists } = pageProps;
 
   const { openSignUpModal } = useSignUpModal();
 

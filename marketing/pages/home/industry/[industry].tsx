@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
   return { props: { industry: industries[key], shape: 0 } };
 };
-export default function Industry({ industry }: { industry: string }) {
+export default function IndustryNextJS({ industry }: { industry: string }) {
   return (
     <OperationsPage
       eyebrow={industry}
@@ -58,6 +58,7 @@ export default function Industry({ industry }: { industry: string }) {
     />
   );
 }
-Industry.getLayout = (page: ReactElement, pageProps: LandingLayoutProps) => (
-  <LandingLayout pageProps={pageProps}>{page}</LandingLayout>
-);
+IndustryNextJS.getLayout = (
+  page: ReactElement,
+  pageProps: LandingLayoutProps
+) => <LandingLayout pageProps={pageProps}>{page}</LandingLayout>;

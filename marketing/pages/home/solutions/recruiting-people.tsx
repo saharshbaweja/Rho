@@ -24,7 +24,6 @@ import {
   UseCases,
 } from "@marketing/components/home/content/Solutions/configs/peopleConfig";
 import { CONTENTFUL_REVALIDATE_SECONDS } from "@marketing/lib/contentful/client";
-import { fetchLogoLists } from "@marketing/lib/logo_bars_server";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import { classNames } from "@marketing/lib/utils";
 import Link from "next/link";
@@ -51,7 +50,7 @@ const GRID_SECTION_CLASSES = classNames(
 );
 
 // oxlint-disable-next-line dust/nextjsPageComponentNaming -- pre-existing
-export default function People() {
+export default function PeopleNextJS() {
   const router = useRouter();
 
   return (
@@ -128,6 +127,9 @@ export default function People() {
   );
 }
 
-People.getLayout = (page: ReactElement, pageProps: LandingLayoutProps) => {
+PeopleNextJS.getLayout = (
+  page: ReactElement,
+  pageProps: LandingLayoutProps
+) => {
   return <LandingLayout pageProps={pageProps}>{page}</LandingLayout>;
 };

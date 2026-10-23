@@ -1,10 +1,5 @@
 import { FeatureFilm } from "@marketing/components/home/content/Product/mission-control/FeatureFilm";
-import {
-  LegacyButton as Button,
-  Div3D,
-  Hover3D,
-  Rocket02,
-} from "@dust-tt/sparkle";
+import { LegacyButton as Button, Rocket02 } from "@dust-tt/sparkle";
 import { Grid, H1, H3, P } from "@marketing/components/home/ContentComponents";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import Link from "next/link";

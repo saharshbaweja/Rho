@@ -6,7 +6,7 @@ import { OperationsPage } from "@marketing/components/home/OperationsPage";
 export function getStaticProps() {
   return { props: { shape: 0 } };
 }
-export default function Integrations() {
+export default function IntegrationsNextJS() {
   return (
     <OperationsPage
       {...{
@@ -40,7 +40,7 @@ export default function Integrations() {
     />
   );
 }
-Integrations.getLayout = (
+IntegrationsNextJS.getLayout = (
   page: ReactElement,
   pageProps: LandingLayoutProps
 ) => <LandingLayout pageProps={pageProps}>{page}</LandingLayout>;

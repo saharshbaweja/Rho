@@ -20,7 +20,6 @@ import {
   UseCases,
 } from "@marketing/components/home/content/Solutions/configs/dataConfig";
 import { CONTENTFUL_REVALIDATE_SECONDS } from "@marketing/lib/contentful/client";
-import { fetchLogoLists } from "@marketing/lib/logo_bars_server";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import { classNames } from "@marketing/lib/utils";
 import Link from "next/link";
@@ -47,7 +46,7 @@ const GRID_SECTION_CLASSES = classNames(
 );
 
 // oxlint-disable-next-line dust/nextjsPageComponentNaming -- pre-existing
-export default function Data() {
+export default function DataNextJS() {
   const router = useRouter();
 
   return (
@@ -115,6 +114,6 @@ export default function Data() {
   );
 }
 
-Data.getLayout = (page: ReactElement, pageProps: LandingLayoutProps) => {
+DataNextJS.getLayout = (page: ReactElement, pageProps: LandingLayoutProps) => {
   return <LandingLayout pageProps={pageProps}>{page}</LandingLayout>;
 };

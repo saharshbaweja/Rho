@@ -12,8 +12,6 @@ import {
   Separator,
 } from "@dust-tt/sparkle";
 import { FAQ, type FAQItem } from "@marketing/components/home/FAQ";
-import type { LandingLayoutProps } from "@marketing/components/home/LandingLayout";
-import LandingLayout from "@marketing/components/home/LandingLayout";
 import { PageMetadata } from "@marketing/components/home/PageMetadata";
 import { HomeAIOperatorsCTASection } from "@marketing/components/home/content/Product/HomeAIOperatorsCTASection";
 import { useSignUpModal } from "@marketing/hooks/useSignUpModal";
@@ -34,7 +32,7 @@ import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type React from "react";
-import type { ReactElement, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useLayoutEffect, useRef, useState } from "react";
 
 export async function getStaticProps() {
@@ -927,7 +925,7 @@ function FAQSection() {
 }
 
 // oxlint-disable-next-line dust/nextjsPageComponentNaming -- pre-existing
-export default function Pricing() {
+export default function PricingNextJS() {
   const router = useRouter();
   const [billing, setBilling] = useState<Billing>("yearly");
   const { openSignUpModal } = useSignUpModal();

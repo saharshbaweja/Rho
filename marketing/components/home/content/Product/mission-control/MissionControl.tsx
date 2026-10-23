@@ -1,7 +1,6 @@
 import {
   ArrowUp,
   ArrowUpRight,
-  Battery,
   Check,
   ChevronDown,
   CloudSun,

@@ -28,7 +28,7 @@ export const config = { api: { bodyParser: { sizeLimit: "16kb" } } };
  * Missing delivery configuration MUST return 503, and delivery failure MUST NOT return success.
  * Request fields and webhook credentials MUST NOT be logged or returned in responses.
  */
-export default async function handler(
+export default async function handlerNextJS(
   req: Pick<NextApiRequest, "method" | "body">,
   res: DemoResponse
 ) {

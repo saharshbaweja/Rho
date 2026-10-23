@@ -6,7 +6,7 @@ import { OperationsPage } from "@marketing/components/home/OperationsPage";
 export function getStaticProps() {
   return { props: { shape: 0 } };
 }
-export default function Security() {
+export default function SecurityNextJS() {
   return (
     <OperationsPage
       {...{
@@ -41,6 +41,7 @@ export default function Security() {
     />
   );
 }
-Security.getLayout = (page: ReactElement, pageProps: LandingLayoutProps) => (
-  <LandingLayout pageProps={pageProps}>{page}</LandingLayout>
-);
+SecurityNextJS.getLayout = (
+  page: ReactElement,
+  pageProps: LandingLayoutProps
+) => <LandingLayout pageProps={pageProps}>{page}</LandingLayout>;

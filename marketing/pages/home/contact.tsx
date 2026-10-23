@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 export function getStaticProps() {
   return { props: { shape: 0 } };
 }
-export default function Contact() {
+export default function ContactNextJS() {
   const router = useRouter();
   return (
     <>
@@ -31,6 +31,7 @@ export default function Contact() {
     </>
   );
 }
-Contact.getLayout = (page: ReactElement, pageProps: LandingLayoutProps) => (
-  <LandingLayout pageProps={pageProps}>{page}</LandingLayout>
-);
+ContactNextJS.getLayout = (
+  page: ReactElement,
+  pageProps: LandingLayoutProps
+) => <LandingLayout pageProps={pageProps}>{page}</LandingLayout>;
