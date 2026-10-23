@@ -31,7 +31,7 @@ const CAPABILITY_FEATURES: SecurityFeature[] = [
   },
   {
     id: "activation",
-    title: "Aeros Alert",
+    title: "Alert triage",
     description:
       "Focus attention on changes that affect the mission, with the relevant condition, timing, and evidence attached.",
     placeholder: "",
@@ -41,7 +41,7 @@ const CAPABILITY_FEATURES: SecurityFeature[] = [
 const MODEL_FEATURES: SecurityFeature[] = [
   {
     id: "flexibility",
-    title: "Aeros Plan",
+    title: "Plan alternatives",
     description:
       "Compare routes, mission windows, and alternate sites against the operating constraints and data available.",
     placeholder: "",
@@ -65,14 +65,14 @@ const MODEL_FEATURES: SecurityFeature[] = [
 const GOVERN_FEATURES: SecurityFeature[] = [
   {
     id: "security",
-    title: "Aeros Coordinate",
+    title: "Coordinate teams",
     description:
       "Bring dispatch, remote pilots, operator scheduling, and maintenance into a shared mission review with clear action ownership.",
     placeholder: "",
   },
   {
     id: "observability",
-    title: "Aeros Evidence",
+    title: "Evidence and traceability",
     description:
       "Keep conclusions connected to source material, effective periods, operator rules, and unresolved assumptions.",
     placeholder: "",

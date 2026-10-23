@@ -17,7 +17,7 @@ interface FeatureItem {
 const features: FeatureItem[] = [
   {
     id: "pods",
-    title: "One workspace. Every provider.",
+    title: "Your connected fleet. One workspace.",
     description:
       "Coordinate aircraft, docks, providers, and field teams around a shared mission plan. Keep fleet state, assignments, operator approvals, and work orders in sync.",
     panelGradient: "linear-gradient(125deg, #FFF1F7 0.54%, #FFC3DF 100%)",
