@@ -24,41 +24,41 @@ interface FeatureCard {
   title: string;
   subtitle: string;
   accent: string;
-  hoverVideoSrc: string;
+  hoverImageSrc: string;
 }
 
 const CARDS: FeatureCard[] = [
   {
     number: "01",
-    title: "Mission Monitoring",
+    title: "Mission orchestration",
     subtitle:
-      "Bring flights, weather, airports, airspace, and alerts into one mission view. Follow changes from planning through the active operation.",
+      "Describe the outcome in plain language. Turn work orders and asset lists into coordinated missions with clear assignments and completion criteria.",
     accent: "text-blue-500",
-    hoverVideoSrc: "/static/landing/home/features/knows-your-company.mp4",
+    hoverImageSrc: "/static/landing/drone/fleet.svg",
   },
   {
     number: "02",
-    title: "Dispatch Intelligence",
+    title: "Fleet readiness",
     subtitle:
-      "Connect NOTAMs, airport information, forecasts, aircraft limitations, and operator rules to the missions they affect.",
+      "Check battery, payload, dock status, weather, airspace constraints, and operator rules before assigning an available aircraft.",
     accent: "text-rose-500",
-    hoverVideoSrc: "/static/landing/home/features/team-sport.mp4",
+    hoverImageSrc: "/static/landing/drone/fleet.svg",
   },
   {
     number: "03",
     title: "Planning & Recovery",
     subtitle:
-      "Compare departure windows, alternates, route changes, aircraft swaps, and crew options with downstream effects in view.",
+      "When a drone becomes unavailable or conditions change, compare reassignment, delay, and return-to-base options before approving recovery.",
     accent: "text-golden-500",
-    hoverVideoSrc: "/static/landing/home/features/best-model.mp4",
+    hoverImageSrc: "/static/landing/drone/fleet.svg",
   },
   {
     number: "04",
-    title: "Evidence & Coordination",
+    title: "Oversight & results",
     subtitle:
-      "Review the sources, assumptions, open actions, and approvals behind a recommendation. Keep the responsible people in control.",
+      "Track execution, review flagged assets, and return mission results to your existing workflow with an accountable record of decisions.",
     accent: "text-green-700",
-    hoverVideoSrc: "/static/landing/home/features/compounds.mp4",
+    hoverImageSrc: "/static/landing/drone/fleet.svg",
   },
 ];
 
@@ -70,7 +70,7 @@ interface HoverImageCardProps {
 function HoverImageCard({ card, index }: HoverImageCardProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const trackerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+
   const rafRef = useRef<number | null>(null);
   const pendingPosRef = useRef<{ x: number; y: number } | null>(null);
   const [active, setActive] = useState(false);
@@ -115,21 +115,10 @@ function HoverImageCard({ card, index }: HoverImageCardProps) {
     tracker.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     pendingPosRef.current = { x, y };
     setActive(true);
-    const video = videoRef.current;
-    if (video) {
-      video.currentTime = 0;
-      video.play().catch(() => {
-        /* Autoplay may be blocked; the video stays at its first frame. */
-      });
-    }
   };
 
   const handleLeave = () => {
     setActive(false);
-    const video = videoRef.current;
-    if (video) {
-      video.pause();
-    }
   };
 
   const handleMove = (event: ReactMouseEvent<HTMLDivElement>) => {
@@ -186,13 +175,9 @@ function HoverImageCard({ card, index }: HoverImageCardProps) {
                 : "scale-95 opacity-0 duration-200"
             }`}
           >
-            <video
-              ref={videoRef}
-              src={card.hoverVideoSrc}
-              muted
-              loop
-              playsInline
-              preload="metadata"
+            <img
+              src={card.hoverImageSrc}
+              alt=""
               className="h-[260px] w-[260px] rounded-2xl object-cover shadow-xl ring-1 ring-black/5"
             />
           </div>
@@ -212,7 +197,7 @@ export function HomeAgentsImproveSection() {
           </HomeReveal>
           <HomeReveal delay={80}>
             <H2 className="max-w-[820px] text-balance text-center font-semibold leading-[1.08] tracking-[-0.03em] text-foreground text-center!">
-              From flight watch to the next decision
+              From a few drones to coordinated fleets
             </H2>
           </HomeReveal>
           <HomeReveal delay={160}>
@@ -220,9 +205,9 @@ export function HomeAgentsImproveSection() {
               size="sm"
               className="max-w-[680px] text-center text-muted-foreground"
             >
-              Aeros brings monitoring, contextual alerts, dispatch assessment,
-              planning, and recovery into one product direction—connecting
-              operational evidence with the people making the call.
+              Your aircraft and flight software stay in place. Aeros brings
+              mission demand, fleet state, dispatch, monitoring, and recovery
+              together in one vendor-neutral coordination layer.
             </P>
           </HomeReveal>
         </div>

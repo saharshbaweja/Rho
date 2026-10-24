@@ -12,8 +12,6 @@ import {
   Separator,
 } from "@dust-tt/sparkle";
 import { FAQ, type FAQItem } from "@marketing/components/home/FAQ";
-import type { LandingLayoutProps } from "@marketing/components/home/LandingLayout";
-import LandingLayout from "@marketing/components/home/LandingLayout";
 import { PageMetadata } from "@marketing/components/home/PageMetadata";
 import { HomeAIOperatorsCTASection } from "@marketing/components/home/content/Product/HomeAIOperatorsCTASection";
 import { useSignUpModal } from "@marketing/hooks/useSignUpModal";
@@ -34,7 +32,7 @@ import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type React from "react";
-import type { ReactElement, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useLayoutEffect, useRef, useState } from "react";
 
 export async function getStaticProps() {
@@ -92,24 +90,24 @@ type Billing = "yearly" | "monthly";
 const SEAT_TIERS: SeatTier[] = [
   {
     id: "free",
-    name: "1–3 aircraft",
+    name: "1–3 drones",
     priceYearDollars: 349,
     priceMonthDollars: 435,
-    credits: "per active aircraft / month · unlimited users",
+    credits: "per active drone / month · unlimited users",
   },
   {
     id: "pro",
-    name: "4–10 aircraft",
+    name: "4–10 drones",
     priceYearDollars: 299,
     priceMonthDollars: 375,
-    credits: "per active aircraft / month · unlimited users",
+    credits: "per active drone / month · unlimited users",
   },
   {
     id: "max",
-    name: "11–25 aircraft",
+    name: "11–25 drones",
     priceYearDollars: 249,
     priceMonthDollars: 310,
-    credits: "per active aircraft / month · unlimited users",
+    credits: "per active drone / month · unlimited users",
   },
 ];
 
@@ -134,19 +132,19 @@ const PLANS: Plan[] = [
   {
     id: "business",
     name: "Business",
-    tagline: "For private, charter and regional operators up to 25 aircraft",
+    tagline: "For organizations coordinating up to 25 active drones",
     seatTiers: SEAT_TIERS,
     cta: "Request access",
     ctaStyle: "primary",
     featured: true,
     highlights: [
       "Mission planning, monitoring and dispatch workspace",
-      "Live weather, NOTAM, flight-tracking, airport and aircraft context",
-      "Crew duty, qualification and legality context",
-      "Maintenance and MEL impact awareness",
+      "Fleet state, weather, airspace, mission readiness and dock context",
+      "Remote pilot availability and qualification context",
+      "Battery, payload, dock and maintenance readiness",
       "AI-generated operational options with source traceability",
       "Shared mission timeline, approvals and operational handoffs",
-      "Unlimited users across operations, dispatch, crew and maintenance",
+      "Unlimited users across operations, dispatch, providers and maintenance",
     ],
   },
   {
@@ -158,7 +156,7 @@ const PLANS: Plan[] = [
     featured: false,
     highlightsHeader: "Everything in Business plus:",
     highlights: [
-      "Custom integrations with scheduling, maintenance, crew and flight systems",
+      "Custom integrations with GIS, work-order, dock and fleet systems",
       "Higher-frequency data feeds and fleet-wide monitoring",
       "SSO, SCIM, advanced roles and centralized administration",
       "Custom retention, audit exports and deployment controls",
@@ -178,22 +176,22 @@ const COMPARISON: ComparisonSectionData[] = [
         enterprise: true,
       },
       {
-        feature: "Weather, NOTAM, airport and airspace context",
+        feature: "Weather, launch-site and airspace context",
         business: true,
         enterprise: true,
       },
       {
-        feature: "Flight tracking and material change detection",
+        feature: "Mission tracking and exception detection",
         business: true,
         enterprise: true,
       },
       {
-        feature: "Crew legality, duty and qualification context",
+        feature: "Operator availability and qualification context",
         business: true,
         enterprise: true,
       },
       {
-        feature: "Maintenance and MEL impact awareness",
+        feature: "Battery, payload, dock and maintenance readiness",
         business: true,
         enterprise: true,
       },
@@ -209,12 +207,12 @@ const COMPARISON: ComparisonSectionData[] = [
     section: "Data & integrations",
     rows: [
       {
-        feature: "Aircraft, crew, schedule and SOP data imports",
+        feature: "Drone, provider, mission and operating-policy imports",
         business: "Standard",
         enterprise: "Custom + bi-directional",
       },
       {
-        feature: "Live aviation data feeds",
+        feature: "Weather and airspace context",
         business: "Included",
         enterprise: "High-volume + custom",
       },
@@ -301,7 +299,7 @@ const COMPARISON: ComparisonSectionData[] = [
         enterprise: true,
       },
       {
-        feature: "AI and aviation-data usage",
+        feature: "AI and mission-data usage",
         business: "Included fair use",
         enterprise: "Pooled + custom limits",
       },
@@ -326,27 +324,28 @@ function SeatTiersFAQAnswer() {
       </p>
       <ul>
         <li>
-          <strong>1–3 aircraft:</strong>{" "}
-          {formatSeatPrice(small?.priceMonthDollars ?? 435)}/aircraft/month, or{" "}
-          {formatSeatPrice(small?.priceYearDollars ?? 349)}/aircraft/month billed
+          <strong>1–3 drones:</strong>{" "}
+          {formatSeatPrice(small?.priceMonthDollars ?? 435)}/drone/month, or{" "}
+          {formatSeatPrice(small?.priceYearDollars ?? 349)}/drone/month billed
           yearly.
         </li>
         <li>
-          <strong>4–10 aircraft:</strong>{" "}
-          {formatSeatPrice(growing?.priceMonthDollars ?? 375)}/aircraft/month, or{" "}
-          {formatSeatPrice(growing?.priceYearDollars ?? 299)}/aircraft/month billed
+          <strong>4–10 drones:</strong>{" "}
+          {formatSeatPrice(growing?.priceMonthDollars ?? 375)}/drone/month, or{" "}
+          {formatSeatPrice(growing?.priceYearDollars ?? 299)}/drone/month billed
           yearly.
         </li>
         <li>
-          <strong>11–25 aircraft:</strong>{" "}
-          {formatSeatPrice(scaled?.priceMonthDollars ?? 310)}/aircraft/month, or{" "}
-          {formatSeatPrice(scaled?.priceYearDollars ?? 249)}/aircraft/month billed
+          <strong>11–25 drones:</strong>{" "}
+          {formatSeatPrice(scaled?.priceMonthDollars ?? 310)}/drone/month, or{" "}
+          {formatSeatPrice(scaled?.priceYearDollars ?? 249)}/drone/month billed
           yearly.
         </li>
       </ul>
       <p className="mt-3">
-        All Business tiers include unlimited users so dispatch, operations, crew,
-        maintenance and leadership can work from the same operational picture.
+        All Business tiers include unlimited users so dispatch, operations,
+        providers, maintenance and leadership can work from the same operational
+        picture.
       </p>
     </>
   );
@@ -355,19 +354,19 @@ function SeatTiersFAQAnswer() {
 const FAQS: FAQItemData[] = [
   {
     q: "How is Aeros priced?",
-    a: "Business is priced per active aircraft, with unlimited users included. The per-aircraft rate decreases as your fleet grows. Enterprise pricing is tailored to larger fleets, custom integrations, data volume, governance, deployment requirements and support.",
+    a: "Business is priced per active drone, with unlimited users included. The per-aircraft rate decreases as your fleet grows. Enterprise pricing is tailored to larger fleets, custom integrations, data volume, governance, deployment requirements and support.",
   },
   {
     q: "What counts as an active aircraft?",
-    a: "An active aircraft is a tail enabled in Aeros for mission planning, monitoring or operational decision support during the billing period. You are not charged per flight, message or dispatcher.",
+    a: "An active aircraft is a drone enabled in Aeros for mission planning, monitoring or operational decision support during the billing period. You are not charged per flight, message or dispatcher.",
   },
   {
     q: "Are users charged separately?",
-    a: "No. Business includes unlimited users. We want operations, dispatch, crew, maintenance and leadership working from the same source of truth instead of rationing access by seat.",
+    a: "No. Business includes unlimited users. We want operations, dispatch, providers, maintenance and leadership working from the same source of truth instead of rationing access by seat.",
   },
   {
-    q: "Is AI or aviation-data usage metered?",
-    a: "Core mission analysis, monitoring and aviation-data usage are included under a fair-use policy for Business customers. Very high-volume polling, custom data feeds or unusually compute-intensive workflows can be scoped separately. Enterprise plans use pooled and custom usage limits.",
+    q: "Is AI or mission-data usage metered?",
+    a: "Core mission analysis, monitoring and mission-data usage are included under a fair-use policy for Business customers. Very high-volume polling, custom data feeds or unusually compute-intensive workflows can be scoped separately. Enterprise plans use pooled and custom usage limits.",
   },
   {
     q: "How do the Business fleet tiers work?",
@@ -383,7 +382,7 @@ const FAQS: FAQItemData[] = [
   },
   {
     q: "When should I consider Enterprise?",
-    a: "Enterprise is designed for fleets above 25 aircraft and operators that need custom scheduling, maintenance, crew or flight-system integrations; higher-frequency data feeds; SSO or SCIM; dedicated implementation; custom retention or deployment controls; or contractual SLAs.",
+    a: "Enterprise is designed for fleets above 25 aircraft and operators that need custom fleet, dock, GIS or work-order integrations; higher-frequency data feeds; SSO or SCIM; dedicated implementation; custom retention or deployment controls; or contractual SLAs.",
   },
 ];
 
@@ -583,7 +582,7 @@ function PlanCard({
               })}
             </div>
             <p className="copy-xs mt-5 text-right text-primary-400">
-              Pricing shown per active aircraft / month
+              Pricing shown per active drone / month
             </p>
           </div>
         </>
@@ -629,7 +628,9 @@ function Hero({
         className="group mb-5 inline-flex items-center gap-2 rounded-full border border-gray-100 bg-white py-1.5 pl-3 pr-3 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50"
       >
         <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-500" />
-        <span className="whitespace-nowrap">Priced by active aircraft, not seats</span>
+        <span className="whitespace-nowrap">
+          Priced by active drones, with unlimited users
+        </span>
         <svg
           width="12"
           height="12"
@@ -657,9 +658,9 @@ function Hero({
         with your operation
       </h1>
       <p className="copy-lg mb-9 max-w-2xl text-balance text-muted-foreground">
-        Business pricing scales with active aircraft and includes unlimited users.
-        Enterprise is tailored to fleet size, integrations, data volume, governance,
-        deployment requirements and support.
+        Business pricing scales with active aircraft and includes unlimited
+        users. Enterprise is tailored to fleet size, integrations, data volume,
+        governance, deployment requirements and support.
       </p>
 
       <div className="mt-12 grid w-full grid-cols-1 items-stretch gap-5 md:grid-cols-2 md:max-w-3xl">
@@ -924,7 +925,7 @@ function FAQSection() {
 }
 
 // oxlint-disable-next-line dust/nextjsPageComponentNaming -- pre-existing
-export default function Pricing() {
+export default function PricingNextJS() {
   const router = useRouter();
   const [billing, setBilling] = useState<Billing>("yearly");
   const { openSignUpModal } = useSignUpModal();
@@ -952,7 +953,7 @@ export default function Pricing() {
   return (
     <MotionConfig reducedMotion="user">
       <PageMetadata
-        title="Aeros Pricing: Business and Enterprise Plans for Flight Operations"
+        title="Aeros Pricing: Business and Enterprise Plans for Fleet Operations"
         description="Aeros Business pricing scales by active aircraft with unlimited users included. Enterprise plans support larger fleets, custom integrations, governance, deployment requirements and SLAs."
         pathname={router.asPath}
       />

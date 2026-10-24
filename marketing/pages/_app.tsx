@@ -3,6 +3,7 @@ import "@marketing/styles/global.css";
 // Single unified Tailwind build: scans marketing + sparkle/src in one pass.
 // Replaces the old precompiled `@dust-tt/sparkle/dist/sparkle.css` concat.
 import "@marketing/styles/components.css";
+import "@marketing/styles/aeros-dark.css";
 
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";

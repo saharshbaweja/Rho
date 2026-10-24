@@ -1,132 +1,64 @@
-import type { LandingLayoutProps } from "@marketing/components/home/LandingLayout";
-import IndustryTemplate from "@marketing/components/home/content/Industry/IndustryTemplate";
-import { b2bSaasConfig } from "@marketing/components/home/content/Industry/configs/b2bSaasConfig";
-import { consultingConfig } from "@marketing/components/home/content/Industry/configs/consultingConfig";
-import { energyConfig } from "@marketing/components/home/content/Industry/configs/energyConfig";
-import { financialServicesConfig } from "@marketing/components/home/content/Industry/configs/financialServicesConfig";
-import { industrialFirmsConfig } from "@marketing/components/home/content/Industry/configs/industrialFirmsConfig";
-import { insuranceConfig } from "@marketing/components/home/content/Industry/configs/insuranceConfig";
-import { investmentConfig } from "@marketing/components/home/content/Industry/configs/investmentConfig";
-import { marketplaceConfig } from "@marketing/components/home/content/Industry/configs/marketplaceConfig";
-import { mediaConfig } from "@marketing/components/home/content/Industry/configs/mediaConfig";
-import { retailEcommerceConfig } from "@marketing/components/home/content/Industry/configs/retailEcommerceConfig";
-import type { IndustryPageConfig } from "@marketing/components/home/content/Industry/configs/utils";
-import {
-  CONTENTFUL_REVALIDATE_SECONDS,
-  getCustomerStoriesForIndustry,
-} from "@marketing/lib/contentful/industryStories";
-import { isString } from "@marketing/types/shared/utils/general";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import type { ReactElement } from "react";
-
-const INDUSTRY_PAGE_MAP = {
-  "b2b-saas": {
-    config: b2bSaasConfig,
-    trackingPrefix: "b2b",
-  },
-  consulting: {
-    config: consultingConfig,
-    trackingPrefix: "consulting",
-  },
-  "energy-utilities": {
-    config: energyConfig,
-    trackingPrefix: "energy",
-  },
-  "financial-services": {
-    config: financialServicesConfig,
-    trackingPrefix: "financial",
-  },
-  "industrial-manufacturing": {
-    config: industrialFirmsConfig,
-    trackingPrefix: "manufacturing",
-  },
-  insurance: {
-    config: insuranceConfig,
-    trackingPrefix: "insurance",
-  },
-  "investment-firms": {
-    config: investmentConfig,
-    trackingPrefix: "investment",
-  },
-  marketplace: {
-    config: marketplaceConfig,
-    trackingPrefix: "marketplace",
-  },
-  media: {
-    config: mediaConfig,
-    trackingPrefix: "media",
-  },
-  "retail-ecommerce": {
-    config: retailEcommerceConfig,
-    trackingPrefix: "retail",
-  },
-} as const satisfies Record<
-  string,
-  { config: IndustryPageConfig; trackingPrefix: string }
->;
-
-type IndustryKey = keyof typeof INDUSTRY_PAGE_MAP;
-
-function isIndustryKey(value: string): value is IndustryKey {
-  return value in INDUSTRY_PAGE_MAP;
-}
-
-interface IndustryDynamicPageProps {
-  gtmTrackingId: string | null;
-  customerStories: Awaited<
-    ReturnType<typeof getCustomerStoriesForIndustry>
-  > | null;
-  industryKey: IndustryKey;
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  // Don't pre-generate any paths at build time to minimize Contentful API calls.
-  // Pages are generated on-demand via fallback: "blocking" and cached with ISR.
-  return {
-    paths: [],
-    fallback: "blocking",
-  };
+import LandingLayout, {
+  type LandingLayoutProps,
+} from "@marketing/components/home/LandingLayout";
+import { OperationsPage } from "@marketing/components/home/OperationsPage";
+const industries: Record<string, string> = {
+  "b2b-saas": "Enterprise fleets",
+  consulting: "Drone service providers",
+  "energy-utilities": "Energy & utilities",
+  "financial-services": "Drone logistics",
+  "industrial-manufacturing": "Industrial sites",
+  insurance: "Inspection operators",
+  "investment-firms": "Infrastructure operators",
+  marketplace: "Multi-site operations",
+  media: "Survey teams",
+  "retail-ecommerce": "Special missions",
 };
-
-export const getStaticProps: GetStaticProps<IndustryDynamicPageProps> = async ({
-  params,
-}) => {
-  const industryParam = params?.industry;
-
-  if (!isString(industryParam) || !isIndustryKey(industryParam)) {
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: Object.keys(industries).map((industry) => ({ params: { industry } })),
+  fallback: false,
+});
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const key = params?.industry;
+  if (typeof key !== "string" || !industries[key]) {
     return { notFound: true };
   }
-
-  const customerStories = await getCustomerStoriesForIndustry(industryParam);
-
-  return {
-    props: {
-      gtmTrackingId: process.env.NEXT_PUBLIC_GTM_TRACKING_ID ?? null,
-      customerStories,
-      industryKey: industryParam,
-    },
-    revalidate: CONTENTFUL_REVALIDATE_SECONDS,
-  };
+  return { props: { industry: industries[key], shape: 0 } };
 };
-
-// oxlint-disable-next-line dust/nextjsPageComponentNaming -- pre-existing
-export default function IndustryDynamicPage({
-  customerStories,
-  industryKey,
-}: IndustryDynamicPageProps) {
-  const { config: baseConfig, trackingPrefix } = INDUSTRY_PAGE_MAP[industryKey];
-
-  const config: IndustryPageConfig = {
-    ...baseConfig,
-    ...(customerStories && { customerStories }),
-  };
-
-  return <IndustryTemplate config={config} trackingPrefix={trackingPrefix} />;
+export default function IndustryNextJS({ industry }: { industry: string }) {
+  return (
+    <OperationsPage
+      eyebrow={industry}
+      title="Describe the job. Coordinate your fleet."
+      description={`Aeros helps ${industry.toLowerCase()} plan, dispatch, monitor, and recover drone missions across existing fleets and providers.`}
+      sections={[
+        {
+          title: "Describe the job",
+          description:
+            "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+        },
+        {
+          title: "Dispatch the right fleet",
+          description:
+            "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+        },
+        {
+          title: "Adapt with oversight",
+          description:
+            "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+        },
+        {
+          title: "Close the loop",
+          description:
+            "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
+        },
+      ]}
+    />
+  );
 }
-
-IndustryDynamicPage.getLayout = (
+IndustryNextJS.getLayout = (
   page: ReactElement,
   pageProps: LandingLayoutProps
-) => {
-  return IndustryTemplate.getLayout!(page, pageProps);
-};
+) => <LandingLayout pageProps={pageProps}>{page}</LandingLayout>;

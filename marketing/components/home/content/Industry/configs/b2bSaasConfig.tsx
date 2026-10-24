@@ -27,7 +27,10 @@ export const b2bSaasConfig: IndustryPageConfig = {
       icon: Building04,
     },
     title: (
-      <> Coordinate the network, one <br /> mission at a time. </>
+      <>
+        {" "}
+        Coordinate the network, one <br /> mission at a time.{" "}
+      </>
     ),
     description:
       "Connect dispatch, flight watch, crew, and maintenance around the operational changes that affect the schedule.",

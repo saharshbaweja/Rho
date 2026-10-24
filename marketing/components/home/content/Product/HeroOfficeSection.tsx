@@ -1,24 +1,22 @@
+import { DesktopPreview } from "@marketing/components/home/content/Product/mission-control/DesktopPreview";
 import { Button } from "@dust-tt/sparkle";
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
-import { useSignUpModal } from "@marketing/hooks/useSignUpModal";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import Link from "next/link";
 
-const HEADLINE_LINE_1 = "Mission intelligence for";
-const HEADLINE_LINE_2 = "modern flight operations";
+const HEADLINE_LINE_1 = "Describe the mission.";
+const HEADLINE_LINE_2 = "Dispatch your fleet.";
 const LEAD_COPY =
-  "Aeros connects your missions, live aviation data, aircraft, crews, and operating procedures so your team can understand every change, evaluate viable options, and make operational decisions with the full picture.";
+  "Aeros turns natural language into coordinated drone missions. Plan, dispatch, monitor, and recover operations across the fleets and providers you already use—with your operators in control.";
 
 export function HeroOfficeSection() {
-  const { openSignUpModal } = useSignUpModal();
-
   return (
     <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-background pb-12">
-      <div className="relative mx-auto flex w-full max-w-[1600px] flex-col-reverse items-stretch gap-10 px-6 pt-16 lg:flex-row lg:items-center lg:gap-0 lg:px-10 lg:pt-24">
-        <div className="z-10 flex w-full flex-col items-start gap-6 lg:w-[42%] lg:pr-8">
+      <div className="relative mx-auto flex w-full max-w-[1600px] flex-col items-stretch gap-10 px-6 pt-16 lg:flex-row lg:items-center lg:gap-0 lg:px-10 lg:pt-24">
+        <div className="z-10 flex w-full flex-col items-start gap-6 lg:w-[37%] lg:pr-8">
           <HomeReveal>
             <h1
-              className="m-0 text-balance text-[clamp(40px,4.8vw,76px)] font-semibold leading-[90%] tracking-[-0.04em] text-foreground"
+              className="m-0 text-balance text-[clamp(40px,4.1vw,68px)] font-semibold leading-[90%] tracking-[-0.04em] text-foreground"
               style={{ fontFamily: "var(--font-sans, inherit)" }}
             >
               {HEADLINE_LINE_1}
@@ -44,39 +42,21 @@ export function HeroOfficeSection() {
               <Button
                 variant="ghost-secondary"
                 size="md"
-                label="Request access →"
+                label="Watch mission →"
                 onClick={withTracking(
                   TRACKING_AREAS.HOME,
                   "hero_start_free",
-                  openSignUpModal
+                  () => {
+                    window.location.href = "/#mission-control";
+                  }
                 )}
               />
             </div>
           </HomeReveal>
         </div>
 
-        <HomeReveal
-          delay={80}
-          className="relative hidden w-full lg:block lg:w-[58%]"
-        >
-          <div
-            className="dust-floor-host w-full lg:h-[min(86vh,900px)]"
-            aria-hidden="true"
-          >
-            <video
-              className="h-full w-full object-contain"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-            >
-              <source
-                src="/static/landing/home/Aeros_Hero_Video_1080p.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
+        <HomeReveal delay={80} className="relative w-full lg:w-[63%]">
+          <DesktopPreview />
         </HomeReveal>
       </div>
     </section>

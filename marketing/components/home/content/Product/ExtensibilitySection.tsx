@@ -9,7 +9,10 @@ export function ExtensibilitySection({ page = "default" }) {
     <div className="w-full">
       <div className="mb-8">
         <H2> Connect the systems behind the decision </H2>
-        <P size="lg" className="max-w-[700px] text-muted-foreground"> Plan the data connections and review workflows that fit your operation, from mission inputs to the approved response. <br />{" "}
+        <P size="lg" className="max-w-[700px] text-muted-foreground">
+          {" "}
+          Plan the data connections and review workflows that fit your
+          operation, from mission inputs to the approved response. <br />{" "}
           {page == "default" && (
             <Link href="/home/solutions/dust-platform" shallow={true}>
               <A variant="primary"> More about the Aeros platform </A>
@@ -31,7 +34,11 @@ export function ExtensibilitySection({ page = "default" }) {
         <ImgBlock
           title={<> Connect operational workflows </>}
           content={
-            <> Scope mission updates, evidence review, and team handovers around your established operational procedures. </>
+            <>
+              {" "}
+              Scope mission updates, evidence review, and team handovers around
+              your established operational procedures.{" "}
+            </>
           }
         >
           <Hover3D
@@ -51,7 +58,12 @@ export function ExtensibilitySection({ page = "default" }) {
         <ImgBlock
           title={<> Bring mission inputs together </>}
           content={
-            <> Map aviation sources, schedules, aircraft, crews, and operator knowledge to the missions they describe. Validate freshness and coverage before rollout. </>
+            <>
+              {" "}
+              Map aviation sources, schedules, aircraft, crews, and operator
+              knowledge to the missions they describe. Validate freshness and
+              coverage before rollout.{" "}
+            </>
           }
         >
           <Hover3D
@@ -71,7 +83,11 @@ export function ExtensibilitySection({ page = "default" }) {
         <ImgBlock
           title={<> Fit the operator environment </>}
           content={
-            <> Define integration access, ownership, human review, and deployment scope with the teams responsible for the operation. </>
+            <>
+              {" "}
+              Define integration access, ownership, human review, and deployment
+              scope with the teams responsible for the operation.{" "}
+            </>
           }
         >
           <Hover3D

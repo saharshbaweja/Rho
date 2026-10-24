@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import {
   createContext,
   useCallback,
@@ -22,7 +23,10 @@ interface SignUpModalProviderProps {
 export function SignUpModalProvider({ children }: SignUpModalProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const openSignUpModal = useCallback(() => setIsOpen(true), []);
+  const router = useRouter();
+  const openSignUpModal = useCallback(() => {
+    void router.push("/home/contact");
+  }, [router]);
   const closeSignUpModal = useCallback(() => setIsOpen(false), []);
 
   const value = useMemo(

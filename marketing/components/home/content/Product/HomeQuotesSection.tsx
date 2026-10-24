@@ -1,6 +1,6 @@
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 import { HomeQuoteMark } from "@marketing/components/home/content/Product/HomeQuoteMark";
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 interface QuoteEntry {
@@ -123,7 +123,7 @@ export function HomeQuotesSection({ quotes }: HomeQuotesSectionProps) {
             <div className="grid overflow-hidden">
               {quotes.map((q) => (
                 <div
-                  key={`ghost-quote-${q.authorName}`}
+                  key={`ghost-quote-${q.quote}`}
                   className="invisible col-start-1 row-start-1 flex flex-col gap-2"
                   aria-hidden
                 >
@@ -156,7 +156,7 @@ export function HomeQuotesSection({ quotes }: HomeQuotesSectionProps) {
               <div className="grid min-w-0 flex-1 overflow-hidden">
                 {quotes.map((q) => (
                   <div
-                    key={`ghost-name-${q.authorName}`}
+                    key={`ghost-name-${q.quote}`}
                     className="invisible col-start-1 row-start-1 flex flex-col"
                     aria-hidden
                   >
@@ -201,7 +201,7 @@ export function HomeQuotesSection({ quotes }: HomeQuotesSectionProps) {
               )}
             </div>
           </div>
-          <div className="relative hidden aspect-[5/6] w-full overflow-hidden rounded-2xl bg-slate-200 lg:flex lg:aspect-auto lg:w-[429px] lg:flex-shrink-0 lg:self-stretch">
+          <div className="relative hidden min-h-[300px] w-full overflow-hidden rounded-2xl bg-[#e9eff3] lg:flex lg:w-[520px] lg:flex-shrink-0 lg:self-stretch">
             {outgoingQuote && outgoingAnim && (
               <div
                 key={`out-photo-${outgoing?.idx}`}
@@ -209,13 +209,9 @@ export function HomeQuotesSection({ quotes }: HomeQuotesSectionProps) {
                 style={{ animation: `${outgoingAnim} ${animBase}` }}
                 aria-hidden
               >
-                <Image
-                  src={outgoingQuote.imageSrc}
-                  alt={outgoingQuote.imageAlt}
-                  fill
-                  className="object-cover object-bottom"
-                  sizes="(min-width: 1024px) 429px, 100vw"
-                />
+                <div className="flex h-full w-full items-center p-4">
+                  <FeatureScene film="mission-recovery" />
+                </div>
               </div>
             )}
             <div
@@ -227,13 +223,11 @@ export function HomeQuotesSection({ quotes }: HomeQuotesSectionProps) {
                   : undefined
               }
             >
-              <Image
-                src={activeQuote.imageSrc}
-                alt={activeQuote.imageAlt}
-                fill
-                className="object-cover object-bottom"
-                sizes="(min-width: 1024px) 429px, 100vw"
-              />
+              <div className="flex h-full w-full items-center p-4">
+                <FeatureScene
+                  feature={activeIdx === 0 ? "Aeros Report" : "Aeros Recover"}
+                />
+              </div>
             </div>
             {activeQuote.imageCredit ? (
               <a

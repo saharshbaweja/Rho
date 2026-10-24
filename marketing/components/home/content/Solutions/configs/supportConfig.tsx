@@ -1,4 +1,4 @@
-import { Lightbulb04, Rocket02, Users01 } from "@dust-tt/sparkle";
+import { CheckCircle, MagicWand02, Rocket02, Users01 } from "@dust-tt/sparkle";
 import type {
   BenefitsProps,
   MetricProps,
@@ -14,185 +14,122 @@ import type {
   pageSettingsProps,
   ROIProps,
 } from "@marketing/components/home/content/Solutions/configs/utils";
-
-// Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Flight Operations",
-  title: <> See the operation. Understand the next move. </>,
+  uptitle: "Site patrol & response",
+  title: "Coordinate coverage. Stay ready for the unexpected.",
+  description:
+    "Plan recurring patrols, keep aircraft available for response, and give operators a shared view of mission coverage and exceptions.",
   accentColor: "text-brand-electric-blue",
-  description: (
-    <> Bring active missions, changing conditions, and operational priorities into a shared view for the OCC and flight deck. Keep every review connected to the flight it affects. </>
-  ),
   bulletPoints: [
-    "Monitor mission status alongside route weather, airport conditions, and airspace constraints.",
-    "Prioritize changes by their effect on the mission, its aircraft, and its operating window.",
-    "Carry the current assessment, open actions, and ownership into the next shift.",
-    "Prepare clear operational updates with the condition, impact, and proposed response for human review.",
+    "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+    "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+    "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+    "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
   ],
-  image: "/static/landing/support/ticketResolution.png",
+  image: "/static/landing/drone/workspace.svg",
   seo: {
-    title: "Aeros for Flight Operations | Mission Intelligence",
+    title: "Aeros for Site patrol & response",
     description:
-      "Bring active missions, changing conditions, and operational priorities into a shared view for the OCC and flight deck. Keep every review connected to the flight it affects.",
+      "Plan recurring patrols, keep aircraft available for response, and give operators a shared view of mission coverage and exceptions.",
   },
 };
-
 export const Hero: HeroProps = {
   uptitle: pageSettings.uptitle,
   title: pageSettings.title,
   description: pageSettings.description,
   visuals: [
     {
-      src: "/static/landing/support/support1.png",
-      alt: "Support Visual 1",
-      depth: -30,
-    },
-    {
-      src: "/static/landing/support/support2.png",
-      alt: "Support Visual 2",
-      depth: -10,
-    },
-    {
-      src: "/static/landing/support/support3.png",
-      alt: "Support Visual 3",
-      depth: 20,
-    },
-    {
-      src: "/static/landing/support/support4.png",
-      alt: "Support Visual 4",
-      depth: 50,
+      src: "/static/landing/drone/workspace.svg",
+      alt: "Site patrol & response drone dispatch workspace",
+      depth: 0,
     },
   ],
   ctaButtons: {
     primary: {
-      label: "Explore Aeros",
-      href: "/home/pricing",
+      label: "Explore the platform",
+      href: "/home/product",
       icon: Rocket02,
     },
-    secondary: {
-      label: "Request a demo",
-      href: "/home/contact",
-    },
+    secondary: { label: "Request a demo", href: "/home/contact" },
   },
 };
-
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Flight Operations, with the mission in view",
+  sectionTitle: "Site patrol & response, coordinated from request to result",
   items: [
     {
-      icon: Rocket02,
-      title: "Understand the mission",
+      icon: MagicWand02,
+      title: "Natural-language planning",
       description:
-        "Bring active missions, changing conditions, and operational priorities into a shared view for the OCC and flight deck. Keep every review connected to the flight it affects.",
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+    },
+    {
+      icon: CheckCircle,
+      title: "Mission-aware dispatch",
+      description:
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
     },
     {
       icon: Users01,
-      title: "Evaluate the impact",
+      title: "Operator-led recovery",
       description:
-        "Prioritize changes by their effect on the mission, its aircraft, and its operating window.",
-    },
-    {
-      icon: Lightbulb04,
-      title: "Coordinate the response",
-      description:
-        "Prepare clear operational updates with the condition, impact, and proposed response for human review.",
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
     },
   ],
 };
-
 export const Metrics: MetricProps = {
   metrics: [
+    { value: "Connected", description: "Your existing fleets and providers." },
     {
-      value: "Context",
-      description: <> The mission, its constraints, and the changes that matter. </>,
-    },
-    {
-      value: "Evidence",
-      description: <> The sources, assumptions, and human review behind the response. </>,
+      value: "Accountable",
+      description: "Operator approvals and mission history.",
     },
   ],
   color: "golden",
 };
-
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Flight Operations workflows",
+  sectionTitle: "Site patrol & response workflows",
   sectionDescription:
-    "The Aeros roadmap for flight operations, from assessment to coordinated action.",
+    "From the first request to mission completion, keep fleet state, operating constraints, and people connected.",
   items: [
     {
-      title: "Flight watch",
+      title: "Describe the job",
       content:
-        "Monitor mission status alongside route weather, airport conditions, and airspace constraints.",
-      images: ["/static/landing/support/ticketDeflection.png"],
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+      images: ["/static/landing/drone/workspace.svg"],
     },
     {
-      title: "Mission-relevant alerts",
+      title: "Dispatch the right fleet",
       content:
-        "Prioritize changes by their effect on the mission, its aircraft, and its operating window.",
-      images: ["/static/landing/support/ticketResolution.png"],
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+      images: ["/static/landing/drone/fleet.svg"],
     },
     {
-      title: "Operational handover",
+      title: "Adapt with oversight",
       content:
-        "Carry the current assessment, open actions, and ownership into the next shift.",
-      images: ["/static/landing/support/docExpert.png"],
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+      images: ["/static/landing/drone/recovery.svg"],
     },
     {
-      title: "Crew coordination",
+      title: "Close the loop",
       content:
-        "Prepare clear operational updates with the condition, impact, and proposed response for human review.",
-      images: ["/static/landing/support/ticketInsights.png"],
+        "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
+      images: ["/static/landing/drone/flow.svg"],
     },
   ],
 };
-
-export const ROI: ROIProps = {
-  number: "Review",
-  subtitle: "Illustrative reference asset; not an Aeros performance result.",
-  logo: "/static/landing/logos/gray/malt.png",
-};
-
 export const Quote: QuoteProps = {
   quote:
-    "We're managing a higher volume of tickets and have cut processing time—from an average of 6 minutes per ticket to just a few seconds.",
-  name: "Anaïs Ghelfi",
-  title: "Dust customer reference · Head of Data Platform at Malt",
-  logo: "/static/landing/logos/color/malt.png",
+    "Describe the outcome. Coordinate the fleet. Keep operators in control.",
+  name: "Aeros",
+  title: "Our operating principle",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
 };
-
+export const ROI: ROIProps = {
+  number: "Connected",
+  subtitle: "A shared mission context across your fleet.",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
+};
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Reference workflow demonstration",
-  videoUrl: "https://fast.wistia.net/embed/iframe/r0dwaexoez",
-  showCaptions: true,
+  sectionTitle: "Explore the dispatch workflow",
 };
-
-export const Stories: CustomerStory[] = [
-  {
-    title: "Dust reference: Blueground accelerates customer support resolution time with Dust",
-    content:
-      "Discover how Blueground boosted satisfaction and cut resolution time using Dust agents.",
-    href: "/customers/customer-support-blueground",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/06/Blueground_dust.jpg",
-  },
-  {
-    title: "Dust reference: Malt cuts support ticket closing time by 50% with Dust",
-    content:
-      "Malt streamlines customer support using Dust's AI platform for rapid, consistent multilingual responses.",
-    href: "/customers/malt-customer-support",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/malt_dust.png",
-  },
-  {
-    title: "Dust reference: Pennylane's journey to deploy Dust for Customer Care teams",
-    content:
-      "Dust evolved from a simple support tool into an integral part of Pennylane's operations.",
-    href: "/customers/pennylane-customer-support-journey",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Pennylane-__-Dust.jpg",
-  },
-  {
-    title: "Dust reference: Lifen uses Dust AI agents to boost team productivity",
-    content:
-      "Lifen uses Dust AI agents to boost team productivity and save hours of work each week.",
-    href: "/customers/customer-story-lifen",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Lifen-__-Dust.png",
-  },
-];
+export const Stories: CustomerStory[] = [];

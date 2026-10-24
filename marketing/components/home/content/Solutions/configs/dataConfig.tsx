@@ -12,173 +12,124 @@ import type { UseCaseProps } from "@marketing/components/home/content/Solutions/
 import type {
   HeroProps,
   pageSettingsProps,
+  ROIProps,
 } from "@marketing/components/home/content/Solutions/configs/utils";
-
-// Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Network & Recovery",
-  title: <> Resolve disruption with the whole network in view. </>,
-  accentColor: "text-brand-red-rose",
-  description: (
-    <> Compare recovery paths across flights, aircraft rotations, crews, and airports. Make the downstream effect of each option visible before choosing the next move. </>
-  ),
+  uptitle: "Survey & reporting",
+  title: "From mission request to usable results.",
+  description:
+    "Plan survey work across sites, track what was completed, and connect results to the systems your teams already use.",
+  accentColor: "text-brand-electric-blue",
   bulletPoints: [
-    "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
-    "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
-    "Review time, fuel, crew, and passenger considerations where the required data is available.",
-    "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
+    "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+    "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+    "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+    "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
   ],
-  image: "/static/landing/data-analytics/analyst.png",
+  image: "/static/landing/drone/workspace.svg",
   seo: {
-    title: "Aeros for Network & Recovery | Mission Intelligence",
+    title: "Aeros for Survey & reporting",
     description:
-      "Compare recovery paths across flights, aircraft rotations, crews, and airports. Make the downstream effect of each option visible before choosing the next move.",
+      "Plan survey work across sites, track what was completed, and connect results to the systems your teams already use.",
   },
 };
-
 export const Hero: HeroProps = {
   uptitle: pageSettings.uptitle,
   title: pageSettings.title,
   description: pageSettings.description,
   visuals: [
     {
-      src: "/static/landing/data-analytics/data1.png",
-      alt: "Data Visual 1",
-      depth: -30,
-    },
-    {
-      src: "/static/landing/data-analytics/data2.png",
-      alt: "Data Visual 2",
-      depth: -10,
-    },
-    {
-      src: "/static/landing/data-analytics/data3.png",
-      alt: "Data Visual 3",
-      depth: 20,
-    },
-    {
-      src: "/static/landing/data-analytics/data4.png",
-      alt: "Data Visual 4",
-      depth: 50,
+      src: "/static/landing/drone/workspace.svg",
+      alt: "Survey & reporting drone dispatch workspace",
+      depth: 0,
     },
   ],
   ctaButtons: {
     primary: {
-      label: "Explore Aeros",
-      href: "/home/pricing",
+      label: "Explore the platform",
+      href: "/home/product",
       icon: Rocket02,
     },
-    secondary: {
-      label: "Request a demo",
-      href: "/home/contact",
-    },
+    secondary: { label: "Request a demo", href: "/home/contact" },
   },
 };
-
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Network & Recovery, with the mission in view",
+  sectionTitle: "Survey & reporting, coordinated from request to result",
   items: [
     {
       icon: MagicWand02,
-      title: "Understand the mission",
+      title: "Natural-language planning",
       description:
-        "Compare recovery paths across flights, aircraft rotations, crews, and airports. Make the downstream effect of each option visible before choosing the next move.",
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
     },
     {
       icon: CheckCircle,
-      title: "Evaluate the impact",
+      title: "Mission-aware dispatch",
       description:
-        "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
     },
     {
       icon: Users01,
-      title: "Coordinate the response",
+      title: "Operator-led recovery",
       description:
-        "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
     },
   ],
 };
-
 export const Metrics: MetricProps = {
   metrics: [
+    { value: "Connected", description: "Your existing fleets and providers." },
     {
-      value: "Context",
-      description: <> The mission, its constraints, and the changes that matter. </>,
-    },
-    {
-      value: "Evidence",
-      description: <> The sources, assumptions, and human review behind the response. </>,
+      value: "Accountable",
+      description: "Operator approvals and mission history.",
     },
   ],
   color: "golden",
 };
-
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Network & Recovery workflows",
+  sectionTitle: "Survey & reporting workflows",
   sectionDescription:
-    "The Aeros roadmap for network & recovery, from assessment to coordinated action.",
+    "From the first request to mission completion, keep fleet state, operating constraints, and people connected.",
   items: [
     {
-      title: "Network impact",
+      title: "Describe the job",
       content:
-        "Trace the missions and later legs exposed to an airport, weather, aircraft, or crew disruption.",
-      images: ["/static/landing/data-analytics/analyst.png"],
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+      images: ["/static/landing/drone/workspace.svg"],
     },
     {
-      title: "Recovery scenarios",
+      title: "Dispatch the right fleet",
       content:
-        "Compare delay, alternate, aircraft swap, and crew change options using a consistent set of constraints.",
-      images: ["/static/landing/data-analytics/sqlWriter.png"],
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+      images: ["/static/landing/drone/fleet.svg"],
     },
     {
-      title: "Operational tradeoffs",
+      title: "Adapt with oversight",
       content:
-        "Review time, fuel, crew, and passenger considerations where the required data is available.",
-      images: ["/static/landing/data-analytics/dataCatalog.png"],
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+      images: ["/static/landing/drone/recovery.svg"],
     },
     {
-      title: "Decision handover",
+      title: "Close the loop",
       content:
-        "Share the selected option, its assumptions, open conditions, and next actions with the responsible teams.",
-      images: ["/static/landing/data-analytics/dataDoc.png"],
+        "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
+      images: ["/static/landing/drone/flow.svg"],
     },
   ],
 };
-
 export const Quote: QuoteProps = {
   quote:
-    "Dust has revolutionized our partner insights, condensing days of manual research into minutes of AI-powered conversation. It's not just about efficiency and time savings—it's about making smarter decisions and doing things we could not do before.",
-  name: "Alexandre Morillon",
-  title: "Dust customer reference · CEO at Wakam",
-  logo: "/static/landing/logos/color/wakam.svg",
+    "Describe the outcome. Coordinate the fleet. Keep operators in control.",
+  name: "Aeros",
+  title: "Our operating principle",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
 };
-
+export const ROI: ROIProps = {
+  number: "Connected",
+  subtitle: "A shared mission context across your fleet.",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
+};
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Reference workflow demonstration",
-  videoUrl: "https://fast.wistia.net/embed/iframe/9u1uft5pg7",
-  showCaptions: true,
+  sectionTitle: "Explore the dispatch workflow",
 };
-
-export const Stories: CustomerStory[] = [
-  {
-    title: "Dust reference: Wakam enables self-service analytics across 220 users",
-    content:
-      "Wakam breaks down data silos with specialized AI agents, reducing partner intelligence processing by 90% and democratizing data access company-wide.",
-    href: "/customers/wakam-empowers-teams-with-self-service-data-intelligence-while-reducing-processing-time",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Wakam.jpg",
-  },
-  {
-    title: "Dust reference: Alan eliminates data queues and expands data insights with Dust",
-    content:
-      "Alan's @Metabase agent reduces query development time from hours to minutes, achieving a growing 60% weekly usage in their Operations team.",
-    href: "/customers/the-end-of-data-queues-how-alan-scaled-analytics-with-dust-2",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Alan-__-Dust-1.jpg",
-  },
-  // {
-  //   title: "Lifen uses Dust AI agents to boost team productivity", // Soon to be replaced with Clay for RFP?
-  //   content:
-  //     "Lifen uses Dust AI agents to boost team productivity and save hours of work each week.",
-  //   href: "/customers/customer-story-lifen",
-  //   src: "https://blog.dust.tt/content/images/size/w2000/2024/11/lifen_dust_customer_story.jpg",
-  // },
-];
+export const Stories: CustomerStory[] = [];

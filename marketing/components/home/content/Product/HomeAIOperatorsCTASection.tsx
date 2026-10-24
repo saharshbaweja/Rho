@@ -45,14 +45,14 @@ export function HomeAIOperatorsCTASection() {
         <HomeReveal>
           <span className="inline-flex h-7 w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 font-mono text-[11px] uppercase tracking-[0.12em] text-white/70 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
-            The intelligence layer for flight operations
+            AI dispatch for your existing drone fleet
           </span>
         </HomeReveal>
         <HomeReveal delay={80}>
-          <h1 className="m-0 max-w-[920px] text-balance text-center text-4xl font-semibold leading-[1.02] tracking-[-0.04em] text-white md:text-5xl xl:text-6xl">
-            The best operations teams don&apos;t need more data.
+          <h2 className="m-0 max-w-[920px] text-balance text-center text-4xl font-semibold leading-[1.02] tracking-[-0.04em] text-white md:text-5xl xl:text-6xl">
+            Your next mission starts with a sentence.
             <br />
-            They need{" "}
+            Give your fleet{" \u00a0"}
             <HomeReveal
               as="em"
               variant="running"
@@ -65,25 +65,25 @@ export function HomeAIOperatorsCTASection() {
                     'ui-serif, Georgia, Cambria, "Times New Roman", serif',
                 }}
               >
-                clarity
+                direction
               </span>
             </HomeReveal>{" "}
-            now.
-          </h1>
+            today.
+          </h2>
         </HomeReveal>
         <HomeReveal
           delay={200}
           className="flex max-w-[680px] flex-col gap-6 text-white/70"
         >
           <p className="m-0 text-base leading-[1.6]">
-            Flight operations already have weather, NOTAMs, manuals, crew systems,
-            maintenance data, and scheduling tools. The hard part is understanding
-            what all of it means for this flight, right now.
+            You already have the drones. Connect your fleets and providers,
+            describe the job, and give operators one place to coordinate every
+            mission from request to result.
           </p>
           <p className="m-0 text-base leading-[1.6] text-white/85">
-            Aeros turns fragmented context into viable operational options, with
-            the evidence and tradeoffs behind each one visible to the people
-            making the decision.
+            Start with one repeatable workflow. Define your operating rules,
+            validate the integrations, and scale dispatch with oversight built
+            into every step.
           </p>
         </HomeReveal>
         <HomeReveal
@@ -94,7 +94,7 @@ export function HomeAIOperatorsCTASection() {
             variant="highlight"
             size="md"
             label="Request access →"
-            href="https://dust.tt/jobs"
+            href="/home/contact"
             className="active:scale-[0.97] transition-transform duration-100"
             onClick={withTracking(TRACKING_AREAS.HOME, "ai_operator_hiring")}
           />

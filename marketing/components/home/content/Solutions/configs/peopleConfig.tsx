@@ -12,172 +12,124 @@ import type { UseCaseProps } from "@marketing/components/home/content/Solutions/
 import type {
   HeroProps,
   pageSettingsProps,
+  ROIProps,
 } from "@marketing/components/home/content/Solutions/configs/utils";
-
-// Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Flight Deck & Crew",
-  title: <> Give the flight deck the operational context. </>,
-  accentColor: "text-brand-red-rose",
-  description: (
-    <> Keep pilots and crew aligned with dispatch on changing conditions, mission constraints, and the options under review. </>
-  ),
+  uptitle: "Provider coordination",
+  title: "One mission. Every team aligned.",
+  description:
+    "Keep fleet providers, remote pilots, and field teams working from the same assignments, approvals, and exception history.",
+  accentColor: "text-brand-electric-blue",
   bulletPoints: [
-    "Prepare concise mission updates with weather, airport restrictions, and relevant operating conditions.",
-    "Give dispatch and the flight deck a consistent view of the condition and its operational impact.",
-    "Organize updates around the affected flight and the action that needs review.",
+    "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+    "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+    "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+    "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
   ],
-  image: "/static/landing/hr/askhr.png",
+  image: "/static/landing/drone/workspace.svg",
   seo: {
-    title: "Aeros for Flight Deck & Crew | Mission Intelligence",
+    title: "Aeros for Provider coordination",
     description:
-      "Keep pilots and crew aligned with dispatch on changing conditions, mission constraints, and the options under review.",
+      "Keep fleet providers, remote pilots, and field teams working from the same assignments, approvals, and exception history.",
   },
 };
-
 export const Hero: HeroProps = {
   uptitle: pageSettings.uptitle,
   title: pageSettings.title,
   description: pageSettings.description,
   visuals: [
     {
-      src: "/static/landing/hr/hr1.png",
-      alt: "HR Visual 1",
-      depth: -30,
-    },
-    {
-      src: "/static/landing/hr/hr2.png",
-      alt: "HR Visual 2",
-      depth: -10,
-    },
-    {
-      src: "/static/landing/hr/hr3.png",
-      alt: "HR Visual 3",
-      depth: 20,
-    },
-    {
-      src: "/static/landing/hr/hr4.png",
-      alt: "HR Visual 4",
-      depth: 50,
+      src: "/static/landing/drone/workspace.svg",
+      alt: "Provider coordination drone dispatch workspace",
+      depth: 0,
     },
   ],
   ctaButtons: {
     primary: {
-      label: "Explore Aeros",
-      href: "/home/pricing",
+      label: "Explore the platform",
+      href: "/home/product",
       icon: Rocket02,
     },
-    secondary: {
-      label: "Request a demo",
-      href: "/home/contact",
-    },
+    secondary: { label: "Request a demo", href: "/home/contact" },
   },
 };
-
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Flight Deck & Crew, with the mission in view",
+  sectionTitle: "Provider coordination, coordinated from request to result",
   items: [
     {
       icon: MagicWand02,
-      title: "Understand the mission",
+      title: "Natural-language planning",
       description:
-        "Keep pilots and crew aligned with dispatch on changing conditions, mission constraints, and the options under review.",
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
     },
     {
       icon: CheckCircle,
-      title: "Evaluate the impact",
+      title: "Mission-aware dispatch",
       description:
-        "Give dispatch and the flight deck a consistent view of the condition and its operational impact.",
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
     },
     {
       icon: Users01,
-      title: "Coordinate the response",
+      title: "Operator-led recovery",
       description:
-        "Support crew judgment with evidence while preserving established command and approval responsibilities.",
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
     },
   ],
 };
-
 export const Metrics: MetricProps = {
   metrics: [
+    { value: "Connected", description: "Your existing fleets and providers." },
     {
-      value: "Context",
-      description: <> The mission, its constraints, and the changes that matter. </>,
-    },
-    {
-      value: "Evidence",
-      description: <> The sources, assumptions, and human review behind the response. </>,
+      value: "Accountable",
+      description: "Operator approvals and mission history.",
     },
   ],
   color: "golden",
 };
-
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Flight Deck & Crew workflows",
+  sectionTitle: "Provider coordination workflows",
   sectionDescription:
-    "The Aeros roadmap for flight deck & crew, from assessment to coordinated action.",
+    "From the first request to mission completion, keep fleet state, operating constraints, and people connected.",
   items: [
     {
-      title: "Crew briefing",
+      title: "Describe the job",
       content:
-        "Prepare concise mission updates with weather, airport restrictions, and relevant operating conditions.",
-      images: ["/static/landing/hr/askhr.png"],
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+      images: ["/static/landing/drone/workspace.svg"],
     },
     {
-      title: "Shared assessment",
+      title: "Dispatch the right fleet",
       content:
-        "Give dispatch and the flight deck a consistent view of the condition and its operational impact.",
-      images: ["/static/landing/hr/interviewnotes.png"],
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+      images: ["/static/landing/drone/fleet.svg"],
     },
     {
-      title: "Change communication",
+      title: "Adapt with oversight",
       content:
-        "Organize updates around the affected flight and the action that needs review.",
-      images: ["/static/landing/hr/reviewhelper.png"],
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+      images: ["/static/landing/drone/recovery.svg"],
     },
     {
-      title: "Human authority",
+      title: "Close the loop",
       content:
-        "Support crew judgment with evidence while preserving established command and approval responsibilities.",
-      images: ["/static/landing/hr/onboardingbuddy.png"],
+        "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
+      images: ["/static/landing/drone/flow.svg"],
     },
   ],
 };
-
 export const Quote: QuoteProps = {
   quote:
-    "We asked ourselves for years: what if your team had 20% more time? Dust has made it possible, empowering our employees to work smarter, innovate, and push boundaries.",
-  name: "Matthieu Birach",
-  title: "Dust customer reference · Chief People Officer at Doctolib",
-  logo: "/static/landing/logos/color/doctolib.png",
+    "Describe the outcome. Coordinate the fleet. Keep operators in control.",
+  name: "Aeros",
+  title: "Our operating principle",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
 };
-
+export const ROI: ROIProps = {
+  number: "Connected",
+  subtitle: "A shared mission context across your fleet.",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
+};
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Reference workflow demonstration",
-  videoUrl: "https://fast.wistia.net/embed/iframe/eu73efeak9",
-  showCaptions: true,
+  sectionTitle: "Explore the dispatch workflow",
 };
-
-export const Stories: CustomerStory[] = [
-  {
-    title: "Dust reference: Creating an AI-first culture at Doctolib: the People team's role",
-    content:
-      "Doctolib's People team laid the foundations for AI transformation, driving 70% weekly usage across 3,000 employees through cultural change.",
-    href: "/customers/why-doctolib-made-company-wide-enterprise-ai-a-national-cause",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Doctolib-__-Dust---Part-1.jpg",
-  },
-  {
-    title: "Dust reference: 30% time savings in HR: How Alan's People team scaled with Dust",
-    content:
-      "Alan's HR team quadrupled AI adoption and saved 30% of time spent on employee queries by deploying custom Dust agents for people operations.",
-    href: "/customers/how-lucas-people-analyst-at-alan-introduced-dust-to-his-hr-team",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Alan-__-Dust-1--1-.png",
-  },
-  {
-    title: "Dust reference: Clay accelerates team onboarding with Dust AI agents",
-    content:
-      "Clay uses Dust AI agents to onboard new GTM engineers faster and reduce bottlenecks, achieving 100% adoption and saving 58 hours monthly across their growing team",
-    href: "/customers/clay-scaling-gtme-team",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/06/clay_dust_agents.jpg",
-  },
-];
+export const Stories: CustomerStory[] = [];

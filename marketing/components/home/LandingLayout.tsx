@@ -4,7 +4,6 @@ import type { CookieConsentChoices } from "@marketing/components/home/CookieBann
 import { CookieBanner } from "@marketing/components/home/CookieBanner";
 import { LogoListsProvider } from "@marketing/components/home/LogoListsContext";
 import { OpenDustButton } from "@marketing/components/home/OpenDustButton";
-import { PromoBanner } from "@marketing/components/home/PromoBanner";
 import { PublicWebsiteLogo } from "@marketing/components/home/PublicWebsiteLogo";
 import ScrollingHeader from "@marketing/components/home/ScrollingHeader";
 import { SkipLandingPrompt } from "@marketing/components/home/SkipLandingPrompt";
@@ -30,7 +29,6 @@ import { useLandingAuthContext } from "@marketing/lib/swr/website";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import { classNames, getFaviconPath } from "@marketing/lib/utils";
 import { getOrCreateAnonymousId } from "@marketing/lib/utils/anonymous_id";
-import { appendUTMParams } from "@marketing/lib/utils/utm";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
@@ -56,13 +54,7 @@ export default function LandingLayout({
   children: React.ReactNode;
   pageProps: LandingLayoutProps;
 }) {
-  const {
-    postLoginReturnToUrl = "/api/login",
-    gtmTrackingId,
-    hideNavigation,
-    fullWidth,
-    logoLists,
-  } = pageProps;
+  const { gtmTrackingId, hideNavigation, fullWidth, logoLists } = pageProps;
 
   const { openSignUpModal } = useSignUpModal();
 
@@ -187,22 +179,23 @@ export default function LandingLayout({
                   </>
                 ) : (
                   <>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      label="Sign in"
-                      href={appendUTMParams(
-                        `/api/workos/login?returnTo=${encodeURIComponent(postLoginReturnToUrl)}`
-                      )}
-                      onClick={withTracking(
-                        TRACKING_AREAS.NAVIGATION,
-                        "sign_in"
-                      )}
-                    />
+                    <div className="hidden md:inline-flex">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        label="Explore platform"
+                        className="hidden md:inline-flex"
+                        href="/home/product"
+                        onClick={withTracking(
+                          TRACKING_AREAS.NAVIGATION,
+                          "sign_in"
+                        )}
+                      />
+                    </div>
                     <Button
                       variant="outline"
                       size="sm"
-                      label="Try for free"
+                      label="Request access"
                       onClick={withTracking(
                         TRACKING_AREAS.NAVIGATION,
                         "sign_up",
@@ -214,7 +207,7 @@ export default function LandingLayout({
                         href="/home/contact"
                         variant="highlight"
                         size="sm"
-                        label="Contact sales"
+                        label="Book a demo"
                         onClick={withTracking(
                           TRACKING_AREAS.NAVIGATION,
                           "contact_sales"
@@ -241,7 +234,7 @@ export default function LandingLayout({
         >
           {children}
         </div>
-        <PromoBanner />
+
         {(showCookieBanner || isCookieSettingsOpen) && (
           <CookieBanner
             // Remount when switching modes so the switches reset to the saved choices.
@@ -260,7 +253,7 @@ export default function LandingLayout({
             onCancel={() => setIsCookieSettingsOpen(false)}
           />
         )}
-        {hasAcceptedCookies && (
+        {hasAcceptedCookies && gtmTrackingId && (
           <Script id="google-tag-manager" strategy="afterInteractive">
             {`
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -270,14 +263,6 @@ export default function LandingLayout({
               })(window,document,'script','dataLayer','${gtmTrackingId}');
             `}
           </Script>
-        )}
-        {cookieValue === "true" && (
-          // Marketing tier requires explicit Accept; skip the geo-based "auto" consent path.
-          <Script
-            id="claydar"
-            src="https://static.claydar.com/init.v1.js?id=clmYho8v0U"
-            strategy="afterInteractive"
-          />
         )}
         {!hideNavigation && (
           <FooterNavigation
@@ -302,7 +287,7 @@ const Header = () => {
         type="font/woff2"
         crossOrigin="anonymous"
       />
-      <meta name="apple-mobile-web-app-title" content="Dust" />
+      <meta name="apple-mobile-web-app-title" content="Aeros" />
       <link rel="apple-touch-icon" href="/static/AppIcon.png" />
       <link
         rel="apple-touch-icon"

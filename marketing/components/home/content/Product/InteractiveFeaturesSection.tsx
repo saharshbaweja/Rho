@@ -1,6 +1,6 @@
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 import UTMButton from "@marketing/components/UTMButton";
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
-import { useEffect, useRef } from "react";
 
 interface FeatureItem {
   id: string;
@@ -17,59 +17,25 @@ interface FeatureItem {
 const features: FeatureItem[] = [
   {
     id: "pods",
-    title: "Shared mission context",
+    title: "Your connected fleet. One workspace.",
     description:
-      "Bring the mission, changing conditions, evidence, and open actions into one team review. Dispatch, crew, and maintenance work from the same context while retaining clear responsibilities.",
+      "Coordinate aircraft, docks, providers, and field teams around a shared mission plan. Keep fleet state, assignments, operator approvals, and work orders in sync.",
     panelGradient: "linear-gradient(125deg, #FFF1F7 0.54%, #FFC3DF 100%)",
-    videoSrc: "/static/landing/product/PODS_Website-asset%201.mp4",
-    ctaLabel: "View reference workflow",
-    ctaHref: "https://docs.dust.tt/docs/user-documentation/pods/overview",
+    videoSrc: "/static/landing/drone/films/fleet-readiness.mp4",
+    ctaLabel: "Discuss your workflow",
+    ctaHref: "/home/contact",
   },
   {
     id: "skill",
     title: "Continuous reassessment",
     description:
-      "Revisit affected missions when forecasts, restrictions, schedules, or aircraft conditions change. Keep the operational impact and the next review visible as the situation develops.",
+      "When wind rises or a drone becomes unavailable, identify affected missions and compare recovery options. Reassign work, delay a mission, or return an aircraft with operator approval.",
     panelGradient: "linear-gradient(125deg, #E9F7FF 0.54%, #9FDBFF 100%)",
-    videoSrc: "/static/landing/product/Self-improving%20Skills.mp4",
-    ctaLabel: "View reference workflow",
-    ctaHref:
-      "https://dust.tt/blog/introducing-self-improving-skills-reusable-ai-capabilities",
+    videoSrc: "/static/landing/drone/films/mission-recovery.mp4",
+    ctaLabel: "Discuss your workflow",
+    ctaHref: "/home/contact",
   },
 ];
-
-// Plays on hover for pointer devices; autoplays on touch devices (no hover).
-function HoverAutoplayVideo({ src, alt }: { src: string; alt: string }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) {
-      return;
-    }
-    if (window.matchMedia("(hover: none)").matches) {
-      video.play().catch(() => {});
-    }
-  }, []);
-
-  return (
-    <video
-      ref={videoRef}
-      src={src}
-      aria-label={alt}
-      muted
-      loop
-      playsInline
-      preload="metadata"
-      className="absolute inset-0 h-full w-full object-cover"
-      onMouseEnter={(e) => e.currentTarget.play()}
-      onMouseLeave={(e) => {
-        e.currentTarget.pause();
-        e.currentTarget.currentTime = 0;
-      }}
-    />
-  );
-}
 
 export function InteractiveFeaturesSection() {
   return (
@@ -77,7 +43,7 @@ export function InteractiveFeaturesSection() {
       <div className="mx-auto flex w-full max-w-[1180px] flex-col items-center px-6">
         <HomeReveal>
           <h2 className="m-0 py-[8px] text-center font-sans text-[48px] font-normal leading-[52px] tracking-[-0.06em] text-white">
-            Built around the operational decision
+            Built around the entire mission
           </h2>
         </HomeReveal>
       </div>
@@ -87,13 +53,16 @@ export function InteractiveFeaturesSection() {
           <HomeReveal key={feature.id} delay={80 + i * 80} className="h-full">
             <div className="flex h-full flex-col items-center gap-[32px] rounded-[16px] bg-[#090F2A] p-[32px]">
               <div
-                className="relative h-[286px] w-full shrink-0 overflow-hidden rounded-[8px]"
+                className="relative aspect-[4/5] w-full shrink-0 overflow-hidden rounded-[8px]"
                 style={{ backgroundImage: feature.panelGradient }}
               >
                 {feature.videoSrc ? (
-                  <HoverAutoplayVideo
-                    src={feature.videoSrc}
-                    alt={feature.title}
+                  <FeatureScene
+                    film={
+                      feature.id === "pods"
+                        ? "fleet-readiness"
+                        : "mission-recovery"
+                    }
                   />
                 ) : (
                   feature.imageSrc && (

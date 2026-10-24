@@ -1,10 +1,11 @@
 "use client";
 
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
+
 import { H2 } from "@marketing/components/home/ContentComponents";
 import { HomeEyebrow } from "@marketing/components/home/content/Product/HomeEyebrow";
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
 import { cn } from "@marketing/components/poke/shadcn/lib/utils";
-import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 type UsageShape = "circle" | "pie-br" | "pie-bl" | "pie-tr" | "pie-tl";
@@ -33,183 +34,193 @@ interface UsageTab {
   points: UsagePoint[];
 }
 
-// The four shapes cycle through every tab so each list reads with the same
-// rhythm: circle → quarter-pie left → quarter-pie right → circle.
-const SHAPE_CYCLE: UsageShape[] = ["circle", "pie-bl", "pie-br", "circle"];
-
 const TABS: UsageTab[] = [
   {
-    id: "engineering",
+    id: "dispatch",
     label: "Dispatch",
-    heading: "Flight Dispatch\nOperations",
-    imageSrc: "/static/landing/functions/aeros-dispatch-portrait.png",
-    imageAlt: "Engineering team workflow placeholder",
+    heading: "Mission\nDispatch",
+    imageSrc: "/static/landing/drone/films/mission-story.jpg",
+    imageAlt: "Illustrative Aeros dispatch workspace",
     bg: "bg-orange-100/40",
     points: [
       {
-        title: "Mission briefing",
+        title: "Define the objective",
         description:
-          "Assemble the route, time windows, forecasts, notices, and operating limits into a focused briefing for dispatcher review.",
+          "Describe the job, assets, deadline, and expected outputs in plain language.",
         shape: "circle",
+        colorClass: "text-blue-500",
+      },
+      {
+        title: "Review readiness",
+        description:
+          "Check payload, battery, dock state, site access, weather, and airspace inputs.",
+        shape: "pie-bl",
+        colorClass: "text-orange-400",
+      },
+      {
+        title: "Assign the fleet",
+        description:
+          "Match available aircraft and providers to the mission requirements.",
+        shape: "pie-br",
         colorClass: "text-pink-300",
       },
       {
-        title: "Airport suitability",
-        description: "Assess airport hours, runway restrictions, available services, and aircraft requirements for the planned arrival or departure.",
-        shape: "pie-bl",
-        colorClass: "text-orange-500",
-      },
-      {
-        title: "Departure options",
+        title: "Approve dispatch",
         description:
-          "Compare departure windows and alternates against the same mission constraints, including the effect on later legs.",
-        shape: "pie-br",
-        colorClass: "text-yellow-300",
-      },
-      {
-        title: "Release review",
-        description:
-          "Keep unresolved conditions, supporting sources, and required approvals together before an authorized dispatcher makes the release decision.",
+          "Review the plan and unresolved constraints before authorizing execution.",
         shape: "circle",
-        colorClass: "text-green-700",
+        colorClass: "text-green-500",
       },
     ],
   },
   {
-    id: "support",
-    label: "Flight Operations",
-    heading: "Flight Operations\nCommand",
-    imageSrc: "/static/landing/functions/aeros-flight-operations-portrait.png",
-    imageAlt: "Customer support workflow placeholder",
+    id: "operations",
+    label: "Fleet Operations",
+    heading: "Fleet\nMonitoring",
+    imageSrc: "/static/landing/drone/films/mission-story.jpg",
+    imageAlt: "Illustrative Aeros fleet operations workspace",
     bg: "bg-blue-100/40",
     points: [
       {
-        title: "Flight watch",
-        description: "Monitor mission status alongside route weather, airport conditions, and airspace constraints.",
-        shape: SHAPE_CYCLE[0],
-        colorClass: "text-blue-400",
-      },
-      {
-        title: "Mission-relevant alerts",
+        title: "Live fleet context",
         description:
-          "Prioritize changes by their effect on the mission, its aircraft, and its operating window.",
-        shape: SHAPE_CYCLE[1],
-        colorClass: "text-pink-300",
+          "Follow mission assignments, aircraft status, and coverage in one shared workspace.",
+        shape: "circle",
+        colorClass: "text-blue-500",
       },
       {
-        title: "Operational handover",
-        description: "Carry the current assessment, open actions, and ownership into the next shift.",
-        shape: SHAPE_CYCLE[2],
+        title: "Relevant exceptions",
+        description:
+          "See which missions are affected when fleet readiness or conditions change.",
+        shape: "pie-bl",
         colorClass: "text-orange-400",
       },
       {
-        title: "Crew coordination",
-        description: "Prepare clear operational updates with the condition, impact, and proposed response for human review.",
-        shape: SHAPE_CYCLE[3],
+        title: "Coordinated recovery",
+        description:
+          "Review reassignment, delay, or return-to-base options with timing tradeoffs.",
+        shape: "pie-br",
+        colorClass: "text-pink-300",
+      },
+      {
+        title: "Shift handover",
+        description:
+          "Carry current assignments, open actions, and decision ownership into the next shift.",
+        shape: "circle",
         colorClass: "text-green-500",
       },
     ],
   },
   {
-    id: "sales",
-    label: "Maintenance",
-    heading: "Maintenance\nCoordination",
-    imageSrc: "/static/landing/functions/aeros-maintenance-portrait.png",
-    imageAlt: "Sales workflow placeholder",
+    id: "readiness",
+    label: "Fleet Readiness",
+    heading: "Fleet\nReadiness",
+    imageSrc: "/static/landing/drone/films/fleet-readiness.jpg",
+    imageAlt: "Illustrative Aeros fleet readiness workspace",
     bg: "bg-green-100/40",
     points: [
       {
-        title: "Aircraft readiness",
-        description: "Review aircraft status, open items, and mission requirements in one operational context.",
-        shape: SHAPE_CYCLE[0],
+        title: "Aircraft state",
+        description:
+          "Review availability, battery reserves, payload fit, and open maintenance items.",
+        shape: "circle",
         colorClass: "text-blue-500",
       },
       {
-        title: "Deferred defect impact",
-        description: "Connect MEL conditions and deferred items to route requirements and available station equipment.",
-        shape: SHAPE_CYCLE[1],
-        colorClass: "text-yellow-400",
-      },
-      {
-        title: "Maintenance windows",
-        description: "Show how aircraft availability and maintenance timing affect the operating schedule.",
-        shape: SHAPE_CYCLE[2],
-        colorClass: "text-pink-300",
-      },
-      {
-        title: "Aircraft recovery",
-        description: "Assess aircraft substitution and repositioning options before the team commits to a recovery plan.",
-        shape: SHAPE_CYCLE[3],
-        colorClass: "text-green-500",
-      },
-    ],
-  },
-  {
-    id: "marketing",
-    label: "Scheduling & Crew",
-    heading: "Scheduling & Crew\nOperations",
-    imageSrc: "/static/landing/functions/aeros-crew-scheduling-portrait.png",
-    imageAlt: "Marketing workflow placeholder",
-    bg: "bg-pink-100/40",
-    points: [
-      {
-        title: "Crew availability",
+        title: "Dock readiness",
         description:
-          "Bring roster availability and required qualifications into mission planning.",
-        shape: SHAPE_CYCLE[0],
-        colorClass: "text-pink-400",
-      },
-      {
-        title: "Duty impact",
-        description: "Evaluate how delays, diversions, and revised arrival times affect duty and rest margins.",
-        shape: SHAPE_CYCLE[1],
+          "Connect launch-site access, dock availability, and turnaround constraints.",
+        shape: "pie-bl",
         colorClass: "text-orange-400",
       },
       {
-        title: "Rotation dependencies",
-        description: "Trace a proposed change through later legs and identify where the crew plan needs review.",
-        shape: SHAPE_CYCLE[2],
-        colorClass: "text-blue-400",
+        title: "Mission fit",
+        description:
+          "Identify aircraft that meet the task requirements before assigning work.",
+        shape: "pie-br",
+        colorClass: "text-pink-300",
       },
       {
-        title: "Recovery coordination",
-        description: "Compare rescheduling and coverage options with the relevant mission and operator constraints visible.",
-        shape: SHAPE_CYCLE[3],
+        title: "Standby coverage",
+        description:
+          "Keep replacement capacity visible when a mission needs recovery.",
+        shape: "circle",
         colorClass: "text-green-500",
       },
     ],
   },
   {
-    id: "data",
-    label: "Safety & Compliance",
-    heading: "Safety & Compliance\nOperations",
-    imageSrc: "/static/landing/functions/aeros-safety-compliance-portrait.png",
-    imageAlt: "Data and analytics workflow placeholder",
-    bg: "bg-violet-100/40",
+    id: "providers",
+    label: "Providers & Teams",
+    heading: "Provider\nCoordination",
+    imageSrc: "/static/landing/drone/films/fleet-readiness.jpg",
+    imageAlt: "Illustrative Aeros providers & teams workspace",
+    bg: "bg-pink-100/40",
     points: [
       {
-        title: "Rule context",
-        description: "Bring the applicable operator procedure and operating restriction into the mission assessment.",
-        shape: SHAPE_CYCLE[0],
+        title: "Provider availability",
+        description:
+          "Bring provider capacity, operating areas, and task ownership into mission planning.",
+        shape: "circle",
         colorClass: "text-blue-500",
       },
       {
-        title: "Evidence review",
-        description: "Inspect the source, effective period, and reasoning behind a flagged condition.",
-        shape: SHAPE_CYCLE[1],
-        colorClass: "text-yellow-400",
+        title: "Remote pilot coverage",
+        description:
+          "Keep required qualifications, availability, and supervision connected to assignments.",
+        shape: "pie-bl",
+        colorClass: "text-orange-400",
+      },
+      {
+        title: "Cross-fleet work",
+        description:
+          "Split jobs across connected providers while maintaining one mission objective.",
+        shape: "pie-br",
+        colorClass: "text-pink-300",
+      },
+      {
+        title: "Clear accountability",
+        description:
+          "Share assignments, exceptions, and approval history with responsible teams.",
+        shape: "circle",
+        colorClass: "text-green-500",
+      },
+    ],
+  },
+  {
+    id: "safety",
+    label: "Safety & Oversight",
+    heading: "Operator\nOversight",
+    imageSrc: "/static/landing/drone/films/mission-recovery.jpg",
+    imageAlt: "Illustrative Aeros safety & oversight workspace",
+    bg: "bg-violet-100/40",
+    points: [
+      {
+        title: "Operating policies",
+        description:
+          "Review mission boundaries, flight permissions, and operator procedures before dispatch.",
+        shape: "circle",
+        colorClass: "text-blue-500",
+      },
+      {
+        title: "Source context",
+        description:
+          "Inspect input freshness, constraints, and missing information behind the plan.",
+        shape: "pie-bl",
+        colorClass: "text-orange-400",
       },
       {
         title: "Approval ownership",
         description:
-          "Keep required operational approvals with the authorized people and roles.",
-        shape: SHAPE_CYCLE[2],
+          "Keep flight authorization and recovery approval with authorized operators.",
+        shape: "pie-br",
         colorClass: "text-pink-300",
       },
       {
         title: "Decision record",
-        description: "Retain the assessment, human review, and selected action as part of the mission history.",
-        shape: SHAPE_CYCLE[3],
+        description:
+          "Retain the plan, operator review, selected recovery, and completion outcome.",
+        shape: "circle",
         colorClass: "text-green-500",
       },
     ],
@@ -311,16 +322,24 @@ interface TeamOutgoingState {
 // reference) while the content slides horizontally with the tab direction
 // (carries the directional intent). Both share the same 300ms ease-out-cubic
 // so they finish together; only the motion paths differ.
-function ImageCol({ tab, eager }: { tab: UsageTab; eager: boolean }) {
+function ImageCol({ tab }: { tab: UsageTab }) {
   return (
-    <div className="relative flex aspect-[4/3] w-full overflow-hidden rounded-2xl lg:aspect-auto lg:h-full lg:min-h-[480px]">
-      <Image
-        src={tab.imageSrc}
-        alt={tab.imageAlt}
-        fill
-        loading={eager ? "eager" : "lazy"}
-        sizes="(min-width: 1024px) 50vw, 100vw"
-        className="object-contain"
+    <div className="relative flex w-full items-center overflow-hidden rounded-2xl lg:h-full lg:min-h-[480px]">
+      <FeatureScene
+        feature={
+          tab.id === "readiness"
+            ? "Aeros Readiness"
+            : tab.id === "providers" || tab.id === "safety"
+              ? "Aeros Control"
+              : undefined
+        }
+        film={
+          tab.imageSrc.includes("readiness")
+            ? "fleet-readiness"
+            : tab.imageSrc.includes("recovery")
+              ? "mission-recovery"
+              : "mission-story"
+        }
       />
     </div>
   );
@@ -443,7 +462,6 @@ export function HomeTeamUsageSection() {
   }, [activeId]);
 
   const activeTab = TABS.find((t) => t.id === activeId) ?? TABS[0];
-  const activeIndex = TABS.findIndex((t) => t.id === activeId);
 
   // Content (heading + list) slides horizontally with the tab direction.
   const incomingContentAnim = outgoing
@@ -489,7 +507,7 @@ export function HomeTeamUsageSection() {
           </HomeReveal>
           <HomeReveal delay={160}>
             <p className="m-0 max-w-[560px] text-base leading-[1.55] text-muted-foreground">
-              See how dispatch, flight operations, maintenance, scheduling, and
+              See how dispatch, drone operations, maintenance, scheduling, and
               safety can work from the same operational picture.
             </p>
           </HomeReveal>
@@ -565,7 +583,7 @@ export function HomeTeamUsageSection() {
               presence it had before the split. */}
             <div className="relative">
               <div className="invisible" aria-hidden>
-                <ImageCol tab={activeTab} eager={false} />
+                <ImageCol tab={activeTab} />
               </div>
               {outgoingTab && outgoingImgAnim && (
                 <div
@@ -574,7 +592,7 @@ export function HomeTeamUsageSection() {
                   style={{ animation: `${outgoingImgAnim} ${animBase}` }}
                   aria-hidden
                 >
-                  <ImageCol tab={outgoingTab} eager={false} />
+                  <ImageCol tab={outgoingTab} />
                 </div>
               )}
               <div
@@ -586,7 +604,7 @@ export function HomeTeamUsageSection() {
                     : undefined
                 }
               >
-                <ImageCol tab={activeTab} eager={activeIndex === 0} />
+                <ImageCol tab={activeTab} />
               </div>
             </div>
 

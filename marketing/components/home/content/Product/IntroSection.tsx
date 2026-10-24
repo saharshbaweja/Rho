@@ -1,6 +1,10 @@
+import { MissionShowcaseSection } from "@marketing/components/home/content/Product/mission-control/MissionShowcaseSection";
 import { HeroOfficeSection } from "@marketing/components/home/content/Product/HeroOfficeSection";
 import { HomeAIOperatorsCTASection } from "@marketing/components/home/content/Product/HomeAIOperatorsCTASection";
-import { HomeAgentsImproveSection } from "@marketing/components/home/content/Product/HomeAgentsImproveSection";
+import {
+  ProductDetails,
+  ProductQuestions,
+} from "@marketing/components/home/content/Product/ProductDetails";
 import { HomeCoordinatedSection } from "@marketing/components/home/content/Product/HomeCoordinatedSection";
 import { HomeNewsSection } from "@marketing/components/home/content/Product/HomeNewsSection";
 import { HomeQuotesSection } from "@marketing/components/home/content/Product/HomeQuotesSection";
@@ -13,27 +17,19 @@ import type { NewsItem } from "@marketing/lib/homepage_news";
 
 const QUOTES = [
   {
-    quote:
-      "Turn fragmented operational inputs into a clear set of viable actions.",
+    quote: "Describe the outcome. Coordinate the fleet. Close the loop.",
     authorName: "Aeros",
-    authorRole: "Operations intelligence",
-    imageSrc: "/static/landing/people/delta-occ.jpg",
-    imageCredit: {
-      label: "Photo: Delta Air Lines · Operations Control Center",
-      url: "https://news.delta.com/media/image/8356",
-    },
-    imageAlt: "Delta Air Lines operations control staff working at flight-monitoring screens",
+    authorRole: "Natural-language dispatch",
+    imageSrc: "/static/landing/drone/workspace.svg",
+    imageAlt: "Illustrative Aeros mission dispatch workspace",
   },
   {
-    quote: "Every recommendation should show what changed, what it means, and the evidence behind it.",
+    quote:
+      "Every recommendation should show what changed, what it means, and the evidence behind it.",
     authorName: "Aeros",
     authorRole: "Decision support",
-    imageSrc: "/static/landing/people/sun-country-soc.jpg",
-    imageCredit: {
-      label: "Photo: Sun Country Airlines · System Operations Control",
-      url: "https://stories.suncountry.com/post/beyond-boarding-an-in-depth-look-at-our-system-operations-control-center",
-    },
-    imageAlt: "Sun Country Airlines SOC director Dave Setterstrom reviewing multiple operations screens",
+    imageSrc: "/static/landing/drone/recovery.svg",
+    imageAlt: "Illustrative Aeros exception and recovery review",
     bg: "bg-violet-50",
   },
 ];
@@ -50,13 +46,15 @@ export function IntroSection({ news }: IntroSectionProps = {}) {
         <HeroOfficeSection />
         <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex w-screen flex-col">
           <HomeTrustedSection />
+          <MissionShowcaseSection />
           <HomeCoordinatedSection />
           <HomeQuotesSection quotes={QUOTES} />
-          <HomeAgentsImproveSection />
+          <ProductDetails />
           <HomeTeamSportSection />
           <HomeSecuritySection />
           <HomeTeamUsageSection />
           <HomeNewsSection news={news} />
+          <ProductQuestions />
           <HomeAIOperatorsCTASection />
         </div>
       </div>

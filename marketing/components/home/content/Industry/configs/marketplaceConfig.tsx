@@ -27,7 +27,10 @@ export const marketplaceConfig: IndustryPageConfig = {
       icon: ShoppingBag01,
     },
     title: (
-      <> See how one change affects <br /> the next leg. </>
+      <>
+        {" "}
+        See how one change affects <br /> the next leg.{" "}
+      </>
     ),
     description:
       "Connect short rotations, station constraints, crew margins, and aircraft availability to the decisions that keep the network coordinated.",
@@ -218,7 +221,8 @@ export const marketplaceConfig: IndustryPageConfig = {
           {
             icon: "bg-green-500",
             title: "Operational tradeoffs",
-            description: "Review time, fuel, crew, and passenger considerations where the required data is available.",
+            description:
+              "Review time, fuel, crew, and passenger considerations where the required data is available.",
           },
           {
             icon: "bg-pink-400 rounded-tl-full",

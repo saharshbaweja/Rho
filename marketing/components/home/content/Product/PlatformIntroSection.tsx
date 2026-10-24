@@ -10,12 +10,22 @@ export function PlatformIntroSection() {
         "col-span-10"
       )}
     >
-      <P size="lg" className="text-muted-foreground"> Aeros Platform </P>
+      <P size="lg" className="text-muted-foreground">
+        {" "}
+        Aeros Platform{" "}
+      </P>
       <H1
         mono
         className="text-5xl font-medium leading-tight md:text-6xl lg:text-7xl"
-      > For Operational Systems </H1>
-      <P size="lg" className="text-muted-foreground"> Bring aviation sources and operator systems into a consistent mission context, with integration scope validated for your operation. </P>
+      >
+        {" "}
+        For Operational Systems{" "}
+      </H1>
+      <P size="lg" className="text-muted-foreground">
+        {" "}
+        Bring aviation sources and operator systems into a consistent mission
+        context, with integration scope validated for your operation.{" "}
+      </P>
       <div className="flex flex-col gap-4 xs:flex-row sm:flex-row md:flex-row">
         <Button
           variant="primary"

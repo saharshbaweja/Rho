@@ -14,178 +14,122 @@ import type {
   pageSettingsProps,
   ROIProps,
 } from "@marketing/components/home/content/Solutions/configs/utils";
-
-// Config exports
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Maintenance Control",
-  title: <> Understand what aircraft status means for the flight. </>,
+  uptitle: "Infrastructure inspection",
+  title: "Turn asset lists into coordinated inspections.",
+  description:
+    "Describe the assets to inspect and the deadline. Aeros coordinates mission planning and dispatch across your existing drone fleets, then brings coverage and flagged observations back to the team.",
   accentColor: "text-brand-electric-blue",
-  description: (
-    <> Connect aircraft readiness, deferred defects, station support, and maintenance windows to the missions and rotations they affect. </>
-  ),
   bulletPoints: [
-    "Review aircraft status, open items, and mission requirements in one operational context.",
-    "Connect MEL conditions and deferred items to route requirements and available station equipment.",
-    "Show how aircraft availability and maintenance timing affect the operating schedule.",
-    "Assess aircraft substitution and repositioning options before the team commits to a recovery plan.",
+    "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+    "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+    "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+    "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
   ],
-  image: "/static/landing/engineering/incidentHandling.png",
+  image: "/static/landing/drone/workspace.svg",
   seo: {
-    title: "Aeros for Maintenance Control | Mission Intelligence",
+    title: "Aeros for Infrastructure inspection",
     description:
-      "Connect aircraft readiness, deferred defects, station support, and maintenance windows to the missions and rotations they affect.",
+      "Describe the assets to inspect and the deadline. Aeros coordinates mission planning and dispatch across your existing drone fleets, then brings coverage and flagged observations back to the team.",
   },
 };
-
 export const Hero: HeroProps = {
   uptitle: pageSettings.uptitle,
   title: pageSettings.title,
   description: pageSettings.description,
   visuals: [
     {
-      src: "/static/landing/engineering/eng1.png",
-      alt: "Engineering Visual 1",
-      depth: -30,
-    },
-    {
-      src: "/static/landing/engineering/eng2.png",
-      alt: "Engineering Visual 2",
-      depth: -10,
-    },
-    {
-      src: "/static/landing/engineering/eng3.png",
-      alt: "Engineering Visual 3",
-      depth: 20,
-    },
-    {
-      src: "/static/landing/engineering/eng4.png",
-      alt: "Engineering Visual 4",
-      depth: 50,
+      src: "/static/landing/drone/workspace.svg",
+      alt: "Infrastructure inspection drone dispatch workspace",
+      depth: 0,
     },
   ],
   ctaButtons: {
     primary: {
-      label: "Explore Aeros",
-      href: "/home/pricing",
+      label: "Explore the platform",
+      href: "/home/product",
       icon: Rocket02,
     },
-    secondary: {
-      label: "Request a demo",
-      href: "/home/contact",
-    },
+    secondary: { label: "Request a demo", href: "/home/contact" },
   },
 };
-
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Maintenance Control, with the mission in view",
+  sectionTitle: "Infrastructure inspection, coordinated from request to result",
   items: [
     {
       icon: MagicWand02,
-      title: "Understand the mission",
+      title: "Natural-language planning",
       description:
-        "Connect aircraft readiness, deferred defects, station support, and maintenance windows to the missions and rotations they affect.",
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
     },
     {
       icon: CheckCircle,
-      title: "Evaluate the impact",
+      title: "Mission-aware dispatch",
       description:
-        "Connect MEL conditions and deferred items to route requirements and available station equipment.",
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
     },
-
     {
       icon: Users01,
-      title: "Coordinate the response",
-      description: "Assess aircraft substitution and repositioning options before the team commits to a recovery plan.",
+      title: "Operator-led recovery",
+      description:
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
     },
   ],
 };
-
 export const Metrics: MetricProps = {
   metrics: [
+    { value: "Connected", description: "Your existing fleets and providers." },
     {
-      value: "Context",
-      description: <> The mission, its constraints, and the changes that matter. </>,
-    },
-    {
-      value: "Evidence",
-      description: <> The sources, assumptions, and human review behind the response. </>,
+      value: "Accountable",
+      description: "Operator approvals and mission history.",
     },
   ],
   color: "golden",
 };
-
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Maintenance Control workflows",
+  sectionTitle: "Infrastructure inspection workflows",
   sectionDescription:
-    "The Aeros roadmap for maintenance control, from assessment to coordinated action.",
+    "From the first request to mission completion, keep fleet state, operating constraints, and people connected.",
   items: [
     {
-      title: "Aircraft readiness",
+      title: "Describe the job",
       content:
-        "Review aircraft status, open items, and mission requirements in one operational context.",
-      images: ["/static/landing/engineering/debuggingAgent.png"],
+        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+      images: ["/static/landing/drone/workspace.svg"],
     },
     {
-      title: "Deferred defect impact",
+      title: "Dispatch the right fleet",
       content:
-        "Connect MEL conditions and deferred items to route requirements and available station equipment.",
-      images: ["/static/landing/engineering/incidentHandling.png"],
+        "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
+      images: ["/static/landing/drone/fleet.svg"],
     },
     {
-      title: "Maintenance windows",
+      title: "Adapt with oversight",
       content:
-        "Show how aircraft availability and maintenance timing affect the operating schedule.",
-      images: ["/static/landing/engineering/autoreview.png"],
+        "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
+      images: ["/static/landing/drone/recovery.svg"],
     },
     {
-      title: "Aircraft recovery",
+      title: "Close the loop",
       content:
-        "Assess aircraft substitution and repositioning options before the team commits to a recovery plan.",
-      images: ["/static/landing/engineering/teamUpdates.png"],
+        "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
+      images: ["/static/landing/drone/flow.svg"],
     },
   ],
 };
-
-export const ROI: ROIProps = {
-  number: "Review",
-  subtitle: "Illustrative reference asset; not an Aeros performance result.",
-  logo: "/static/landing/logos/gray/alan.png",
-};
-
 export const Quote: QuoteProps = {
   quote:
-    "It's really become a reflex now to ask a Dust agent. With just two keystrokes, it instantly surfaces exactly the context I need - whether from code, documentation, or overlooked team discussions.",
-  name: "Vincent Delagabbe",
-  title: "Dust customer reference · Software Engineer at Alan",
-  logo: "/static/landing/logos/color/alan.png",
+    "Describe the outcome. Coordinate the fleet. Keep operators in control.",
+  name: "Aeros",
+  title: "Our operating principle",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
 };
-
+export const ROI: ROIProps = {
+  number: "Connected",
+  subtitle: "A shared mission context across your fleet.",
+  logo: "/static/landing/home/aeros-principle-mark.svg",
+};
 export const DemoVideo: DemoVideoProps = {
-  sectionTitle: "Reference workflow demonstration",
-  videoUrl: "https://fast.wistia.net/embed/iframe/6z5rtwsuvo",
-  showCaptions: true,
+  sectionTitle: "Explore the dispatch workflow",
 };
-
-export const Stories: CustomerStory[] = [
-  {
-    title: "Dust reference: Alan's engineering team speeds up projects 20% with Dust",
-    content:
-      "Alan uses Dust to improve efficiency in the context of an expanding codebase and documentation.",
-    href: "/customers/integrating-ai-workflows-alan",
-    src: "https://blog.dust.tt/content/images/size/w2000/2025/07/Alan-__-Dust-1--1--1.png",
-  },
-  // {
-  //   title: "November Five's journey to minimizing routine tasks with Dust",
-  //   content:
-  //     "Discover how November Five accelerates work with Dust, turning 3-hour tasks into 30 minutes.",
-  //   href: "/customers/november-five-ai-transformation-dust",
-  //   src: "https://blog.dust.tt/content/images/size/w2000/2025/01/dust_november_five.png",
-  // },
-  // {
-  //   title: "Lifen uses Dust AI agents to boost team productivity", // Soon to be replaced with Clay for RFP?
-  //   content:
-  //     "Lifen uses Dust AI agents to boost team productivity and save hours of work each week.",
-  //   href: "/customers/customer-story-lifen",
-  //   src: "https://blog.dust.tt/content/images/size/w2000/2024/11/lifen_dust_customer_story.jpg",
-  // },
-];
+export const Stories: CustomerStory[] = [];

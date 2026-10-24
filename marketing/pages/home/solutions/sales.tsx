@@ -8,7 +8,7 @@ import { FAQ } from "@marketing/components/home/FAQ";
 import type { LandingLayoutProps } from "@marketing/components/home/LandingLayout";
 import LandingLayout from "@marketing/components/home/LandingLayout";
 import { PageMetadata } from "@marketing/components/home/PageMetadata";
-import TrustedBy from "@marketing/components/home/TrustedBy";
+import { HomeTrustedSection as TrustedBy } from "@marketing/components/home/content/Product/HomeTrustedSection";
 import { BenefitsSection } from "@marketing/components/home/content/Solutions/BenefitsSection";
 // import { CustomerStoriesSection } from "@marketing/components/home/content/Solutions/CustomerStoriesSection";
 import { DemoVideoSection } from "@marketing/components/home/content/Solutions/DemoVideoSection";
@@ -26,7 +26,6 @@ import {
   UseCases,
 } from "@marketing/components/home/content/Solutions/configs/salesConfig";
 import { CONTENTFUL_REVALIDATE_SECONDS } from "@marketing/lib/contentful/client";
-import { fetchLogoLists } from "@marketing/lib/logo_bars_server";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import { classNames } from "@marketing/lib/utils";
 import Link from "next/link";
@@ -37,7 +36,6 @@ export async function getStaticProps() {
   return {
     props: {
       gtmTrackingId: process.env.NEXT_PUBLIC_GTM_TRACKING_ID ?? null,
-      logoLists: await fetchLogoLists(),
     },
     // The logo bar is editor-managed in Contentful, so the page has to
     // revalidate for a GTM change to go live without a deploy.
@@ -54,7 +52,7 @@ const GRID_SECTION_CLASSES = classNames(
 );
 
 // oxlint-disable-next-line dust/nextjsPageComponentNaming -- pre-existing
-export default function Sales() {
+export default function SalesNextJS() {
   const router = useRouter();
 
   return (
@@ -134,6 +132,6 @@ export default function Sales() {
   );
 }
 
-Sales.getLayout = (page: ReactElement, pageProps: LandingLayoutProps) => {
+SalesNextJS.getLayout = (page: ReactElement, pageProps: LandingLayoutProps) => {
   return <LandingLayout pageProps={pageProps}>{page}</LandingLayout>;
 };

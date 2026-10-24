@@ -1,3 +1,4 @@
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 import { Div3D, Hover3D } from "@dust-tt/sparkle";
 import { ImgBlock } from "@marketing/components/home/ContentBlocks";
 import { H2, P } from "@marketing/components/home/ContentComponents";
@@ -34,13 +35,13 @@ export function UseCasesSection({ useCase }: { useCase: UseCaseProps }) {
                   depth={LAYER_DEPTHS[imgIndex]}
                   className={imgIndex > 0 ? "absolute top-0" : ""}
                 >
-                  <img
-                    src={src}
-                    alt={`${item.title} ${imgIndex + 1}`}
-                    style={
-                      src.includes("support1.png")
-                        ? { width: "200%", height: "200%" }
-                        : {}
+                  <FeatureScene
+                    film={
+                      index === 1
+                        ? "fleet-readiness"
+                        : index === 2
+                          ? "mission-recovery"
+                          : "mission-story"
                     }
                   />
                 </Div3D>

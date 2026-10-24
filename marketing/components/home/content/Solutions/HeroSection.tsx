@@ -1,9 +1,5 @@
-import {
-  LegacyButton as Button,
-  Div3D,
-  Hover3D,
-  Rocket02,
-} from "@dust-tt/sparkle";
+import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
+import { LegacyButton as Button, Rocket02 } from "@dust-tt/sparkle";
 import { Grid, H1, H3, P } from "@marketing/components/home/ContentComponents";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import Link from "next/link";
@@ -43,19 +39,7 @@ export const HeroSection: FC<HeroSectionProps> = ({
   ctaButtons,
   trackingPrefix = "hero",
 }) => {
-  const MainVisual = () => (
-    <Hover3D depth={-40} perspective={1000} className="relative">
-      {visuals.map((visual, index) => (
-        <Div3D
-          key={index}
-          depth={visual.depth}
-          className={index > 0 ? "absolute top-0" : ""}
-        >
-          <img src={visual.src} alt={visual.alt} />
-        </Div3D>
-      ))}
-    </Hover3D>
-  );
+  const MainVisual = () => <FeatureScene film="mission-story" />;
 
   return (
     <div className="container flex w-full flex-col pt-24">

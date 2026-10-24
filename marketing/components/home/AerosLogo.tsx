@@ -12,15 +12,25 @@ export function AerosLogo({ className, compact = false }: AerosLogoProps) {
       aria-label="Aeros"
     >
       <image
-        href={
-          compact
-            ? "/static/landing/logos/aeros/aeros-symbol.svg"
-            : "/static/landing/logos/aeros/aeros-wordmark.svg"
-        }
-        width={compact ? 100 : 400}
-        height={100}
-        preserveAspectRatio="xMidYMid meet"
+        href="/static/aeros-logo.png"
+        x="0"
+        y="0"
+        width="100"
+        height="100"
       />
+      {!compact && (
+        <text
+          x="112"
+          y="75"
+          fill="currentColor"
+          fontFamily="Arial, Helvetica, sans-serif"
+          fontSize="87"
+          fontWeight="600"
+          letterSpacing="-5"
+        >
+          aeros
+        </text>
+      )}
     </svg>
   );
 }
