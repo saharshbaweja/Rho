@@ -73,7 +73,7 @@ export function HomeTeamSportSection() {
             className="flex w-full justify-center self-stretch lg:w-1/2"
           >
             <div className="relative flex w-full max-w-[560px] items-center self-stretch overflow-hidden rounded-3xl">
-              <FeatureScene film="fleet-readiness" />
+              <FeatureScene feature="Aeros Control" />
             </div>
           </HomeReveal>
         </div>

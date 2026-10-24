@@ -511,3 +511,242 @@
     font-size: 8px;
   }
 }
+
+/* Each story keeps the same portrait frame, with its own instrument composition. */
+.scene {
+  color: #e8eef1;
+  border: 1px solid #ffffff15;
+}
+.blue {
+  background: linear-gradient(145deg, #17252e, #0b1117 75%);
+}
+.green {
+  background: linear-gradient(145deg, #182a25, #0c1511 75%);
+}
+.peach {
+  background: linear-gradient(145deg, #30251d, #18120e 75%);
+}
+.intro > span {
+  color: #a3b4c1;
+}
+.window {
+  background: #11191e;
+  border-color: #ffffff21;
+  box-shadow: 0 22px 45px #0006;
+}
+.chrome {
+  background: #1b242a;
+  border-color: #ffffff12;
+  color: #a4b1bb;
+}
+.brief {
+  background: #141d24f7;
+  border-color: #42525e;
+  box-shadow: 0 18px 48px #0008;
+}
+.request {
+  color: #a6b6c3;
+  border-color: #ffffff14;
+}
+.response p,
+.metrics span {
+  color: #a8b8c4;
+}
+.response > span,
+.assistant {
+  color: #b4d5e7;
+}
+.brief > button {
+  background: #293e4b;
+  color: #dcecf5;
+  border-color: #49606e;
+}
+.controls {
+  color: #b0c2cd;
+}
+.controls > button {
+  background: #ffffff0b;
+  border-color: #ffffff28;
+}
+.controls [aria-pressed="true"] span {
+  background: #c4dfe9;
+}
+.fleetBoard,
+.recordBoard {
+  background: #111b20;
+}
+.tableHead {
+  background: #1c292f;
+  color: #a6b6c2;
+}
+.tableRow {
+  border-color: #ffffff10;
+  color: #b5c3cb;
+}
+.tableRow strong {
+  color: #edf3f5;
+}
+.highlightRow {
+  background: #263d37;
+}
+.tableRow > span:last-child {
+  color: #b0d6bd;
+}
+.recordRow {
+  border-color: #ffffff18;
+  color: #bcc9d1;
+}
+.recordBoard p {
+  color: #9caebc;
+}
+.scene[data-scene="fleet-readiness"] .window {
+  left: 5%;
+  width: 90%;
+  height: 49%;
+}
+.scene[data-scene="fleet-readiness"] .brief {
+  left: 14%;
+  width: 81%;
+  top: 56%;
+  height: 35%;
+}
+.scene[data-scene="mission-recovery"] .map > img {
+  filter: brightness(0.5) saturate(0.35);
+  transform: scale(1.35);
+}
+.scene[data-scene="mission-recovery"] .window {
+  left: -7%;
+  width: 104%;
+  height: 48%;
+}
+.scene[data-scene="mission-recovery"] .brief {
+  left: 14%;
+  width: 81%;
+}
+.scene[data-scene="mission-recovery"] .brief > button {
+  background: #49392a;
+  border-color: #776049;
+}
+.scene[data-scene="control"] {
+  background: linear-gradient(145deg, #242332, #101017 75%);
+}
+.scene[data-scene="control"] .window {
+  left: 6%;
+  width: 88%;
+  height: 48%;
+}
+.scene[data-scene="control"] .recordRow {
+  border-left: 1px solid #a899ca60;
+  padding-left: 12px;
+}
+.scene[data-scene="control"] .brief {
+  left: 14%;
+  width: 80%;
+  top: 57%;
+  height: 34%;
+}
+.scene[data-scene="report"] {
+  background: linear-gradient(145deg, #1c2b30, #0b1315 75%);
+}
+.scene[data-scene="report"] .window {
+  left: 5%;
+  width: 90%;
+  height: 48%;
+}
+.coverageMatrix {
+  float: right;
+  width: 38%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 3px;
+  margin: 22px 0 12px 15px;
+}
+.coverageMatrix i {
+  aspect-ratio: 1;
+  background: #83b7a1;
+  border-radius: 1px;
+}
+.coverageMatrix i[data-observation="true"] {
+  background: #d8ad6e;
+}
+.weatherEvent {
+  background: #302319ee;
+  border-color: #ad875370;
+  color: #f0cc98;
+}
+@container (max-width: 400px) {
+  .scene[data-scene="control"] .brief,
+  .scene[data-scene="fleet-readiness"] .brief {
+    top: 53%;
+    height: 38%;
+  }
+}
+.readinessBoard {
+  position: absolute;
+  inset: 26px 0 32px;
+  padding: 18px;
+  background: #111d24;
+}
+.readinessBoard > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.readinessBoard span {
+  font-size: 7px;
+  letter-spacing: 0.8px;
+  color: #95b1c3;
+}
+.readinessBoard strong {
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+.readinessBoard small {
+  font-size: 7px;
+  color: #8ca2b0;
+}
+.readinessBoard svg {
+  width: 100%;
+  height: 100px;
+  margin-top: 12px;
+}
+.readinessChecks {
+  display: flex;
+  gap: 18px;
+}
+.readinessChecks b {
+  display: block;
+  margin-top: 6px;
+  font-weight: 400;
+  color: #d6e5ed;
+  font-size: 7px;
+  letter-spacing: 0;
+}
+.scene[data-scene="readiness"] .window {
+  width: 92%;
+  left: 4%;
+  height: 49%;
+}
+.scene[data-scene="readiness"] .brief {
+  left: 15%;
+  width: 80%;
+  top: 57%;
+  height: 34%;
+}
+@container (max-width: 400px) {
+  .readinessBoard {
+    padding: 10px;
+  }
+  .readinessBoard svg {
+    height: 65px;
+    margin-top: 6px;
+  }
+  .readinessBoard strong {
+    font-size: 17px;
+  }
+  .scene[data-scene="readiness"] .brief {
+    top: 53%;
+    height: 38%;
+  }
+}

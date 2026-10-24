@@ -326,6 +326,13 @@ function ImageCol({ tab }: { tab: UsageTab }) {
   return (
     <div className="relative flex w-full items-center overflow-hidden rounded-2xl lg:h-full lg:min-h-[480px]">
       <FeatureScene
+        feature={
+          tab.id === "readiness"
+            ? "Aeros Readiness"
+            : tab.id === "providers" || tab.id === "safety"
+              ? "Aeros Control"
+              : undefined
+        }
         film={
           tab.imageSrc.includes("readiness")
             ? "fleet-readiness"

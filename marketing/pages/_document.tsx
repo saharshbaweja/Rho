@@ -6,7 +6,7 @@ const { NODE_ENV, REACT_SCAN } = process.env;
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html className="dark aeros-dark">
         <Head>
           {NODE_ENV === "development" && REACT_SCAN === "true" && (
             <script src="https://unpkg.com/react-scan/dist/auto.global.js" />

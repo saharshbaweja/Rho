@@ -2113,3 +2113,124 @@
     width: auto;
   }
 }
+
+/* Night operations palette; the desktop canvas dimensions are unchanged. */
+.shell,
+.expanded {
+  background: #0e1418;
+  color: #dce5eb;
+}
+.macChrome {
+  background: #20272b;
+  border-color: #374047;
+  color: #a4b2bc;
+}
+.appHeader {
+  background: #141b20;
+  border-color: #303b43;
+  color: #e6edf1;
+}
+.intelligence {
+  background: #141c22;
+  color: #dce6ee;
+  border-color: #35414a;
+}
+.assistantHeading {
+  background: #182229;
+  border-color: #33414b;
+  color: #e6edf2;
+}
+.assistantHeading small {
+  color: #9aaeba;
+}
+.assistantSymbol {
+  color: #b8d6e7;
+}
+.conversation {
+  background: #141c22;
+}
+.userMessage {
+  color: #dce6ed;
+}
+.assistantMessage > p {
+  color: #afbfcb;
+}
+.planCard,
+.recoveryCard,
+.reportCard,
+.executionCard {
+  background: #1c2932;
+  border-color: #3c4b56;
+  color: #dce6ed;
+}
+.planCard strong,
+.planCard dd,
+.recoveryCard strong,
+.reportCard strong,
+.reportCard dd {
+  color: #edf4f8;
+}
+.planCard li,
+.recoveryCard p,
+.reportCard p,
+.executionCard p,
+.executionCard > div:first-child,
+.executionCard p strong {
+  color: #b3c6d3;
+}
+.planCard button,
+.recoveryCard button,
+.reportCard button {
+  background: #b6cfda;
+  color: #10191e;
+  border-color: #b6cfda;
+}
+.planCard button:hover,
+.recoveryCard button:hover,
+.reportCard button:hover {
+  background: #d2e4ec;
+}
+.assistantFoot,
+.commandForm {
+  background: #11191e;
+  border-color: #34434d;
+  color: #a2b6c4;
+}
+.commandComposer {
+  background: #1e2a32;
+  border-color: #445663;
+}
+.commandComposer input {
+  color: #e0ebf3;
+}
+.commandComposer input::placeholder {
+  color: #91a7b7;
+}
+.commandComposer button {
+  background: #364b59;
+  color: #c4dce9;
+}
+.dialog {
+  background: #0c1217;
+  border-color: #38464e;
+}
+.topbar {
+  background: #172127;
+  color: #dce7ed;
+  border-color: #35434c;
+}
+.brand strong {
+  color: #eef5f7;
+}
+.brandmark {
+  filter: invert(1);
+}
+.workspace,
+.simulation {
+  color: #a5b8c5;
+}
+.avatar {
+  background: #30424d;
+  color: #d1e3ed;
+  border-color: #475c6a;
+}

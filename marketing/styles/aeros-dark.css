@@ -1,0 +1,70 @@
+/* Aeros's marketing palette. Geometry remains owned by the Dust layouts. */
+html.aeros-dark {
+  color-scheme: dark;
+  --color-background: #080a0b;
+  --color-muted-background: #111517;
+  --color-panel-background: #13181b;
+  --color-foreground: #f0f2f3;
+  --color-muted-foreground: #a9b2b9;
+  --color-border: #293136;
+}
+.aeros-dark body {
+  background: #080a0b;
+  color: #f0f2f3;
+}
+.aeros-dark :is(.bg-white, .bg-gray-50, .bg-slate-50) {
+  background-color: #111517;
+}
+.aeros-dark :is(.bg-gray-100, .bg-slate-100) {
+  background-color: #1b2226;
+}
+.aeros-dark
+  :is(
+    .text-black,
+    .text-gray-900,
+    .text-gray-800,
+    .text-slate-900,
+    .text-gray-950
+  ) {
+  color: #eff2f4;
+}
+.aeros-dark :is(.text-gray-700, .text-gray-600, .text-slate-600) {
+  color: #b0bac2;
+}
+.aeros-dark :is(.text-gray-500, .text-slate-500) {
+  color: #929fa9;
+}
+.aeros-dark :is(.border-gray-100, .border-gray-200, .border-slate-200) {
+  border-color: #293136;
+}
+.aeros-dark [class~="text-[#111418]"] {
+  color: #eff2f4;
+}
+.aeros-dark [class~="text-[#3c5a69]"] {
+  color: #b0c2cc;
+}
+.aeros-dark :is([class~="bg-[#e9eff3]"], [class~="bg-[#f5f8f9]"]) {
+  background: #121a1e;
+}
+.aeros-dark svg[aria-label="Aeros"] {
+  color: #f5f6f7;
+}
+.aeros-dark svg[aria-label="Aeros"] image {
+  filter: invert(1);
+}
+.aeros-dark ::selection {
+  background: #9dbbc9;
+  color: #080a0b;
+}
+.aeros-dark :focus-visible {
+  outline-color: #b6d7e8;
+}
+.aeros-dark :is(button, a, span)[class~="from-primary-50"] {
+  background: #20292e;
+  color: #d8e3e9;
+  border-color: #3e4c55;
+}
+.aeros-dark [class~="bg-sky-100"] {
+  background: #1b303b;
+  color: #c2dce9;
+}

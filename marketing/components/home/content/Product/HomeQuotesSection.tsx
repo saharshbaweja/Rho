@@ -225,7 +225,7 @@ export function HomeQuotesSection({ quotes }: HomeQuotesSectionProps) {
             >
               <div className="flex h-full w-full items-center p-4">
                 <FeatureScene
-                  film={activeIdx === 0 ? "mission-story" : "mission-recovery"}
+                  feature={activeIdx === 0 ? "Aeros Report" : "Aeros Recover"}
                 />
               </div>
             </div>

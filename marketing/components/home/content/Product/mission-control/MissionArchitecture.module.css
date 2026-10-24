@@ -399,3 +399,19 @@
     transition: none;
   }
 }
+
+.architecture {
+  background: #111b20;
+  border-color: #33414a;
+  color: #c1d4df;
+}
+.node {
+  background: #1a272e;
+  border-color: #3a4c56;
+  color: #d4e4ec;
+}
+.tabs button[aria-pressed="true"] {
+  background: #243944;
+  color: #d6e7f0;
+  border-color: #4b6574;
+}

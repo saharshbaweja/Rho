@@ -65,6 +65,23 @@ const STORIES = {
     metric: ["2 affected", "+8 min", "Coverage retained"],
     color: "peach",
   },
+  readiness: {
+    label: "AEROS READINESS",
+    title: "A clear window to operate.",
+    request: "Check the next launch window against our operating limits.",
+    steps: [
+      "Assemble the conditions",
+      "Evaluate the operating window",
+      "Surface the open constraints",
+    ],
+    detail: [
+      "Weather, airspace notices, aircraft limits and launch-site status are aligned to the same mission window.",
+      "The proposed launch stays within the configured wind limit. Later gusts narrow the available window.",
+      "The operator reviews source freshness and unresolved constraints before authorizing the mission.",
+    ],
+    metric: ["08 kt NE", "10 km visibility", "Operator review"],
+    color: "blue",
+  },
   report: {
     label: "AEROS REPORT",
     title: "The flight ends. The work closes.",
@@ -119,11 +136,13 @@ export function FeatureScene({
       ? "control"
       : feature?.includes("Dispatch") || feature?.includes("Plan")
         ? "mission-story"
-        : feature?.includes("Readiness") || feature?.includes("Fleet")
-          ? "fleet-readiness"
-          : feature?.includes("Alert") || feature?.includes("Recover")
-            ? "mission-recovery"
-            : film;
+        : feature?.includes("Readiness")
+          ? "readiness"
+          : feature?.includes("Fleet")
+            ? "fleet-readiness"
+            : feature?.includes("Alert") || feature?.includes("Recover")
+              ? "mission-recovery"
+              : film;
   const story = STORIES[sceneKind];
   const [step, setStep] = useState(0);
   const [playing, setPlaying] = useState(false);
@@ -138,6 +157,7 @@ export function FeatureScene({
     <div
       className={`${styles.scene} ${styles[story.color]}`}
       aria-label={story.title}
+      data-scene={sceneKind}
     >
       <div className={styles.intro}>
         <span>{story.label}</span>
@@ -158,6 +178,16 @@ export function FeatureScene({
         </div>
         {sceneKind === "report" || sceneKind === "control" ? (
           <div className={styles.recordBoard}>
+            {sceneKind === "report" && (
+              <div
+                className={styles.coverageMatrix}
+                aria-label="Coverage across six missions"
+              >
+                {Array.from({ length: 60 }, (_, i) => (
+                  <i key={i} data-observation={i % 9 === 0} />
+                ))}
+              </div>
+            )}
             <div>
               <span>
                 {sceneKind === "report" ? "MISSION SUMMARY" : "OPERATOR REVIEW"}
@@ -189,6 +219,50 @@ export function FeatureScene({
                 <small>{i <= step ? "Complete" : "Pending"}</small>
               </div>
             ))}
+          </div>
+        ) : sceneKind === "readiness" ? (
+          <div className={styles.readinessBoard}>
+            <div>
+              <span>OPERATING WINDOW</span>
+              <strong>05:40 — 06:22</strong>
+              <small>Wind forecast · illustrative conditions</small>
+            </div>
+            <svg
+              viewBox="0 0 420 120"
+              role="img"
+              aria-label="Wind rises later in the mission window"
+            >
+              <path d="M0 30H420M0 65H420M0 100H420" stroke="#ffffff12" />
+              <path d="M0 40H420" stroke="#d3a56d" strokeDasharray="4 4" />
+              <path
+                d="M0 90L45 85L90 91L135 75L180 79L225 64L270 60L315 40L360 47L420 22"
+                fill="none"
+                stroke="#9acbd3"
+                strokeWidth="2"
+              />
+              <rect
+                x={20 + step * 65}
+                y="10"
+                width="130"
+                height="100"
+                fill="#95c9c712"
+                stroke="#95c9c740"
+              />
+              <text x="310" y="32" fill="#d3a56d" fontSize="8">
+                OPERATING LIMIT
+              </text>
+            </svg>
+            <div className={styles.readinessChecks}>
+              <span>
+                Weather <b>Reviewed</b>
+              </span>
+              <span>
+                Airspace <b>Review required</b>
+              </span>
+              <span>
+                Launch site <b>Ready</b>
+              </span>
+            </div>
           </div>
         ) : sceneKind === "fleet-readiness" ? (
           <div className={styles.fleetBoard}>
@@ -252,7 +326,11 @@ export function FeatureScene({
             </div>
             <svg viewBox="0 0 500 240" aria-hidden="true">
               <path
-                d="M75 180L125 110L235 105L260 172L350 150L410 85"
+                d={
+                  sceneKind === "mission-recovery"
+                    ? "M75 180L160 195L290 195L350 150L410 85"
+                    : "M75 180L125 110L235 105L260 172L350 150L410 85"
+                }
                 fill="none"
                 stroke="#fff"
                 strokeWidth="3"
