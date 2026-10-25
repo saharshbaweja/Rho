@@ -152,7 +152,7 @@ export function MissionControl({
           <div className={styles.brand}>
             <img
               className={styles.brandmark}
-              src="/static/aeros-logo.png"
+              src="/static/aeros-logo-white.svg"
               alt=""
             />
             <strong>aeros</strong>

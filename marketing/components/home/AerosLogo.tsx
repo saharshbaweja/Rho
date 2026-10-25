@@ -12,7 +12,7 @@ export function AerosLogo({ className, compact = false }: AerosLogoProps) {
       aria-label="Aeros"
     >
       <image
-        href="/static/aeros-logo.png"
+        href="/static/aeros-logo-white.svg"
         x="0"
         y="0"
         width="100"
