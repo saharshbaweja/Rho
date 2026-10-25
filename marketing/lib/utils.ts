@@ -1,5 +1,5 @@
 export function getFaviconPath(): string {
-  return "/static/aeros-logo.png";
+  return "/static/aeros-logo-white.svg";
 }
 
 export function classNames(...classes: (string | null | boolean)[]) {

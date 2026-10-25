@@ -279,7 +279,7 @@ const Header = () => {
 
   return (
     <Head>
-      <link rel="icon" type="image/png" href={faviconPath} />
+      <link rel="icon" type="image/svg+xml" href={faviconPath} />
       <link
         rel="preload"
         href="/static/fonts/GeistVariable.woff2"

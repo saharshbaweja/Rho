@@ -49,9 +49,6 @@ html.aeros-dark {
 .aeros-dark svg[aria-label="Aeros"] {
   color: #f5f6f7;
 }
-.aeros-dark svg[aria-label="Aeros"] image {
-  filter: invert(1);
-}
 .aeros-dark ::selection {
   background: #9dbbc9;
   color: #080a0b;
