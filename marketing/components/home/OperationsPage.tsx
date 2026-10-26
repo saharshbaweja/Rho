@@ -49,7 +49,7 @@ export function OperationsPage({
                   Discuss your workflow →
                 </Link>
                 <Link
-                  href="/home/product#dispatch-demo"
+                  href="/home#mission-control"
                   className="rounded-full border border-border px-6 py-3 text-sm text-foreground"
                 >
                   Explore the demo

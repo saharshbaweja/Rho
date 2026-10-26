@@ -1,4 +1,10 @@
-const EXCLUDED_PATHS = ["/m/api*", "/api*"];
+const EXCLUDED_PATHS = [
+  "/m/api*",
+  "/api*",
+  "/home/product*",
+  "/home/resources*",
+  "/resources*",
+];
 
 const isBotCrawlingEnabled =
   process.env.NEXT_PUBLIC_ENABLE_BOT_CRAWLING === "true";

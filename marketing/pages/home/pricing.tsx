@@ -585,7 +585,7 @@ function PlanCard({
               })}
             </div>
             <p className="copy-xs mt-5 text-right text-muted-foreground">
-              Pricing shown per active drone / month
+              All prices in USD · per active drone / month
             </p>
           </div>
         </>

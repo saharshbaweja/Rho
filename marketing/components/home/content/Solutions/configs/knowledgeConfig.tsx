@@ -47,7 +47,7 @@ export const Hero: HeroProps = {
   ctaButtons: {
     primary: {
       label: "Explore the platform",
-      href: "/home/product",
+      href: "/home#products",
       icon: Rocket02,
     },
     secondary: { label: "Request a demo", href: "/home/contact" },

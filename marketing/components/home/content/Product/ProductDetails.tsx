@@ -130,8 +130,8 @@ export function ProductDetails({ detailed = false }: { detailed?: boolean }) {
               </dl>
             )}
             {!detailed && (
-              <Link href={`/home/product#${product.href}`}>
-                Explore {product.name.toLowerCase()} <ArrowUpRight size={13} />
+              <Link href="/home/contact">
+                Discuss {product.name.toLowerCase()} <ArrowUpRight size={13} />
               </Link>
             )}
           </article>

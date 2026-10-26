@@ -45,6 +45,17 @@ const config = {
   },
   async redirects() {
     return [
+      {
+        source: "/home/product/:path*",
+        destination: "/home",
+        permanent: false,
+      },
+      {
+        source: "/home/resources/:path*",
+        destination: "/home",
+        permanent: false,
+      },
+      { source: "/resources/:path*", destination: "/home", permanent: false },
       // Retire inherited third-party content while keeping old URLs usable.
       { source: "/sign-up", destination: "/home/contact", permanent: false },
       {
@@ -69,22 +80,22 @@ const config = {
       },
       {
         source: "/home/slack/:path*",
-        destination: "/home/product",
+        destination: "/home",
         permanent: false,
       },
       {
         source: "/home/landing/:path*",
-        destination: "/home/product",
+        destination: "/home",
         permanent: false,
       },
       {
         source: "/landing/:path*",
-        destination: "/home/product",
+        destination: "/home",
         permanent: false,
       },
       {
         source: "/academy/:path*",
-        destination: "/home/product",
+        destination: "/home",
         permanent: false,
       },
       { source: "/blog/:path*", destination: "/home/about", permanent: false },
@@ -93,7 +104,7 @@ const config = {
         destination: "/home/about",
         permanent: false,
       },
-      { source: "/go/:path*", destination: "/home/product", permanent: false },
+      { source: "/go/:path*", destination: "/home", permanent: false },
       {
         source:
           "/blog/how-patch-empowered-70-of-its-team-to-use-ai-agents-weekly",

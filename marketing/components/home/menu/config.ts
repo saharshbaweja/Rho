@@ -6,22 +6,6 @@ interface NavItemWithChildren {
   tag?: string;
   items?: NavItemWithChildren[];
 }
-const product = {
-  title: "Product",
-  rows: 5,
-  items: [
-    { title: "Platform overview", href: "/home/product" },
-    { title: "Interactive dispatch demo", href: "/home/product#dispatch-demo" },
-    { title: "Aeros Dispatch", href: "/home/product#dispatch" },
-    { title: "Aeros Fleet", href: "/home/product#fleet" },
-    { title: "Aeros Readiness", href: "/home/product#readiness" },
-    { title: "Aeros Recover", href: "/home/product#recover" },
-    { title: "Aeros Control", href: "/home/product#control" },
-    { title: "Aeros Report", href: "/home/product#report" },
-    { title: "Fleet integrations", href: "/integrations" },
-    { title: "Operator oversight", href: "/home/security" },
-  ],
-};
 const solutions = {
   title: "Solutions",
   rows: 4,
@@ -50,15 +34,12 @@ export const menuConfig: {
   footerNav: NavItemWithChildren[];
 } = {
   mainNav: [
-    product,
     solutions,
-    { title: "Resources", rows: 3, items: company.items },
     { title: "Oversight", href: "/home/security" },
     { title: "Pricing", href: "/home/pricing" },
   ],
-  mobileNav: [product, solutions, company],
+  mobileNav: [solutions, company],
   footerNav: [
-    product,
     solutions,
     company,
     {
