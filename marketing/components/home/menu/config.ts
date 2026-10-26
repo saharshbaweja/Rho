@@ -10,14 +10,20 @@ const solutions = {
   title: "Solutions",
   rows: 5,
   items: [
-    { title: "Infrastructure inspection", href: "/home/solutions/engineering" },
+    {
+      title: "Infrastructure inspection",
+      href: "/home/solutions/infrastructure-inspection",
+    },
     {
       title: "Rapid response",
-      href: "/home/solutions/customer-support",
+      href: "/home/solutions/rapid-response",
     },
     { title: "Search & rescue", href: "/home/solutions/search-rescue" },
-    { title: "Fleet service providers", href: "/home/solutions/dust-platform" },
-    { title: "Survey & reporting", href: "/home/solutions/data-analytics" },
+    {
+      title: "Fleet service providers",
+      href: "/home/solutions/fleet-service-providers",
+    },
+    { title: "Survey & reporting", href: "/home/solutions/survey-reporting" },
   ],
 };
 const company = {

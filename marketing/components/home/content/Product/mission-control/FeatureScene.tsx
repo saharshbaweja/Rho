@@ -119,6 +119,46 @@ const STORIES = {
   },
 };
 
+const SEARCH_REPORT = {
+  label: "AEROS REPORT",
+  title: "Keep the next search team informed.",
+  request: "Show the completed sectors and the area that needs another pass.",
+  steps: [
+    "Review sector coverage",
+    "Keep open areas visible",
+    "Prepare the search handover",
+  ],
+  detail: [
+    "The north and access sectors are complete in this example. The eastern sector remains open; completed coverage is not a finding of absence.",
+    "The field team has requested another pass along the eastern boundary. The location and reason stay attached to the search.",
+    "The next team receives completed sectors, outstanding areas, observations, and operator decisions in the same mission record.",
+  ],
+  metric: ["2 / 3 sectors", "1 area open", "Context retained"],
+  color: "green",
+};
+const REPORT_RECORDS = {
+  inspection: {
+    matrix: "Coverage across six missions",
+    count: "120 / 120",
+    scope: "Assets covered · North district",
+    rows: [
+      "Coverage reconciled",
+      "7 observations for review",
+      "Report ready to export",
+    ],
+  },
+  search: {
+    matrix: "Illustrative search coverage with open areas",
+    count: "02 / 03",
+    scope: "Sectors completed · Waterfront",
+    rows: [
+      "North sector · Completed",
+      "East boundary · Another pass",
+      "Search handover prepared",
+    ],
+  },
+};
+
 /**
  * @cc [owner:saharshbaweja,label:react;product] stable-feature-story
  * Story playback MUST preserve the portrait panel dimensions and MUST remain an explicitly illustrative workflow.
@@ -126,9 +166,11 @@ const STORIES = {
 export function FeatureScene({
   film = "mission-story",
   feature,
+  reportContext = "inspection",
 }: {
   film?: FilmKind;
   feature?: string;
+  reportContext?: "inspection" | "search";
 }) {
   const sceneKind = feature?.includes("Report")
     ? "report"
@@ -143,7 +185,11 @@ export function FeatureScene({
             : feature?.includes("Alert") || feature?.includes("Recover")
               ? "mission-recovery"
               : film;
-  const story = STORIES[sceneKind];
+  const story =
+    sceneKind === "report" && reportContext === "search"
+      ? SEARCH_REPORT
+      : STORIES[sceneKind];
+  const reportRecord = REPORT_RECORDS[reportContext];
   const host = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [step, setStep] = useState(0);
@@ -257,10 +303,15 @@ export function FeatureScene({
             {sceneKind === "report" && (
               <div
                 className={styles.coverageMatrix}
-                aria-label="Coverage across six missions"
+                aria-label={reportRecord.matrix}
               >
                 {Array.from({ length: 60 }, (_, i) => (
-                  <i key={i} data-observation={i % 9 === 0} />
+                  <i
+                    key={i}
+                    data-observation={
+                      reportContext === "search" ? i >= 40 : i % 9 === 0
+                    }
+                  />
                 ))}
               </div>
             )}
@@ -269,32 +320,38 @@ export function FeatureScene({
                 {sceneKind === "report" ? "MISSION SUMMARY" : "OPERATOR REVIEW"}
               </span>
               <strong>
-                {sceneKind === "report" ? "120 / 120" : "Ready for review"}
+                {sceneKind === "report"
+                  ? reportRecord.count
+                  : "Ready for review"}
               </strong>
               <p>
                 {sceneKind === "report"
-                  ? "Assets covered · North district"
+                  ? reportRecord.scope
                   : "Revised mission plan · ND-0120"}
               </p>
             </div>
             {(sceneKind === "report"
-              ? [
-                  "Coverage reconciled",
-                  "7 observations for review",
-                  "Report ready to export",
-                ]
+              ? reportRecord.rows
               : [
                   "Dispatcher · Plan prepared",
                   "Remote pilot · Review requested",
                   "Mission record · Decision retained",
                 ]
-            ).map((item, i) => (
-              <div key={item} className={styles.recordRow}>
-                <span>{i <= step ? <Check size={12} /> : "○"}</span>
-                {item}
-                <small>{i <= step ? "Complete" : "Pending"}</small>
-              </div>
-            ))}
+            ).map((item, i) => {
+              const needsPass =
+                sceneKind === "report" && reportContext === "search" && i === 1;
+              return (
+                <div key={item} className={styles.recordRow}>
+                  <span>
+                    {!needsPass && i <= step ? <Check size={12} /> : "○"}
+                  </span>
+                  {item}
+                  <small>
+                    {needsPass ? "Open" : i <= step ? "Complete" : "Pending"}
+                  </small>
+                </div>
+              );
+            })}
           </div>
         ) : sceneKind === "readiness" ? (
           <div className={styles.readinessBoard}>

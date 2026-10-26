@@ -1,6 +1,6 @@
 import type { UserType } from "@marketing/types/user";
 
-export const DUST_COOKIES_ACCEPTED = "dust-cookies-accepted";
+export const DUST_COOKIES_ACCEPTED = "aeros-cookies-accepted";
 export const DUST_HAS_SESSION = "dust-has-session";
 
 // Set when the visitor opts into going straight to the app from the marketing
@@ -71,7 +71,7 @@ export function hasExplicitAnalyticsConsent(
 }
 
 // Separate from DUST_COOKIES_ACCEPTED: accepting analytics cookies never implies replay consent.
-export const DUST_SESSION_REPLAY_CONSENT = "dust-session-replay-consent";
+export const DUST_SESSION_REPLAY_CONSENT = "aeros-session-replay-consent";
 
 export type SessionReplayConsentValue = "granted" | "denied";
 
