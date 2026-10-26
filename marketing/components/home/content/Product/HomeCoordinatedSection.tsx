@@ -12,11 +12,11 @@ export function HomeCoordinatedSection() {
       <div className="mx-auto flex w-full max-w-[1180px] flex-col items-center gap-12 px-6 lg:flex-row-reverse lg:items-center lg:gap-20">
         <div className="flex w-full flex-col gap-6 lg:w-1/2">
           <HomeReveal>
-            <HomeEyebrow label="From intent to execution" />
+            <HomeEyebrow label="Intent becomes a coordinated operation" />
           </HomeReveal>
           <HomeReveal delay={80}>
             <H2 className="text-balance font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
-              One request. An entire fleet in motion.
+              Task the mission. Aeros coordinates the details.
             </H2>
           </HomeReveal>
           <HomeReveal delay={160}>
@@ -24,10 +24,10 @@ export function HomeCoordinatedSection() {
               size="sm"
               className="max-w-[480px] leading-[1.6] text-muted-foreground"
             >
-              “Inspect these 120 assets before sunrise.” Aeros scopes the job,
-              checks fleet readiness, weather, and airspace, then assigns
-              missions across your connected providers. Review the plan, approve
-              dispatch, and follow every mission in one workspace.
+              “Inspect the waterfront before sunrise.” Define the outcome once.
+              Aeros assembles the assets, aircraft, payloads, operating window,
+              and reserve capacity into a plan your team can review. Approved
+              assignments flow to the providers that already operate your fleet.
             </P>
           </HomeReveal>
         </div>

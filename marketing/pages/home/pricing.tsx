@@ -428,7 +428,7 @@ function BillingToggle({ billing, setBilling }: BillingToggleProps) {
       ref={wrapRef}
       role="group"
       aria-label="Billing period"
-      className="relative flex w-full items-center gap-1 rounded-full bg-muted p-0.5"
+      className="relative flex w-full items-center gap-1 rounded-full border border-border bg-muted-background p-0.5"
     >
       <span
         aria-hidden="true"

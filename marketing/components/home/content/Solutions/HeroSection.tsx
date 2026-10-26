@@ -1,5 +1,6 @@
+import { FieldHandoffScene } from "@marketing/components/home/content/Product/mission-control/FieldHandoffScene";
 import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
-import { LegacyButton as Button, Rocket02 } from "@dust-tt/sparkle";
+import { LegacyButton as Button } from "@dust-tt/sparkle";
 import { Grid, H1, H3, P } from "@marketing/components/home/ContentComponents";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import Link from "next/link";
@@ -39,31 +40,25 @@ export const HeroSection: FC<HeroSectionProps> = ({
   ctaButtons,
   trackingPrefix = "hero",
 }) => {
-  const MainVisual = () => <FeatureScene film="mission-story" />;
-
   return (
     <div className="container flex w-full flex-col pt-24">
       <Grid>
         <div className="col-span-12 flex flex-col justify-center py-4 sm:max-w-[100%] md:max-w-[90%] lg:col-span-6 lg:col-start-1 lg:h-[100%] lg:max-w-[100%] 2xl:col-span-6">
-          <H3 className={accentColor}>Aeros for {uptitle}</H3>
-          <H1
-            mono
-            className="text-5xl font-medium leading-tight md:text-6xl lg:text-7xl"
-          >
+          <H3 className="text-muted-foreground">Aeros for {uptitle}</H3>
+          <H1 className="text-4xl font-semibold leading-[1.05] tracking-[-0.04em] md:text-5xl lg:text-6xl">
             {title}
           </H1>
           <P size="lg" className="pb-6">
             {description}
           </P>
           {ctaButtons && (
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               {ctaButtons.primary && (
                 <Link href={ctaButtons.primary.href} shallow={true}>
                   <Button
                     variant="highlight"
                     size="md"
                     label={ctaButtons.primary.label}
-                    icon={Rocket02}
                     onClick={withTracking(
                       TRACKING_AREAS.SOLUTIONS,
                       `${trackingPrefix}_cta_primary`
@@ -87,9 +82,19 @@ export const HeroSection: FC<HeroSectionProps> = ({
             </div>
           )}
         </div>
-        <div className="col-span-12 mx-auto hidden px-4 py-4 pt-12 sm:max-w-[100%] md:max-w-[90%] lg:col-span-6 lg:col-start-7 lg:block lg:h-[100%] lg:max-w-[100%] 2xl:col-span-6">
+        <div className="col-span-12 mx-auto block w-full px-4 py-4 pt-12 sm:max-w-[100%] md:max-w-[90%] lg:col-span-6 lg:col-start-7 lg:block lg:h-[100%] lg:max-w-[100%] 2xl:col-span-6">
           <div className="flex h-full w-full items-center justify-center xl:px-8">
-            <MainVisual />
+            {uptitle.toLowerCase().includes("response") ? (
+              <FieldHandoffScene />
+            ) : (
+              <FeatureScene
+                feature={
+                  uptitle.toLowerCase().includes("report")
+                    ? "Aeros Report"
+                    : "Aeros Dispatch"
+                }
+              />
+            )}
           </div>
         </div>
       </Grid>

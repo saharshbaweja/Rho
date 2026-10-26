@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { OperationsTheater } from "./OperationsTheater";
 import { MissionControl } from "./MissionControl";
 import styles from "./DesktopPreview.module.css";
 
@@ -8,8 +9,12 @@ import styles from "./DesktopPreview.module.css";
  */
 export function DesktopPreview({
   initialChapter = 1,
+  autoPlay = false,
+  operations = false,
 }: {
   initialChapter?: number;
+  autoPlay?: boolean;
+  operations?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
@@ -30,7 +35,15 @@ export function DesktopPreview({
         className={styles.canvas}
         style={{ transform: `scale(${width / 1200})` }}
       >
-        <MissionControl autoPlay={false} initialChapter={initialChapter} />
+        {operations ? (
+          <OperationsTheater
+            compact
+            initialStage={initialChapter}
+            autoPlay={autoPlay}
+          />
+        ) : (
+          <MissionControl autoPlay={autoPlay} initialChapter={initialChapter} />
+        )}
       </div>
     </div>
   );

@@ -4,10 +4,10 @@ import { HomeReveal } from "@marketing/components/home/content/Product/HomeRevea
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import Link from "next/link";
 
-const HEADLINE_LINE_1 = "Describe the mission.";
-const HEADLINE_LINE_2 = "Dispatch your fleet.";
+const HEADLINE_LINE_1 = "One mission.";
+const HEADLINE_LINE_2 = "An entire fleet.";
 const LEAD_COPY =
-  "Mission autonomy for the fleets you already operate. Describe the objective; Aeros builds the plan, coordinates aircraft, monitors execution, and handles exceptions—with your operators in control.";
+  "Aeros is AI dispatch for the drone fleets you already operate. Describe the objective. Coordinate aircraft, see the scene, and adapt the mission from one operator-led workspace.";
 
 export function HeroOfficeSection() {
   return (
@@ -15,6 +15,9 @@ export function HeroOfficeSection() {
       <div className="relative mx-auto flex w-full max-w-[1600px] flex-col items-stretch gap-10 px-6 pt-16 lg:flex-row lg:items-center lg:gap-0 lg:px-10 lg:pt-24">
         <div className="z-10 flex w-full flex-col items-start gap-6 lg:w-[37%] lg:pr-8">
           <HomeReveal>
+            <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+              AI DISPATCH · MISSION AUTONOMY
+            </p>
             <h1
               className="m-0 text-balance text-[clamp(40px,4.1vw,68px)] font-semibold leading-[90%] tracking-[-0.04em] text-foreground"
               style={{ fontFamily: "var(--font-sans, inherit)" }}
@@ -56,7 +59,7 @@ export function HeroOfficeSection() {
         </div>
 
         <HomeReveal delay={80} className="relative w-full lg:w-[63%]">
-          <DesktopPreview />
+          <DesktopPreview initialChapter={1} autoPlay operations />
         </HomeReveal>
       </div>
     </section>

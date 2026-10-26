@@ -30,8 +30,8 @@ export function Landing({ news }: HomeProps) {
   return (
     <>
       <PageMetadata
-        title="Aeros | Natural-language dispatch for drone fleets"
-        description="Describe the mission. Aeros plans, dispatches, coordinates, monitors, and handles exceptions across your existing drone fleets and providers."
+        title="Aeros | AI drone dispatch and mission autonomy"
+        description="AI dispatch for the drone fleets you already operate. Plan missions, coordinate aircraft, share scene context, and adapt operations across connected providers."
         pathname={router.asPath}
       />
       <IntroSection news={news} />

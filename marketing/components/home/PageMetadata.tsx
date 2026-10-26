@@ -20,8 +20,8 @@ export function PageMetadata({
     ? `${origin}${cleanPath === "/home" ? "/" : cleanPath}`
     : undefined;
   const defaultOgImage = origin
-    ? `${origin}/static/landing/drone/workspace.svg`
-    : "/static/landing/drone/workspace.svg";
+    ? `${origin}/static/landing/drone/aeros-mission-preview.png`
+    : "/static/landing/drone/aeros-mission-preview.png";
 
   return (
     <Head>
@@ -40,6 +40,12 @@ export function PageMetadata({
         <meta key="og:url" property="og:url" content={canonicalUrl} />
       )}
       <meta key="og:type" property="og:type" content="website" />
+      {!ogImage && (
+        <meta key="og:image:width" property="og:image:width" content="1200" />
+      )}
+      {!ogImage && (
+        <meta key="og:image:height" property="og:image:height" content="630" />
+      )}
       <meta
         key="og:image"
         property="og:image"

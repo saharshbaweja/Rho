@@ -15,22 +15,22 @@ import type {
   ROIProps,
 } from "@marketing/components/home/content/Solutions/configs/utils";
 export const pageSettings: pageSettingsProps = {
-  uptitle: "Site patrol & response",
-  title: "Coordinate coverage. Stay ready for the unexpected.",
+  uptitle: "Rapid response",
+  title: "From an incoming task to a shared aerial picture.",
   description:
-    "Plan recurring patrols, keep aircraft available for response, and give operators a shared view of mission coverage and exceptions.",
+    "Turn a location, alert, or operator request into a coordinated drone mission. Check the nearest ready aircraft, review the plan, and keep scene context connected to the people responding.",
   accentColor: "text-brand-electric-blue",
   bulletPoints: [
-    "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+    "Describe the incident, location, priority, and required scene context. Keep the task attached to the aircraft assignments and review the scope before dispatch.",
     "Check connected aircraft, payloads, battery state, docks, operator availability, weather, and airspace constraints. Validate provider integrations before operational use.",
     "Monitor mission status and identify affected assignments when conditions change. Review reassignment, delay, or return-to-base options with clear approval ownership.",
-    "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
+    "Retain scene observations, aircraft handovers, and operator decisions in one mission record for debrief and follow-up.",
   ],
   image: "/static/landing/drone/workspace.svg",
   seo: {
-    title: "Aeros for Site patrol & response",
+    title: "Aeros for Rapid response",
     description:
-      "Plan recurring patrols, keep aircraft available for response, and give operators a shared view of mission coverage and exceptions.",
+      "Turn a location, alert, or operator request into a coordinated drone mission. Check the nearest ready aircraft, review the plan, and keep scene context connected to the people responding.",
   },
 };
 export const Hero: HeroProps = {
@@ -40,7 +40,7 @@ export const Hero: HeroProps = {
   visuals: [
     {
       src: "/static/landing/drone/workspace.svg",
-      alt: "Site patrol & response drone dispatch workspace",
+      alt: "Rapid response drone dispatch workspace",
       depth: 0,
     },
   ],
@@ -54,13 +54,13 @@ export const Hero: HeroProps = {
   },
 };
 export const Benefits: BenefitsProps = {
-  sectionTitle: "Site patrol & response, coordinated from request to result",
+  sectionTitle: "Rapid response, coordinated from request to result",
   items: [
     {
       icon: MagicWand02,
       title: "Natural-language planning",
       description:
-        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+        "Describe the incident, location, priority, and required scene context. Keep the task attached to the aircraft assignments and review the scope before dispatch.",
     },
     {
       icon: CheckCircle,
@@ -87,14 +87,14 @@ export const Metrics: MetricProps = {
   color: "golden",
 };
 export const UseCases: UseCaseProps = {
-  sectionTitle: "Site patrol & response workflows",
+  sectionTitle: "Rapid response workflows",
   sectionDescription:
     "From the first request to mission completion, keep fleet state, operating constraints, and people connected.",
   items: [
     {
       title: "Describe the job",
       content:
-        "Define the objective, asset list, area, and completion window in natural language. Review the scope and required outputs before planning.",
+        "Describe the incident, location, priority, and required scene context. Keep the task attached to the aircraft assignments and review the scope before dispatch.",
       images: ["/static/landing/drone/workspace.svg"],
     },
     {
@@ -112,7 +112,7 @@ export const UseCases: UseCaseProps = {
     {
       title: "Close the loop",
       content:
-        "Bring completion status, coverage, flagged observations, and exception history back into your work-order and reporting workflow.",
+        "Retain scene observations, aircraft handovers, and operator decisions in one mission record for debrief and follow-up.",
       images: ["/static/landing/drone/flow.svg"],
     },
   ],
@@ -122,12 +122,12 @@ export const Quote: QuoteProps = {
     "Describe the outcome. Coordinate the fleet. Keep operators in control.",
   name: "Aeros",
   title: "Our operating principle",
-  logo: "/static/landing/home/aeros-principle-mark.svg",
+  logo: "/static/aeros-logo-white.svg",
 };
 export const ROI: ROIProps = {
   number: "Connected",
   subtitle: "A shared mission context across your fleet.",
-  logo: "/static/landing/home/aeros-principle-mark.svg",
+  logo: "/static/aeros-logo-white.svg",
 };
 export const DemoVideo: DemoVideoProps = {
   sectionTitle: "Explore the dispatch workflow",

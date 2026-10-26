@@ -201,7 +201,7 @@ export function HomeQuotesSection({ quotes }: HomeQuotesSectionProps) {
               )}
             </div>
           </div>
-          <div className="relative hidden min-h-[300px] w-full overflow-hidden rounded-2xl bg-[#e9eff3] lg:flex lg:w-[520px] lg:flex-shrink-0 lg:self-stretch">
+          <div className="relative hidden min-h-[300px] w-full overflow-hidden rounded-2xl bg-[#e9eff3] lg:flex lg:min-h-[650px] lg:w-[520px] lg:flex-shrink-0 lg:self-stretch">
             {outgoingQuote && outgoingAnim && (
               <div
                 key={`out-photo-${outgoing?.idx}`}
@@ -210,7 +210,11 @@ export function HomeQuotesSection({ quotes }: HomeQuotesSectionProps) {
                 aria-hidden
               >
                 <div className="flex h-full w-full items-center p-4">
-                  <FeatureScene film="mission-recovery" />
+                  <FeatureScene
+                    feature={
+                      outgoing?.idx === 0 ? "Aeros Report" : "Aeros Recover"
+                    }
+                  />
                 </div>
               </div>
             )}
