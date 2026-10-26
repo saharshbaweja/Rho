@@ -34,10 +34,10 @@ export function MobileNavigation() {
         </SheetTrigger>
         <SheetContent
           side="left"
-          className="border border-slate-300 bg-white py-0"
+          className="border border-border bg-background py-0"
         >
           <SheetHeader
-            className="border-b border-b-slate-100 bg-white"
+            className="border-b border-border bg-background"
             hideButton
           >
             <SheetTitle className="flex w-full items-center justify-between">
@@ -67,7 +67,7 @@ export function MobileNavigation() {
                       {item.title}
                     </MobileLink>
                   ) : (
-                    <div className="block select-none py-2 text-xs font-medium uppercase leading-none text-primary-600 no-underline outline-hidden">
+                    <div className="block select-none py-2 text-xs font-medium uppercase leading-none text-muted-foreground no-underline outline-hidden">
                       {item.title}
                     </div>
                   )}
@@ -88,7 +88,7 @@ export function MobileNavigation() {
                               {subItem.title}
                             </MobileLink>
                           ) : (
-                            <div className="block select-none py-2 pt-4 text-xs font-medium uppercase leading-none text-primary-600 no-underline outline-hidden">
+                            <div className="block select-none py-2 pt-4 text-xs font-medium uppercase leading-none text-muted-foreground no-underline outline-hidden">
                               {subItem.title}
                             </div>
                           )}
@@ -126,8 +126,8 @@ function MobileLink({
       }}
       target={isExternal ? "_blank" : undefined}
       className={classNames(
-        "flex select-none items-center gap-1 rounded-md py-3 font-semibold leading-none text-slate-700 no-underline outline-hidden transition-colors",
-        "hover:bg-slate-50 hover:text-slate-900 hover:underline hover:underline-offset-4 focus:bg-slate-50 focus:text-slate-900 active:text-slate-600"
+        "flex select-none items-center gap-1 rounded-md py-3 font-semibold leading-none text-foreground no-underline outline-hidden transition-colors",
+        "hover:bg-muted-background hover:text-foreground hover:underline hover:underline-offset-4 focus:bg-muted-background focus:text-foreground active:text-foreground"
       )}
       {...props}
     >

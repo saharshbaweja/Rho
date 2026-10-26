@@ -415,3 +415,32 @@
   color: #d6e7f0;
   border-color: #4b6574;
 }
+
+.topline,
+.groupLabel,
+.node small,
+.coreTag,
+.core > p,
+.coreSteps > div,
+.coreSteps > div > span,
+.oversight,
+.resultLoop,
+.resultLoop > strong,
+.tabs button,
+.detail {
+  color: #b1c5d0;
+}
+.tabs {
+  border-color: #34444e;
+}
+.tabs button:hover {
+  background: #1b2c36;
+  color: #eff5f8;
+}
+.tabs button[aria-pressed="true"] > span {
+  color: #c1d8e5;
+}
+.resultLoop > span:first-child,
+.resultLoop > span:nth-last-child(2) {
+  background: #435965;
+}

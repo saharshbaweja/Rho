@@ -250,7 +250,7 @@ function QuoteContent({ quote }: { quote: QuoteEntry }) {
   return (
     <>
       <HomeQuoteMark size={24} />
-      <blockquote className="m-0 text-balance font-semibold leading-[1.2] tracking-[-0.018em] text-gray-900 text-[clamp(2rem,4vw,3.5rem)]">
+      <blockquote className="m-0 text-balance font-semibold leading-[1.2] tracking-[-0.018em] text-foreground text-[clamp(2rem,4vw,3.5rem)]">
         {quote.quote}
       </blockquote>
       <HomeQuoteMark className="self-end" size={24} />
@@ -261,10 +261,10 @@ function QuoteContent({ quote }: { quote: QuoteEntry }) {
 function Attribution({ quote }: { quote: QuoteEntry }) {
   return (
     <>
-      <span className="text-lg font-semibold leading-[26px] tracking-[-0.36px] text-gray-900">
+      <span className="text-lg font-semibold leading-[26px] tracking-[-0.36px] text-foreground">
         {quote.authorName}
       </span>
-      <span className="text-[15px] leading-[1.4] tracking-[-0.5px] text-gray-900/80">
+      <span className="text-[15px] leading-[1.4] tracking-[-0.5px] text-muted-foreground">
         {quote.authorRole}
       </span>
     </>
@@ -283,7 +283,7 @@ function CarouselButton({ direction, onClick, label }: CarouselButtonProps) {
       type="button"
       onClick={onClick}
       aria-label={label}
-      className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-gray-900/30 bg-transparent text-gray-900 transition-colors duration-150 hover:bg-white"
+      className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-border bg-transparent text-foreground transition-colors duration-150 hover:bg-white"
     >
       <svg
         width="18"

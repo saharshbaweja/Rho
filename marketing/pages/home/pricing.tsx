@@ -1,3 +1,6 @@
+import LandingLayout, {
+  type LandingLayoutProps,
+} from "@marketing/components/home/LandingLayout";
 import {
   Button,
   Check,
@@ -581,7 +584,7 @@ function PlanCard({
                 );
               })}
             </div>
-            <p className="copy-xs mt-5 text-right text-primary-400">
+            <p className="copy-xs mt-5 text-right text-muted-foreground">
               Pricing shown per active drone / month
             </p>
           </div>
@@ -974,3 +977,8 @@ export default function PricingNextJS() {
     </MotionConfig>
   );
 }
+
+PricingNextJS.getLayout = (
+  page: React.ReactElement,
+  pageProps: LandingLayoutProps
+) => <LandingLayout pageProps={pageProps}>{page}</LandingLayout>;

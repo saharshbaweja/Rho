@@ -1,0 +1,5 @@
+@cc [owner:saharshbaweja,label:product] aeros-dark-paired-colors
+Marketing dark-theme surfaces and foregrounds must be changed as pairs. Visible body text,
+links, form labels, and control labels must retain at least 4.5:1 contrast against solid
+backgrounds; large headings must retain at least 3:1. Disabled controls are exempt.
+Theme changes must preserve the fixed desktop preview canvas and portrait feature aspect ratios.

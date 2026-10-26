@@ -2231,3 +2231,48 @@
   color: #d1e3ed;
   border-color: #475c6a;
 }
+
+/* Supporting telemetry remains legible at the fixed desktop preview scale. */
+.workspaceMeta,
+.fleetGroup > span,
+.conditions p,
+.conditions p > span,
+.assistantMessage time,
+.userMessage time,
+.planCard dt,
+.reportCard dt,
+.stripTime,
+.transportEnd,
+.transportEnd button {
+  color: #a9becb;
+}
+.transport {
+  color: #bdd0db;
+}
+.playButton {
+  background: #20313b;
+  border-color: #4b606c;
+  color: #d6e7f0;
+}
+.chapterTabs button {
+  color: #b8c7d0;
+}
+.chapterTabs button > span {
+  color: #a5bac7;
+}
+.chapterTabs button[aria-current],
+.chapterTabs button:hover {
+  background: #243944;
+  color: #eff5f8;
+}
+.chapterTabs button[aria-current] > span {
+  color: #b9d5e4;
+}
+.fleetSummary small,
+.fleetItem small,
+.reserve small,
+.mapBreadcrumb span,
+.messageMeta > span:last-child,
+.stripLabel > span:last-child {
+  color: #a9becb;
+}
