@@ -121,6 +121,7 @@
   margin-top: 14px;
 }
 .questions {
+  color: var(--color-foreground);
   max-width: 1180px;
   margin: 0 auto;
   padding: 80px 24px 110px;
@@ -145,6 +146,8 @@
   border-bottom: 1px solid #303a41;
 }
 .questions summary {
+  color: #edf3f7;
+  background: transparent;
   padding: 23px 0;
   display: flex;
   justify-content: space-between;
@@ -178,6 +181,7 @@
     grid-template-columns: 1fr;
   }
   .questions {
+    color: var(--color-foreground);
     grid-template-columns: 1fr;
     gap: 35px;
     padding: 60px 24px;
@@ -191,4 +195,20 @@
   .heading {
     margin-bottom: 32px;
   }
+}
+
+.questions summary:hover,
+.questions details[open] summary {
+  color: #d5e9f4;
+}
+.questions summary:focus-visible {
+  outline: 2px solid #b8d7e8;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.questions details[open] {
+  border-color: #526571;
+}
+.questions details p {
+  color: #b8c5cf;
 }

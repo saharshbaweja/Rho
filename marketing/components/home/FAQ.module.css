@@ -1,0 +1,77 @@
+/* Explicit paired colors keep nested rich answers independent of light prose styles. */
+.item {
+  width: 100%;
+  color: var(--color-foreground);
+}
+.question {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  text-align: left;
+  color: var(--color-foreground);
+  background: transparent;
+}
+.question:hover,
+.question[aria-expanded="true"] {
+  color: #d5e9f4;
+}
+.question > span:first-child {
+  color: inherit;
+}
+.question:focus-visible {
+  outline: 2px solid #b8d7e8;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.answer {
+  max-width: none;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #b8c5cf;
+}
+.answer :is(p, li, ul, ol, blockquote) {
+  color: inherit;
+}
+.answer :is(strong, b, h2, h3, h4) {
+  color: #edf3f7;
+  font-weight: 600;
+}
+.answer :is(h2, h3, h4) {
+  margin: 12px 0 8px;
+  font-size: 18px;
+}
+.answer p + p {
+  margin-top: 12px;
+}
+.answer :is(ul, ol) {
+  margin: 12px 0 16px;
+  padding-left: 24px;
+}
+.answer ul {
+  list-style: disc;
+}
+.answer ol {
+  list-style: decimal;
+}
+.answer li {
+  margin-bottom: 6px;
+  padding-left: 2px;
+}
+.answer li::marker {
+  color: #b8d7e8;
+}
+.answer a {
+  color: #c2e2f3;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.answer a:hover {
+  color: #ffffff;
+}
+
+.divider {
+  margin: 0;
+  background-color: #34444e;
+}
