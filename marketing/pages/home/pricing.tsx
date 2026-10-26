@@ -917,7 +917,7 @@ function FAQSection() {
   }));
 
   return (
-    <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen border-y border-border bg-muted">
+    <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen border-y border-border bg-muted-background">
       <div className="container mx-auto px-6 py-20">
         <div className="px-4 md:px-12 lg:px-32">
           <FAQ title="Frequently asked questions" items={items} />

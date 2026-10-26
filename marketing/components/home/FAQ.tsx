@@ -1,3 +1,4 @@
+import styles from "./FAQ.module.css";
 import { Minus, Plus, Separator } from "@dust-tt/sparkle";
 import { H2 } from "@marketing/components/home/ContentComponents";
 import { cn } from "@marketing/components/poke/shadcn/lib/utils";
@@ -27,9 +28,9 @@ function FAQItemComponent({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="w-full">
+    <div className={styles.item}>
       <button
-        className="flex w-full items-center justify-between py-6 text-left focus:outline-hidden"
+        className={styles.question}
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
       >
@@ -55,13 +56,11 @@ function FAQItemComponent({
       >
         <div className="overflow-hidden">
           <div className="pb-6">
-            <div className="prose prose-gray max-w-none text-base leading-relaxed text-gray-600 [&>h3]:mb-2 [&>h3]:mt-3 [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:text-gray-800 [&>li]:mb-1 [&>strong]:font-semibold [&>strong]:text-gray-700 [&>ul]:mb-4 [&>ul]:list-disc [&>ul]:pl-6">
-              {item.answer}
-            </div>
+            <div className={styles.answer}>{item.answer}</div>
           </div>
         </div>
       </div>
-      <Separator className="my-0" />
+      <Separator className={styles.divider} />
     </div>
   );
 }
