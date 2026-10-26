@@ -92,9 +92,9 @@ const COLUMNS: ComplianceColumn[] = [
 // and the body to the accent's primary tone so each column reads in its
 // own brand register.
 const ICON_COLORS: Record<Accent, { light: string; dark: string }> = {
-  red: { light: "#FFC3DF", dark: "#E14322" },
-  green: { light: "#E2F78C", dark: "#418B5C" },
-  blue: { light: "#9FDBFF", dark: "#1C91FF" },
+  red: { light: "#bda5b0", dark: "#986d7c" },
+  green: { light: "#b2cbb8", dark: "#688d79" },
+  blue: { light: "#bed6e3", dark: "#7696aa" },
 };
 
 function PadlockIcon({ accent }: { accent: Accent }) {

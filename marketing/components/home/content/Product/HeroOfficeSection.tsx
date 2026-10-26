@@ -7,7 +7,7 @@ import Link from "next/link";
 const HEADLINE_LINE_1 = "Describe the mission.";
 const HEADLINE_LINE_2 = "Dispatch your fleet.";
 const LEAD_COPY =
-  "Aeros turns natural language into coordinated drone missions. Plan, dispatch, monitor, and recover operations across the fleets and providers you already use—with your operators in control.";
+  "Mission autonomy for the fleets you already operate. Describe the objective; Aeros builds the plan, coordinates aircraft, monitors execution, and handles exceptions—with your operators in control.";
 
 export function HeroOfficeSection() {
   return (
