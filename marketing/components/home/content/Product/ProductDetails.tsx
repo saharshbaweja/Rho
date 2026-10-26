@@ -7,7 +7,7 @@ const PRODUCTS = [
     name: "Dispatch",
     line: "Turn the job into a coordinated mission.",
     description:
-      "Give Aeros an objective, an area or asset list, a deadline and the result you need. The dispatch workspace turns that request into a reviewable mission plan with aircraft assignments and completion criteria.",
+      "Start with a sentence, a location, or a connected job. Aeros interprets the objective, identifies the operating area, and prepares aircraft assignments with the constraints and approvals attached.",
     input: "Natural language · GIS assets · work orders",
     actions: [
       "Break a job into missions and coverage areas",
@@ -21,7 +21,7 @@ const PRODUCTS = [
     name: "Fleet",
     line: "Know what you can send—and what you should keep.",
     description:
-      "Bring the fleets and providers you already operate into one shared view. Understand aircraft availability, dock status, payload fit and reserves in the context of the next job.",
+      "See aircraft, docks, readiness, and available scene feeds in the context of the operation. Select an aircraft to inspect its assignment and status without losing sight of the rest of the fleet.",
     input: "Connected provider status · aircraft · docks",
     actions: [
       "See availability across connected providers",
@@ -49,11 +49,11 @@ const PRODUCTS = [
     name: "Recover",
     line: "Keep the mission moving when the plan changes.",
     description:
-      "When weather shifts, an aircraft becomes unavailable or a job takes priority, understand which assignments are affected. Compare the available responses before committing to a change.",
+      "A return reserve, a weather change, or a new priority should not lose the mission context. Compare a relief aircraft, a revised route, or a delayed assignment before approving the next move.",
     input: "Mission events · fleet state · changing conditions",
     actions: [
       "Identify affected missions and dependencies",
-      "Compare reassignment, delay and return options",
+      "Coordinate relief aircraft and coverage handovers",
       "Route the revised plan for operator approval",
     ],
     output: "A recovery proposal with coverage and timing tradeoffs.",
@@ -63,11 +63,11 @@ const PRODUCTS = [
     name: "Control",
     line: "Keep operational authority with your team.",
     description:
-      "Give dispatchers, remote pilots and field teams a shared operating picture with clear responsibility. Define who can review, approve and act, and keep the decision history with the mission.",
+      "Keep the control room and field team aligned around the same scene and mission brief. Assign review ownership, carry observations through handovers, and retain a record of who authorized each change.",
     input: "Roles · approvals · procedures · mission context",
     actions: [
       "Separate recommendations from operational actions",
-      "Assign review ownership across teams",
+      "Carry scene context into field-team handoffs",
       "Follow the record of approvals and changes",
     ],
     output: "An accountable mission history and clear handoffs.",
@@ -93,17 +93,17 @@ export function ProductDetails({ detailed = false }: { detailed?: boolean }) {
   return (
     <section className={styles.section} id="products">
       <div className={styles.heading}>
-        <span>THE AEROS PRODUCT SUITE</span>
+        <span>ONE PLATFORM · SIX CONNECTED CAPABILITIES</span>
         <h2>
-          One operating system.
+          From tasking to debrief.
           <br />
-          Every part of the mission.
+          One mission workspace.
         </h2>
         <p>
-          Aeros is dispatch and orchestration software for organizations that
-          already have drone fleets. It connects mission demand to the aircraft,
-          providers and people that can deliver it—then follows the work through
-          to completion.
+          One place to turn a request into coordinated aircraft, shared scene
+          context, and a completed operation. Aeros works across your existing
+          fleets and providers, with operational authority staying with your
+          team.
         </p>
       </div>
       <div className={styles.products}>
@@ -153,7 +153,7 @@ const QUESTIONS = [
   ],
   [
     "Who is it built for?",
-    "Infrastructure inspection teams, utilities, site operators and drone service providers that already run aircraft or use fleet providers. The starting point is a repeatable workflow with clear operating procedures, known assets and measurable completion criteria.",
+    "Public safety and response teams, search coordinators, infrastructure operators, and drone service providers with existing fleets. Start with a defined mission, connected flight systems, and the operating procedures your team already follows.",
   ],
   [
     "Do we need to replace our drones or flight software?",

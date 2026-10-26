@@ -1,5 +1,5 @@
 import { H2 } from "@marketing/components/home/ContentComponents";
-import { MissionControl } from "@marketing/components/home/content/Product/mission-control/MissionControl";
+import { OperationsTheater } from "@marketing/components/home/content/Product/mission-control/OperationsTheater";
 export interface DemoVideoProps {
   sectionTitle?: string;
   videoUrl?: string;
@@ -16,7 +16,7 @@ export function DemoVideoSection({
   return (
     <div id={id} className="flex flex-col justify-center gap-8 pb-4">
       {demoVideo.sectionTitle && <H2>{demoVideo.sectionTitle}</H2>}
-      <MissionControl />
+      <OperationsTheater />
     </div>
   );
 }

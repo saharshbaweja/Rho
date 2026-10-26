@@ -862,7 +862,7 @@
   margin-left: auto;
   font-family: monospace;
   font-size: 6px;
-  color: #72919f;
+  color: #b2c8d4;
 }
 .coverageTrack {
   height: 3px;
@@ -2275,4 +2275,25 @@
 .messageMeta > span:last-child,
 .stripLabel > span:last-child {
   color: #a9becb;
+}
+
+.sensorPreview {
+  position: absolute;
+  top: 106px;
+  right: 15px;
+  width: 205px;
+  height: 142px;
+  border: 1px solid #667e7a;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px #0006;
+}
+
+.reasoning {
+  color: #c0d5e1;
+  background: #1c303c;
+  border-color: #455e6c;
+}
+.eventLine {
+  color: #b2c8d3;
 }

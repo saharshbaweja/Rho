@@ -1,5 +1,6 @@
 "use client";
 
+import { FieldHandoffScene } from "@marketing/components/home/content/Product/mission-control/FieldHandoffScene";
 import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 
 import { H2 } from "@marketing/components/home/ContentComponents";
@@ -325,22 +326,21 @@ interface TeamOutgoingState {
 function ImageCol({ tab }: { tab: UsageTab }) {
   return (
     <div className="relative flex w-full items-center overflow-hidden rounded-2xl lg:h-full lg:min-h-[480px]">
-      <FeatureScene
-        feature={
-          tab.id === "readiness"
-            ? "Aeros Readiness"
-            : tab.id === "providers" || tab.id === "safety"
-              ? "Aeros Control"
-              : undefined
-        }
-        film={
-          tab.imageSrc.includes("readiness")
-            ? "fleet-readiness"
-            : tab.imageSrc.includes("recovery")
-              ? "mission-recovery"
-              : "mission-story"
-        }
-      />
+      {tab.id === "providers" ? (
+        <FieldHandoffScene />
+      ) : (
+        <FeatureScene
+          feature={
+            tab.id === "dispatch"
+              ? "Aeros Dispatch"
+              : tab.id === "operations"
+                ? "Aeros Fleet"
+                : tab.id === "readiness"
+                  ? "Aeros Readiness"
+                  : "Aeros Control"
+          }
+        />
+      )}
     </div>
   );
 }

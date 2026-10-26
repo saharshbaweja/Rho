@@ -122,12 +122,12 @@ export const Quote: QuoteProps = {
     "Describe the outcome. Coordinate the fleet. Keep operators in control.",
   name: "Aeros",
   title: "Our operating principle",
-  logo: "/static/landing/home/aeros-principle-mark.svg",
+  logo: "/static/aeros-logo-white.svg",
 };
 export const ROI: ROIProps = {
   number: "Connected",
   subtitle: "A shared mission context across your fleet.",
-  logo: "/static/landing/home/aeros-principle-mark.svg",
+  logo: "/static/aeros-logo-white.svg",
 };
 export const DemoVideo: DemoVideoProps = {
   sectionTitle: "Explore the dispatch workflow",

@@ -19,6 +19,8 @@ function routePosition(route: string, fraction: number) {
   };
 }
 export function MissionMap({
+  activeAircraftCount = FLEET.length,
+  motionDurationMs = 100,
   chapter,
   progress,
   selected,
@@ -27,6 +29,8 @@ export function MissionMap({
   zoom,
   playing,
 }: {
+  activeAircraftCount?: number;
+  motionDurationMs?: number;
   chapter: number;
   progress: number;
   selected: number;
@@ -35,6 +39,7 @@ export function MissionMap({
   zoom: number;
   playing: boolean;
 }) {
+  const fleet = FLEET.slice(0, activeAircraftCount);
   const prefix = useId().replace(/:/g, "");
   return (
     <svg
@@ -42,7 +47,7 @@ export function MissionMap({
       preserveAspectRatio="xMidYMid slice"
       className="aeros-map-svg"
       aria-label="Illustrative north district mission map with aircraft, mission boundaries, and recovery routes"
-      role="img"
+      role="group"
     >
       <defs>
         <radialGradient id={`${prefix}-land`}>
@@ -104,7 +109,7 @@ export function MissionMap({
           <stop offset=".5" stopColor="#d9ac65" stopOpacity=".15" />
           <stop offset="1" stopColor="#d9ac65" stopOpacity="0" />
         </linearGradient>
-        {FLEET.map((drone, i) => (
+        {fleet.map((drone, i) => (
           <path id={`${prefix}-route-${i}`} key={drone.id} d={drone.route} />
         ))}
       </defs>
@@ -190,7 +195,7 @@ export function MissionMap({
           </g>
         )}
         {chapter >= 1 &&
-          FLEET.map((drone, i) => (
+          fleet.map((drone, i) => (
             <g key={drone.id} opacity={selected === i ? 1 : 0.45}>
               <path
                 d={drone.route}
@@ -259,7 +264,7 @@ export function MissionMap({
           </g>
         ))}
         {chapter >= 1 &&
-          FLEET.map((drone, i) => {
+          fleet.map((drone, i) => {
             const position = routePosition(
               drone.route,
               chapter === 1
@@ -286,7 +291,9 @@ export function MissionMap({
                 <g
                   transform={`translate(${position.x} ${position.y})`}
                   style={{
-                    transition: playing ? "transform .1s linear" : "none",
+                    transition: playing
+                      ? `transform ${motionDurationMs}ms linear`
+                      : "none",
                   }}
                 >
                   <circle

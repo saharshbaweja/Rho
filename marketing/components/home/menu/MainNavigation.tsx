@@ -39,7 +39,7 @@ export function MainNavigation() {
               type="button"
               aria-expanded={isOpen}
               aria-haspopup="true"
-              onClick={() => setOpenId(isOpen ? null : item.title)}
+              onClick={() => setOpenId(item.title)}
               onKeyDown={(event) => {
                 if (event.key === "Escape") {
                   setOpenId(null);
@@ -78,6 +78,7 @@ export function MainNavigation() {
                   {item.items?.map((subItem, subIndex) => (
                     <DropdownItem
                       key={subItem.title || `spacer-${subIndex}`}
+                      onNavigate={() => setOpenId(null)}
                       title={subItem.title}
                       href={subItem.href}
                       isExternal={subItem.isExternal}
@@ -97,6 +98,7 @@ export function MainNavigation() {
 }
 
 interface DropdownItemProps {
+  onNavigate?: () => void;
   title?: string;
   href?: string;
   isExternal?: boolean;
@@ -104,6 +106,7 @@ interface DropdownItemProps {
 }
 
 function DropdownItem({
+  onNavigate,
   title,
   href,
   isExternal,
@@ -123,6 +126,7 @@ function DropdownItem({
     <li>
       <Link
         href={href}
+        onClick={onNavigate}
         target={isExternal ? "_blank" : undefined}
         role="menuitem"
         className="block whitespace-nowrap py-0.5 text-sm text-foreground/70 transition-colors duration-100 hover:text-foreground"

@@ -143,7 +143,7 @@ export function HomeTrustedSection() {
                   <>
                     <div className="flex h-14 items-center justify-center gap-3">
                       <img
-                        src="/static/landing/home/aeros-principle-mark.svg"
+                        src="/static/aeros-logo-white.svg"
                         alt=""
                         className="h-7 w-7"
                         width={28}

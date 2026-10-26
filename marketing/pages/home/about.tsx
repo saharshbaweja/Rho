@@ -11,9 +11,9 @@ export default function AboutNextJS() {
     <OperationsPage
       {...{
         eyebrow: "About Aeros",
-        title: "Give every fleet a shared direction.",
+        title: "Mission autonomy for the fleet you already operate.",
         description:
-          "Aeros is vendor-neutral dispatch and orchestration software for organizations that already operate drone fleets. We connect the job that needs doing with the aircraft, providers, and people who can do it.",
+          "Aeros is vendor-neutral dispatch and orchestration software for organizations that already operate drone fleets. We connect mission intent to the aircraft, scene context, and people needed to carry it through—from response and area search to infrastructure inspection.",
         sections: [
           {
             title: "Start with the outcome",

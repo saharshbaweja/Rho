@@ -8,13 +8,14 @@ interface NavItemWithChildren {
 }
 const solutions = {
   title: "Solutions",
-  rows: 4,
+  rows: 5,
   items: [
     { title: "Infrastructure inspection", href: "/home/solutions/engineering" },
     {
-      title: "Site patrol & response",
+      title: "Rapid response",
       href: "/home/solutions/customer-support",
     },
+    { title: "Search & rescue", href: "/home/solutions/search-rescue" },
     { title: "Fleet service providers", href: "/home/solutions/dust-platform" },
     { title: "Survey & reporting", href: "/home/solutions/data-analytics" },
   ],

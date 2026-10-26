@@ -1,3 +1,4 @@
+import { FieldHandoffScene } from "@marketing/components/home/content/Product/mission-control/FieldHandoffScene";
 import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
 import {
   HomeReveal,
@@ -57,17 +58,19 @@ export function OperationsPage({
               </div>
             </div>
             <HomeReveal className="w-full lg:w-1/2">
-              <FeatureScene
-                film={
-                  eyebrow.toLowerCase().includes("oversight") ||
-                  eyebrow.toLowerCase().includes("security")
-                    ? "mission-recovery"
-                    : eyebrow.toLowerCase().includes("integration") ||
-                        eyebrow.toLowerCase().includes("provider")
-                      ? "fleet-readiness"
-                      : "mission-story"
-                }
-              />
+              {eyebrow.toLowerCase().includes("search") ? (
+                <FieldHandoffScene scenario="search" />
+              ) : (
+                <FeatureScene
+                  feature={
+                    /oversight|security/i.test(eyebrow)
+                      ? "Aeros Control"
+                      : /integration|provider/i.test(eyebrow)
+                        ? "Aeros Fleet"
+                        : "Aeros Dispatch"
+                  }
+                />
+              )}
             </HomeReveal>
           </div>
           <div className="mt-20 grid gap-px overflow-hidden rounded-3xl bg-border md:grid-cols-2">

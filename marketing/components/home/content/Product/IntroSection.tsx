@@ -17,17 +17,17 @@ import type { NewsItem } from "@marketing/lib/homepage_news";
 
 const QUOTES = [
   {
-    quote: "Describe the outcome. Coordinate the fleet. Close the loop.",
+    quote: "Your drones. Your flight stack. One intelligence layer.",
     authorName: "Aeros",
-    authorRole: "Natural-language dispatch",
+    authorRole: "Built around the fleet you have",
     imageSrc: "/static/landing/drone/workspace.svg",
     imageAlt: "Illustrative Aeros mission dispatch workspace",
   },
   {
     quote:
-      "Every recommendation should show what changed, what it means, and the evidence behind it.",
+      "Keep coverage moving. Keep the mission context. Keep your team in control.",
     authorName: "Aeros",
-    authorRole: "Decision support",
+    authorRole: "Coordination through every handover",
     imageSrc: "/static/landing/drone/recovery.svg",
     imageAlt: "Illustrative Aeros exception and recovery review",
     bg: "bg-violet-50",

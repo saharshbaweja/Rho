@@ -6,9 +6,9 @@ import {
   Play,
   Radio,
   ShieldCheck,
-  Wind,
+  RotateCcw,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FilmKind } from "./FeatureFilm";
 import styles from "./FeatureScene.module.css";
 
@@ -51,18 +51,18 @@ const STORIES = {
   "mission-recovery": {
     label: "AEROS RECOVER",
     title: "Conditions change. The plan adapts.",
-    request: "Wind is rising in Sector 02. Keep the inspection on schedule.",
+    request: "A-04 needs to return. Keep coverage at the waterfront.",
     steps: [
-      "Detect the change",
-      "Compare recovery options",
-      "Approve the revised plan",
+      "Detect the reserve limit",
+      "Prepare the relief aircraft",
+      "Confirm the handover",
     ],
     detail: [
-      "A wind change affects two assignments. Aeros connects the condition to the aircraft, routes and remaining work.",
-      "Compare reassignment, a revised route and a delayed launch. See the effect on coverage, timing and reserves.",
-      "Transfer remaining assets to B-16 and reroute A-08. The operator reviews the change before execution.",
+      "A-04 is approaching return reserve. Remaining coverage, observations and aircraft state stay attached to the mission.",
+      "B-16 matches the payload and readiness requirements. Compare the overlap window before swapping aircraft.",
+      "The operator confirms the plan. B-16 takes the remaining coverage while A-04 returns to its launch site.",
     ],
-    metric: ["2 affected", "+8 min", "Coverage retained"],
+    metric: ["1 relief aircraft", "Context retained", "Operator review"],
     color: "peach",
   },
   readiness: {
@@ -144,19 +144,50 @@ export function FeatureScene({
               ? "mission-recovery"
               : film;
   const story = STORIES[sceneKind];
+  const host = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
   const [step, setStep] = useState(0);
   const [playing, setPlaying] = useState(false);
   useEffect(() => {
-    if (!playing) {
+    const node = host.current;
+    if (!node) {
       return;
     }
-    const timer = window.setInterval(() => setStep((s) => (s + 1) % 3), 4500);
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPlaying(!media.matches);
+    const onMotion = () => {
+      if (media.matches) {
+        setPlaying(false);
+      }
+    };
+    media.addEventListener("change", onMotion);
+    const observer = new IntersectionObserver(
+      (entries) => setVisible(entries.some((e) => e.isIntersecting)),
+      { threshold: 0.2 }
+    );
+    observer.observe(node);
+    return () => {
+      observer.disconnect();
+      media.removeEventListener("change", onMotion);
+    };
+  }, []);
+  useEffect(() => {
+    if (!playing || !visible) {
+      return;
+    }
+    const timer = window.setInterval(() => {
+      if (document.visibilityState === "visible") {
+        setStep((s) => (s + 1) % 3);
+      }
+    }, 4500);
     return () => window.clearInterval(timer);
-  }, [playing]);
+  }, [playing, visible]);
   return (
     <div
       className={`${styles.scene} ${styles[story.color]}`}
+      ref={host}
       aria-label={story.title}
+      data-playing={playing && visible}
       data-scene={sceneKind}
     >
       <div className={styles.intro}>
@@ -176,7 +207,52 @@ export function FeatureScene({
           </span>
           <Radio size={11} />
         </div>
-        {sceneKind === "report" || sceneKind === "control" ? (
+        {sceneKind === "mission-recovery" ? (
+          <div className={styles.recoveryBoard}>
+            <span>COVERAGE CONTINUITY</span>
+            <h4>Handover without losing context.</h4>
+            <div className={styles.swapAircraft}>
+              <div>
+                <span>ON STATION</span>
+                <strong>A-04</strong>
+                <small>
+                  {step === 2 ? "Returning to dock" : "Return reserve reached"}
+                </small>
+                <i style={{ width: "28%" }} />
+              </div>
+              <ArrowUpRight size={22} />
+              <div>
+                <span>RELIEF AIRCRAFT</span>
+                <strong>B-16</strong>
+                <small>
+                  {step === 0
+                    ? "Ready at Dock E-02"
+                    : step === 1
+                      ? "Approaching the sector"
+                      : "Coverage transferred"}
+                </small>
+                <i style={{ width: "92%" }} />
+              </div>
+            </div>
+            <div className={styles.handoverTrack}>
+              <span>17:42</span>
+              <i />
+              <span>
+                {step === 2 ? "HANDOVER CONFIRMED" : "OVERLAP WINDOW"}
+              </span>
+              <i />
+              <span>17:46</span>
+            </div>
+            <div className={styles.handoverCheck}>
+              <Check size={11} />
+              {step === 0
+                ? "Mission context attached"
+                : step === 1
+                  ? "Incoming aircraft matched"
+                  : "Operator decision retained"}
+            </div>
+          </div>
+        ) : sceneKind === "report" || sceneKind === "control" ? (
           <div className={styles.recordBoard}>
             {sceneKind === "report" && (
               <div
@@ -326,11 +402,8 @@ export function FeatureScene({
             </div>
             <svg viewBox="0 0 500 240" aria-hidden="true">
               <path
-                d={
-                  sceneKind === "mission-recovery"
-                    ? "M75 180L160 195L290 195L350 150L410 85"
-                    : "M75 180L125 110L235 105L260 172L350 150L410 85"
-                }
+                className={styles.routeLine}
+                d="M75 180L125 110L235 105L260 172L350 150L410 85"
                 fill="none"
                 stroke="#fff"
                 strokeWidth="3"
@@ -351,12 +424,6 @@ export function FeatureScene({
                 strokeWidth="3"
               />
             </svg>
-            {sceneKind === "mission-recovery" && (
-              <div className={styles.weatherEvent}>
-                <Wind size={12} /> Wind change · Sector 02{" "}
-                <strong>18 kt NE</strong>
-              </div>
-            )}
             <span className={styles.mapSource}>
               USGS / NAIP · illustrative mission
             </span>
@@ -391,7 +458,7 @@ export function FeatureScene({
         <div className={styles.response} key={step}>
           <span>
             {sceneKind === "mission-recovery" ? (
-              <Wind size={15} />
+              <RotateCcw size={15} />
             ) : (
               <ShieldCheck size={15} />
             )}

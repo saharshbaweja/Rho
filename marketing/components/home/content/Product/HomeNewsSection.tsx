@@ -22,22 +22,22 @@ const SEE_ALL_PRESS_HREF = "/home/about";
 export function HomeNewsSection({ news }: HomeNewsSectionProps = {}) {
   const items = [
     {
-      source: "01 / REQUEST",
-      title: "Describe the outcome, assets, and completion window.",
-      href: "/home#mission-control",
-      date: "Natural-language tasking",
+      source: "01 / RESPOND",
+      title: "Get aerial context to the people responding.",
+      href: "/home/solutions/customer-support",
+      date: "Public safety & site response",
     },
     {
-      source: "02 / COORDINATE",
-      title: "Assign connected fleets and adapt when conditions change.",
-      href: "/home#products",
-      date: "Mission orchestration",
+      source: "02 / INSPECT",
+      title: "Turn an asset register into coordinated coverage.",
+      href: "/home/solutions/engineering",
+      date: "Infrastructure & utilities",
     },
     {
-      source: "03 / COMPLETE",
-      title: "Return coverage, exceptions, and results to your workflow.",
-      href: "/home/solutions/data-analytics",
-      date: "Results & reporting",
+      source: "03 / SEARCH",
+      title: "Search as one operation. Keep every sector accounted for.",
+      href: "/home/solutions/search-rescue",
+      date: "Area search & field coordination",
     },
   ];
   return (
@@ -46,11 +46,11 @@ export function HomeNewsSection({ news }: HomeNewsSectionProps = {}) {
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16">
           <div className="flex flex-col gap-4 lg:w-[380px] lg:flex-shrink-0">
             <HomeReveal>
-              <HomeEyebrow label="The Aeros thesis" />
+              <HomeEyebrow label="Built around real missions" />
             </HomeReveal>
             <HomeReveal delay={80}>
               <H2 className="text-balance font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
-                Built around the job to be done
+                Different missions. The same operating picture.
               </H2>
             </HomeReveal>
             <HomeReveal delay={160}>

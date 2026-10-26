@@ -750,3 +750,178 @@
     height: 38%;
   }
 }
+
+.recoveryBoard {
+  position: absolute;
+  inset: 26px 0 32px;
+  padding: 22px 24px;
+  background: #1d211f;
+}
+.recoveryBoard > span {
+  color: #d8c2a6;
+  font:
+    7px ui-monospace,
+    monospace;
+  letter-spacing: 1px;
+}
+.recoveryBoard h4 {
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  margin: 12px 0 18px;
+}
+.swapAircraft {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+.swapAircraft > div {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #8f846244;
+  background: #2c2f28;
+  border-radius: 6px;
+}
+.swapAircraft span {
+  display: block;
+  font:
+    5px ui-monospace,
+    monospace;
+  letter-spacing: 0.7px;
+  color: #d4cbb5;
+}
+.swapAircraft strong {
+  display: block;
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: 9px;
+}
+.swapAircraft small {
+  display: block;
+  font-size: 6px;
+  color: #d0cfbf;
+  margin: 6px 0 11px;
+}
+.swapAircraft i {
+  display: block;
+  height: 3px;
+  background: #c5aa7e;
+  border-radius: 2px;
+}
+.swapAircraft > div:last-child i {
+  background: #aec7a3;
+}
+.swapAircraft > svg {
+  color: #c6b58e;
+  flex-shrink: 0;
+}
+.handoverTrack {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  font:
+    5px ui-monospace,
+    monospace;
+  color: #d2c9b2;
+}
+.handoverTrack i {
+  height: 1px;
+  background: #9a8b6855;
+  flex: 1;
+}
+.handoverCheck {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 6px;
+  color: #c7dac4;
+  margin-top: 12px;
+}
+.scene[data-playing="true"] .routeLine {
+  stroke-dasharray: 6 8;
+  animation: route-flow 3s linear infinite;
+}
+@keyframes route-flow {
+  to {
+    stroke-dashoffset: -42;
+  }
+}
+@container (max-width: 400px) {
+  .recoveryBoard {
+    padding: 13px;
+  }
+  .recoveryBoard > span {
+    font-size: 6px;
+  }
+  .recoveryBoard h4 {
+    font-size: 12px;
+    margin: 9px 0 12px;
+  }
+  .swapAircraft {
+    gap: 8px;
+  }
+  .swapAircraft > div {
+    padding: 9px;
+  }
+  .swapAircraft strong {
+    font-size: 19px;
+    margin-top: 7px;
+  }
+  .swapAircraft small {
+    font-size: 5px;
+    margin: 5px 0 8px;
+  }
+  .swapAircraft span {
+    font-size: 4px;
+  }
+  .handoverTrack {
+    margin-top: 12px;
+    font-size: 4px;
+  }
+  .handoverCheck {
+    font-size: 5px;
+    margin-top: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene[data-playing="true"] .routeLine {
+    animation: none;
+  }
+}
+
+@container (max-width: 400px) {
+  .recoveryBoard .swapAircraft > div {
+    padding: 7px;
+  }
+  .recoveryBoard .swapAircraft strong {
+    margin-top: 4px;
+    font-size: 18px;
+  }
+  .recoveryBoard .swapAircraft small {
+    margin: 4px 0 6px;
+  }
+  .recoveryBoard .handoverTrack {
+    margin-top: 8px;
+  }
+  .recoveryBoard .handoverCheck {
+    display: none;
+  }
+}
+
+.scene[data-scene="mission-recovery"] .window {
+  left: 5%;
+  width: 90%;
+}
+.scene[data-scene="mission-recovery"] .brief {
+  top: 58%;
+  height: 33%;
+}
+@container (max-width: 400px) {
+  .scene[data-scene="mission-recovery"] .brief {
+    top: 56%;
+    height: 36%;
+  }
+}

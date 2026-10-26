@@ -1,5 +1,4 @@
 import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
-import { Div3D, Hover3D } from "@dust-tt/sparkle";
 import { ImgBlock } from "@marketing/components/home/ContentBlocks";
 import { H2, P } from "@marketing/components/home/ContentComponents";
 
@@ -12,9 +11,6 @@ export interface UseCaseProps {
     images: string[];
   }[];
 }
-// Fixed depths for the 3D effect
-const LAYER_DEPTHS = [-20, 20, 40, 70];
-
 export function UseCasesSection({ useCase }: { useCase: UseCaseProps }) {
   return (
     <section className="w-full py-12">
@@ -28,25 +24,16 @@ export function UseCasesSection({ useCase }: { useCase: UseCaseProps }) {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {useCase.items.map((item, index) => (
           <ImgBlock key={index} title={item.title} content={item.content}>
-            <Hover3D depth={-20} perspective={1000} className="relative">
-              {item.images.map((src, imgIndex) => (
-                <Div3D
-                  key={imgIndex}
-                  depth={LAYER_DEPTHS[imgIndex]}
-                  className={imgIndex > 0 ? "absolute top-0" : ""}
-                >
-                  <FeatureScene
-                    film={
-                      index === 1
-                        ? "fleet-readiness"
-                        : index === 2
-                          ? "mission-recovery"
-                          : "mission-story"
-                    }
-                  />
-                </Div3D>
-              ))}
-            </Hover3D>
+            <FeatureScene
+              feature={index === 3 ? "Aeros Report" : undefined}
+              film={
+                index === 1
+                  ? "fleet-readiness"
+                  : index === 2
+                    ? "mission-recovery"
+                    : "mission-story"
+              }
+            />
           </ImgBlock>
         ))}
       </div>

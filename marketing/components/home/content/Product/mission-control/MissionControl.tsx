@@ -23,6 +23,7 @@ import {
 import { useEffect, useId, useRef, useState } from "react";
 import { CHAPTERS, EXAMPLE_REQUEST, FLEET, TOUR_DURATION_MS } from "./scenario";
 import { MissionMap } from "./MissionMap";
+import { SensorViewport } from "./SensorViewport";
 import styles from "./MissionControl.module.css";
 
 const RESPONSES = [
@@ -63,6 +64,7 @@ export function MissionControl({
   const chapter = Math.min(4, Math.floor(progress / 20));
   const current = CHAPTERS[chapter];
   const drone = FLEET[selected];
+  const ended = progress >= 100;
   useEffect(() => {
     const host = hostRef.current;
     if (!host) {
@@ -89,7 +91,7 @@ export function MissionControl({
     };
   }, [autoPlay]);
   useEffect(() => {
-    if (!playing || !visible) {
+    if (!playing || !visible || ended) {
       return;
     }
     const timer = window.setInterval(() => {
@@ -99,8 +101,8 @@ export function MissionControl({
       setProgress((value) => Math.min(100, value + 10000 / TOUR_DURATION_MS));
     }, 100);
     return () => window.clearInterval(timer);
-  }, [playing, visible]);
-  const running = playing && progress < 100;
+  }, [playing, visible, ended]);
+  const running = playing && !ended;
   function selectChapter(value: number) {
     setProgress(value * 20 + 1);
     setNotice("");
@@ -344,6 +346,15 @@ export function MissionControl({
                 <Crosshair size={14} />
               </button>
             </div>
+            {chapter >= 2 && (
+              <div className={styles.sensorPreview}>
+                <SensorViewport
+                  aircraft={drone.id}
+                  moving={running && visible}
+                  compact
+                />
+              </div>
+            )}
             {chapter === 0 && (
               <div className={styles.objectiveMarker}>
                 <span className={styles.targetRing} />

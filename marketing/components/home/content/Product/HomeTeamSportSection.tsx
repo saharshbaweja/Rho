@@ -1,4 +1,4 @@
-import { FeatureScene } from "@marketing/components/home/content/Product/mission-control/FeatureScene";
+import { FieldHandoffScene } from "@marketing/components/home/content/Product/mission-control/FieldHandoffScene";
 import { H2, P } from "@marketing/components/home/ContentComponents";
 import { HomeEyebrow } from "@marketing/components/home/content/Product/HomeEyebrow";
 import { HomeQuoteMark } from "@marketing/components/home/content/Product/HomeQuoteMark";
@@ -18,11 +18,11 @@ export function HomeTeamSportSection() {
         <div className="flex flex-col items-stretch gap-12 lg:flex-row lg:items-center lg:gap-20">
           <div className="flex w-full flex-col gap-6 lg:w-1/2">
             <HomeReveal>
-              <HomeEyebrow label="Shared context. Clear ownership." />
+              <HomeEyebrow label="Mission control meets the field" />
             </HomeReveal>
             <HomeReveal delay={80}>
               <H2 className="text-balance font-semibold leading-[1.08] tracking-[-0.03em] text-foreground">
-                One mission. Every team aligned.
+                The same scene. Wherever your team is.
               </H2>
             </HomeReveal>
             <HomeReveal delay={160}>
@@ -30,10 +30,10 @@ export function HomeTeamSportSection() {
                 size="sm"
                 className="max-w-[480px] leading-[1.6] text-muted-foreground"
               >
-                When a mission changes, every team needs the same picture. Aeros
-                connects fleet operators, service providers, and field teams
-                around one mission plan. Share assignments, resolve exceptions,
-                and keep approval ownership clear across every connected fleet.
+                Dispatchers need the whole operation. Field teams need the part
+                that matters now. Keep available scene views, mission status,
+                observations, and the latest decisions together—from the control
+                room to the people responding on the ground.
               </P>
             </HomeReveal>
             <HomeReveal as="figure" delay={240} className="m-0 mt-4 w-full">
@@ -46,12 +46,12 @@ export function HomeTeamSportSection() {
                   accountability.&rdquo;
                 </blockquote>
                 <figcaption className="flex items-center gap-3 not-italic">
-                  <div className="relative h-9 w-9 flex-shrink-0 overflow-hidden rounded-full bg-muted">
+                  <div className="relative h-9 w-9 flex-shrink-0">
                     <Image
-                      src="/static/landing/home/aeros-principle-mark.svg"
+                      src="/static/aeros-logo-white.svg"
                       alt="Aeros operating principle"
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       sizes="36px"
                     />
                   </div>
@@ -73,7 +73,7 @@ export function HomeTeamSportSection() {
             className="flex w-full justify-center self-stretch lg:w-1/2"
           >
             <div className="relative flex w-full max-w-[560px] items-center self-stretch overflow-hidden rounded-3xl">
-              <FeatureScene feature="Aeros Control" />
+              <FieldHandoffScene />
             </div>
           </HomeReveal>
         </div>
