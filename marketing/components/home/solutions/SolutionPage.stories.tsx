@@ -49,3 +49,11 @@ export const FleetVisual = {
     </div>
   ),
 };
+
+export const SearchCoverage = {
+  render: () => (
+    <div style={{ width: 520 }}>
+      <SolutionVisual kind="search-coverage" />
+    </div>
+  ),
+};

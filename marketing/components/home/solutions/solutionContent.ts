@@ -4,6 +4,7 @@ export type SolutionVisual =
   | "readiness"
   | "recovery"
   | "report"
+  | "search-coverage"
   | "response"
   | "search";
 export interface SolutionContent {
@@ -210,7 +211,7 @@ export const SOLUTIONS: SolutionContent[] = [
     description:
       "Describe the search area, divide the work between available aircraft, and keep the ground team informed. Aeros brings the search boundary, completed coverage, and areas needing another pass into one mission workspace.",
     heroVisual: "search",
-    detailVisual: "report",
+    detailVisual: "search-coverage",
     summary: [
       {
         title: "Plan the search area",

@@ -17,6 +17,8 @@ export function SolutionVisual({ kind }: { kind: VisualKind }) {
       return <FeatureScene feature="Aeros Readiness" />;
     case "recovery":
       return <FeatureScene feature="Aeros Recover" />;
+    case "search-coverage":
+      return <FeatureScene feature="Aeros Report" reportContext="search" />;
     case "report":
       return <FeatureScene feature="Aeros Report" />;
     default:

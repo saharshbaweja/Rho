@@ -13,6 +13,11 @@ describe("Aeros solution routes", () => {
       expect(html).toContain("No live aircraft");
       expect(html).toContain('href="/home/contact"');
       expect(html).toContain('id="solution-demo"');
+      if (solution.slug === "search-rescue") {
+        expect(html).toContain("Sectors completed");
+        expect(html).toContain("East boundary");
+        expect(html).not.toContain("Assets covered");
+      }
       expect(html).not.toMatch(/\bDust\b|dust\.tt|dust-platform/);
       for (const match of html.matchAll(
         /href="(\/home\/solutions\/[^"#]+)"/g
