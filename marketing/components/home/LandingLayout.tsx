@@ -3,10 +3,8 @@ import UTMButton from "@marketing/components/UTMButton";
 import type { CookieConsentChoices } from "@marketing/components/home/CookieBanner";
 import { CookieBanner } from "@marketing/components/home/CookieBanner";
 import { LogoListsProvider } from "@marketing/components/home/LogoListsContext";
-import { OpenDustButton } from "@marketing/components/home/OpenDustButton";
 import { PublicWebsiteLogo } from "@marketing/components/home/PublicWebsiteLogo";
 import ScrollingHeader from "@marketing/components/home/ScrollingHeader";
-import { SkipLandingPrompt } from "@marketing/components/home/SkipLandingPrompt";
 import { FooterNavigation } from "@marketing/components/home/menu/FooterNavigation";
 import { MainNavigation } from "@marketing/components/home/menu/MainNavigation";
 import { MobileNavigation } from "@marketing/components/home/menu/MobileNavigation";
@@ -15,22 +13,18 @@ import { useStripUtmParams } from "@marketing/hooks/useStripUtmParams";
 import {
   CONSENT_COOKIE_OPTIONS,
   DUST_COOKIES_ACCEPTED,
-  DUST_HAS_SESSION,
   DUST_SESSION_REPLAY_CONSENT,
   hasCookiesAccepted,
   hasExplicitAnalyticsConsent,
-  hasSessionIndicator,
   hasSessionReplayConsent,
   shouldCheckGeolocation,
 } from "@marketing/lib/cookies";
 import type { LogoListMap } from "@marketing/lib/logo_bars";
 import { useGeolocation } from "@marketing/lib/swr/geo";
-import { useLandingAuthContext } from "@marketing/lib/swr/website";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import { classNames, getFaviconPath } from "@marketing/lib/utils";
 import { getOrCreateAnonymousId } from "@marketing/lib/utils/anonymous_id";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import Script from "next/script";
 import { useCallback, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
@@ -58,12 +52,10 @@ export default function LandingLayout({
 
   const { openSignUpModal } = useSignUpModal();
 
-  const router = useRouter();
-
   useStripUtmParams();
 
   const [cookies, setCookie] = useCookies(
-    [DUST_COOKIES_ACCEPTED, DUST_HAS_SESSION, DUST_SESSION_REPLAY_CONSENT],
+    [DUST_COOKIES_ACCEPTED, DUST_SESSION_REPLAY_CONSENT],
     {
       doNotParse: true,
     }
@@ -77,18 +69,6 @@ export default function LandingLayout({
   const [hasAcceptedCookies, setHasAcceptedCookies] = useState<boolean>(
     hasCookiesAccepted(cookieValue, null)
   );
-
-  // Check session cookie only on client to avoid hydration mismatch.
-  const [hasSession, setHasSession] = useState(false);
-  useEffect(() => {
-    setHasSession(hasSessionIndicator(cookies[DUST_HAS_SESSION]));
-  }, [cookies]);
-
-  // Verify actual auth state when session cookie is present. SWR deduplicates
-  // this call with the one in OpenDustButton, so there's no extra request.
-  const { isAuthenticated, isLoading: isAuthLoading } = useLandingAuthContext({
-    hasSessionCookie: hasSession,
-  });
 
   const shouldCheckGeo = shouldCheckGeolocation(cookieValue);
 
@@ -165,57 +145,40 @@ export default function LandingLayout({
               </div>
               <MainNavigation />
               <div className="relative flex flex-grow items-center justify-end gap-1 xs:gap-4">
-                {hasSession && (isAuthLoading || isAuthenticated) ? (
-                  <>
-                    <OpenDustButton
-                      variant="highlight"
-                      size="sm"
-                      trackingArea={TRACKING_AREAS.NAVIGATION}
-                      trackingObject="go_to_app"
-                    />
-                    {/* The opt-in only affects the root, which is the only page
-                        that redirects to the app. */}
-                    {router.pathname === "/" && <SkipLandingPrompt />}
-                  </>
-                ) : (
-                  <>
-                    <div className="hidden md:inline-flex">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        label="See the mission"
-                        className="hidden md:inline-flex"
-                        href="/home#mission-control"
-                        onClick={withTracking(
-                          TRACKING_AREAS.NAVIGATION,
-                          "sign_in"
-                        )}
-                      />
-                    </div>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      label="Request access"
-                      onClick={withTracking(
-                        TRACKING_AREAS.NAVIGATION,
-                        "sign_up",
-                        openSignUpModal
-                      )}
-                    />
-                    <div className="hidden xs:inline-flex">
-                      <UTMButton
-                        href="/home/contact"
-                        variant="highlight"
-                        size="sm"
-                        label="Book a demo"
-                        onClick={withTracking(
-                          TRACKING_AREAS.NAVIGATION,
-                          "contact_sales"
-                        )}
-                      />
-                    </div>
-                  </>
-                )}
+                <div className="hidden md:inline-flex">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    label="See the mission"
+                    href="/home#mission-control"
+                    onClick={withTracking(
+                      TRACKING_AREAS.NAVIGATION,
+                      "see_mission"
+                    )}
+                  />
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  label="Request access"
+                  onClick={withTracking(
+                    TRACKING_AREAS.NAVIGATION,
+                    "request_access",
+                    openSignUpModal
+                  )}
+                />
+                <div className="hidden xs:inline-flex">
+                  <UTMButton
+                    href="/home/contact"
+                    variant="highlight"
+                    size="sm"
+                    label="Book a demo"
+                    onClick={withTracking(
+                      TRACKING_AREAS.NAVIGATION,
+                      "contact_sales"
+                    )}
+                  />
+                </div>
               </div>
             </div>
           </ScrollingHeader>
@@ -288,47 +251,7 @@ const Header = () => {
         crossOrigin="anonymous"
       />
       <meta name="apple-mobile-web-app-title" content="Aeros" />
-      <link rel="apple-touch-icon" href="/static/AppIcon.png" />
-      <link
-        rel="apple-touch-icon"
-        sizes="60x60"
-        href="/static/AppIcon_60.png"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="76x76"
-        href="/static/AppIcon_76.png"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="120x120"
-        href="/static/AppIcon_120.png"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="152x152"
-        href="/static/AppIcon_152.png"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="167x167"
-        href="/static/AppIcon_167.png"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/static/AppIcon_180.png"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="192x192"
-        href="/static/AppIcon_192.png"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="228x228"
-        href="/static/AppIcon_228.png"
-      />
+      <link rel="apple-touch-icon" href="/static/aeros-logo-white.svg" />
     </Head>
   );
 };

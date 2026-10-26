@@ -14,7 +14,7 @@ export function ExtensibilitySection({ page = "default" }) {
           Plan the data connections and review workflows that fit your
           operation, from mission inputs to the approved response. <br />{" "}
           {page == "default" && (
-            <Link href="/home/solutions/dust-platform" shallow={true}>
+            <Link href="/home/solutions/fleet-service-providers" shallow={true}>
               <A variant="primary"> More about the Aeros platform </A>
             </Link>
           )}

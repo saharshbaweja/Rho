@@ -30,7 +30,11 @@ const getRobotsPolicies = () => {
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_DUST_MARKETING_URL,
+  siteUrl:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3102"),
   exclude: EXCLUDED_PATHS,
   generateIndexSitemap: false,
   changefreq: "weekly",

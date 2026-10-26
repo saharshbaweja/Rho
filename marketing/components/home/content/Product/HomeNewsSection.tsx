@@ -24,13 +24,13 @@ export function HomeNewsSection({ news }: HomeNewsSectionProps = {}) {
     {
       source: "01 / RESPOND",
       title: "Get aerial context to the people responding.",
-      href: "/home/solutions/customer-support",
+      href: "/home/solutions/rapid-response",
       date: "Public safety & site response",
     },
     {
       source: "02 / INSPECT",
       title: "Turn an asset register into coordinated coverage.",
-      href: "/home/solutions/engineering",
+      href: "/home/solutions/infrastructure-inspection",
       date: "Infrastructure & utilities",
     },
     {

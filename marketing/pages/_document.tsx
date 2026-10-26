@@ -6,7 +6,7 @@ const { NODE_ENV, REACT_SCAN } = process.env;
 class MyDocument extends Document {
   render() {
     return (
-      <Html className="dark aeros-dark">
+      <Html lang="en" className="dark aeros-dark">
         <Head>
           {NODE_ENV === "development" && REACT_SCAN === "true" && (
             <script src="https://unpkg.com/react-scan/dist/auto.global.js" />
@@ -48,12 +48,7 @@ class MyDocument extends Document {
                  }-browser',
                  env: '${process.env.NODE_ENV === "production" ? "prod" : "dev"}',
                  version: '${process.env.NEXT_PUBLIC_COMMIT_HASH || ""}',
-                 allowedTracingUrls: [
-                   "https://dust.tt",
-                   "https://eu.dust.tt",
-                   "https://front-edge.dust.tt",
-                   "https://eu.front-edge.dust.tt",
-                 ],
+                 allowedTracingUrls: [],
                  traceSampleRate: 5,
                  traceContextInjection: 'sampled',
                  sessionSampleRate: 20,
