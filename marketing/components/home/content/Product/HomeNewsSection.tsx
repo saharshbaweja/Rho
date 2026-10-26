@@ -24,13 +24,13 @@ export function HomeNewsSection({ news }: HomeNewsSectionProps = {}) {
     {
       source: "01 / REQUEST",
       title: "Describe the outcome, assets, and completion window.",
-      href: "/home/product#dispatch-demo",
+      href: "/home#mission-control",
       date: "Natural-language tasking",
     },
     {
       source: "02 / COORDINATE",
       title: "Assign connected fleets and adapt when conditions change.",
-      href: "/home/product",
+      href: "/home#products",
       date: "Mission orchestration",
     },
     {

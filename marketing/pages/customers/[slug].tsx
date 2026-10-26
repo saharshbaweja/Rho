@@ -348,7 +348,7 @@ export default function CustomerStoryPage({
                     team? Visit our{" "}
                     <A
                       rel="noopener noreferrer"
-                      href={`/home/product?utm_source=blog&utm_medium=customer_story${story.utmCampaign ? `&utm_campaign=${story.utmCampaign}` : ""}&utm_content=visit_product_page`}
+                      href={`/home?utm_source=blog&utm_medium=customer_story${story.utmCampaign ? `&utm_campaign=${story.utmCampaign}` : ""}&utm_content=visit_product_page`}
                     >
                       solutions page
                     </A>{" "}

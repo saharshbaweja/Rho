@@ -136,7 +136,7 @@ export function FeatureFilm({
         />
       </div>
       {unavailable && (
-        <a className={styles.fallback} href="/home/product#dispatch-demo">
+        <a className={styles.fallback} href="/home#mission-control">
           Explore the interactive mission demo →
         </a>
       )}

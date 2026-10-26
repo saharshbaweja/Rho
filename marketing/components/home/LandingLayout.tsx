@@ -183,9 +183,9 @@ export default function LandingLayout({
                       <Button
                         variant="ghost"
                         size="sm"
-                        label="Explore platform"
+                        label="See the mission"
                         className="hidden md:inline-flex"
-                        href="/home/product"
+                        href="/home#mission-control"
                         onClick={withTracking(
                           TRACKING_AREAS.NAVIGATION,
                           "sign_in"

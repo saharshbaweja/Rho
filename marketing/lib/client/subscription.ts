@@ -1,5 +1,3 @@
-import { getBillingCurrencyForCountry } from "@marketing/lib/plans/billing_currency";
-import { useGeolocation } from "@marketing/lib/swr/geo";
 import type { SupportedCurrency } from "@marketing/types/currency";
 
 export const PRO_PLAN_COST_MONTHLY = 29;
@@ -19,20 +17,11 @@ export function formatPriceWithCurrency(
 }
 
 /**
- * Hook that resolves the user's billing currency from IP geolocation.
- *
- * Marketing always treats Metronome billing as enabled:
- *   EU/EEA/CH → EUR, rest of world → USD.
- *
- * Falls back to EUR while loading or on error.
+ * @cc [owner:saharshbaweja,label:product] aeros-prices-always-usd
+ * Public Aeros pricing must use USD regardless of location or loading state.
  */
 export function useUserBillingCurrency(): SupportedCurrency {
-  const { geoData } = useGeolocation();
-
-  if (geoData?.countryCode) {
-    return getBillingCurrencyForCountry(geoData.countryCode, true);
-  }
-  return "eur";
+  return "usd";
 }
 
 export function usePriceWithCurrency(price: number): string {
