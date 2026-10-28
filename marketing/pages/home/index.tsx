@@ -30,7 +30,7 @@ export function Landing({ news }: HomeProps) {
   return (
     <>
       <PageMetadata
-        title="Aeros | Intelligence for the physical world"
+        title="Aeros | One instruction. An entire operation."
         description="AI dispatch for the drone fleets you already operate. Plan missions, coordinate aircraft, share scene context, and adapt operations across connected providers."
         pathname={router.asPath}
       />

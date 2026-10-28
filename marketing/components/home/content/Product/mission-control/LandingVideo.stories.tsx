@@ -14,6 +14,7 @@ export const Film = {
       title="Aeros film"
       description="01:02 · From mission request to report"
       autoPlay
+      ambient
     />
   ),
 };

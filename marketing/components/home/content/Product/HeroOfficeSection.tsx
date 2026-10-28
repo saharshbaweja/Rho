@@ -4,8 +4,8 @@ import { HomeReveal } from "@marketing/components/home/content/Product/HomeRevea
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import Link from "next/link";
 
-const HEADLINE_LINE_1 = "Intelligence for";
-const HEADLINE_LINE_2 = "the physical world.";
+const HEADLINE_LINE_1 = "One instruction.";
+const HEADLINE_LINE_2 = "An entire operation.";
 const LEAD_COPY =
   "Describe the mission. Aeros plans, dispatches, and coordinates the drone fleet you already operate—from the first request to the final report. Your operators stay in control.";
 
@@ -63,6 +63,7 @@ export function HeroOfficeSection() {
             title="Aeros film"
             description="01:02 · From mission request to report"
             autoPlay
+            ambient
           />
         </HomeReveal>
       </div>

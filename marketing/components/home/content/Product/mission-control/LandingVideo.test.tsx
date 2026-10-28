@@ -100,3 +100,18 @@ it("offers the original video link when embedded playback fails", () => {
       .getAttribute("href")
   ).toBe("/film.mp4");
 });
+
+it("provides accessible ambient playback controls without a native player bar", () => {
+  reducedMotion = true;
+  render(<LandingVideo {...props} autoPlay ambient />);
+  act(() => reportVisibility?.(true));
+  expect(HTMLMediaElement.prototype.play).not.toHaveBeenCalled();
+  expect(
+    screen.getByLabelText("Aeros film").getAttribute("controls")
+  ).toBeNull();
+  fireEvent.click(screen.getByRole("button", { name: "Play Aeros film" }));
+  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(1);
+  fireEvent.click(screen.getByRole("button", { name: "Pause Aeros film" }));
+  expect(HTMLMediaElement.prototype.pause).toHaveBeenCalledTimes(1);
+  expect(screen.getByRole("button", { name: "Play Aeros film" })).toBeTruthy();
+});
