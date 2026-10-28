@@ -177,7 +177,7 @@ const QUESTIONS = [
   ],
   [
     "Is the website demonstration connected to real drones?",
-    "The website uses real USGS aerial imagery with illustrative routes, aircraft, telemetry and AI responses. It is a scripted product preview. The controls demonstrate the intended workflow without sending commands to a live fleet.",
+    "These are product demonstrations, not live drone connections. The Boston recording uses simulated telemetry and detections; interactive scenes elsewhere use illustrative routes, aircraft, and AI responses. Website controls do not send commands to a live fleet.",
   ],
 ];
 export function ProductQuestions() {
