@@ -1,13 +1,13 @@
-import { DesktopPreview } from "@marketing/components/home/content/Product/mission-control/DesktopPreview";
+import { LandingVideo } from "@marketing/components/home/content/Product/mission-control/LandingVideo";
 import { Button } from "@dust-tt/sparkle";
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
 import { TRACKING_AREAS, withTracking } from "@marketing/lib/tracking";
 import Link from "next/link";
 
-const HEADLINE_LINE_1 = "One mission.";
-const HEADLINE_LINE_2 = "An entire fleet.";
+const HEADLINE_LINE_1 = "Intelligence for";
+const HEADLINE_LINE_2 = "the physical world.";
 const LEAD_COPY =
-  "Aeros is AI dispatch for the drone fleets you already operate. Describe the objective. Coordinate aircraft, see the scene, and adapt the mission from one operator-led workspace.";
+  "Describe the mission. Aeros plans, dispatches, and coordinates the drone fleet you already operate—from the first request to the final report. Your operators stay in control.";
 
 export function HeroOfficeSection() {
   return (
@@ -45,13 +45,11 @@ export function HeroOfficeSection() {
               <Button
                 variant="ghost-secondary"
                 size="md"
-                label="Watch mission →"
+                label="Watch the Boston demo →"
+                href="#mission-control"
                 onClick={withTracking(
                   TRACKING_AREAS.HOME,
-                  "hero_start_free",
-                  () => {
-                    window.location.href = "/#mission-control";
-                  }
+                  "hero_watch_boston_demo"
                 )}
               />
             </div>
@@ -59,7 +57,13 @@ export function HeroOfficeSection() {
         </div>
 
         <HomeReveal delay={80} className="relative w-full lg:w-[63%]">
-          <DesktopPreview initialChapter={1} autoPlay operations />
+          <LandingVideo
+            src="/static/landing/drone/films/aeros-film-v4.mp4"
+            poster="/static/landing/drone/films/aeros-film-v4.jpg"
+            title="Aeros film"
+            description="01:02 · From mission request to report"
+            autoPlay
+          />
         </HomeReveal>
       </div>
     </section>

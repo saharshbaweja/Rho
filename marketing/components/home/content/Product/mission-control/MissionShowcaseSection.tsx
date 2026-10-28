@@ -1,6 +1,6 @@
 import { HomeReveal } from "@marketing/components/home/content/Product/HomeReveal";
 import { HomeEyebrow } from "@marketing/components/home/content/Product/HomeEyebrow";
-import { OperationsTheater } from "./OperationsTheater";
+import { LandingVideo } from "./LandingVideo";
 export function MissionShowcaseSection() {
   return (
     <section
@@ -11,22 +11,27 @@ export function MissionShowcaseSection() {
         <HomeReveal>
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div className="flex max-w-[680px] flex-col gap-5">
-              <HomeEyebrow label="Mission autonomy, in context" />
+              <HomeEyebrow label="The Boston demo" />
               <h2 className="m-0 text-balance text-4xl font-semibold leading-[1.06] tracking-[-0.04em] text-foreground md:text-5xl">
-                From the first request.
+                One request.
                 <br />
-                To the last aircraft home.
+                The entire mission.
               </h2>
             </div>
             <p className="m-0 max-w-[340px] text-sm leading-relaxed text-muted-foreground">
-              Choose an operation. See how Aeros turns intent into assignments,
-              connects the scene to your team, and keeps coverage moving when
-              the plan changes.
+              Watch Aeros turn a Back Bay streetlight audit into an approved
+              mission, coordinated flight, reviewed findings, and a work order.
+              This recorded walkthrough uses simulated telemetry and detections.
             </p>
           </div>
         </HomeReveal>
         <HomeReveal delay={100}>
-          <OperationsTheater initialScenario={1} />
+          <LandingVideo
+            src="/static/landing/drone/films/aeros-demo-boston.mp4"
+            poster="/static/landing/drone/films/aeros-demo-boston.jpg"
+            title="Aeros · Boston mission demo"
+            description="01:17 · Task, approve, fly, review, report"
+          />
         </HomeReveal>
         <div className="flex flex-wrap justify-between gap-5 border-t border-border pt-6 text-xs text-muted-foreground">
           <span>
