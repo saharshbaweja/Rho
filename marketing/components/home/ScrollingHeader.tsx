@@ -2,7 +2,7 @@ import { classNames } from "@marketing/lib/utils";
 import type { ReactNode } from "react";
 import { useCallback, useEffect, useState } from "react";
 
-const SCROLL_THRESHOLD_PX = 12;
+const SCROLL_THRESHOLD_PX = 24;
 
 interface ScrollingHeaderProps {
   children: ReactNode;
@@ -31,7 +31,7 @@ const ScrollingHeader = ({
   // `top`/`height` via `transition-all`, which triggers layout. Duration is
   // matched to the banner (200ms) so the two move as one paired unit.
   const baseClasses =
-    "fixed top-0 w-full border-b z-40 transition-[transform,height,background-color,border-color] duration-200 ease-out";
+    "aeros-scrolling-header fixed top-0 w-full border-b z-40 transition-[transform,height,background-color,border-color] duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] motion-reduce:transition-none";
   const idleClasses = `${hasBanner ? "translate-y-10" : "translate-y-0"} h-24 border-transparent`;
   const scrolledClasses =
     "translate-y-0 h-16 border-border bg-muted-background/70 backdrop-blur-lg";

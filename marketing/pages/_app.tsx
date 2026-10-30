@@ -4,6 +4,7 @@ import "@marketing/styles/global.css";
 // Replaces the old precompiled `@dust-tt/sparkle/dist/sparkle.css` concat.
 import "@marketing/styles/components.css";
 import "@marketing/styles/aeros-dark.css";
+import "@marketing/styles/aeros-editorial.css";
 
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";

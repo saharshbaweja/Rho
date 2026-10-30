@@ -7,16 +7,16 @@ import Link from "next/link";
 const HEADLINE_LINE_1 = "One instruction.";
 const HEADLINE_LINE_2 = "An entire operation.";
 const LEAD_COPY =
-  "Describe the mission. Aeros plans, dispatches, and coordinates the drone fleet you already operate—from the first request to the final report. Your operators stay in control.";
+  "From mission planning and fleet coordination to live spatial awareness and visual intelligence. Aeros is building an intelligence layer for drone operations—starting with the fleet you already have.";
 
 export function HeroOfficeSection() {
   return (
-    <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-background pb-12">
+    <section className="aeros-editorial-hero relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-background pb-12">
       <div className="relative mx-auto flex w-full max-w-[1600px] flex-col items-stretch gap-10 px-6 pt-16 lg:flex-row lg:items-center lg:gap-0 lg:px-10 lg:pt-24">
         <div className="z-10 flex w-full flex-col items-start gap-6 lg:w-[37%] lg:pr-8">
           <HomeReveal>
-            <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-              AI DISPATCH · MISSION AUTONOMY
+            <p className="aeros-editorial-kicker mb-5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+              INTELLIGENCE FOR AUTONOMOUS OPERATIONS
             </p>
             <h1
               className="m-0 text-balance text-[clamp(40px,4.1vw,68px)] font-semibold leading-[90%] tracking-[-0.04em] text-foreground"
@@ -53,6 +53,12 @@ export function HeroOfficeSection() {
                 )}
               />
             </div>
+          </HomeReveal>
+          <HomeReveal delay={240}>
+            <Link href="#capabilities" className="aeros-index-link mt-2">
+              <span className="aeros-index-window" aria-hidden="true"><span className="aeros-index-stack"><span>01</span><span>↗</span></span></span>
+              <span className="aeros-index-label">Explore the intelligence stack</span>
+            </Link>
           </HomeReveal>
         </div>
 

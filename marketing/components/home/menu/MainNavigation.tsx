@@ -10,7 +10,7 @@ export function MainNavigation() {
   return (
     <nav
       aria-label="Main"
-      className="relative z-10 mr-4 hidden items-center gap-1 xl:flex"
+      className="aeros-modular-nav relative z-10 mr-4 hidden items-center gap-1 xl:flex"
     >
       {menuConfig.mainNav.map((item, index) => {
         if (item.href) {
@@ -19,7 +19,7 @@ export function MainNavigation() {
               key={index}
               href={item.href}
               target={item.isExternal ? "_blank" : undefined}
-              className="inline-flex h-9 items-center px-4 text-sm font-medium text-foreground/70 transition-colors duration-150 hover:text-foreground"
+              className="aeros-nav-tab inline-flex h-9 items-center px-4 text-sm font-medium text-foreground/70 transition-colors duration-150 hover:text-foreground"
             >
               {item.title}
             </Link>
@@ -45,7 +45,7 @@ export function MainNavigation() {
                   setOpenId(null);
                 }
               }}
-              className="inline-flex h-9 items-center gap-1 px-4 text-sm font-medium text-foreground/70 transition-colors duration-150 hover:text-foreground focus:outline-hidden"
+              className="aeros-nav-tab inline-flex h-9 items-center gap-1 px-4 text-sm font-medium text-foreground/70 transition-colors duration-150 hover:text-foreground focus:outline-hidden"
             >
               {item.title}
               <ChevronDown
@@ -68,7 +68,7 @@ export function MainNavigation() {
                   : "pointer-events-none -translate-y-1 scale-[0.97] opacity-0"
               )}
             >
-              <div className="min-w-[180px] flex flex-col gap-3 rounded-2xl border border-border/60 bg-background p-5 shadow-[0_2px_6px_rgba(0,0,0,0.02),0_8px_24px_rgba(0,0,0,0.04),0_24px_48px_rgba(0,0,0,0.03)]">
+              <div className="aeros-nav-dropdown min-w-[180px] flex flex-col gap-3 rounded-2xl border border-border/60 bg-background p-5 shadow-[0_2px_6px_rgba(0,0,0,0.02),0_8px_24px_rgba(0,0,0,0.04),0_24px_48px_rgba(0,0,0,0.03)]">
                 <ul
                   className={classNames(
                     "grid-rows-" + item.rows,
