@@ -5,13 +5,13 @@ const HOME_REVEAL_CSS = `
   .home-reveal {
     opacity: 0;
     transition-property: opacity, transform, letter-spacing;
-    transition-duration: 500ms;
-    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-duration: 850ms;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
   }
-  .home-reveal-up { transform: translate3d(0, 14px, 0); }
-  .home-reveal-right { transform: translate3d(-6px, 0, 0); }
-  .home-reveal-photo { opacity: 0; transform: scale(1.04); transition-duration: 700ms; }
-  .home-reveal-running { opacity: 0.35; letter-spacing: 0.06em; transition-duration: 700ms; transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .home-reveal-up { transform: translate3d(0, 28px, 0); }
+  .home-reveal-right { transform: translate3d(-22px, 0, 0); }
+  .home-reveal-photo { opacity: 0; transform: scale(1.065); transition-duration: 1100ms; }
+  .home-reveal-running { opacity: 0.35; letter-spacing: 0.06em; transition-duration: 1050ms; transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); }
   .home-reveal-in.home-reveal-up,
   .home-reveal-in.home-reveal-right,
   .home-reveal-in.home-reveal-photo { opacity: 1; transform: none; }
