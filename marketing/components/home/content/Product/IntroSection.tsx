@@ -1,3 +1,4 @@
+import { AerosCapabilitiesSection } from "@marketing/components/home/content/Product/AerosCapabilitiesSection";
 import { MissionShowcaseSection } from "@marketing/components/home/content/Product/mission-control/MissionShowcaseSection";
 import { HeroOfficeSection } from "@marketing/components/home/content/Product/HeroOfficeSection";
 import { HomeAIOperatorsCTASection } from "@marketing/components/home/content/Product/HomeAIOperatorsCTASection";
@@ -47,6 +48,7 @@ export function IntroSection({ news }: IntroSectionProps = {}) {
         <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex w-screen flex-col">
           <HomeTrustedSection />
           <MissionShowcaseSection />
+          <AerosCapabilitiesSection />
           <HomeCoordinatedSection />
           <HomeQuotesSection quotes={QUOTES} />
           <ProductDetails />
