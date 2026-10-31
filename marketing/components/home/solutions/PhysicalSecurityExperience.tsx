@@ -82,6 +82,7 @@ export function PhysicalSecurityExperience() {
   const [industryIndex,setIndustryIndex] = useState(0);
   const [selectedProduct,setSelectedProduct] = useState<number | null>(null);
   const [heroPaused,setHeroPaused] = useState(false);
+  const [videoOpen,setVideoOpen] = useState(false);
   const heroRef = useRef<HTMLVideoElement>(null);
   const productCloseRef = useRef<HTMLButtonElement>(null);
 
@@ -115,12 +116,12 @@ export function PhysicalSecurityExperience() {
   },[heroPaused]);
 
   useEffect(()=>{
-    if(selectedProduct===null)return;
-    const onKey=(event:KeyboardEvent)=>{if(event.key==="Escape")setSelectedProduct(null);};
+    if(selectedProduct===null && !videoOpen)return;
+    const onKey=(event:KeyboardEvent)=>{if(event.key==="Escape"){setSelectedProduct(null);setVideoOpen(false);}};
     document.addEventListener("keydown",onKey);
     productCloseRef.current?.focus();
     return ()=>document.removeEventListener("keydown",onKey);
-  },[selectedProduct]);
+  },[selectedProduct,videoOpen]);
 
   const selected = selectedProduct===null?null:platform[selectedProduct];
 
@@ -145,8 +146,8 @@ export function PhysicalSecurityExperience() {
             <p>One intelligence layer for drone-enabled security. Coordinate patrols, understand what is happening, and put the right context in the hands of your operators.</p>
             <div className={styles.heroActions}>
               <Link href="/home/contact" className={styles.solidBtn}>Get started <span className={styles.arrow} aria-hidden>↗</span></Link>
-              <a className={styles.outlineBtn} href="#security-workflow">Explore the workflow <span className={styles.arrow} aria-hidden>↗</span></a>
-              <button className={styles.outlineBtn} type="button" onClick={()=>setHeroPaused(p=>!p)} aria-label={heroPaused?"Play background film":"Pause background film"}>{heroPaused?"Play film":"Pause film"} <span aria-hidden>{heroPaused?"▶":"Ⅱ"}</span></button>
+              <button className={styles.outlineBtn} type="button" onClick={()=>setVideoOpen(true)}>Watch film <span aria-hidden>▷</span></button>
+              <button className={styles.outlineBtn} type="button" onClick={()=>setHeroPaused(p=>!p)} aria-label={heroPaused?"Play background film":"Pause background film"}>{heroPaused?"Play background":"Pause background"} <span aria-hidden>{heroPaused?"▶":"Ⅱ"}</span></button>
             </div>
           </div>
           <div className={styles.heroCorner}>AUTONOMOUS OPERATIONS / 01</div>
@@ -326,6 +327,14 @@ export function PhysicalSecurityExperience() {
             </div>
           </div>
         </section>
+        {videoOpen&&(
+          <div className={styles.modalBackdrop} role="presentation" onMouseDown={e=>{if(e.target===e.currentTarget)setVideoOpen(false)}}>
+            <div className={styles.videoModal} role="dialog" aria-modal="true" aria-label="Watch Aeros mission film">
+              <button className={styles.modalClose} type="button" aria-label="Close video" onClick={()=>setVideoOpen(false)}>×</button>
+              <video src="/static/landing/drone/films/aeros-film-v4.mp4" poster="/static/landing/drone/films/aeros-film-v4.jpg" controls autoPlay playsInline aria-label="Aeros autonomous mission film"/>
+            </div>
+          </div>
+        )}
         {selected&&(
           <div className={styles.modalBackdrop} role="presentation" onMouseDown={e=>{if(e.target===e.currentTarget)setSelectedProduct(null)}}>
             <div className={styles.modal} role="dialog" aria-modal="true" aria-labelledby="aeros-product-modal">
