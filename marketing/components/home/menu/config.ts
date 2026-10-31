@@ -8,7 +8,7 @@ interface NavItemWithChildren {
 }
 const solutions = {
   title: "Solutions",
-  rows: 5,
+  rows: 6,
   items: [
     {
       title: "Infrastructure inspection",
@@ -19,6 +19,7 @@ const solutions = {
       href: "/home/solutions/rapid-response",
     },
     { title: "Search & rescue", href: "/home/solutions/search-rescue" },
+    { title: "Physical security", href: "/home/solutions/physical-security" },
     {
       title: "Fleet service providers",
       href: "/home/solutions/fleet-service-providers",
@@ -42,6 +43,7 @@ export const menuConfig: {
 } = {
   mainNav: [
     solutions,
+    { title: "Physical security", href: "/home/solutions/physical-security" },
     { title: "Oversight", href: "/home/security" },
     { title: "Pricing", href: "/home/pricing" },
   ],
