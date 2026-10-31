@@ -131,7 +131,7 @@
 .resourceCard div{padding:20px;display:flex;align-items:start;flex-direction:column;gap:10px;flex:1}
 .resourceCard h3{font-size:19px;line-height:1.15;letter-spacing:-.04em;margin:0}
 .resourceCard a{color:#111;font-size:12px;display:inline-block;margin-top:auto;border-bottom:1px solid #999}
-.modalBackdrop{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:grid;place-items:center;padding:25px;backdrop-filter:blur(9px)}
+.videoModal{width:min(1100px,100%);position:relative;background:#080808;box-shadow:0 24px 100px #000b}\n.videoModal video{display:block;width:100%;aspect-ratio:16/9;max-height:80vh;object-fit:contain}\n.modalBackdrop{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:grid;place-items:center;padding:25px;backdrop-filter:blur(9px)}
 .modal{background:#111;color:white;border:1px solid #555;width:min(940px,100%);max-height:90vh;overflow:auto;position:relative}
 .modal img{width:100%;height:clamp(200px,40vh,450px);object-fit:cover}
 .modalText{padding:28px 35px 40px}
