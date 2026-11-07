@@ -1,7 +1,0 @@
-{
-  "action": "workspace.voice_transcription_updated",
-  "targets": [{ "type": "workspace" }],
-  "metadata": {
-    "enabled": "string"
-  }
-}

@@ -1,1 +1,0 @@
-export const SEMANTIC_SEARCH_SCORE_CUTOFF = 0.25;

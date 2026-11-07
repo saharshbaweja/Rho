@@ -1,7 +1,0 @@
-{
-  "action": "workspace.extension_mcp_tools_updated",
-  "targets": [{ "type": "workspace" }],
-  "metadata": {
-    "enabled": "string"
-  }
-}

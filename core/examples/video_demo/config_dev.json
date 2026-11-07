@@ -1,6 +1,0 @@
-{
-  "MODEL": {
-    "provider_id": "openai",
-    "model_id": "code-davinci-002"
-  }
-}

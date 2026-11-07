@@ -1,8 +1,0 @@
-{
-  "action": "workspace.workos_organization_updated",
-  "targets": [{ "type": "workspace" }],
-  "metadata": {
-    "configured": "string",
-    "organization_id": "string"
-  }
-}

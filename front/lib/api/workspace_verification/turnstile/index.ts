@@ -1,1 +1,0 @@
-export { verifyTurnstileToken } from "./verify";

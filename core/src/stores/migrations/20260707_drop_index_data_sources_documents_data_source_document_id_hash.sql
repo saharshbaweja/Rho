@@ -1,1 +1,0 @@
-DROP INDEX CONCURRENTLY IF EXISTS idx_data_sources_documents_data_source_document_id_hash;

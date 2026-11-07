@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aeros | One instruction. An entire operation.</title>
+    <meta name="description" content="Aeros plans, dispatches and coordinates the drone fleet you already operate, from the first request to the final report. Your operators stay in control." />
+    <meta name="theme-color" content="#2f63b5" />
+    <meta property="og:title" content="Aeros | One instruction. An entire operation." />
+    <meta property="og:description" content="Mission dispatch for the drone fleets you already operate. Your operators stay in control." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aeros-one.vercel.app/" />
+    <meta property="og:image" content="https://aeros-one.vercel.app/og.jpg?v=2" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="aeros: One instruction. An entire operation." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://aeros-one.vercel.app/og.jpg?v=2" />
+    <link rel="icon" href="/aeros-logo-white.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="/hero-day.jpg" media="(min-width: 761px)" />
+    <link rel="preload" as="image" href="/hero-day-mobile.jpg" media="(max-width: 760px)" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav" id="nav">
+      <a class="brand" href="#top" aria-label="Aeros home">
+        <svg viewBox="0 0 400 100" role="img" aria-label="Aeros"><mask id="mark-nav"><image href="/aeros-logo-white.svg" x="0" y="0" width="100" height="100"></image></mask><rect width="100" height="100" fill="currentColor" mask="url(#mark-nav)"></rect><text x="112" y="75" fill="currentColor" font-family="Arial, Helvetica, sans-serif" font-size="87" font-weight="600" letter-spacing="-5">aeros</text></svg>
+      </a>
+      <nav class="nav__links" aria-label="Main">
+        <a href="#film">Film</a>
+        <a href="#fleet">Your fleet</a>
+        <a href="#mission">Missions</a>
+        <a href="#modules">Platform</a>
+        <a href="#control">Control</a>
+      </nav>
+      <a class="btn btn--solid btn--sm" href="https://cal.com/reeyan/30min" data-cta="book_demo" data-cta-location="nav">Book a demo</a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <picture class="hero__art">
+          <source media="(max-width: 760px)" srcset="/hero-day-mobile.jpg" />
+          <img src="/hero-day.jpg" alt="Drones flying between sunlit clouds above a distant city" width="2642" height="1486" />
+        </picture>
+        <div class="hero__inner">
+          <p class="mono hero__kicker">Mission dispatch for drone fleets</p>
+          <h1>One instruction.<br />An entire operation.</h1>
+          <p class="hero__lede">Describe the mission. Aeros plans, dispatches and coordinates the fleet you already fly, from the first request to the final report. Your operators approve every step.</p>
+          <div class="actions">
+            <a class="btn btn--solid" href="https://cal.com/reeyan/30min" data-cta="book_demo" data-cta-location="hero">Book a demo</a>
+            <a class="btn btn--line" href="#film" data-cta="watch_film" data-cta-location="hero">Watch the film <span class="mono">01:02</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="film" id="film" aria-label="Aeros film: from mission request to report">
+        <div class="film__track">
+          <div class="film__stage">
+            <video class="film__video" data-scrub muted playsinline preload="none" poster="/films/aeros-film-poster.jpg" aria-hidden="true"></video>
+            <div class="film__intro">
+              <h2>From mission request to report</h2>
+              <p class="mono">Scroll to fly the mission</p>
+            </div>
+            <ol class="film__cap" aria-hidden="true">
+              <li data-from="0" data-to="1.5"><h3>From mission request to report</h3><p class="mono">Scroll to fly the mission</p></li>
+              <li data-from="1.5" data-to="6.2"><span class="mono">01 · Tasking</span><h3 class="film__quote">“Inspect the power lines along the Charles River. Flag any damage and send me a report.”</h3><p class="mono">Operator order · plain English</p></li>
+              <li data-from="6.2" data-to="12.2"><span class="mono">02 · Planning</span><h3>Mission planned in 4.2 seconds</h3><p class="mono">11 structures · 6.4 km route · Class B airspace cleared</p></li>
+              <li data-from="12.2" data-to="18.2"><span class="mono">03 · Dispatch</span><h3>AX-01 launched from Dock Alpha</h3><p class="mono">Autonomous takeoff · climb to 60 m AGL</p></li>
+              <li data-from="18.2" data-to="25.5"><span class="mono">04 · Transit</span><h3>Flying the corridor autonomously</h3><p class="mono">RTK positioning · obstacle-aware routing · live link to operator</p></li>
+              <li data-from="25.5" data-to="37"><span class="mono">05 · Adaptation</span><h3>Gusts of 41 km/h over the river basin</h3><p class="mono">Route replanned inland in flight · no operator input</p></li>
+              <li data-from="37" data-to="44.5"><span class="mono">06 · Inspection</span><h3>Structure P-10: EO, thermal and LiDAR</h3><p class="mono">Anomaly detected · cracked insulator · confidence 0.94</p></li>
+              <li data-from="44.5" data-to="55.5"><span class="mono">07 · Report</span><h3>Report delivered to the operator</h3><p class="mono">11 structures inspected · 3 findings · 38 min</p></li>
+            </ol>
+            <div class="film__foot">
+              <div class="film__progress" aria-hidden="true"><span></span></div>
+              <a class="film__full mono" href="/films/aeros-film-v4.mp4" target="_blank" rel="noopener" data-cta="full_film" data-cta-location="film">Watch the full film with sound ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="fleet" id="fleet">
+        <div class="wrap">
+          <p class="mono label">The dispatch layer</p>
+          <h2 class="statement">Your drones. Your flight stack. <span>One layer that coordinates them.</span></h2>
+          <p class="intro">Aeros is vendor-neutral. It connects the work that needs flying to the drone operations you already run, without replacing your aircraft, docks or flight software.</p>
+          <div class="three">
+            <div><span class="mono num">01</span><h3>Fleet aware</h3><p>Battery, payload, dock state and maintenance are checked before an aircraft is ever assigned, and reserve capacity is held for changing priorities.</p></div>
+            <div><span class="mono num">02</span><h3>Provider neutral</h3><p>Approved assignments go to the providers that already operate your fleet. Integration scope is validated with each one.</p></div>
+            <div><span class="mono num">03</span><h3>Operator led</h3><p>Aeros recommends. Your team approves. Aircraft and flight authority stay with your operating team at every step.</p></div>
+          </div>
+          <div class="connects">
+            <span class="mono">Connects</span>
+            <ul class="mono"><li>Drone fleets and docks</li><li>Fleet providers</li><li>Weather and airspace</li><li>Work orders and GIS</li><li>Reporting workflows</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mission" id="mission">
+        <div class="wrap">
+          <div class="mission__top">
+            <div>
+              <p class="mono label">One request, the entire mission</p>
+              <h2>How a mission runs</h2>
+            </div>
+            <blockquote class="request">
+              <p>“Audit every streetlight in Back Bay between Clarendon and Fairfield tonight and flag any that are out.”</p>
+              <footer class="mono">Operator intent · Boston demo</footer>
+            </blockquote>
+          </div>
+          <figure class="demo">
+            <div class="screen screen--app">
+              <div class="screen__bar" aria-hidden="true"><i></i><i></i><i></i><span>aeros / Mission control</span></div>
+              <video data-video="boston_demo" muted loop playsinline preload="none" poster="/films/aeros-demo-boston.jpg">
+                <source src="/films/aeros-demo-boston.mp4" type="video/mp4" />
+              </video>
+              <button class="screen__sound" type="button" data-video-sound="boston_demo" aria-label="Play the Boston demo with sound"><span class="screen__icon" aria-hidden="true"></span><span class="screen__label">Watch with sound</span></button>
+            </div>
+            <figcaption class="mono">Boston mission demo · 01:17 · recorded walkthrough with simulated telemetry and detections</figcaption>
+          </figure>
+          <ol class="steps">
+            <li><span class="step__n">1</span><h3>Task</h3><p>Aeros reads the request, finds the 83 streetlights in the asset register and pulls the outage history.</p></li>
+            <li><span class="step__n">2</span><h3>Check</h3><p>Airspace, weather, night-ops rules and fleet health are checked, each with its source attached.</p></li>
+            <li><span class="step__n">3</span><h3>Approve</h3><p>The operator reviews the plan and the recommended aircraft and dock before anything flies.</p></li>
+            <li><span class="step__n">4</span><h3>Report</h3><p>Findings are reviewed and the outages go back to the job as a work order.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="modules" id="modules">
+        <div class="wrap">
+          <div class="modules__head">
+            <p class="mono label">The platform</p>
+            <h2>From tasking to debrief</h2>
+          </div>
+          <ul class="rows">
+            <li><h3>Dispatch</h3><p>Turn a sentence, a location or a connected job into missions and coverage areas, with constraints and approvals attached.</p></li>
+            <li><h3>Fleet</h3><p>See aircraft, docks, readiness and scene feeds across every connected provider, and keep reserve capacity in hand.</p></li>
+            <li><h3>Readiness</h3><p>Check weather, airspace, site access and aircraft limits against your procedures. Stale or missing inputs stay visible.</p></li>
+            <li><h3>Recover</h3><p>When a battery runs low or priorities change, compare a relief aircraft, a new route or a delay before approving the next move.</p></li>
+            <li><h3>Control</h3><p>Control room and field teams work from the same scene and brief, with a record of who authorised each change.</p></li>
+            <li><h3>Report</h3><p>Coverage, observations and exceptions return to the workflow that requested the mission.</p></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="control" id="control">
+        <div class="wrap">
+          <p class="mono label">Operating principle</p>
+          <h2 class="quote">Shared intelligence.<br />Human judgment.<br />Clear accountability.</h2>
+          <p class="intro">Aeros separates live data, operator rules and AI synthesis, so your team can see exactly what informed a recommendation before acting on it.</p>
+          <div class="three">
+            <div><h3>Evidence</h3><ul><li>Source-linked recommendations</li><li>Facts, rules and AI synthesis kept apart</li><li>Missing inputs and uncertainty surfaced</li><li>Mission-level decision history</li></ul></div>
+            <div><h3>Human control</h3><ul><li>Review before operational action</li><li>Role-based approvals and access</li><li>Clear ownership of decisions</li><li>Configurable operator procedures</li></ul></div>
+            <div><h3>Deployment</h3><ul><li>Connect existing operational systems</li><li>Mission and recovery policies</li><li>Operator-specific constraints</li><li>Integrations that grow with you</li></ul></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" id="contact">
+        <div class="wrap closing__main">
+          <h2>Bring Aeros to the fleet you already fly.</h2>
+          <div class="actions">
+            <a class="btn btn--solid" href="https://cal.com/reeyan/30min" data-cta="book_demo" data-cta-location="closing">Book a demo</a>
+            <a class="btn btn--line" href="mailto:contact@aeros.com" data-cta="email" data-cta-location="closing">contact@aeros.com</a>
+          </div>
+        </div>
+        <div class="wrap closing__foot">
+          <nav class="closing__cols" aria-label="Footer">
+            <div><p>explore</p><a href="#film">the film</a><a href="#fleet">your fleet</a><a href="#mission">missions</a><a href="#modules">platform</a><a href="#control">control</a></div>
+            <div><p>talk to us</p><a href="https://cal.com/reeyan/30min" data-cta="book_demo" data-cta-location="footer">book a demo</a><a href="mailto:contact@aeros.com" data-cta="email" data-cta-location="footer">contact</a></div>
+          </nav>
+          <div class="closing__bar">
+            <span>© 2026 Aeros. All rights reserved.</span>
+            <span>Aircraft and flight authority remain with your operating team.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer__main">
+        <svg class="footer__mark" viewBox="0 0 520 120" role="img" aria-label="Aeros"><mask id="mark-foot"><image href="/aeros-logo-white.svg" x="0" y="6" width="108" height="108"></image></mask><rect y="6" width="108" height="108" fill="currentColor" mask="url(#mark-foot)"></rect><text x="126" y="98" fill="currentColor" font-family="Arial, Helvetica, sans-serif" font-size="128" font-weight="700" letter-spacing="-8">aeros</text></svg>
+        <p class="footer__email">email us at <a href="mailto:contact@aeros.com">contact@aeros.com</a> for a demo.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
