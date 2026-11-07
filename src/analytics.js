@@ -1,4 +1,4 @@
-const token = import.meta.env.VITE_MIXPANEL_TOKEN;
+const token = '63f61271977b8ea1e70563359ce9e5a6';
 
 if (token) {
   const { default: mixpanel } = await import('mixpanel-browser/dist/mixpanel-core.cjs.js');
