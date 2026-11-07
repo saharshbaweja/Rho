@@ -1,6 +1,7 @@
 import 'lenis/dist/lenis.css';
 import './style.css';
 import './analytics.js';
+import './motion.js';
 import Lenis from 'lenis';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
