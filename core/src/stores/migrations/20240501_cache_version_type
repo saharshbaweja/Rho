@@ -1,3 +1,0 @@
-ALTER TABLE cache
-ADD COLUMN version INTEGER,
-ADD COLUMN type TEXT;

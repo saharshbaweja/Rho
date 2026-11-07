@@ -1,3 +1,0 @@
-const QUEUE_VERSION = 1;
-
-export const QUEUE_NAME = `credit-alerts-queue-v${QUEUE_VERSION}`;

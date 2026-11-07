@@ -1,5 +1,0 @@
-# top level version field is required
-version: 2
-
-projectIgnorePaths:
-  - "x"

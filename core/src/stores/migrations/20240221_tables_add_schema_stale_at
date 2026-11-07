@@ -1,4 +1,0 @@
-ALTER TABLE
-    tables
-ADD
-    COLUMN schema_stale_at BIGINT;

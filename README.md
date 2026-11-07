@@ -1,10 +1,11 @@
-## [Dust](https://dust.tt)
+# Aeros landing page
 
-Custom AI agent platform to speed up your work.
+Marketing site for Aeros, built with Vite.
 
-Check out our [user guides and developer platform](https://docs.dust.tt)
+```sh
+npm install
+npm run dev      # local dev server
+npm run build    # production build in dist/
+```
 
-## We're hiring
-
-- [About Us](https://dust.tt/home/about)
-- [Open Positions](https://jobs.ashbyhq.com/dust)
+Set `VITE_MIXPANEL_TOKEN` (see `.env.example`) at build time to enable analytics.

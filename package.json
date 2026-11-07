@@ -1,72 +1,18 @@
 {
-  "name": "dust-monorepo",
-  "version": "1.0.0",
+  "name": "aeros-landing",
   "private": true,
-  "workspaces": [
-    "front",
-    "front-api",
-    "front-spa",
-    "marketing",
-    "sparkle",
-    "connectors",
-    "cli/dust-cli",
-    "extension",
-    "viz",
-    "sdks/js"
-  ],
-  "packageManager": "npm@11.19.0",
+  "version": "0.1.0",
+  "type": "module",
   "scripts": {
-    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
-    "install:all": "npm install",
-    "i18n:extract": "tsx scripts/i18n/extract.ts",
-    "i18n:check": "tsx scripts/i18n/check.ts",
-    "knip": "knip",
-    "lint": "oxlint sdks/js viz extension cli/dust-cli firebase-functions sparkle connectors front-spa front front-api marketing cli/dust-sandbox/functions-runner cli/dust-sandbox/pod",
-    "lint:fix": "oxlint --fix sdks/js viz extension cli/dust-cli firebase-functions sparkle connectors front-spa front front-api marketing cli/dust-sandbox/functions-runner cli/dust-sandbox/pod",
-    "format": "oxfmt --write '**/*.{js,jsx,ts,tsx,css,scss}'",
-    "format:check": "oxfmt --check '**/*.{js,jsx,ts,tsx,css,scss}'",
-    "format:ci": "npm run lint && npm run format:check",
-    "format:lefthook": "oxfmt --write --no-error-on-unmatched-pattern",
-    "test:oxlint-plugin": "node --test oxlint-plugins/dust.test.mjs",
-    "doctor": "npx react-doctor@latest --diff",
-    "doctor:full": "npx react-doctor@latest --diff false",
-    "knip:dead-code": "knip --production --workspace front --workspace front-api --workspace front-spa --workspace extension --include files,exports,types"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "@lingui/cli": "6.4.0",
-    "@lingui/conf": "6.4.0",
-    "@lingui/format-po": "6.4.0",
-    "@typescript/native-preview": "^7.0.0-dev.20260608.1",
-    "knip": "^6.38.0",
-    "lefthook": "2.1.8",
-    "oxfmt": "0.71.0",
-    "oxlint": "1.86.0",
-    "react-doctor": "^0.5.0",
-    "tsx": "^4.21.0",
-    "wrangler": "4.80.0"
+    "vite": "^7.0.0"
   },
-  "engines": {
-    "node": ">=24.0.0"
-  },
-  "overrides": {
-    "eslint-plugin-react-hooks": {
-      "zod-validation-error": "^4.0.0"
-    },
-    "ajv": "^8.20.0",
-    "@types/react": "^18.3.18",
-    "@modelcontextprotocol/sdk": "^1.29.0",
-    "@types/node": "^24.12.2",
-    "dd-trace": "^5.87.0",
-    "esbuild": "^0.27.3",
-    "undici": "^8.11.2",
-    "@novu/framework": {
-      "next": "^14.2.35"
-    },
-    "@google-cloud/storage-transfer": {
-      "google-gax": "^4.6.1"
-    },
-    "@elastic/transport": {
-      "undici": "^6.29.0"
-    }
+  "dependencies": {
+    "lenis": "^1.3.27",
+    "mixpanel-browser": "^2.85.0"
   }
 }

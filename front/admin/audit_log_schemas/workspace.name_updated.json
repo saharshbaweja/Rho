@@ -1,8 +1,0 @@
-{
-  "action": "workspace.name_updated",
-  "targets": [{ "type": "workspace" }],
-  "metadata": {
-    "previous_name": "string",
-    "new_name": "string"
-  }
-}

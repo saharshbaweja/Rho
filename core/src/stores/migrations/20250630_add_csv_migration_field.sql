@@ -1,2 +1,0 @@
-ALTER TABLE tables
-ADD COLUMN migrated_to_csv BOOLEAN DEFAULT FALSE;

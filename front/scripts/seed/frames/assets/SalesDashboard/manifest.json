@@ -1,5 +1,0 @@
-{
-  "version": 1,
-  "description": "Quarterly sales by region, client-only.",
-  "uiEntryPoint": "index.tsx"
-}
