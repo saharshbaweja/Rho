@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aeros | One instruction. An entire operation.</title>
-    <meta name="description" content="Aeros plans, dispatches and coordinates the drone fleet you already operate, from the first request to the final report. Your operators stay in control." />
-    <meta name="theme-color" content="#2f63b5" />
+    <meta name="description" content="Aeros plans, dispatches and coordinates the drone fleets that public safety, defense and energy teams already operate, from the first request to the final report. Your operators stay in control." />
+    <meta name="theme-color" content="#0f1d3d" />
     <meta property="og:title" content="Aeros | One instruction. An entire operation." />
-    <meta property="og:description" content="Mission dispatch for the drone fleets you already operate. Your operators stay in control." />
+    <meta property="og:description" content="Mission dispatch for public safety, defense and energy drone fleets. Your operators stay in control." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aeros-one.vercel.app/" />
     <meta property="og:image" content="https://aeros-one.vercel.app/og.jpg?v=2" />
@@ -20,38 +20,84 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="preload" as="image" href="/hero-day.jpg" media="(min-width: 761px)" />
-    <link rel="preload" as="image" href="/hero-day-mobile.jpg" media="(max-width: 760px)" />
+    <link rel="preload" as="image" href="/hero-art.jpg" media="(min-width: 761px)" />
+    <link rel="preload" as="image" href="/hero-art-mobile.jpg" media="(max-width: 760px)" />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <header class="nav" id="nav">
+      <div class="nav__bar">
       <a class="brand" href="#top" aria-label="Aeros home">
         <svg viewBox="0 0 400 100" role="img" aria-label="Aeros"><mask id="mark-nav"><image href="/aeros-logo-white.svg" x="0" y="0" width="100" height="100"></image></mask><rect width="100" height="100" fill="currentColor" mask="url(#mark-nav)"></rect><text x="112" y="75" fill="currentColor" font-family="Arial, Helvetica, sans-serif" font-size="87" font-weight="600" letter-spacing="-5">aeros</text></svg>
       </a>
-      <nav class="nav__links" aria-label="Main">
+      <nav class="nav__links mono" aria-label="Main">
+        <a href="#safety">Safety</a>
+        <a href="#defense">Defense</a>
+        <a href="#energy">Energy</a>
         <a href="#film">Film</a>
-        <a href="#fleet">Your fleet</a>
-        <a href="#mission">Missions</a>
         <a href="#modules">Platform</a>
-        <a href="#control">Control</a>
       </nav>
       <a class="btn btn--solid btn--sm" href="https://cal.com/reeyan/30min" data-cta="book_demo" data-cta-location="nav">Book a demo</a>
+      </div>
+      <div class="nav__ticker mono" aria-hidden="true">
+        <div class="nav__track">
+          <span>One instruction. An entire operation.</span><span>Mission dispatch for public safety, defense and energy</span><span>Vendor-neutral. Works with the fleet you already fly</span><span>Operators approve every launch</span>
+          <span>One instruction. An entire operation.</span><span>Mission dispatch for public safety, defense and energy</span><span>Vendor-neutral. Works with the fleet you already fly</span><span>Operators approve every launch</span>
+        </div>
+      </div>
     </header>
 
     <main id="main">
       <section class="hero" id="top">
         <picture class="hero__art">
-          <source media="(max-width: 760px)" srcset="/hero-day-mobile.jpg" />
-          <img src="/hero-day.jpg" alt="Drones flying between sunlit clouds above a distant city" width="2642" height="1486" />
+          <source media="(max-width: 760px)" srcset="/hero-art-mobile.jpg" />
+          <img src="/hero-art.jpg" alt="Drones flying between clouds at dusk above a distant city" width="2642" height="1486" />
         </picture>
         <div class="hero__inner">
-          <p class="mono hero__kicker">Mission dispatch for drone fleets</p>
+          <p class="mono hero__kicker">Public safety · Defense · Energy</p>
           <h1>One instruction.<br />An entire operation.</h1>
-          <p class="hero__lede">Describe the mission. Aeros plans, dispatches and coordinates the fleet you already fly, from the first request to the final report. Your operators approve every step.</p>
+          <p class="hero__lede">Autonomous mission dispatch for the drone fleets that protect people, bases and the grid. Describe the mission and Aeros plans, launches and coordinates it, from the first request to the final report. Your operators approve every step.</p>
           <div class="actions">
             <a class="btn btn--solid" href="https://cal.com/reeyan/30min" data-cta="book_demo" data-cta-location="hero">Book a demo</a>
             <a class="btn btn--line" href="#film" data-cta="watch_film" data-cta-location="hero">Watch the film <span class="mono">01:02</span></a>
+          </div>
+        </div>
+        <nav class="hero__index mono" aria-label="Sectors">
+          <a href="#safety"><span>01</span>Public safety</a>
+          <a href="#defense"><span>02</span>Defense</a>
+          <a href="#energy"><span>03</span>Energy</a>
+        </nav>
+      </section>
+
+      <section class="brief" id="brief">
+        <div class="wrap brief__intro">
+          <p class="mono label">Mission-critical autonomy</p>
+          <div class="brief__grid">
+            <h2>Built for operations that can’t afford a wrong call.</h2>
+            <p>Safety, defense and energy teams still coordinate drones over radio, spreadsheets and dashboards built to look backward. Aeros turns one instruction into a mission that is planned, checked, approved and flown, so the people in command see further and act sooner.</p>
+          </div>
+        </div>
+        <div class="clock" data-clock>
+          <div class="clock__stage">
+            <div class="wrap clock__inner">
+              <div class="clock__copy">
+                <p class="mono clock__label">Wildfire report · Ridge Road</p>
+                <h2 class="clock__title">When minutes decide the outcome.</h2>
+                <ol class="clock__log">
+                  <li data-at="0"><span class="mono">21:40</span><p>Request received. “Smoke reported off Ridge Road. Get eyes on it.”</p></li>
+                  <li data-at="1"><span class="mono">21:41</span><p>Mission planned. Airspace, wind and fleet readiness checked.</p></li>
+                  <li data-at="2"><span class="mono">21:42</span><p>Operator approves. AX-02 assigned from Dock 3.</p></li>
+                  <li data-at="3"><span class="mono">21:43</span><p>Airborne. Live feed routed to incident command.</p></li>
+                  <li data-at="9"><span class="mono">21:49</span><p>On scene. Thermal shows a 1.8 km fire line.</p></li>
+                  <li data-at="13"><span class="mono">21:53</span><p>Two structures flagged at risk. Second drone launched.</p></li>
+                  <li data-at="25"><span class="mono">22:05</span><p>Report filed to the incident record.</p></li>
+                </ol>
+              </div>
+              <div class="clock__ruler" aria-hidden="true">
+                <p class="clock__now"><span data-clock-now>21:40</span></p>
+                <div class="clock__window"><ol class="clock__ticks" data-clock-ticks></ol><span class="clock__mark"></span></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -80,6 +126,57 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <section class="sectors" aria-label="Sectors">
+        <article class="sector" id="safety">
+          <div class="sector__panel">
+            <img src="/sector-safety.jpg" alt="Drones flying overwatch above a wildfire and a rescue staging area at dusk" loading="lazy" width="1264" height="848" />
+            <div class="sector__body">
+              <div class="sector__top mono"><span>Sector</span><span>01</span></div>
+              <div class="sector__main">
+                <p class="sector__ghost" aria-hidden="true">Safety</p>
+                <div>
+                  <h2>Eyes on scene before the first truck.</h2>
+                  <p>From wildfire overwatch to search and rescue, Aeros turns a dispatcher’s request into a flight plan in seconds. Drones launch from the docks you already run, stream the scene to command and hand findings back to the incident record.</p>
+                  <ul class="mono"><li>Wildfire overwatch</li><li>Search and rescue</li><li>Incident response</li><li>Scene documentation</li></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="sector" id="defense">
+          <div class="sector__panel">
+            <img src="/sector-defense.jpg" alt="A drone patrolling the fence line of a secure installation at night" loading="lazy" width="1264" height="848" />
+            <div class="sector__body">
+              <div class="sector__top mono"><span>Sector</span><span>02</span></div>
+              <div class="sector__main">
+                <p class="sector__ghost" aria-hidden="true">Defense</p>
+                <div>
+                  <h2>Persistent watch on every perimeter.</h2>
+                  <p>Aeros coordinates patrols, alarm response and ISR tasking across mixed fleets. Every launch is approved by a person and every decision is logged, on your network and under your command authority.</p>
+                  <ul class="mono"><li>Perimeter security</li><li>Alarm response</li><li>ISR tasking</li><li>Installation inspection</li></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="sector" id="energy">
+          <div class="sector__panel">
+            <img src="/sector-energy.jpg" alt="A drone inspecting high-voltage transmission towers at dusk" loading="lazy" width="1264" height="848" />
+            <div class="sector__body">
+              <div class="sector__top mono"><span>Sector</span><span>03</span></div>
+              <div class="sector__main">
+                <p class="sector__ghost" aria-hidden="true">Energy</p>
+                <div>
+                  <h2>Find the fault before it becomes an outage.</h2>
+                  <p>Line patrols, substation checks and storm damage assessment run as repeatable missions. Aeros plans the corridor, clears the airspace and flags anomalies with visual, thermal and LiDAR evidence attached.</p>
+                  <ul class="mono"><li>Transmission lines</li><li>Substations</li><li>Pipelines</li><li>Storm response</li></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
       </section>
 
       <section class="fleet" id="fleet">
@@ -170,6 +267,7 @@
         </div>
         <div class="wrap closing__foot">
           <nav class="closing__cols" aria-label="Footer">
+            <div><p>sectors</p><a href="#safety">public safety</a><a href="#defense">defense</a><a href="#energy">energy</a></div>
             <div><p>explore</p><a href="#film">the film</a><a href="#fleet">your fleet</a><a href="#mission">missions</a><a href="#modules">platform</a><a href="#control">control</a></div>
             <div><p>talk to us</p><a href="https://cal.com/reeyan/30min" data-cta="book_demo" data-cta-location="footer">book a demo</a><a href="mailto:contact@aeros.com" data-cta="email" data-cta-location="footer">contact</a></div>
           </nav>

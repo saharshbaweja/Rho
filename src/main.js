@@ -3,12 +3,6 @@ import './style.css';
 import './analytics.js';
 import Lenis from 'lenis';
 
-const nav = document.getElementById('nav');
-const hero = document.getElementById('top');
-const updateNav = () => nav.classList.toggle('is-solid', hero.getBoundingClientRect().bottom < 80);
-updateNav();
-window.addEventListener('scroll', updateNav, { passive: true });
-
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (!reduceMotion) {
@@ -113,3 +107,27 @@ function scrubFilm() {
   }
   requestAnimationFrame(scrubFilm);
 }
+
+const clock = document.querySelector('[data-clock]');
+const clockTicks = clock.querySelector('[data-clock-ticks]');
+const clockNow = clock.querySelector('[data-clock-now]');
+const clockLog = [...clock.querySelectorAll('.clock__log li')];
+const clockSpan = 25;
+const stamp = (minute) => `${21 + Math.floor((40 + minute) / 60)}:${String((40 + minute) % 60).padStart(2, '0')}`;
+clockTicks.innerHTML = Array.from({ length: clockSpan + 1 }, (_, i) => `<li class="${i % 5 === 0 ? 'is-major' : ''}">${i % 5 === 0 ? stamp(i) : ''}</li>`).join('');
+
+const updateClock = () => {
+  const rect = clock.getBoundingClientRect();
+  if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+  const progress = Math.min(1, Math.max(0, -rect.top / (rect.height - window.innerHeight)));
+  const minute = progress * clockSpan;
+  clockTicks.style.transform = `translateY(${-minute * 20}px)`;
+  clockNow.textContent = stamp(Math.floor(minute));
+  const current = clockLog.filter((li) => +li.dataset.at <= minute).pop();
+  clockLog.forEach((li) => {
+    li.classList.toggle('is-past', +li.dataset.at <= minute && li !== current);
+    li.classList.toggle('is-now', li === current);
+  });
+};
+updateClock();
+window.addEventListener('scroll', updateClock, { passive: true });
